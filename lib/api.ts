@@ -1,3 +1,5 @@
+import { Page, Settings } from "../models"
+
 const API_URL = process.env.WORDPRESS_API_URL
 
 async function fetchAPI(query = '', { variables }: Record<string, any> = {}) {
@@ -209,4 +211,55 @@ export async function getPostAndMorePosts(slug, preview, previewData) {
   if (data.posts.edges.length > 2) data.posts.edges.pop()
 
   return data
+}
+
+export async function getPage(slug) {
+  const data = await fetchAPI(
+    `
+    query GETPAGE($slug: ID!) {
+      page(id: $slug, idType: URI) {
+        id
+        content
+        title
+        slug
+        uri
+        menuOrder
+      }
+    }
+  `,
+    {
+      variables: {
+        slug
+      },
+    }
+  );
+  return data.page;
+}
+
+export async function allSettings() {
+  const data = await fetchAPI(
+    `
+    {
+      pages {
+        nodes {
+          id
+          content
+          title
+          slug
+          uri
+          menuOrder
+        }
+      }
+      generalSettings {
+        title
+        url
+        language
+      }
+    }
+  `
+  );
+  return {
+    generalSettings: data.generalSettings as Settings,
+    menu: data.pages.nodes.sort((a, b) => a.menuOrder > b.menuOrder ? 1 : -1) as Page[],
+  };
 }

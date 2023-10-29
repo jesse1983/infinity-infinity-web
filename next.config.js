@@ -12,8 +12,8 @@ const { protocol, hostname, port, pathname } = new URL(
 )
 
 
-let assetPrefix = ''
-let basePath;
+let assetPrefix = '';
+let basePath = '';
 
 if (isGithubActionsPages) {
   const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')

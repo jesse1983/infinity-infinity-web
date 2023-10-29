@@ -96,7 +96,7 @@
 }
 
 .wp-block-verse {
-  @apply font-sans;
+  @apply font-Montserrat;
 }
 
 .wp-block-media-text {

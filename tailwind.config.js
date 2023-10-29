@@ -5,6 +5,9 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    fontFamily: {
+      'Montserrat': ['Montserrat'],
+    },
     extend: {
       colors: {
         "accent-1": "#FAFAFA",
@@ -12,6 +15,7 @@ module.exports = {
         "accent-7": "#333",
         success: "#0070f3",
         cyan: "#79FFE1",
+        dusk: "#5f8dB1",
         midnight: {
           50: "#eff8ff",
           100: "#dbeffe",

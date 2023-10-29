@@ -29,7 +29,7 @@ export default function Index({
       <Header menu={menu} />
       <section>
         <Panorama />
-        <div className="text-center text-4xl bg-[url('/bg-aqua-title.jpg')] py-7 uppercase w-auto">
+        <div className="text-center text-4xl py-7 uppercase w-auto" style={{ backgroundImage: 'url(./bg-aqua-title.jpg)' }}>
           <h2>Onde o movimento acontece</h2>
         </div>
         <div className=" bg-white ">

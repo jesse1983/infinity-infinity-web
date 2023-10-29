@@ -1,0 +1,49 @@
+{
+  "generalSettings": {
+      "title": "Infinity",
+      "url": "http://localhost:8080",
+      "language": ""
+  },
+  "menu": [
+      {
+          "id": "cG9zdDoy",
+          "content": "\n<p>Esta é uma página de exemplo. É diferente de um post no blog porque ela permanecerá em um lugar e aparecerá na navegação do seu site na maioria dos temas. Muitas pessoas começam com uma página que as apresenta a possíveis visitantes do site. Ela pode dizer algo assim:</p>\n\n\n\n<blockquote class=\"wp-block-quote\">\n<p>Olá! Eu sou um mensageiro de bicicleta durante o dia, ator aspirante à noite, e este é o meu site. Eu moro em São Paulo, tenho um grande cachorro chamado Rex e gosto de tomar caipirinha (e banhos de chuva).</p>\n</blockquote>\n\n\n\n<p>&#8230;ou alguma coisa assim:</p>\n\n\n\n<blockquote class=\"wp-block-quote\">\n<p>A Companhia de Miniaturas XYZ foi fundada em 1971, e desde então tem fornecido miniaturas de qualidade ao público. Localizada na cidade de Itu, a XYZ emprega mais de 2.000 pessoas e faz coisas grandiosas para a comunidade da cidade.</p>\n</blockquote>\n\n\n\n<p>Como um novo usuário do WordPress, você deveria ir ao <a href=\"http://localhost:8080/wp-admin/\">painel</a> para excluir essa página e criar novas páginas para o seu conteúdo. Divirta-se!</p>\n",
+          "title": "Início",
+          "slug": "lancamento-infinity-222",
+          "uri": "/",
+          "menuOrder": 1
+      },
+      {
+          "id": "cG9zdDoyMA==",
+          "content": null,
+          "title": "Localização",
+          "slug": "localizacao",
+          "uri": "/localizacao/",
+          "menuOrder": 2
+      },
+      {
+          "id": "cG9zdDoyMg==",
+          "content": null,
+          "title": "Infinity World",
+          "slug": "infinity-world",
+          "uri": "/infinity-world/",
+          "menuOrder": 3
+      },
+      {
+          "id": "cG9zdDoyNA==",
+          "content": null,
+          "title": "Manifesto",
+          "slug": "manifesto",
+          "uri": "/manifesto/",
+          "menuOrder": 4
+      },
+      {
+          "id": "cG9zdDoxMw==",
+          "content": null,
+          "title": "Informações Gerais",
+          "slug": "informacoes-gerais",
+          "uri": "/informacoes-gerais/",
+          "menuOrder": 5
+      }
+  ]
+}

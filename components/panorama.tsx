@@ -1,5 +1,6 @@
 'use client'
 import dynamic from "next/dynamic";
+import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 
 export default function Panorama() {
@@ -38,7 +39,7 @@ export default function Panorama() {
       ))}
       <nav className="text-center uppercase">
         {panoramas.map((panorama, i) => (
-            <a href="#" className="px-7 py-7 inline-block" onClick={(e) => clickCurrent(e, i)}>
+            <a href="#" className="px-7 py-7 inline-block" onClick={(e) => clickCurrent(e, i)} key={uuidv4()}>
                 <span className={i === current ? 'border-b border-midnight-300' : ''}>{panorama.alt}</span>
             </a>
         ))}

@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Tooltip } from "react-tooltip";
 import { v4 as uuidv4 } from "uuid";
+import IconShoppingBag from '../public/icon-shopping-bag.svg';
 
 type Path = {
   coords: string;
@@ -11,12 +12,20 @@ type Path = {
   onMouseOut?: Function;
 };
 
-type Props = {
-  src: string;
-  paths: Path[];
+type Poi = {
+  x: number;
+  y: number;
+  title?: string;
+  icon?: React.Component,
 };
 
-export default function FloorPlain({ src, paths = [] }: Props) {
+type Props = {
+  src: string;
+  paths?: Path[];
+  pois?: Poi[];
+};
+
+export default function FloorPlain({ src, paths = [], pois = [] }: Props) {
   const clipPathUuid = uuidv4();
   const tooltipUuid = uuidv4();
 
@@ -43,7 +52,7 @@ export default function FloorPlain({ src, paths = [] }: Props) {
   const clickOnPath = (ev, path: Path) => {
     ev.preventDefault();
     if (path.onMouseUp) path.onMouseUp(ev);
-  }
+  };
 
   useEffect(() => {
     const image = new Image();
@@ -56,6 +65,35 @@ export default function FloorPlain({ src, paths = [] }: Props) {
 
   return (
     <div className="w-auto relative">
+      <div
+        style={{ top: '2.3%', left: "10.5%" }}
+        className={`
+        group
+        absolute
+        bg-midnight-950
+        px-3
+        py-2
+        rounded-full
+        xs:text-xs
+        sm:text-sm
+        lg:text-lg
+        whitespace-nowrap
+        text-white
+        uppercase
+        flex
+        content-center
+        cursor-pointer
+        hover:gap-3
+        transition
+        duration-300
+        ease-out
+        ${ active ? 'opacity-0' : '' }
+      `}>
+        <span className="inline-block">
+          <IconShoppingBag className="w-4 h-4 fill-white stroke-white" />
+        </span>
+        <span className="inline-block overflow-auto scale-x-0 w-0 group-hover:scale-x-100 group-hover:w-auto origin-left transition-all duration-300 ease-out">Loja de Esporte</span>
+      </div>
       <Tooltip id={tooltipUuid} style={{ background: "transparent" }}>
         <div
           className={`
@@ -71,7 +109,6 @@ export default function FloorPlain({ src, paths = [] }: Props) {
           {label}
         </div>
       </Tooltip>
-      <div></div>
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox={`0 0 ${width} ${height}`}
@@ -88,7 +125,7 @@ export default function FloorPlain({ src, paths = [] }: Props) {
             {paths
               .filter((p, i) => i === pathActive)
               .map((path) => (
-                <path d={path.coords} />
+                <path d={path.coords} key={uuidv4()} />
               ))}
           </clipPath>
         </defs>
@@ -108,6 +145,7 @@ export default function FloorPlain({ src, paths = [] }: Props) {
             onMouseUp={(e) => clickOnPath(e, path)}
             data-tooltip-id={tooltipUuid}
             data-tooltip-float
+            key={uuidv4()}
           />
         ))}
       </svg>

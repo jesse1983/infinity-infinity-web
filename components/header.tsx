@@ -7,8 +7,8 @@ export default function Header({ menu }: { menu: Page[] }) {
   return (
     <header className="text-center">
       <div>
-        <Link href="/">
-          <LogoWhite />
+        <Link href="/" className="w-[330px] h-[80px] block  m-auto my-7">
+          <LogoWhite className="m-auto" />
         </Link>
       </div>
       <nav className="absolute z-40 w-screen shadow-[inset_0px_20px_20px_-20px_#000] text-lg">

@@ -31,7 +31,7 @@ export default function Bairro({
       <Header menu={menu} />
       <MenuInformacoes currentPage={currentURL} />
       <Image
-        src="./predios-praia.png"
+        src="/predios-praia.png"
         width={1155}
         height={100}
         alt="Vista dos prédios Infinity na beira da praia"

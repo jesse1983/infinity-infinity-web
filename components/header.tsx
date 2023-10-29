@@ -1,21 +1,14 @@
 import Image from "next/image";
 import { Page } from "../models";
 import Link from "next/link";
-
-
+import LogoWhite from '../public/logo-infinity-white.svg';
 
 export default function Header({ menu }: { menu: Page[] }) {
   return (
     <header className="text-center">
       <div>
         <Link href="/">
-          <Image
-            src={"/logo-infinity-white.svg"}
-            width={330}
-            height={79}
-            alt="Infinity"
-            className="py-8 m-auto"
-          />
+          <LogoWhite />
         </Link>
       </div>
       <nav className="absolute z-40 w-screen shadow-[inset_0px_20px_20px_-20px_#000] text-lg">

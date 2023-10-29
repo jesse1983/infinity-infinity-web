@@ -20,7 +20,7 @@ export default function CardProjetista({ nome }) {
       </p>
       <div className="text-center font-bold text-[18px] py-2 w-[24rem] mb-2 cursor-pointer uppercase bg-dusk flex justify-around px-16">
         <Image
-          src="./icone-play.svg"
+          src="/icone-play.svg"
           width={20}
           height={20}
           alt="Ícone para reprodução do vídeo"

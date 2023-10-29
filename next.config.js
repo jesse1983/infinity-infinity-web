@@ -1,3 +1,5 @@
+const isGithubActionsPages = process.env.GITHUB_ACTIONS_PAGES || false;
+
 if (!URL.canParse(process.env.WORDPRESS_API_URL)) {
   throw new Error(`
     Please provide a valid WordPress instance URL.
@@ -8,6 +10,18 @@ if (!URL.canParse(process.env.WORDPRESS_API_URL)) {
 const { protocol, hostname, port, pathname } = new URL(
   process.env.WORDPRESS_API_URL
 )
+
+
+let assetPrefix = ''
+let basePath;
+
+if (isGithubActionsPages) {
+  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')
+
+  assetPrefix = `/${repo}/`
+  basePath = `/${repo}`
+}
+
 
 /** @type {import('next').NextConfig} */
 module.exports = {
@@ -30,4 +44,6 @@ module.exports = {
 
     return config
   },
+  assetPrefix: assetPrefix,
+  basePath: basePath,
 }

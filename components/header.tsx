@@ -7,7 +7,7 @@ export default function Header({ menu }: { menu: Page[] }) {
       <div>
         <a href="/">
           <Image
-            src="/logo-infinity-white.svg"
+            src="./logo-infinity-white.svg"
             width={330}
             height={79}
             alt="Infinity"

@@ -48,7 +48,7 @@ export default function Index({
           </p>
         </div>
         <Image
-          src="/drone-tecnologia.png"
+          src="./drone-tecnologia.png"
           width={365}
           height={365}
           alt="Drone carregando um pacote enquanto sobrevoa prédios"
@@ -57,28 +57,28 @@ export default function Index({
       </div>
       {/* <div className="container mx-auto mt-14 px-16 flex justify-between">
         <Image
-          src="/icones-1.svg"
+          src="./icones-1.svg"
           width={800}
           height={200}
           alt="Drone carregando um pacote enquanto sobrevoa prédios"
           className="h-[365px]"
         />
         <Image
-          src="/icones-2.svg"
+          src="./icones-2.svg"
           width={450}
           height={400}
           alt="Drone carregando um pacote enquanto sobrevoa prédios"
           className="h-[365px]"
         />
         <Image
-          src="/icones-3.svg"
+          src="./icones-3.svg"
           width={365}
           height={365}
           alt="Drone carregando um pacote enquanto sobrevoa prédios"
           className="h-[365px]"
         />
         <Image
-          src="/icones-4.svg"
+          src="./icones-4.svg"
           width={365}
           height={365}
           alt="Drone carregando um pacote enquanto sobrevoa prédios"

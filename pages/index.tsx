@@ -42,7 +42,7 @@ export default function Index({
           // poster="./home.jpg"
         >
           {/* <source src="./banner01.webm" type="video/webm" /> */}
-          <source src="./home.mp4" type="video/mp4" />
+          <source src="/home.mp4" type="video/mp4" />
         </video>
       </div>
     </Layout>

@@ -44,6 +44,6 @@ module.exports = {
 
     return config
   },
-  assetPrefix,
-  basePath,
+  assetPrefix: assetPrefix,
+  basePath: basePath,
 }

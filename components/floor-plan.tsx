@@ -1,8 +1,8 @@
-"use client";
+'use client';
 import React, { useEffect, useState } from "react";
 import { Tooltip } from "react-tooltip";
 import { v4 as uuidv4 } from "uuid";
-import IconShoppingBag from '../public/icon-shopping-bag.svg';
+import Poi from "./poi";
 
 type Path = {
   coords: string;
@@ -13,21 +13,39 @@ type Path = {
 };
 
 type Poi = {
-  x: number;
-  y: number;
+  left: number;
+  top: number;
   title?: string;
-  icon?: React.Component,
+  icon?: string;
 };
 
 type Props = {
   src: string;
+  children?: React.ReactNode,
   paths?: Path[];
-  pois?: Poi[];
 };
 
-export default function FloorPlain({ src, paths = [], pois = [] }: Props) {
+type PathProps = {
+  coords: string;
+  title: string;
+  onMouseUp?: React.MouseEventHandler<SVGPathElement>,
+}
+
+function Path(options: PathProps) {
+  return <>{options}</>;
+}
+
+const getNodes = (children, componentName) => {
+  return React.Children.toArray(children)
+    .filter((c) => React.isValidElement(c) && typeof c.type !== 'string' && c.type.name === componentName);
+}
+
+function FloorPlan({ src, children }: Props) {
   const clipPathUuid = uuidv4();
   const tooltipUuid = uuidv4();
+  const pois:React.ReactNode = getNodes(children, 'Poi');
+  const pathNodes:React.ReactNode[] = getNodes(children, 'Path');
+  const paths:PathProps[] = pathNodes.map((n) => React.isValidElement(n) && n.props ? n.props : {});
 
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
@@ -65,35 +83,7 @@ export default function FloorPlain({ src, paths = [], pois = [] }: Props) {
 
   return (
     <div className="w-auto relative">
-      <div
-        style={{ top: '2.3%', left: "10.5%" }}
-        className={`
-        group
-        absolute
-        bg-midnight-950
-        px-3
-        py-2
-        rounded-full
-        xs:text-xs
-        sm:text-sm
-        lg:text-lg
-        whitespace-nowrap
-        text-white
-        uppercase
-        flex
-        content-center
-        cursor-pointer
-        hover:gap-3
-        transition
-        duration-300
-        ease-out
-        ${ active ? 'opacity-0' : '' }
-      `}>
-        <span className="inline-block">
-          <IconShoppingBag className="w-4 h-4 fill-white stroke-white" />
-        </span>
-        <span className="inline-block overflow-auto scale-x-0 w-0 group-hover:scale-x-100 group-hover:w-auto origin-left transition-all duration-300 ease-out">Loja de Esporte</span>
-      </div>
+      {pois}
       <Tooltip id={tooltipUuid} style={{ background: "transparent" }}>
         <div
           className={`
@@ -120,7 +110,7 @@ export default function FloorPlain({ src, paths = [], pois = [] }: Props) {
             active ? "opacity-30" : ""
           } transition duration-300 ease-out`}
         />
-        <defs id="defs140">
+        <defs>
           <clipPath clipPathUnits="userSpaceOnUse" id={clipPathUuid}>
             {paths
               .filter((p, i) => i === pathActive)
@@ -152,3 +142,8 @@ export default function FloorPlain({ src, paths = [], pois = [] }: Props) {
     </div>
   );
 }
+
+FloorPlan.Poi = Poi;
+FloorPlan.Path = Path;
+
+export default FloorPlan;

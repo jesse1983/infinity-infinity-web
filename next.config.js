@@ -16,10 +16,10 @@ let assetPrefix = '';
 let basePath = '';
 
 if (isGithubActionsPages) {
-  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')
-
-  assetPrefix = `/${repo}/`
-  basePath = `/${repo}`
+  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '');
+  assetPrefix = `/${repo}/`;
+  basePath = `/${repo}`;
+  console.log({ assetPrefix, basePath });
 }
 
 
@@ -40,9 +40,13 @@ module.exports = {
       test: /\.svg$/i,
       issuer: /\.[jt]sx?$/,
       use: ['@svgr/webpack'],
-    })
-
-    return config
+    });
+    return {
+      ...config,
+      optimization: {
+        minimize: false
+      },
+    }
   },
   assetPrefix: assetPrefix,
   basePath: basePath,

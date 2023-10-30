@@ -7,6 +7,7 @@ import Header from "../../components/header";
 import MenuInformacoes from "../../components/menu-informacoes-gerais";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import DroneTecnologia from '../../public/drone-tecnologia.png';
 
 type indexType = {
   generalSettings: Settings;
@@ -48,7 +49,7 @@ export default function Index({
           </p>
         </div>
         <Image
-          src="/drone-tecnologia.png"
+          src={DroneTecnologia}
           width={365}
           height={365}
           alt="Drone carregando um pacote enquanto sobrevoa prédios"

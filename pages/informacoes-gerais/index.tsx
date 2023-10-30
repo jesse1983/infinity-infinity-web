@@ -55,36 +55,124 @@ export default function Index({
           className="h-[365px]"
         />
       </div>
-      {/* <div className="container mx-auto mt-14 px-16 flex justify-between">
-        <Image
-          src="/icones-1.svg"
-          width={800}
-          height={200}
-          alt="Drone carregando um pacote enquanto sobrevoa prédios"
-          className="h-[365px]"
-        />
-        <Image
-          src="/icones-2.svg"
-          width={450}
-          height={400}
-          alt="Drone carregando um pacote enquanto sobrevoa prédios"
-          className="h-[365px]"
-        />
-        <Image
-          src="/icones-3.svg"
-          width={365}
-          height={365}
-          alt="Drone carregando um pacote enquanto sobrevoa prédios"
-          className="h-[365px]"
-        />
-        <Image
-          src="/icones-4.svg"
-          width={365}
-          height={365}
-          alt="Drone carregando um pacote enquanto sobrevoa prédios"
-          className="h-[365px]"
-        />
-      </div> */}
+      <div className="container mx-auto mt-14 px-16 grid grid-cols-5 grid-rows-2 gap-x-36 gap-y-12">
+        <div className="w-[100px]">
+          <Image
+            src="/predio-palmeira.svg"
+            width={150}
+            height={150}
+            alt="Prédio próximo de uma palmeira"
+            className="p-2 bg-white rounded-full ml-8"
+          />
+          <div className="text-[15px] w-[10rem] text-center">
+            Pé na areia e vista mar permanente
+          </div>
+        </div>
+
+        <div className="w-[100px]">
+          <Image
+            src="/diamante.svg"
+            width={150}
+            height={150}
+            alt="Diamante"
+            className="p-2 bg-white rounded-full ml-8"
+          />
+          <div className="text-[15px] w-[10rem] text-center">
+            Conceitos de casas suspensas exclusivas
+          </div>
+        </div>
+
+        <div className="w-[100px]">
+          <Image
+            src="/fechadura-eletronica.svg"
+            width={150}
+            height={150}
+            alt="Fechadura eletrônica"
+            className="p-2 bg-white rounded-full ml-8"
+          />
+          <div className="text-[15px] w-[10rem] text-center">
+            Porta com fechadura eletrônica
+          </div>
+        </div>
+
+        <div className="w-[100px]">
+          <Image
+            src="/chuva.svg"
+            width={150}
+            height={150}
+            alt="Núvem com chuva"
+            className="p-2 bg-white rounded-full ml-8"
+          />
+          <div className="text-[15px] w-[10rem] text-center">
+            Reaproveitamento de água de chuva
+          </div>
+        </div>
+
+        <div className="w-[100px]">
+          <Image
+            src="/painel-sol.svg"
+            width={150}
+            height={150}
+            alt="Painél solar abaixo do Sol"
+            className="p-2 bg-white rounded-full ml-8"
+          />
+          <div className="text-[15px] w-[10rem] text-center">
+            Painéis fotovoltáicos para a geração de energia
+          </div>
+        </div>
+
+        <div className="w-[100px]">
+          <Image
+            src="/infraestrutura.svg"
+            width={150}
+            height={150}
+            alt="Infraestrutura de uma casa"
+            className="p-2 bg-white rounded-full ml-8"
+          />
+          <div className="text-[15px] w-[10rem] text-center">
+            Apartamento com infraestrutura para automação
+          </div>
+        </div>
+
+        <div className="w-[100px]">
+          <Image
+            src="/carro-eletrico.svg"
+            width={150}
+            height={150}
+            alt="Veículo elétrico com uma tomada"
+            className="p-2 bg-white rounded-full ml-8"
+          />
+          <div className="text-[15px] w-[10rem] text-center">
+            Vagas com infraestrutura para carregamento de carro elétrico
+          </div>
+        </div>
+
+        <div className="w-[100px]">
+          <Image
+            src="/iptu-verde.svg"
+            width={150}
+            height={150}
+            alt="Planeta Terra e IPTU Verde"
+            className="p-2 bg-white rounded-full ml-8"
+          />
+          <div className="text-[15px] w-[10rem] text-center">
+            Candidato ao IPTU Verde
+          </div>
+        </div>
+
+        <div className="w-[100px]">
+          <Image
+            src="/medidor-geral.svg"
+            width={150}
+            height={150}
+            alt="Medidor de energia, água e gás"
+            className="p-2 bg-white rounded-full ml-8"
+          />
+          <div className="text-[15px] w-[10rem] text-center">
+            Infraestrutura para medição individual de energia, água e gás
+          </div>
+        </div>
+      </div>
     </Layout>
   );
 }

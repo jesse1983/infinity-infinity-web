@@ -1,8 +1,7 @@
-"use client"
+'use client';
 import React, { useEffect, useState } from "react";
 import { Tooltip } from "react-tooltip";
 import { v4 as uuidv4 } from "uuid";
-import { get } from 'lodash';
 import Poi from "./poi";
 
 type Path = {
@@ -36,17 +35,17 @@ function Path(options: PathProps) {
   return <>{options}</>;
 }
 
-const getNode = (children, componentName) => {
+const getNodes = (children, componentName) => {
   return React.Children.toArray(children)
-    .filter((c) => React.isValidElement(c) && get(c, 'type.name') === componentName);
+    .filter((c) => React.isValidElement(c) && typeof c.type !== 'string' && c.type.name === componentName);
 }
 
-function FloorPlain({ src, children }: Props) {
+function FloorPlan({ src, children }: Props) {
   const clipPathUuid = uuidv4();
   const tooltipUuid = uuidv4();
-  const pois:React.ReactNode = getNode(children, 'Poi');
-  const pathNodes:React.ReactNode[] = getNode(children, 'Path');
-  const paths:PathProps[] = pathNodes.map((n) => get(n, 'props'));
+  const pois:React.ReactNode = getNodes(children, 'Poi');
+  const pathNodes:React.ReactNode[] = getNodes(children, 'Path');
+  const paths:PathProps[] = pathNodes.map((n) => React.isValidElement(n) && n.props ? n.props : {});
 
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
@@ -144,7 +143,7 @@ function FloorPlain({ src, children }: Props) {
   );
 }
 
-FloorPlain.Poi = Poi;
-FloorPlain.Path = Path;
+FloorPlan.Poi = Poi;
+FloorPlan.Path = Path;
 
-export default FloorPlain;
+export default FloorPlan;

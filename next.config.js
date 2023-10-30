@@ -16,10 +16,10 @@ let assetPrefix = '';
 let basePath = '';
 
 if (isGithubActionsPages) {
-  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '')
-
-  assetPrefix = `/${repo}/`
-  basePath = `/${repo}`
+  const repo = process.env.GITHUB_REPOSITORY.replace(/.*?\//, '');
+  assetPrefix = `/${repo}/`;
+  basePath = `/${repo}`;
+  console.log({ assetPrefix, basePath });
 }
 
 
@@ -44,6 +44,6 @@ module.exports = {
 
     return config
   },
-  assetPrefix: assetPrefix,
-  basePath: basePath,
+  assetPrefix,
+  basePath,
 }

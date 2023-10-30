@@ -7,6 +7,7 @@ import Header from "../../components/header";
 import MenuInformacoes from "../../components/menu-informacoes-gerais";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import ImageNeighbor from '../../public/predios-praia.png';
 
 type indexType = {
   generalSettings: Settings;
@@ -31,7 +32,7 @@ export default function Bairro({
       <Header menu={menu} />
       <MenuInformacoes currentPage={currentURL} />
       <Image
-        src="/predios-praia.png"
+        src={ImageNeighbor}
         width={1155}
         height={100}
         alt="Vista dos prédios Infinity na beira da praia"

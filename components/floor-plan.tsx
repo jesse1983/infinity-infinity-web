@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Tooltip } from "react-tooltip";
 import { v4 as uuidv4 } from "uuid";
+import { get } from 'lodash';
 import Poi from "./poi";
 
 type Path = {
@@ -35,12 +36,17 @@ function Path(options: PathProps) {
   return <>{options}</>;
 }
 
+const getNode = (children, componentName) => {
+  return React.Children.toArray(children)
+    .filter((c) => React.isValidElement(c) && get(c, 'type.name') === componentName);
+}
+
 function FloorPlain({ src, children }: Props) {
   const clipPathUuid = uuidv4();
   const tooltipUuid = uuidv4();
-  const pois:React.ReactNode = React.Children.toArray(children).filter((c) => c.type.name === 'Poi');
-  const pathNodes:React.ReactNode[] = React.Children.toArray(children).filter((c) => c.type.name === 'Path');
-  const paths = pathNodes.map((n) => n.props);
+  const pois:React.ReactNode = getNode(children, 'Poi');
+  const pathNodes:React.ReactNode[] = getNode(children, 'Path');
+  const paths:PathProps[] = pathNodes.map((n) => get(n, 'props'));
 
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);

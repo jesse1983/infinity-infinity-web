@@ -63,21 +63,13 @@ export default function Index({
             </div>
           </div>
         </div>
-        <FloorPlain
-          src="./map-localization.png"
-          paths={[
-            {
-              coords:
-                "m 789.64053,690.2321 129.41851,-33.76135 65.64708,234.45383 -123.79163,58.14455 z",
-              title: 'Infinity Blue',
-            },
-            {
-              coords:
-                "m 1149.7616,581.44552 127.5429,307.60343 223.2001,-80.65212 -121.916,-315.10596 z",
-              title: 'Infinity Sea'
-            },
-          ]}
-        />
+        <FloorPlain src="./map-localization.png">
+          <FloorPlain.Poi title="Shopping Horizon" icon="IconShoppingBag" left={19.3} top={2.3} />
+          <FloorPlain.Poi title="Shopping Da Praia" icon="IconShoppingBag" left={10.5} top={2.3} />
+
+          <FloorPlain.Path title="Infinity Blue" coords="m 789.64053,690.2321 129.41851,-33.76135 65.64708,234.45383 -123.79163,58.14455 z" />
+          <FloorPlain.Path title="Infinity Sea" coords="m 1149.7616,581.44552 127.5429,307.60343 223.2001,-80.65212 -121.916,-315.10596 z" />
+        </FloorPlain>
       </section>
     </Layout>
   );

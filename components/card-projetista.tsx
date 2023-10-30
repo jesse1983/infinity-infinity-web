@@ -1,4 +1,5 @@
 import Image from "next/image";
+import PlayIcon from '../public/icone-play.svg';
 
 export default function CardProjetista({ nome }) {
   return (
@@ -19,12 +20,7 @@ export default function CardProjetista({ nome }) {
         maximus nisi.
       </p>
       <div className="text-center font-bold text-[18px] py-2 w-[24rem] mb-2 cursor-pointer uppercase bg-dusk flex justify-around px-16">
-        <Image
-          src="/icone-play.svg"
-          width={20}
-          height={20}
-          alt="Ícone para reprodução do vídeo"
-        />
+        <PlayIcon className="w-[16px]"/>
         Vídeo Depoimento
       </div>
     </div>

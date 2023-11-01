@@ -7,7 +7,8 @@ import Header from "../../components/header";
 import MenuInformacoes from "../../components/menu-informacoes-gerais";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import DroneTecnologia from '../../public/drone-tecnologia.png';
+import DroneTecnologia from "../../public/drone-tecnologia.png";
+import Inovacao from "../../components/inovacao";
 
 type indexType = {
   generalSettings: Settings;
@@ -31,7 +32,12 @@ export default function Index({
       </Head>
       <Header menu={menu} />
       <MenuInformacoes currentPage={currentURL} />
-      <div className="container mx-auto mt-14 px-16 flex justify-between">
+      <div className="container mx-auto mt-14 px-16 flex flex-col lg:flex-row justify-between">
+        <Image
+          src={DroneTecnologia}
+          alt="Drone carregando um pacote enquanto sobrevoa prédios"
+          className="block lg:hidden h-[200px] w-[200px] md:h-[400px] md:w-[400px] mx-auto mb-10"
+        />
         <div className="container flex flex-col mr-10">
           <p className="text-[23px] text-justify font-medium">
             LOREM IPSUM DOLOT SIT AMET CONSEECCT AKADDKKS ALDAKSKA DJFJF
@@ -50,129 +56,64 @@ export default function Index({
         </div>
         <Image
           src={DroneTecnologia}
-          width={365}
-          height={365}
           alt="Drone carregando um pacote enquanto sobrevoa prédios"
-          className="h-[365px]"
+          className="hidden lg:block lg:h-[365px]"
         />
       </div>
-      <div className="container mx-auto mt-14 px-16 grid grid-cols-5 grid-rows-2 gap-x-36 gap-y-12">
-        <div className="w-[100px]">
-          <Image
-            src="/predio-palmeira.svg"
-            width={150}
-            height={150}
-            alt="Prédio próximo de uma palmeira"
-            className="p-2 bg-white rounded-full ml-8"
-          />
-          <div className="text-[15px] w-[10rem] text-center">
-            Pé na areia e vista mar permanente
-          </div>
-        </div>
+      <div className="container pl-20 md:pl-2 md:justify-items-stretch md:mx-auto mt-14 lg:px-12 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 grid-rows-2 gap-x-24 gap-y-12">
+        <Inovacao
+          image="/predio-palmeira.svg"
+          alt="Prédio próximo de uma palmeira"
+          content="Pé na areia e vista mar permanente"
+        />
 
-        <div className="w-[100px]">
-          <Image
-            src="/diamante.svg"
-            width={150}
-            height={150}
-            alt="Diamante"
-            className="p-2 bg-white rounded-full ml-8"
-          />
-          <div className="text-[15px] w-[10rem] text-center">
-            Conceitos de casas suspensas exclusivas
-          </div>
-        </div>
+        <Inovacao
+          image="/diamante.svg"
+          alt="Diamante"
+          content="Conceitos de casas suspensas exclusivas"
+        />
 
-        <div className="w-[100px]">
-          <Image
-            src="/fechadura-eletronica.svg"
-            width={150}
-            height={150}
-            alt="Fechadura eletrônica"
-            className="p-2 bg-white rounded-full ml-8"
-          />
-          <div className="text-[15px] w-[10rem] text-center">
-            Porta com fechadura eletrônica
-          </div>
-        </div>
+        <Inovacao
+          image="/fechadura-eletronica.svg"
+          alt="Fechadura eletrônica"
+          content="Porta com fechadura eletrônica"
+        />
 
-        <div className="w-[100px]">
-          <Image
-            src="/chuva.svg"
-            width={150}
-            height={150}
-            alt="Núvem com chuva"
-            className="p-2 bg-white rounded-full ml-8"
-          />
-          <div className="text-[15px] w-[10rem] text-center">
-            Reaproveitamento de água de chuva
-          </div>
-        </div>
+        <Inovacao
+          image="/chuva.svg"
+          alt="Núvem com chuva"
+          content="Reaproveitamento de água de chuva"
+        />
 
-        <div className="w-[100px]">
-          <Image
-            src="/painel-sol.svg"
-            width={150}
-            height={150}
-            alt="Painél solar abaixo do Sol"
-            className="p-2 bg-white rounded-full ml-8"
-          />
-          <div className="text-[15px] w-[10rem] text-center">
-            Painéis fotovoltáicos para a geração de energia
-          </div>
-        </div>
+        <Inovacao
+          image="/painel-sol.svg"
+          alt="Painel solar abaixo do Sol"
+          content="Paineis fotovoltáicos para a geração de energia"
+        />
 
-        <div className="w-[100px]">
-          <Image
-            src="/infraestrutura.svg"
-            width={150}
-            height={150}
-            alt="Infraestrutura de uma casa"
-            className="p-2 bg-white rounded-full ml-8"
-          />
-          <div className="text-[15px] w-[10rem] text-center">
-            Apartamento com infraestrutura para automação
-          </div>
-        </div>
+        <Inovacao
+          image="/infraestrutura.svg"
+          alt="Infraestrutura de um apartamento"
+          content="Apartamento com infraestrutura para automação"
+        />
 
-        <div className="w-[100px]">
-          <Image
-            src="/carro-eletrico.svg"
-            width={150}
-            height={150}
-            alt="Veículo elétrico com uma tomada"
-            className="p-2 bg-white rounded-full ml-8"
-          />
-          <div className="text-[15px] w-[10rem] text-center">
-            Vagas com infraestrutura para carregamento de carro elétrico
-          </div>
-        </div>
+        <Inovacao
+          image="/carro-eletrico.svg"
+          alt="Veículo elétrico com uma tomada"
+          content="Vagas com infraestrutura para carregamento de carro elétrico"
+        />
 
-        <div className="w-[100px]">
-          <Image
-            src="/iptu-verde.svg"
-            width={150}
-            height={150}
-            alt="Planeta Terra e IPTU Verde"
-            className="p-2 bg-white rounded-full ml-8"
-          />
-          <div className="text-[15px] w-[10rem] text-center">
-            Candidato ao IPTU Verde
-          </div>
-        </div>
+        <Inovacao
+          image="/iptu-verde.svg"
+          alt="Planeta Terra e IPTU Verde"
+          content="Candidato ao IPTU Verde"
+        />
 
-        <div className="w-[100px]">
-          <Image
-            src="/medidor-geral.svg"
-            width={150}
-            height={150}
-            alt="Medidor de energia, água e gás"
-            className="p-2 bg-white rounded-full ml-8"
-          />
-          <div className="text-[15px] w-[10rem] text-center">
-            Infraestrutura para medição individual de energia, água e gás
-          </div>
-        </div>
+        <Inovacao
+          image="/medidor-geral.svg"
+          alt="Medidor de energia, água e gás"
+          content="Infraestrutura para medição individual de energia, água e gás"
+        />
       </div>
     </Layout>
   );

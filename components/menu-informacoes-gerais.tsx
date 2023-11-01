@@ -1,11 +1,12 @@
 import Link from "next/link";
+import bgPraia from '../public/bg-praia.png';
 
 export default function MenuInformacoes({ currentPage }) {
   return (
     <div>
       <div
         className="text-center text-4xl py-14 uppercase w-auto mt-20 h-[150px]"
-        style={{ backgroundImage: "url(./bg-praia.png)" }}
+        style={{ backgroundImage: `url(${bgPraia.src})` }}
       >
         <h2>Seu infinito pé na areia</h2>
       </div>

@@ -7,7 +7,7 @@ import Header from "../../components/header";
 import MenuInformacoes from "../../components/menu-informacoes-gerais";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import ImageNeighbor from '../../public/predios-praia.png';
+import ImageNeighbor from "../../public/predios-praia.png";
 
 type indexType = {
   generalSettings: Settings;

@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { Page } from "../models";
 import Link from "next/link";
-import LogoWhite from '../public/logo-infinity-white.svg';
+import LogoWhite from "../public/logo-infinity-white.svg";
 
 export default function Header({ menu }: { menu: Page[] }) {
   return (

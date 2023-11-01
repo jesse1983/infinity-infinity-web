@@ -1,51 +1,57 @@
 import Link from "next/link";
+import bgPraia from '../public/bg-praia.png';
 
 export default function MenuInformacoes({ currentPage }) {
-  const projestistas = "projetistas";
-  const bairro = "bairro";
-  const descritivo = "descritivo";
   return (
-    <div className="container mx-auto mt-14 px-16 flex justify-between">
-      <Link
-        className={
-          currentPage === "/informacoes-gerais"
-            ? "text-center text-[18px] py-2 w-[24rem] cursor-default uppercase bg-dusk border-solid border-2 border-dusk hover:bg-dusk transition ease-in-out delay-70"
-            : "text-center text-[18px] py-2 w-[24rem] uppercase border-solid border-2 border-dusk hover:bg-dusk transition ease-in-out delay-70"
-        }
-        href={"/informacoes-gerais"}
+    <div>
+      <div
+        className="text-center text-4xl py-14 uppercase w-auto mt-20 h-[150px]"
+        style={{ backgroundImage: `url(${bgPraia.src})` }}
       >
-        Inovação e Tecnologia
-      </Link>
-      <Link
-        className={
-          currentPage.includes(projestistas)
-            ? "text-center text-[18px] py-2 w-[14rem] cursor-default uppercase bg-dusk border-solid border-2 border-dusk hover:bg-dusk transition ease-in-out delay-70"
-            : "text-center text-[18px] py-2 w-[14rem] uppercase border-solid border-2 border-dusk hover:bg-dusk transition ease-in-out delay-70"
-        }
-        href={"/informacoes-gerais/projetistas"}
-      >
-        Projetistas
-      </Link>
-      <Link
-        className={
-          currentPage.includes(bairro)
-            ? "text-center text-[18px] py-2 w-[14rem] cursor-default uppercase bg-dusk border-solid border-2 border-dusk hover:bg-dusk transition ease-in-out delay-70"
-            : "text-center text-[18px] py-2 w-[14rem] uppercase border-solid border-2 border-dusk hover:bg-dusk transition ease-in-out delay-70"
-        }
-        href={"/informacoes-gerais/bairro"}
-      >
-        O Bairro
-      </Link>
-      <Link
-        className={
-          currentPage.includes(descritivo)
-            ? "text-center text-[18px] py-2 w-[14rem] cursor-default uppercase bg-dusk border-solid border-2 border-dusk hover:bg-dusk transition ease-in-out delay-70"
-            : "text-center text-[18px] py-2 w-[14rem] uppercase border-solid border-2 border-dusk hover:bg-dusk transition ease-in-out delay-70"
-        }
-        href={"/informacoes-gerais/descritivo"}
-      >
-        Descritivo
-      </Link>
+        <h2>Seu infinito pé na areia</h2>
+      </div>
+      <div className="container mx-auto mt-14 flex justify-around items-center sm:flex-wrap gap-y-6 flex-col lg:flex-row px-20">
+        <Link
+          className={
+            currentPage === "/informacoes-gerais"
+              ? "text-center min-[320px]:w-[14rem] sm:text-[16px] lg:text-[18px] py-2 sm:w-[14rem] lg:w-[24rem] cursor-default uppercase bg-dusk border-solid border-2 border-dusk hover:bg-dusk transition ease-in-out delay-70"
+              : "text-center min-[320px]:w-[14rem] sm:text-[16px] lg:text-[18px] py-2 sm:w-[14rem] lg:w-[24rem] uppercase border-solid border-2 border-dusk hover:bg-dusk transition ease-in-out delay-70"
+          }
+          href={"/informacoes-gerais"}
+        >
+          Inovação e Tecnologia
+        </Link>
+        <Link
+          className={
+            currentPage.includes("projetistas")
+              ? "text-center text-[18px] py-2 w-[14rem] cursor-default uppercase bg-dusk border-solid border-2 border-dusk hover:bg-dusk transition ease-in-out delay-70"
+              : "text-center text-[18px] py-2 w-[14rem] uppercase border-solid border-2 border-dusk hover:bg-dusk transition ease-in-out delay-70"
+          }
+          href={"/informacoes-gerais/projetistas"}
+        >
+          Projetistas
+        </Link>
+        <Link
+          className={
+            currentPage.includes("bairro")
+              ? "text-center text-[18px] py-2 w-[14rem] cursor-default uppercase bg-dusk border-solid border-2 border-dusk hover:bg-dusk transition ease-in-out delay-70"
+              : "text-center text-[18px] py-2 w-[14rem] uppercase border-solid border-2 border-dusk hover:bg-dusk transition ease-in-out delay-70"
+          }
+          href={"/informacoes-gerais/bairro"}
+        >
+          O Bairro
+        </Link>
+        <Link
+          className={
+            currentPage.includes("descritivo")
+              ? "text-center text-[18px] py-2 w-[14rem] cursor-default uppercase bg-dusk border-solid border-2 border-dusk hover:bg-dusk transition ease-in-out delay-70"
+              : "text-center text-[18px] py-2 w-[14rem] uppercase border-solid border-2 border-dusk hover:bg-dusk transition ease-in-out delay-70"
+          }
+          href={"/informacoes-gerais/descritivo"}
+        >
+          Descritivo
+        </Link>
+      </div>
     </div>
   );
 }

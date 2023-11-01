@@ -7,7 +7,8 @@ import Header from "../../components/header";
 import MenuInformacoes from "../../components/menu-informacoes-gerais";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import DroneTecnologia from '../../public/drone-tecnologia.png';
+import DroneTecnologia from "../../public/drone-tecnologia.png";
+import Inovacao from "../../components/inovacao";
 
 type indexType = {
   generalSettings: Settings;
@@ -31,7 +32,12 @@ export default function Index({
       </Head>
       <Header menu={menu} />
       <MenuInformacoes currentPage={currentURL} />
-      <div className="container mx-auto mt-14 px-16 flex justify-between">
+      <div className="container mx-auto mt-14 px-16 flex flex-col lg:flex-row justify-between">
+        <Image
+          src={DroneTecnologia}
+          alt="Drone carregando um pacote enquanto sobrevoa prédios"
+          className="block lg:hidden h-[200px] w-[200px] md:h-[400px] md:w-[400px] mx-auto mb-10"
+        />
         <div className="container flex flex-col mr-10">
           <p className="text-[23px] text-justify font-medium">
             LOREM IPSUM DOLOT SIT AMET CONSEECCT AKADDKKS ALDAKSKA DJFJF
@@ -50,42 +56,65 @@ export default function Index({
         </div>
         <Image
           src={DroneTecnologia}
-          width={365}
-          height={365}
           alt="Drone carregando um pacote enquanto sobrevoa prédios"
-          className="h-[365px]"
+          className="hidden lg:block lg:h-[365px]"
         />
       </div>
-      {/* <div className="container mx-auto mt-14 px-16 flex justify-between">
-        <Image
-          src="/icones-1.svg"
-          width={800}
-          height={200}
-          alt="Drone carregando um pacote enquanto sobrevoa prédios"
-          className="h-[365px]"
+      <div className="container pl-20 md:pl-2 md:justify-items-stretch md:mx-auto mt-14 lg:px-12 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 grid-rows-2 gap-x-24 gap-y-12">
+        <Inovacao
+          image="/predio-palmeira.svg"
+          alt="Prédio próximo de uma palmeira"
+          content="Pé na areia e vista mar permanente"
         />
-        <Image
-          src="/icones-2.svg"
-          width={450}
-          height={400}
-          alt="Drone carregando um pacote enquanto sobrevoa prédios"
-          className="h-[365px]"
+
+        <Inovacao
+          image="/diamante.svg"
+          alt="Diamante"
+          content="Conceitos de casas suspensas exclusivas"
         />
-        <Image
-          src="/icones-3.svg"
-          width={365}
-          height={365}
-          alt="Drone carregando um pacote enquanto sobrevoa prédios"
-          className="h-[365px]"
+
+        <Inovacao
+          image="/fechadura-eletronica.svg"
+          alt="Fechadura eletrônica"
+          content="Porta com fechadura eletrônica"
         />
-        <Image
-          src="/icones-4.svg"
-          width={365}
-          height={365}
-          alt="Drone carregando um pacote enquanto sobrevoa prédios"
-          className="h-[365px]"
+
+        <Inovacao
+          image="/chuva.svg"
+          alt="Núvem com chuva"
+          content="Reaproveitamento de água de chuva"
         />
-      </div> */}
+
+        <Inovacao
+          image="/painel-sol.svg"
+          alt="Painel solar abaixo do Sol"
+          content="Paineis fotovoltáicos para a geração de energia"
+        />
+
+        <Inovacao
+          image="/infraestrutura.svg"
+          alt="Infraestrutura de um apartamento"
+          content="Apartamento com infraestrutura para automação"
+        />
+
+        <Inovacao
+          image="/carro-eletrico.svg"
+          alt="Veículo elétrico com uma tomada"
+          content="Vagas com infraestrutura para carregamento de carro elétrico"
+        />
+
+        <Inovacao
+          image="/iptu-verde.svg"
+          alt="Planeta Terra e IPTU Verde"
+          content="Candidato ao IPTU Verde"
+        />
+
+        <Inovacao
+          image="/medidor-geral.svg"
+          alt="Medidor de energia, água e gás"
+          content="Infraestrutura para medição individual de energia, água e gás"
+        />
+      </div>
     </Layout>
   );
 }

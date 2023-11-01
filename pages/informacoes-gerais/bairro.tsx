@@ -7,7 +7,7 @@ import Header from "../../components/header";
 import MenuInformacoes from "../../components/menu-informacoes-gerais";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
-import ImageNeighbor from '../../public/predios-praia.png';
+import ImageNeighbor from "../../public/predios-praia.png";
 
 type indexType = {
   generalSettings: Settings;
@@ -36,9 +36,9 @@ export default function Bairro({
         width={1155}
         height={100}
         alt="Vista dos prédios Infinity na beira da praia"
-        className="py-8 m-auto"
+        className="container mx-auto mt-14 px-16 flex justify-between"
       />
-      <div className="container mx-auto px-16 flex flex-col">
+      <div className="container mx-auto px-16 mt-8 flex flex-col">
         <p className="text-[24px] text-justify font-medium">
           LOREM IPSUM DOLOT SIT AMET CONSEECCT AKADDKKS ALDAKSKA DJFJF
         </p>

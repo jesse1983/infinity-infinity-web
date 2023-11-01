@@ -4,6 +4,7 @@ import Layout from "../components/layout";
 import { allSettings, getPage } from "../lib/api";
 import { Settings, Page } from "../models";
 import Header from "../components/header";
+import FloorPlan from "../components/floor-plan";
 
 type indexType = {
   generalSettings: Settings;
@@ -25,6 +26,7 @@ export default function Index({
         <meta name="description" content={page.title}></meta>
       </Head>
       <Header menu={menu} />
+      <FloorPlan src="./rooftop.jpg" />
     </Layout>
   );
 }

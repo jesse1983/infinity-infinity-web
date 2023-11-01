@@ -1,9 +1,13 @@
-import Image from "next/image";
+'use client'
 import { Page } from "../models";
 import Link from "next/link";
-import LogoWhite from '../public/logo-infinity-white.svg';
+import LogoWhite from "../public/logo-infinity-white.svg";
+import { useState } from "react";
 
 export default function Header({ menu }: { menu: Page[] }) {
+  const [open, setOpen] = useState(false);
+  const toggle = () => setOpen(!open);
+
   return (
     <header className="text-center">
       <div>
@@ -11,8 +15,30 @@ export default function Header({ menu }: { menu: Page[] }) {
           <LogoWhite className="m-auto" />
         </Link>
       </div>
-      <nav className="absolute z-40 w-screen shadow-[inset_0px_20px_20px_-20px_#000] text-lg">
-        <ul className="grid grid-cols-5 bg-midnight-900/70 m-0 p-0">
+      <nav className="sm:h-auto sm:absolute z-40 w-screen shadow-[inset_0px_20px_20px_-20px_#000] text-lg">
+        <button
+          onClick={toggle}
+          type="button"
+          className="inline-flex sm:hidden items-center w-10 h-10 justify-center text-sm text-gray-100"
+        >
+          <span className="sr-only">Open main menu</span>
+          <svg
+            className="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 17 14"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15"
+            />
+          </svg>
+        </button>
+        <ul className={`overflow-hidden sm:h-auto sm:grid sm:grid-cols-5 bg-midnight-900/70 m-0 p-0 transition-all duration-300 ease-in-out ${open ? 'h-[322px]' : 'h-0'}`}>
           {menu.map((item) => (
             <li key={item.uri} className="text-center">
               <Link

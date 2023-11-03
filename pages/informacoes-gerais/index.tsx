@@ -11,6 +11,15 @@ import bgPraia from "../../public/bg-praia.png";
 import Title from "../../components/title";
 import DroneTecnologia from "../../public/drone-tecnologia.png";
 import Inovacao from "../../components/inovacao";
+import PredioPalmeira from "/predio-palmeira.svg";
+import Diamante from "/diamante.svg";
+import FechaduraEletronica from "/fechadura-eletronica.svg";
+import Chuva from "/chuva.svg";
+import PainelSolar from "/painel-sol.svg";
+import Infraestrutura from "/infraestrutura.svg";
+import CarroEletrico from "/carro-eletrico.svg";
+import IPTUVerde from "/iptu-verde.svg";
+import MedidorGeral from "/medidor-geral.svg";
 
 type indexType = {
   generalSettings: Settings;
@@ -68,55 +77,55 @@ export default function Index({
         </div>
         <div className="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
           <Inovacao
-            image="/predio-palmeira.svg"
+            image={PredioPalmeira}
             alt="Prédio próximo de uma palmeira"
             content="Pé na areia e vista mar permanente"
           />
 
           <Inovacao
-            image="/diamante.svg"
+            image={Diamante}
             alt="Diamante"
             content="Conceitos de casas suspensas exclusivas"
           />
 
           <Inovacao
-            image="/fechadura-eletronica.svg"
+            image={FechaduraEletronica}
             alt="Fechadura eletrônica"
             content="Porta com fechadura eletrônica"
           />
 
           <Inovacao
-            image="/chuva.svg"
+            image={Chuva}
             alt="Núvem com chuva"
             content="Reaproveitamento de água de chuva"
           />
 
           <Inovacao
-            image="/painel-sol.svg"
+            image={PainelSolar}
             alt="Painel solar abaixo do Sol"
             content="Paineis fotovoltáicos para a geração de energia"
           />
 
           <Inovacao
-            image="/infraestrutura.svg"
+            image={Infraestrutura}
             alt="Infraestrutura de um apartamento"
             content="Apartamento com infraestrutura para automação"
           />
 
           <Inovacao
-            image="/carro-eletrico.svg"
+            image={CarroEletrico}
             alt="Veículo elétrico com uma tomada"
             content="Vagas com infraestrutura para carregamento de carro elétrico"
           />
 
           <Inovacao
-            image="/iptu-verde.svg"
+            image={IPTUVerde}
             alt="Planeta Terra e IPTU Verde"
             content="Candidato ao IPTU Verde"
           />
 
           <Inovacao
-            image="/medidor-geral.svg"
+            image={MedidorGeral}
             alt="Medidor de energia, água e gás"
             content="Infraestrutura para medição individual de energia, água e gás"
           />

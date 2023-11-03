@@ -9,8 +9,8 @@ import { usePathname } from "next/navigation";
 import Image from "next/image";
 import bgPraia from "../../public/bg-praia.png";
 import Title from "../../components/title";
-import DroneTecnologia from "../../public/drone-tecnologia.png";
 import Inovacao from "../../components/inovacao";
+import DroneTecnologia from "../../public/drone-tecnologia.png";
 import PredioPalmeira from "../../public/predio-palmeira.svg";
 import Diamante from "../../public/diamante.svg";
 import FechaduraEletronica from "../../public/fechadura-eletronica.svg";
@@ -77,55 +77,55 @@ export default function Index({
         </div>
         <div className="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
           <Inovacao
-            image={PredioPalmeira}
+            image={<PredioPalmeira className="w-24" />}
             alt="Prédio próximo de uma palmeira"
             content="Pé na areia e vista mar permanente"
           />
 
           <Inovacao
-            image={Diamante}
+            image={<Diamante className="w-24" />}
             alt="Diamante"
             content="Conceitos de casas suspensas exclusivas"
           />
 
           <Inovacao
-            image={FechaduraEletronica}
+            image={<FechaduraEletronica className="w-24" />}
             alt="Fechadura eletrônica"
             content="Porta com fechadura eletrônica"
           />
 
           <Inovacao
-            image={Chuva}
+            image={<Chuva className="w-24" />}
             alt="Núvem com chuva"
             content="Reaproveitamento de água de chuva"
           />
 
           <Inovacao
-            image={PainelSolar}
+            image={<PainelSolar className="w-24" />}
             alt="Painel solar abaixo do Sol"
             content="Paineis fotovoltáicos para a geração de energia"
           />
 
           <Inovacao
-            image={Infraestrutura}
+            image={<Infraestrutura className="w-24" />}
             alt="Infraestrutura de um apartamento"
             content="Apartamento com infraestrutura para automação"
           />
 
           <Inovacao
-            image={CarroEletrico}
+            image={<CarroEletrico className="w-24" />}
             alt="Veículo elétrico com uma tomada"
             content="Vagas com infraestrutura para carregamento de carro elétrico"
           />
 
           <Inovacao
-            image={IPTUVerde}
+            image={<IPTUVerde className="w-24" />}
             alt="Planeta Terra e IPTU Verde"
             content="Candidato ao IPTU Verde"
           />
 
           <Inovacao
-            image={MedidorGeral}
+            image={<MedidorGeral className="w-24" />}
             alt="Medidor de energia, água e gás"
             content="Infraestrutura para medição individual de energia, água e gás"
           />

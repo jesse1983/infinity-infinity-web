@@ -7,9 +7,10 @@ import Poi from "./poi";
 type Path = {
   coords: string;
   title?: string;
-  onMouseUp?: Function;
+  onMouseDown?: Function;
   onMouseOver?: Function;
   onMouseOut?: Function;
+  onClick?: Function;
 };
 
 type Poi = {
@@ -28,7 +29,10 @@ type Props = {
 type PathProps = {
   coords: string;
   title: string;
-  onMouseUp?: React.MouseEventHandler<SVGPathElement>,
+  onMouseDown?: React.MouseEventHandler<SVGPathElement>,
+  onMouseOver?: React.MouseEventHandler<SVGPathElement>;
+  onMouseOut?: React.MouseEventHandler<SVGPathElement>;
+  onClick?: React.MouseEventHandler<SVGPathElement>;
 }
 
 function Path(options: PathProps) {
@@ -58,7 +62,7 @@ function FloorPlan({ src, children }: Props) {
     setPathActive(index);
     const path = paths[index];
     if (path.title) setLabel(path.title);
-    if (path.onMouseUp) path.onMouseUp(ev);
+    if (path.onMouseDown) path.onMouseDown(ev);
   };
 
   const setDisablePaths = (ev) => {
@@ -69,7 +73,7 @@ function FloorPlan({ src, children }: Props) {
 
   const clickOnPath = (ev, path: Path) => {
     ev.preventDefault();
-    if (path.onMouseUp) path.onMouseUp(ev);
+    if (path.onClick) path.onClick(ev);
   };
 
   useEffect(() => {
@@ -132,7 +136,7 @@ function FloorPlan({ src, children }: Props) {
             d={path.coords}
             onMouseOver={(e) => setActivePath(e, i)}
             onMouseOut={setDisablePaths}
-            onMouseUp={(e) => clickOnPath(e, path)}
+            onClick={(e) => clickOnPath(e, path)}
             data-tooltip-id={tooltipUuid}
             data-tooltip-float
             key={uuidv4()}

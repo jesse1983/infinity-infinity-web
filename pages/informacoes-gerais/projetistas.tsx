@@ -7,6 +7,8 @@ import Header from "../../components/header";
 import MenuInformacoes from "../../components/menu-informacoes-gerais";
 import { usePathname } from "next/navigation";
 import CardProjetista from "../../components/card-projetista";
+import bgPraia from "../../public/bg-praia.png";
+import Title from "../../components/title";
 
 type indexType = {
   generalSettings: Settings;
@@ -29,15 +31,18 @@ export default function Projetistas({
         <meta name="description" content={page.title}></meta>
       </Head>
       <Header menu={menu} />
+      <Title imageURL={bgPraia} content="Seu infinito pé na areia" />
       <MenuInformacoes currentPage={currentURL} />
-      <CardProjetista nome="Sidney Quintela" />
-      <CardProjetista nome="Laís Galvão" />
-      <CardProjetista nome="Tatiana Melo" />
-      <CardProjetista nome="Laís Galvão" />
-      <CardProjetista nome="Feu Arquitetura (Alexandre Feu)" />
-      <CardProjetista nome="GW Arquitetos" />
-      <CardProjetista nome="Júlia Leal" />
-      <CardProjetista nome="GAM Arquitetos" />
+      <div className="container mx-auto">
+        <CardProjetista nome="Sidney Quintela" />
+        <CardProjetista nome="Laís Galvão" />
+        <CardProjetista nome="Tatiana Melo" />
+        <CardProjetista nome="Laís Galvão" />
+        <CardProjetista nome="Feu Arquitetura (Alexandre Feu)" />
+        <CardProjetista nome="GW Arquitetos" />
+        <CardProjetista nome="Júlia Leal" />
+        <CardProjetista nome="GAM Arquitetos" />
+      </div>
     </Layout>
   );
 }

@@ -7,6 +7,8 @@ import Header from "../../components/header";
 import MenuInformacoes from "../../components/menu-informacoes-gerais";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import bgPraia from "../../public/bg-praia.png";
+import Title from "../../components/title";
 import DroneTecnologia from "../../public/drone-tecnologia.png";
 import Inovacao from "../../components/inovacao";
 
@@ -31,89 +33,94 @@ export default function Index({
         <meta name="description" content={page.title}></meta>
       </Head>
       <Header menu={menu} />
+      <Title imageURL={bgPraia} content="Seu infinito pé na areia" />
       <MenuInformacoes currentPage={currentURL} />
-      <div className="container mx-auto mt-14 px-16 flex flex-col lg:flex-row justify-between">
-        <Image
-          src={DroneTecnologia}
-          alt="Drone carregando um pacote enquanto sobrevoa prédios"
-          className="block lg:hidden h-[200px] w-[200px] md:h-[400px] md:w-[400px] mx-auto mb-10"
-        />
-        <div className="container flex flex-col mr-10">
-          <p className="text-[23px] text-justify font-medium">
-            LOREM IPSUM DOLOT SIT AMET CONSEECCT AKADDKKS ALDAKSKA DJFJF
-          </p>
-          <p className="text-[21px] text-justify mt-2 mb-12 font-light">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Pellentesque ultrices nulla non accumsan cursus. Aenean facilisis
-            aliquam lobortis. Vivamus elementum orci nunc, sit amet sodales nisi
-            fringilla iaculis. Interdum et malesuada fames ac ante ipsum primis
-            in faucibus. Phasellus sed urna ut ipsum porta porttitor. Proin
-            luctus condimentum est, ac gravida justo condimentum elementum. Nunc
-            scelerisque dui risus, ut hendrerit quam malesuada nec. Suspendisse
-            feugiat, mi in faucibus tristique, lorem purus tempor magna, sit
-            amet hendrerit urna enim maximus nisi.
-          </p>
+      <div className="container mx-auto">
+        <div className="lg:flex lg:flex-row justify-between mb-20">
+          <Image
+            src={DroneTecnologia}
+            width={200}
+            height={200}
+            alt="Drone carregando um pacote enquanto sobrevoa prédios"
+            className="block lg:hidden mx-auto mb-5"
+          />
+          <div className="container flex flex-col mr-10">
+            <p className="text-3xl text-justify font-medium mb-6">
+              LOREM IPSUM DOLOT SIT AMET CONSEECCT AKADDKKS ALDAKSKA DJFJF
+            </p>
+            <p className="text-2xl text-justify font-light">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Pellentesque ultrices nulla non accumsan cursus. Aenean facilisis
+              aliquam lobortis. Vivamus elementum orci nunc, sit amet sodales
+              nisi fringilla iaculis. Interdum et malesuada fames ac ante ipsum
+              primis in faucibus. Phasellus sed urna ut ipsum porta porttitor.
+              Proin luctus condimentum est, ac gravida justo condimentum
+              elementum. Nunc scelerisque dui risus, ut hendrerit quam malesuada
+              nec. Suspendisse feugiat, mi in faucibus tristique, lorem purus
+              tempor magna, sit amet hendrerit urna enim maximus nisi.
+            </p>
+          </div>
+          <Image
+            src={DroneTecnologia}
+            alt="Drone carregando um pacote enquanto sobrevoa prédios"
+            className="hidden lg:block"
+          />
         </div>
-        <Image
-          src={DroneTecnologia}
-          alt="Drone carregando um pacote enquanto sobrevoa prédios"
-          className="hidden lg:block lg:h-[365px]"
-        />
-      </div>
-      <div className="container pl-20 md:pl-2 md:justify-items-stretch md:mx-auto mt-14 lg:px-12 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 grid-rows-2 gap-x-24 gap-y-12">
-        <Inovacao
-          image="/predio-palmeira.svg"
-          alt="Prédio próximo de uma palmeira"
-          content="Pé na areia e vista mar permanente"
-        />
+        <div className="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
+          <Inovacao
+            image="/predio-palmeira.svg"
+            alt="Prédio próximo de uma palmeira"
+            content="Pé na areia e vista mar permanente"
+          />
 
-        <Inovacao
-          image="/diamante.svg"
-          alt="Diamante"
-          content="Conceitos de casas suspensas exclusivas"
-        />
+          <Inovacao
+            image="/diamante.svg"
+            alt="Diamante"
+            content="Conceitos de casas suspensas exclusivas"
+          />
 
-        <Inovacao
-          image="/fechadura-eletronica.svg"
-          alt="Fechadura eletrônica"
-          content="Porta com fechadura eletrônica"
-        />
+          <Inovacao
+            image="/fechadura-eletronica.svg"
+            alt="Fechadura eletrônica"
+            content="Porta com fechadura eletrônica"
+          />
 
-        <Inovacao
-          image="/chuva.svg"
-          alt="Núvem com chuva"
-          content="Reaproveitamento de água de chuva"
-        />
+          <Inovacao
+            image="/chuva.svg"
+            alt="Núvem com chuva"
+            content="Reaproveitamento de água de chuva"
+          />
 
-        <Inovacao
-          image="/painel-sol.svg"
-          alt="Painel solar abaixo do Sol"
-          content="Paineis fotovoltáicos para a geração de energia"
-        />
+          <Inovacao
+            image="/painel-sol.svg"
+            alt="Painel solar abaixo do Sol"
+            content="Paineis fotovoltáicos para a geração de energia"
+          />
 
-        <Inovacao
-          image="/infraestrutura.svg"
-          alt="Infraestrutura de um apartamento"
-          content="Apartamento com infraestrutura para automação"
-        />
+          <Inovacao
+            image="/infraestrutura.svg"
+            alt="Infraestrutura de um apartamento"
+            content="Apartamento com infraestrutura para automação"
+          />
 
-        <Inovacao
-          image="/carro-eletrico.svg"
-          alt="Veículo elétrico com uma tomada"
-          content="Vagas com infraestrutura para carregamento de carro elétrico"
-        />
+          <Inovacao
+            image="/carro-eletrico.svg"
+            alt="Veículo elétrico com uma tomada"
+            content="Vagas com infraestrutura para carregamento de carro elétrico"
+          />
 
-        <Inovacao
-          image="/iptu-verde.svg"
-          alt="Planeta Terra e IPTU Verde"
-          content="Candidato ao IPTU Verde"
-        />
+          <Inovacao
+            image="/iptu-verde.svg"
+            alt="Planeta Terra e IPTU Verde"
+            content="Candidato ao IPTU Verde"
+          />
 
-        <Inovacao
-          image="/medidor-geral.svg"
-          alt="Medidor de energia, água e gás"
-          content="Infraestrutura para medição individual de energia, água e gás"
-        />
+          <Inovacao
+            image="/medidor-geral.svg"
+            alt="Medidor de energia, água e gás"
+            content="Infraestrutura para medição individual de energia, água e gás"
+          />
+        </div>
       </div>
     </Layout>
   );

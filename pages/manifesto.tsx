@@ -1,10 +1,12 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import Layout from "../components/layout";
+import Header from "../components/header";
+import Title from "../components/title";
 import { allSettings, getPage } from "../lib/api";
 import { Settings, Page } from "../models";
-import Header from "../components/header";
 import Image from "next/image";
+import bgMar from "../public/bg-mar.png";
 import CasalDobrado from "../public/casal-dobrado.png";
 import CasalCortado from "../public/casal-cortado.png";
 import InfinityLinha from "../public/infinity-linha.png";
@@ -30,35 +32,20 @@ export default function Index({
       </Head>
       <Header menu={menu} />
       <div>
-        <div
-          className="text-center text-4xl py-7 uppercase w-auto mt-20 h-[100px]"
-          style={{ backgroundImage: "url(./bg-mar.png)" }}
-        >
-          <h2>Mergulhe no seu mar</h2>
-        </div>
+        <Title imageURL={bgMar} content="Mergulhe no seu mar" />
       </div>
-      <div className="mt-8 ml-20 grid grid-cols-2 gap-x-64">
-        <div className="mt-24 ml-20">
-          <p className="font-medium leading-loose text-justify">
-            Estar onde se é
-          </p>
-          <p className="font-medium leading-loose text-justify">
-            Ser o que se quer
-          </p>
-          <p className="font-medium leading-loose text-justify">
+      <div className="container mx-auto flex flex-col lg:flex-row justify-around items-center mb-10 lg:mb-1">
+        <div className="font-medium text-2xl leading-loose text-center lg:text-justify mb-10 lg:mb-1">
+          <p>Estar onde se é</p>
+          <p>Ser o que se quer</p>
+          <p>
             Tocar o <span className="font-bold">infinito</span> e acalmar o seu
             mar
           </p>
-          <p className="font-medium leading-loose text-justify">
-            Sentir a areia fria ao amanhecer
-          </p>
-          <p className="font-medium leading-loose text-justify">
-            deixar a branca espuma tocar o caminhar
-          </p>
-          <p className="font-medium leading-loose text-justify">
-            O laranja que aquece e invade por inteiro
-          </p>
-          <p className="font-medium leading-loose text-justify">
+          <p>Sentir a areia fria ao amanhecer</p>
+          <p>deixar a branca espuma tocar o caminhar</p>
+          <p>O laranja que aquece e invade por inteiro</p>
+          <p>
             são pinceladas de quem vive o{" "}
             <span className="font-bold">Rio Vermelho</span>
           </p>
@@ -66,47 +53,37 @@ export default function Index({
         <Image
           src={CasalDobrado}
           alt="Foto dobrada de um casal se abraçando em uma praia"
-          className="w-[350px] h-[350px]"
         />
+      </div>
+      <div className="container mx-auto flex flex-col lg:flex-row justify-around items-center mb-10">
         <Image
           src={CasalCortado}
-          alt="Foto cortada de um casal observando o mar num prédio Infinity"
-          className="w-[500px] h-[550px] pb-8"
+          alt="Foto cortada de um casal observando a praia"
+          className="mb-10 lg:mb-1"
         />
-        <div className="mt-40 mr-60">
-          <p className="font-medium leading-loose text-right">
-            Se encontrar no mar
-          </p>
-          <p className="font-medium leading-loose text-right">
-            que também é morar
-          </p>
-          <p className="font-medium leading-loose text-right">
-            tocar o infinito e fluir
-          </p>
-          <p className="font-medium leading-loose text-right">
+        <div className="font-medium text-2xl leading-loose text-center lg:text-right mr-20">
+          <p>Se encontar no mar</p>
+          <p>que também é morar</p>
+          <p>que também é morar</p>
+          <p>tocar o infinito e fluir</p>
+          <p>
             Permita-se <span className="font-bold">mergulhar</span>
           </p>
-          <p className="font-medium leading-loose text-right">
-            transbordar limites
-          </p>
-          <p className="font-medium leading-loose text-right">
-            O mar conecta, acalma e inspira
-          </p>
-          <p className="font-medium leading-loose text-right">
-            ele é vista e guia.
-          </p>
+          <p>transbordar limites</p>
+          <p>O mar conecta, acalma e inspira</p>
+          <p>ele é vista e guia.</p>
         </div>
       </div>
-      <div>
+      {/* <div>
         <Image
           src={InfinityLinha}
-          alt="Vista em alto-mar"
+          alt="Logo Infinity em Azul"
           className="absolute z-50"
         />
-      </div>
+      </div> */}
       <div>
         <video
-          className="absolute z-10 w-auto min-w-full min-h-full max-h-none"
+          className=" w-auto min-w-full min-h-full max-h-none"
           autoPlay
           muted
           loop

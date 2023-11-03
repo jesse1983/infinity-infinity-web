@@ -34,28 +34,18 @@ export default function Index({
       <div>
         <Title imageURL={bgMar} content="Mergulhe no seu mar" />
       </div>
-      <div className="mt-8 lg:ml-20 lg:grid lg:grid-cols-2 lg:gap-x-64">
-        <div className="lg:mt-24 lg:ml-20">
-          <p className="font-medium text-[14px] md:text-[16px] leading-loose text-center lg:text-justify">
-            Estar onde se é
-          </p>
-          <p className="font-medium text-[14px] md:text-[16px] leading-loose text-center lg:text-justify">
-            Ser o que se quer
-          </p>
-          <p className="font-medium text-[14px] md:text-[16px] leading-loose text-center lg:text-justify">
+      <div className="container mx-auto flex flex-col lg:flex-row justify-around items-center mb-10 lg:mb-1">
+        <div className="font-medium text-2xl leading-loose text-center lg:text-justify mb-10 lg:mb-1">
+          <p>Estar onde se é</p>
+          <p>Ser o que se quer</p>
+          <p>
             Tocar o <span className="font-bold">infinito</span> e acalmar o seu
             mar
           </p>
-          <p className="font-medium text-[14px] md:text-[16px] leading-loose text-center lg:text-justify">
-            Sentir a areia fria ao amanhecer
-          </p>
-          <p className="font-medium text-[14px] md:text-[16px] leading-loose text-center lg:text-justify">
-            deixar a branca espuma tocar o caminhar
-          </p>
-          <p className="font-medium text-[14px] md:text-[16px] leading-loose text-center lg:text-justify">
-            O laranja que aquece e invade por inteiro
-          </p>
-          <p className="font-medium text-[14px] md:text-[16px] leading-loose text-center lg:text-justify">
+          <p>Sentir a areia fria ao amanhecer</p>
+          <p>deixar a branca espuma tocar o caminhar</p>
+          <p>O laranja que aquece e invade por inteiro</p>
+          <p>
             são pinceladas de quem vive o{" "}
             <span className="font-bold">Rio Vermelho</span>
           </p>
@@ -63,41 +53,31 @@ export default function Index({
         <Image
           src={CasalDobrado}
           alt="Foto dobrada de um casal se abraçando em uma praia"
-          className="w-[240px] h-[240px] md:w-[350px] md:h-[350px] mx-auto mt-6 lg:mt-1 lg:mx-2"
         />
+      </div>
+      <div className="container mx-auto flex flex-col lg:flex-row justify-around items-center mb-10">
         <Image
           src={CasalCortado}
-          alt="Foto cortada de um casal observando o mar num prédio Infinity"
-          className="w-[500px] h-[370px] md:w-[500px] md:h-[550px] mx-auto mt-6 lg:mt-1 lg:mx-2 lg:pb-8"
+          alt="Foto cortada de um casal observando a praia"
+          className="mb-10 lg:mb-1"
         />
-        <div className="lg:mt-40 lg:mr-60">
-          <p className="font-medium text-[14px] md:text-[16px] leading-loose text-center lg:text-right">
-            Se encontrar no mar
-          </p>
-          <p className="font-medium text-[14px] md:text-[16px] leading-loose text-center lg:text-right">
-            que também é morar
-          </p>
-          <p className="font-medium text-[14px] md:text-[16px] leading-loose text-center lg:text-right">
-            tocar o infinito e fluir
-          </p>
-          <p className="font-medium text-[14px] md:text-[16px] leading-loose text-center lg:text-right">
+        <div className="font-medium text-2xl leading-loose text-center lg:text-right mr-20">
+          <p>Se encontar no mar</p>
+          <p>que também é morar</p>
+          <p>que também é morar</p>
+          <p>tocar o infinito e fluir</p>
+          <p>
             Permita-se <span className="font-bold">mergulhar</span>
           </p>
-          <p className="font-medium text-[14px] md:text-[16px] leading-loose text-center lg:text-right">
-            transbordar limites
-          </p>
-          <p className="font-medium text-[14px] md:text-[16px] leading-loose text-center lg:text-right">
-            O mar conecta, acalma e inspira
-          </p>
-          <p className="font-medium text-[14px] md:text-[16px] leading-loose text-center lg:text-right">
-            ele é vista e guia.
-          </p>
+          <p>transbordar limites</p>
+          <p>O mar conecta, acalma e inspira</p>
+          <p>ele é vista e guia.</p>
         </div>
       </div>
       {/* <div>
         <Image
           src={InfinityLinha}
-          alt="Vista em alto-mar"
+          alt="Logo Infinity em Azul"
           className="absolute z-50"
         />
       </div> */}

@@ -1,7 +1,7 @@
 export default function Inovacao({ imageURL, content }) {
   return (
     <div
-      className="text-center text-4xl py-11 sm:py-20 uppercase w-auto h-[150px]"
+      className="text-center text-4xl sm:pt-24 mb-14 uppercase w-auto sm:py-12"
       style={{ backgroundImage: `url(${imageURL.src})` }}
     >
       <h2>{content}</h2>

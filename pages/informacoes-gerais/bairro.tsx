@@ -34,15 +34,13 @@ export default function Bairro({
       <Header menu={menu} />
       <Title imageURL={bgPraia} content="Seu infinito pé na areia" />
       <MenuInformacoes currentPage={currentURL} />
-      <div className="container mx-auto md:w-[50rem] lg:w-[61rem] min-[1300px]:w-[77rem] 2xl:w-[89rem]">
+      <div className="container mx-auto">
         <Image
           src={ImageNeighbor}
-          width={1155}
-          height={100}
           alt="Vista dos prédios Infinity na beira da praia"
-          className="container mx-auto mt-14 px-16 flex justify-between"
+          className="w-full mb-10"
         />
-        <div className="container mx-auto px-16 mt-8 flex flex-col">
+        <div className="">
           <p className="text-[24px] text-justify font-medium">
             LOREM IPSUM DOLOT SIT AMET CONSEECCT AKADDKKS ALDAKSKA DJFJF
           </p>

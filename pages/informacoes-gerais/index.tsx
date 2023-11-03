@@ -35,18 +35,20 @@ export default function Index({
       <Header menu={menu} />
       <Title imageURL={bgPraia} content="Seu infinito pé na areia" />
       <MenuInformacoes currentPage={currentURL} />
-      <div className="container mx-auto md:w-[50rem] lg:w-[61rem] min-[1300px]:w-[77rem] 2xl:w-[89rem]">
-        <div className="container mx-auto mt-14 px-16 flex flex-col lg:flex-row justify-between">
+      <div className="container mx-auto">
+        <div className="lg:flex lg:flex-row justify-between mb-20">
           <Image
             src={DroneTecnologia}
+            width={200}
+            height={200}
             alt="Drone carregando um pacote enquanto sobrevoa prédios"
-            className="block lg:hidden h-[200px] w-[200px] md:h-[400px] md:w-[400px] mx-auto mb-10"
+            className="block lg:hidden mx-auto mb-5"
           />
           <div className="container flex flex-col mr-10">
-            <p className="text-[23px] text-justify font-medium">
+            <p className="text-3xl text-justify font-medium mb-6">
               LOREM IPSUM DOLOT SIT AMET CONSEECCT AKADDKKS ALDAKSKA DJFJF
             </p>
-            <p className="text-[21px] text-justify mt-2 mb-12 font-light">
+            <p className="text-2xl text-justify font-light">
               Lorem ipsum dolor sit amet, consectetur adipiscing elit.
               Pellentesque ultrices nulla non accumsan cursus. Aenean facilisis
               aliquam lobortis. Vivamus elementum orci nunc, sit amet sodales
@@ -61,10 +63,10 @@ export default function Index({
           <Image
             src={DroneTecnologia}
             alt="Drone carregando um pacote enquanto sobrevoa prédios"
-            className="hidden lg:block lg:h-[365px]"
+            className="hidden lg:block"
           />
         </div>
-        <div className="container pl-20 md:pl-2 md:justify-items-stretch md:mx-auto mt-14 lg:px-12 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 min-[1440px]:grid-cols-5 grid-rows-2 gap-x-24 gap-y-12">
+        <div className="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
           <Inovacao
             image="/predio-palmeira.svg"
             alt="Prédio próximo de uma palmeira"

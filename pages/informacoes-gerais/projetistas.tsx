@@ -33,7 +33,7 @@ export default function Projetistas({
       <Header menu={menu} />
       <Title imageURL={bgPraia} content="Seu infinito pé na areia" />
       <MenuInformacoes currentPage={currentURL} />
-      <div className="container mx-auto md:w-[50rem] lg:w-[61rem] min-[1300px]:w-[77rem] 2xl:w-[89rem]">
+      <div className="container mx-auto">
         <CardProjetista nome="Sidney Quintela" />
         <CardProjetista nome="Laís Galvão" />
         <CardProjetista nome="Tatiana Melo" />

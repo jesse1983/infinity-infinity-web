@@ -33,15 +33,15 @@ export default function Descritivo({
       <Header menu={menu} />
       <Title imageURL={bgPraia} content="Seu infinito pé na areia" />
       <MenuInformacoes currentPage={currentURL} />
-      <div className="container mx-auto md:w-[50rem] lg:w-[61rem] min-[1300px]:w-[77rem] 2xl:w-[89rem]">
-        <div className="container mx-auto px-16 mt-14">
-          <div className="">
-            <p className="uppercase font-medium text-justify text-[20px]">
+      <div className="container mx-auto">
+        <div className="container mx-auto">
+          <div>
+            <p className="uppercase font-medium text-justify text-xl mb-2">
               Geral:
             </p>
           </div>
         </div>
-        <ul className="list-disc text-justify container mx-auto mt-2 px-24 font-light text-[18px]">
+        <ul className="pl-4 list-disc list-inside text-justify font-light text-xl">
           <li>Área do terreno de 1.043,00m²;</li>
           <li>Infinity Blue com 15 andares + Rooftop no 16º andar;</li>
           <li>Infinity Sea com 16 andares;</li>

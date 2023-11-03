@@ -11,15 +11,15 @@ import bgPraia from "../../public/bg-praia.png";
 import Title from "../../components/title";
 import DroneTecnologia from "../../public/drone-tecnologia.png";
 import Inovacao from "../../components/inovacao";
-import PredioPalmeira from "/predio-palmeira.svg";
-import Diamante from "/diamante.svg";
-import FechaduraEletronica from "/fechadura-eletronica.svg";
-import Chuva from "/chuva.svg";
-import PainelSolar from "/painel-sol.svg";
-import Infraestrutura from "/infraestrutura.svg";
-import CarroEletrico from "/carro-eletrico.svg";
-import IPTUVerde from "/iptu-verde.svg";
-import MedidorGeral from "/medidor-geral.svg";
+import PredioPalmeira from "../../public/predio-palmeira.svg";
+import Diamante from "../../public/diamante.svg";
+import FechaduraEletronica from "../../public/fechadura-eletronica.svg";
+import Chuva from "../../public/chuva.svg";
+import PainelSolar from "../../public/painel-sol.svg";
+import Infraestrutura from "../../public/infraestrutura.svg";
+import CarroEletrico from "../../public/carro-eletrico.svg";
+import IPTUVerde from "../../public/iptu-verde.svg";
+import MedidorGeral from "../../public/medidor-geral.svg";
 
 type indexType = {
   generalSettings: Settings;

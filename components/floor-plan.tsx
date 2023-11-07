@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import React, { useEffect, useState } from "react";
 import { Tooltip } from "react-tooltip";
 import { v4 as uuidv4 } from "uuid";
@@ -22,34 +22,40 @@ type Poi = {
 
 type Props = {
   src: string;
-  children?: React.ReactNode,
+  children?: React.ReactNode;
   paths?: Path[];
 };
 
 type PathProps = {
   coords: string;
   title: string;
-  onMouseDown?: React.MouseEventHandler<SVGPathElement>,
+  onMouseDown?: React.MouseEventHandler<SVGPathElement>;
   onMouseOver?: React.MouseEventHandler<SVGPathElement>;
   onMouseOut?: React.MouseEventHandler<SVGPathElement>;
   onClick?: React.MouseEventHandler<SVGPathElement>;
-}
+};
 
 function Path(options: PathProps) {
   return <>{options}</>;
 }
 
 const getNodes = (children, componentName) => {
-  return React.Children.toArray(children)
-    .filter((c) => React.isValidElement(c) && typeof c.type !== 'string' && c.type.name === componentName);
-}
+  return React.Children.toArray(children).filter(
+    (c) =>
+      React.isValidElement(c) &&
+      typeof c.type !== "string" &&
+      c.type.name === componentName
+  );
+};
 
 function FloorPlan({ src, children }: Props) {
   const clipPathUuid = uuidv4();
   const tooltipUuid = uuidv4();
-  const pois:React.ReactNode = getNodes(children, 'Poi');
-  const pathNodes:React.ReactNode[] = getNodes(children, 'Path');
-  const paths:PathProps[] = pathNodes.map((n) => React.isValidElement(n) && n.props ? n.props : {});
+  const pois: React.ReactNode = getNodes(children, "Poi");
+  const pathNodes: React.ReactNode[] = getNodes(children, "Path");
+  const paths: PathProps[] = pathNodes.map((n) =>
+    React.isValidElement(n) && n.props ? n.props : {}
+  );
 
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);

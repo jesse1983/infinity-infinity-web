@@ -4,7 +4,15 @@ import Layout from "../../components/layout";
 import { allSettings, getPage } from "../../lib/api";
 import { Settings, Page } from "../../models";
 import Header from "../../components/header";
-import { FloorPlanInfinityBlueRooftop } from "../../components/floorplans";
+import {
+  FloorPlanInfinityBlueApartment,
+  FloorPlanInfinityBlueRooftop,
+  FloorPlanInfinityBluePavimento,
+  FloorPlanInfinityBlueLounge,
+  FloorPlanInfinitySeaClub,
+  FloorPlanInfinitySeaPavimento,
+  FloorPlanInfinitySeaApartment,
+} from "../../components/floorplans";
 
 type indexType = {
   generalSettings: Settings;
@@ -26,13 +34,46 @@ export default function Index({
         <meta name="description" content={page.title}></meta>
       </Head>
       <section className="container m-auto bg-white my-10">
-        <h1 className="text-midnight-950 text-2xl text-center">Infinity Blue Rooftop</h1>
+        <h1 className="text-midnight-950 text-2xl text-center">
+          Infinity Blue Rooftop
+        </h1>
         <FloorPlanInfinityBlueRooftop />
       </section>
-
       <section className="container m-auto bg-white my-10">
-        <div className="text-midnight-950 text-2xl text-center">Infinity Blue Rooftop</div>
-        <FloorPlanInfinityBlueRooftop />
+        <div className="text-midnight-950 text-2xl text-center">
+          Infinity Blue Apartment
+        </div>
+        <FloorPlanInfinityBlueApartment />
+      </section>
+      <section className="container m-auto bg-white my-10">
+        <div className="text-midnight-950 text-2xl text-center">
+          Infinity Blue Pavimento
+        </div>
+        <FloorPlanInfinityBluePavimento />
+      </section>
+      <section className="container m-auto h-1/4 w-1/4 bg-white my-10">
+        <div className="text-midnight-950 text-2xl text-center">
+          Infinity Blue Lounge
+        </div>
+        <FloorPlanInfinityBlueLounge />
+      </section>
+      <section className="container m-auto bg-white my-10">
+        <div className="text-midnight-950 text-2xl text-center">
+          Infinity Sea Beach Club
+        </div>
+        <FloorPlanInfinitySeaClub />
+      </section>
+      <section className="container m-auto bg-white my-10">
+        <div className="text-midnight-950 text-2xl text-center">
+          Infinity Sea Pavimento Térreo
+        </div>
+        <FloorPlanInfinitySeaPavimento />
+      </section>
+      <section className="container m-auto bg-white my-10">
+        <div className="text-midnight-950 text-2xl text-center">
+          Infinity Sea Apartment
+        </div>
+        <FloorPlanInfinitySeaApartment />
       </section>
     </Layout>
   );

@@ -8,7 +8,7 @@
    height="489"
    viewBox="0 0 1170 489"
    sodipodi:docname="floor-plan-infinity-blue-rooftop.svg"
-   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   inkscape:version="1.3 (1:1.3+202307231459+0e150ed6c4)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:xlink="http://www.w3.org/1999/xlink"
@@ -24,15 +24,15 @@
      inkscape:pagecheckerboard="0"
      inkscape:deskcolor="#d1d1d1"
      showgrid="false"
-     inkscape:zoom="0.97079849"
-     inkscape:cx="526.88586"
-     inkscape:cy="334.77596"
-     inkscape:window-width="1680"
-     inkscape:window-height="918"
-     inkscape:window-x="0"
-     inkscape:window-y="25"
+     inkscape:zoom="3.883194"
+     inkscape:cx="588.94818"
+     inkscape:cy="141.2497"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="1366"
+     inkscape:window-y="0"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g1175" />
+     inkscape:current-layer="svg1169" />
   <defs
      id="defs1173" />
   <g
@@ -56,4 +56,8 @@
        d="m 652.64463,56.440979 53.49831,1.465708 85.7439,406.000913 -128.98226,-1.4657 -0.73286,-253.56736 h -8.79424 z"
        id="path1349" />
   </g>
+  <path
+     style="opacity:0.6;fill:#000000;fill-rule:evenodd;stroke-width:6.594;paint-order:stroke fill markers"
+     d="m 566.23562,51.627725 -0.72453,72.183105 26.41064,-0.1696 60.87656,0.33372 0.8023,81.85815 -87.99623,-0.0497 0.37063,-73.79474 87.24171,-0.37908 -0.97545,-79.434472 z"
+     id="path3" />
 </svg>

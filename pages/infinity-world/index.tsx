@@ -4,7 +4,7 @@ import Layout from "../../components/layout";
 import { allSettings, getPage } from "../../lib/api";
 import { Settings, Page } from "../../models";
 import Header from "../../components/header";
-import { InfinityWorldComponent } from "./infinity-world-component";
+import { InfinityWorldComponent } from "../../components/infinity-world-component";
 
 type indexType = {
   generalSettings: Settings;

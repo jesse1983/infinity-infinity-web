@@ -57,6 +57,7 @@ function FloorPlan({ src, children }: Props) {
     React.isValidElement(n) && n.props ? n.props : {}
   );
 
+  // TODO: save width on cache
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
   const [active, setActive] = useState(false);

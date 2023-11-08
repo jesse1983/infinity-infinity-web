@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import FloorPlan from "../floor-plan";
 import MiniMenuItem01 from "../../public/mini-menu-item01.svg";
@@ -9,6 +9,7 @@ import MiniMenuItem03 from "../../public/mini-menu-item03.svg";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import roofTop from '../../public/rooftop.jpg';
+import miniMenuBg from '../../public/mini-menu-bg.png';
 
 export enum SCREEN {
   SALES_TABLE = "SALES_TABLE",
@@ -26,7 +27,7 @@ const items = [
   },
   {
     icon: <MiniMenuItem02 className="w-7 md:w-10 xl:w-12" />,
-    screenComponent: <div>Mapa de vendas</div>,
+    screenComponent: <div>Mapa de vagas</div>,
     screen: SCREEN.PARKING_MAP,
     text: "Mapa de vagas",
     path: "mapa-de-vagas",
@@ -47,8 +48,6 @@ function getScreenByRouter() {
 }
 
 export function InfinityWorldComponent() {
-  const router = useRouter();
-
   const [currenScreen, setCurrentScreen] = useState<SCREEN>(getScreenByRouter());
 
   const position = useMemo(() => {
@@ -58,22 +57,31 @@ export function InfinityWorldComponent() {
   const changeScreen = (ev: React.MouseEvent, item) => {
     ev.preventDefault();
     setCurrentScreen(item.screen);
-    router.push(`/infinity-world/${item.path}`, undefined, { shallow: true });
+    history.pushState({}, item.text, `/infinity-world/${item.path}`);
+    window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
   }
 
+  const scrollToBottom = () => {
+    setTimeout(() => {
+      window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
+    },10)
+  };
+
   return (
-    <div className="relative">
+    <div className="relative max-h-screen ">
       <div
-        className={`absolute hidden w-[80px] lg:w-[104px] h-[50%] ${position} transition-top duration-300 bg-midnight-950/70 drop-shadow-2xl z-50 sm:flex flex-col justify-around items-center`}
+        style={{ backgroundImage: `url(${miniMenuBg.src})` }}
+        className={`absolute px-7 hidden w-[80px] lg:w-[324px] h-[50%] ${position} transition-top duration-300 drop-shadow-2xl z-50 sm:flex flex-col justify-around items-center uppercase text-sm font-bold bg-repeat-y bg-right`}
       >
         {items.map((item) => (
           <Link
             href={`/infinity-world/${item.path}`}
             key={uuidv4()}
-            className="relative"
+            className="group  flex justify-between items-center gap-7 w-[324px] whitespace-nowrap hover:bg-midnight-950/50 px-7 py-2 border-l-8 border-midnight-950/0 hover:border-midnight-950"
             onClick={(ev) => changeScreen(ev, item)}
           >
-            {item.icon}
+            <span className="indent-2 opacity-0 group-hover:opacity-100">{item.text}</span>
+            <span>{item.icon}</span>
           </Link>
         ))}
       </div>
@@ -89,7 +97,7 @@ export function InfinityWorldComponent() {
       ))}
 
       <div className="">
-        <FloorPlan src={roofTop.src} />
+        <FloorPlan src={roofTop.src} onLoad={scrollToBottom} />
       </div>
     </div>
   );

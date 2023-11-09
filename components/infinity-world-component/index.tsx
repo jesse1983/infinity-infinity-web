@@ -8,8 +8,9 @@ import MiniMenuItem02 from "../../public/mini-menu-item02.svg";
 import MiniMenuItem03 from "../../public/mini-menu-item03.svg";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import roofTop from '../../public/rooftop.jpg';
-import miniMenuBg from '../../public/mini-menu-bg.png';
+import roofTop from "../../public/rooftop.jpg";
+import miniMenuBg from "../../public/mini-menu-bg.png";
+import MapaDeDepositos from "./mapa-de-depositos";
 
 export enum SCREEN {
   SALES_TABLE = "SALES_TABLE",
@@ -34,7 +35,7 @@ const items = [
   },
   {
     icon: <MiniMenuItem03 className="w-7 md:w-10 xl:w-12" />,
-    screenComponent: <div>Mapa de depósitos</div>,
+    screenComponent: <MapaDeDepositos />,
     screen: SCREEN.DEPOSIT_MAP,
     text: "Mapa de depósitos",
     path: "mapa-de-depositos",
@@ -48,7 +49,9 @@ function getScreenByRouter() {
 }
 
 export function InfinityWorldComponent() {
-  const [currenScreen, setCurrentScreen] = useState<SCREEN>(getScreenByRouter());
+  const [currenScreen, setCurrentScreen] = useState<SCREEN>(
+    getScreenByRouter()
+  );
 
   const position = useMemo(() => {
     return currenScreen ? "bottom-0 right-0" : "bottom-[25%] right-10";
@@ -58,13 +61,21 @@ export function InfinityWorldComponent() {
     ev.preventDefault();
     setCurrentScreen(item.screen);
     history.pushState({}, item.text, `/infinity-world/${item.path}`);
-    window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
-  }
+    window.scrollTo({
+      left: 0,
+      top: document.body.scrollHeight,
+      behavior: "smooth",
+    });
+  };
 
   const scrollToBottom = () => {
     setTimeout(() => {
-      window.scrollTo({ left: 0, top: document.body.scrollHeight, behavior: "smooth" });
-    },10)
+      window.scrollTo({
+        left: 0,
+        top: document.body.scrollHeight,
+        behavior: "smooth",
+      });
+    }, 10);
   };
 
   return (
@@ -80,7 +91,9 @@ export function InfinityWorldComponent() {
             className="group  flex justify-between items-center gap-7 w-[324px] whitespace-nowrap hover:bg-midnight-950/50 px-7 py-2 border-l-8 border-midnight-950/0 hover:border-midnight-950"
             onClick={(ev) => changeScreen(ev, item)}
           >
-            <span className="indent-2 opacity-0 group-hover:opacity-100">{item.text}</span>
+            <span className="indent-2 opacity-0 group-hover:opacity-100">
+              {item.text}
+            </span>
             <span>{item.icon}</span>
           </Link>
         ))}

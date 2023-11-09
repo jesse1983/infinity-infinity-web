@@ -1,4 +1,3 @@
-import Image from "next/image";
 import PlayIcon from "../public/icone-play.svg";
 
 export default function CardProjetista({ nome }) {

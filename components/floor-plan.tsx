@@ -47,10 +47,10 @@ const getNodes = (children, componentName) => {
       c.type.name === componentName
   );
 };
-const cacheKey = 'FLOORPLAN: ';
+const cacheKey = "FLOORPLAN: ";
 
 function getCachedSize(src: string, d: string) {
-  if (typeof window !== 'undefined') {
+  if (typeof window !== "undefined") {
     const key = cacheKey + d + src;
     if (localStorage.getItem(key)) return parseFloat(localStorage.getItem(key));
   }
@@ -74,7 +74,7 @@ function FloorPlan({ src, children, onLoad }: Props) {
   // TODO: save width on cache
 
   const [width, setWidth] = useState(0);
-  const [height, setHeight] = useState(getCachedSize(src, 'h'));
+  const [height, setHeight] = useState(getCachedSize(src, "h"));
   const [active, setActive] = useState(false);
   const [pathActive, setPathActive] = useState();
   const [label, setLabel] = useState("");
@@ -103,8 +103,8 @@ function FloorPlan({ src, children, onLoad }: Props) {
     image.onload = () => {
       setWidth(image.width);
       setHeight(image.height);
-      setCachedSize(src, 'w', image.width);
-      setCachedSize(src, 'h', image.height);
+      setCachedSize(src, "w", image.width);
+      setCachedSize(src, "h", image.height);
       if (onLoad) onLoad(image);
     };
     image.src = src;

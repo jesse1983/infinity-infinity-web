@@ -12,6 +12,7 @@ import roofTop from "../../public/rooftop.jpg";
 import miniMenuBg from "../../public/mini-menu-bg.png";
 import MapaDeDepositos from "./mapa-de-depositos";
 import MapaDeVagas from "./mapa-de-vagas";
+import TabelaDeVendas from "./tabela-de-vendas";
 
 export enum SCREEN {
   SALES_TABLE = "SALES_TABLE",
@@ -22,7 +23,7 @@ export enum SCREEN {
 const items = [
   {
     icon: <MiniMenuItem01 className="w-7 md:w-10 xl:w-12" />,
-    screenComponent: <div>Tabela de vendas</div>,
+    screenComponent: <TabelaDeVendas />,
     screen: SCREEN.SALES_TABLE,
     text: "Tabela de vendas",
     path: "tabela-de-vendas",
@@ -50,13 +51,13 @@ function getScreenByRouter() {
 }
 
 export function InfinityWorldComponent() {
-  const [currenScreen, setCurrentScreen] = useState<SCREEN>(
+  const [currentScreen, setCurrentScreen] = useState<SCREEN>(
     getScreenByRouter()
   );
 
   const position = useMemo(() => {
-    return currenScreen ? "bottom-0 right-0" : "bottom-[25%] right-10";
-  }, [currenScreen]);
+    return currentScreen ? "bottom-0 right-0" : "bottom-[25%] right-10";
+  }, [currentScreen]);
 
   const changeScreen = (ev: React.MouseEvent, item) => {
     ev.preventDefault();
@@ -103,7 +104,7 @@ export function InfinityWorldComponent() {
         <div
           key={uuidv4()}
           className={`absolute bg-midnight-900 flex items-center justify-center z-10 h-full w-full transition duration-300 ${
-            currenScreen === item.screen ? "opacity-100" : "opacity-0"
+            currentScreen === item.screen ? "block" : "hidden"
           }`}
         >
           {item.screenComponent}

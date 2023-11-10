@@ -11,6 +11,7 @@ import Link from "next/link";
 import roofTop from "../../public/rooftop.jpg";
 import miniMenuBg from "../../public/mini-menu-bg.png";
 import MapaDeDepositos from "./mapa-de-depositos";
+import MapaDeVagas from "./mapa-de-vagas";
 
 export enum SCREEN {
   SALES_TABLE = "SALES_TABLE",
@@ -28,7 +29,7 @@ const items = [
   },
   {
     icon: <MiniMenuItem02 className="w-7 md:w-10 xl:w-12" />,
-    screenComponent: <div>Mapa de vagas</div>,
+    screenComponent: <MapaDeVagas />,
     screen: SCREEN.PARKING_MAP,
     text: "Mapa de vagas",
     path: "mapa-de-vagas",

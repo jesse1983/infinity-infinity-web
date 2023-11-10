@@ -1,14 +1,41 @@
-import PlayIcon from "../public/icone-play.svg";
+type InfoProps = {
+  identifier: string;
+  apartment: string;
+  mainImage: string;
+  bgImage: string;
+  parkingSpace?: string;
+  onBack?: Function;
+};
 
-export default function InfoMapa({ nome }) {
+export default function InfoMapa(props: InfoProps) {
   return (
-    <div>
-      <div className="text-2xl mb-2 uppercase text-justify font-medium">
-        Projeto Arquitetônico
-      </div>
-      <div className="lg:text-center font-bold text-xl py-2 w-1/4 mb-10 cursor-pointer uppercase bg-dusk flex justify-around px-16">
-        <PlayIcon className="w-1/12" />
-        Vídeo Depoimento
+    <div
+      className="absolute w-full h-full bg-[length:100%_100%]"
+      style={{
+        backgroundImage: `url(${props.bgImage}`,
+      }}
+    >
+      <div className="container mx-auto h-full">
+        <div className="h-full pt-[64px] grid grid-cols-12">
+          <div className="flex items-end col-span-3 text-4xl uppercase font-light  h-full">
+            <div className="border-l-2 pl-8 pb-[65%]">
+              <p className="mb-3">{props.identifier}</p>
+              <p className="text-3xl">{props.apartment}</p>
+              {props.parkingSpace && <p>{props.parkingSpace}</p>}
+            </div>
+          </div>
+          <div
+            className="col-span-1"
+            onClick={() => (props.onBack ? props.onBack() : undefined)}
+          >
+            ata
+          </div>
+          <img
+            src={props.mainImage}
+            alt={`Mapa de depositos ${props.identifier} do apartamento ${props.apartment}`}
+            className="col-span-8 mx-auto self-center"
+          />
+        </div>
       </div>
     </div>
   );

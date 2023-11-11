@@ -1,0 +1,157 @@
+[
+  {
+    "parkingSpace": "1001",
+    "identifier": "G1",
+    "apartment": "Infinity Blue",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+  {
+    "parkingSpace": "1002",
+    "identifier": "G2",
+    "apartment": "Infinity Blue",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+  {
+    "parkingSpace": "1003",
+    "identifier": "G3",
+    "apartment": "Infinity Blue",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+  {
+    "parkingSpace": "1004",
+    "identifier": "G4",
+    "apartment": "Infinity Blue",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+  {
+    "parkingSpace": "1005",
+    "identifier": "G5",
+    "apartment": "Infinity Blue",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+  {
+    "parkingSpace": "1006",
+    "identifier": "G6",
+    "apartment": "Infinity Blue",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+  {
+    "parkingSpace": "1007",
+    "identifier": "G7",
+    "apartment": "Infinity Blue",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+  {
+    "parkingSpace": "1008",
+    "identifier": "G8",
+    "apartment": "Infinity Blue",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+  {
+    "parkingSpace": "1009",
+    "identifier": "G9",
+    "apartment": "Infinity Blue",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+  {
+    "parkingSpace": "1010",
+    "identifier": "G10",
+    "apartment": "Infinity Blue",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+  {
+    "parkingSpace": "1011",
+    "identifier": "G11",
+    "apartment": "Infinity Blue",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+
+  {
+    "parkingSpace": "1001",
+    "identifier": "G1",
+    "apartment": "Infinity Sea",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+  {
+    "parkingSpace": "1002",
+    "identifier": "G2",
+    "apartment": "Infinity Sea",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+  {
+    "parkingSpace": "1003",
+    "identifier": "G3",
+    "apartment": "Infinity Sea",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+  {
+    "parkingSpace": "1004",
+    "identifier": "G4",
+    "apartment": "Infinity Sea",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+  {
+    "parkingSpace": "1005",
+    "identifier": "G5",
+    "apartment": "Infinity Sea",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+  {
+    "parkingSpace": "1006",
+    "identifier": "G6",
+    "apartment": "Infinity Sea",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+  {
+    "parkingSpace": "1007",
+    "identifier": "G7",
+    "apartment": "Infinity Sea",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+  {
+    "parkingSpace": "1008",
+    "identifier": "G8",
+    "apartment": "Infinity Sea",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+  {
+    "parkingSpace": "1009",
+    "identifier": "G9",
+    "apartment": "Infinity Sea",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+  {
+    "parkingSpace": "1010",
+    "identifier": "G10",
+    "apartment": "Infinity Sea",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  },
+  {
+    "parkingSpace": "1011",
+    "identifier": "G11",
+    "apartment": "Infinity Sea",
+    "mainImage": "../../public/deposit-g1-blue.png",
+    "bgImage": "../../public/bg-infinity-blue.png"
+  }
+]

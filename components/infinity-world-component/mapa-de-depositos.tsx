@@ -41,7 +41,6 @@ export default function MapaDeDepositos() {
       apartment: "Infinity Sea",
       mainImage: depositG1.src,
       bgImage: bgInfinitySea.src,
-      parkingSpace: "1001",
     },
     {
       identifier: "G2",

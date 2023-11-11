@@ -1,4 +1,3 @@
-import ItemMapa from "./item-mapa";
 import Voltar from "./voltar";
 
 type InfoProps = {
@@ -34,7 +33,7 @@ export default function InfoMapa(props: InfoProps) {
           </div>
           <img
             src={props.mainImage}
-            alt={`Mapa de depositos ${props.identifier} do apartamento ${props.apartment}`}
+            alt={`Mapa ${props.identifier} do apartamento ${props.apartment}`}
             className="col-span-8 mx-auto self-center"
           />
         </div>

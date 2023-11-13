@@ -4,6 +4,7 @@ import InfoMapa from "../info-mapa";
 import depositG1 from "../../public/deposit-g1-blue.png";
 import bgInfinityBlue from "../../public/bg-infinity-blue.png";
 import bgInfinitySea from "../../public/bg-infinty-sea.png";
+import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 
 export default function MapaDeDepositos() {
@@ -40,7 +41,6 @@ export default function MapaDeDepositos() {
       apartment: "Infinity Sea",
       mainImage: depositG1.src,
       bgImage: bgInfinitySea.src,
-      parkingSpace: "1001",
     },
     {
       identifier: "G2",
@@ -66,26 +66,25 @@ export default function MapaDeDepositos() {
       )}
       {!infoMap && (
         <MiniMenuContainer title="Mapa de Depositos">
-          <div className="flex">
-            <div className="text-center mb-24">
-              {grouped.map((group) => (
-                <div>
-                  <div className="self-center mb-10 text-3xl uppercase font-light mx-auto">
-                    {group.apartment}
-                  </div>
-                  <div className="flex flex-row mb-24">
-                    {group.items.map((item) => (
-                      <ItemMapa
-                        onClick={() => {
-                          setInfoMap(item);
-                        }}
-                        identifier={item.identifier}
-                      />
-                    ))}
-                  </div>
+          <div className="flex flex-col gap-y-24 text-center">
+            {grouped.map((group) => (
+              <div key={uuidv4()}>
+                <div className="self-center mb-10 text-3xl uppercase font-light mx-auto">
+                  {group.apartment}
                 </div>
-              ))}
-            </div>
+                <div className="flex flex-row">
+                  {group.items.map((item) => (
+                    <ItemMapa
+                      onClick={() => {
+                        setInfoMap(item);
+                      }}
+                      identifier={item.identifier}
+                      key={uuidv4()}
+                    />
+                  ))}
+                </div>
+              </div>
+            ))}
           </div>
         </MiniMenuContainer>
       )}

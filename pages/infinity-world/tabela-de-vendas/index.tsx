@@ -1,12 +1,9 @@
 import Head from "next/head";
-import { GetStaticProps } from "next";
 import Layout from "../../../components/layout";
-import { allSettings, getPage } from "../../../lib/api";
-import { Settings, Page } from "../../../models";
 import Header from "../../../components/header";
 import { InfinityWorldComponent } from "../../../components/infinity-world-component";
-import { getStaticProps } from "..";
-import { PROPS } from "../props";
+import { getStaticProps } from "../../../props/getStaticProps";
+import { PROPS } from "../../../props/infinity-world-props";
 
 export default function Index({
   generalSettings,

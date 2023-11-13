@@ -48,7 +48,7 @@ const getNodes = (children, componentName) => {
       c.type.name === componentName
   );
 };
-const cacheKey = 'FLOORPLAN: ';
+const cacheKey = "FLOORPLAN: ";
 
 function setCachedSize(src: string, d: string, v: number) {
   const key = cacheKey + d + src;
@@ -97,8 +97,8 @@ function FloorPlan({ src, children, onLoad }: Props) {
     image.onload = () => {
       setWidth(image.width);
       setHeight(image.height);
-      setCachedSize(src, 'w', image.width);
-      setCachedSize(src, 'h', image.height);
+      setCachedSize(src, "w", image.width);
+      setCachedSize(src, "h", image.height);
       if (onLoad) onLoad(image);
     };
     image.src = src;

@@ -15,6 +15,7 @@ import MapaDeVagas from "./mapa-de-vagas";
 import { BUILDING } from '../../enums/building';
 import { BUILDING_AREA } from "../../enums/building-area";
 import { ENTERPRISE, FLOOR } from "../../types";
+import TabelaDeVendas from "./tabela-de-vendas";
 
 export enum SCREEN {
   SALES_TABLE = "SALES_TABLE",
@@ -25,7 +26,7 @@ export enum SCREEN {
 const items = [
   {
     icon: <MiniMenuItem01 className="w-7 md:w-10 xl:w-12" />,
-    screenComponent: <div>Tabela de vendas</div>,
+    screenComponent: <TabelaDeVendas />,
     screen: SCREEN.SALES_TABLE,
     text: "Tabela de vendas",
     path: "tabela-de-vendas",
@@ -126,7 +127,7 @@ export function InfinityWorldComponent({ enterprises = [] }: { enterprises: ENTE
 
       <div className="">
         <FloorPlan src={roofTop.src} onLoad={scrollToBottom}>
-          {floors.filter((f) => f.coords).map((floor) => <FloorPlan.Poi icon='/icon-infinity.svg' title={floor.title} x={floor.coords.x} y={floor.coords.y} onClick={() => gotoEnterprise(floor.enterprise, floor.slug)}/>)}
+          {floors.filter((f) => f.coords).map((floor) => <FloorPlan.Poi key={uuidv4()} icon='/icon-infinity.svg' title={floor.title} x={floor.coords.x} y={floor.coords.y} onClick={() => gotoEnterprise(floor.enterprise, floor.slug)}/>)}
           {/* <FloorPlan.Poi title="Rooftop" icon='/icon-infinity.svg' x={760} y={170} onClick={() => gotoBuilding(BUILDING.INFINITY_BLUE, BUILDING_AREA.ROOFTOP)} />
           <FloorPlan.Poi title="Planta tipo" icon='/icon-infinity.svg' x={780} y={400} onClick={() => gotoBuilding(BUILDING.INFINITY_BLUE, BUILDING_AREA.APARTAMENT)} />
           <FloorPlan.Poi title="Pavimento térreo" icon='/icon-infinity.svg' x={760} y={700} onClick={() => gotoBuilding(BUILDING.INFINITY_BLUE, BUILDING_AREA.GROUND)} />

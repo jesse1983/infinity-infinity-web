@@ -14,10 +14,11 @@ type Path = {
 };
 
 type Poi = {
-  left: number;
-  top: number;
+  x: number;
+  y: number;
   title?: string;
   icon?: string;
+  svg?: string;
 };
 
 type Props = {
@@ -49,14 +50,6 @@ const getNodes = (children, componentName) => {
 };
 const cacheKey = 'FLOORPLAN: ';
 
-function getCachedSize(src: string, d: string) {
-  if (typeof window !== 'undefined') {
-    const key = cacheKey + d + src;
-    if (localStorage.getItem(key)) return parseFloat(localStorage.getItem(key));
-  }
-  return 0;
-}
-
 function setCachedSize(src: string, d: string, v: number) {
   const key = cacheKey + d + src;
   return localStorage.setItem(key, v.toString());
@@ -64,17 +57,18 @@ function setCachedSize(src: string, d: string, v: number) {
 
 function FloorPlan({ src, children, onLoad }: Props) {
   const clipPathUuid = useId();
-  const tooltipUuid = uuidv4();
-  const pois: React.ReactNode = getNodes(children, "Poi");
+  const tooltipUuid = useId();
+  const poisNodes: React.ReactNode[] = getNodes(children, "Poi");
   const pathNodes: React.ReactNode[] = getNodes(children, "Path");
   const paths: PathProps[] = pathNodes.map((n) =>
     React.isValidElement(n) && n.props ? n.props : {}
   );
-
-  // TODO: save width on cache
+  // const pois: Poi[] = poisNodes.map((n) =>
+  //   React.isValidElement(n) && n.props ? n.props : {}
+  // );
 
   const [width, setWidth] = useState(0);
-  const [height, setHeight] = useState(getCachedSize(src, 'h'));
+  const [height, setHeight] = useState(0);
   const [active, setActive] = useState(false);
   const [pathActive, setPathActive] = useState();
   const [label, setLabel] = useState("");
@@ -112,10 +106,11 @@ function FloorPlan({ src, children, onLoad }: Props) {
 
   return (
     <div className="w-auto relative">
-      {pois}
+      {/* {poisNodes} */}
       <Tooltip id={tooltipUuid} style={{ background: "transparent" }}>
         <div
           className={`
+              ${active ? '' : 'hidden'}
               bg-midnight-950
               px-7
               py-3
@@ -167,6 +162,8 @@ function FloorPlan({ src, children, onLoad }: Props) {
             key={uuidv4()}
           />
         ))}
+        {poisNodes}
+
       </svg>
     </div>
   );

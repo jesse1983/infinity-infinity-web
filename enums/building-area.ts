@@ -1,0 +1,6 @@
+export enum BUILDING_AREA {
+  ROOFTOP = "ROOFTOP",
+  APARTAMENT = "APARTAMENT",
+  GROUND = "GROUND",
+  BEACH = "BEACH",
+}

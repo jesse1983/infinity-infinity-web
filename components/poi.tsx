@@ -1,67 +1,54 @@
-import IconShoppingBag from "../public/icon-shopping-bag.svg";
+import { LegacyRef, useEffect, useRef, useState } from "react";
 
 type Props = {
-  left: number,
-  top: number,
-  active?: boolean,
-  icon?: string,
-  title?: string,
-}
-const getIcon = (icon: string) => {
-  const map = new Map();
+  x: number;
+  y: number;
+  active?: boolean;
+  icon?: string;
+  title?: string;
+  onClick?: Function;
+};
+export default function Poi({ active = true, icon, title, y, x, onClick }: Props) {
+  const [isOver, setIsOver] = useState(false);
+  const [width, setWidth] = useState(0);
+  const textEl = useRef<SVGTextElement | null>();
 
-  map.set('IconShoppingBag', IconShoppingBag);
+  const onMouseOver = () => setIsOver(true);
+  const onMouseOut = () => setIsOver(false);
+  const onClickPoi = () => onClick && onClick();
 
-  return map.get(icon);
-}
-export default function Poi({ active = false, icon, title, top, left }: Props) {
-  const Icon = getIcon(icon);
+  // const rectWidth = title.toUpperCase()
+  //   .split('')
+  //   .map((p) => ['I', ' '].includes(p) ? 5 : 25)
+  //   .reduce((p, n) => p + n, 0);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setWidth(textEl.current.getComputedTextLength());
+    }, 100)
+  }, []);
+
   return (
-    <div
-    style={{ top: `${top}%`, left: `${left}%` }}
-    className={`
-    group
-    absolute
-    bg-midnight-950
-    px-3
-    py-2
-    rounded-full
-    xs:text-xs
-    sm:text-sm
-    lg:text-lg
-    whitespace-nowrap
-    text-white
-    uppercase
-    flex
-    content-center
-    cursor-pointer
-    h-10
-    w-10
-    hover:gap-3
-    hover:w-auto
-    transition
-    duration-300
-    ease-out
-    ${active ? "opacity-0" : ""}
-  `}
-  >
-    <span className="inline-block">
-      <Icon className="w-5 h-5 fill-white stroke-white" />
-    </span>
-    <span className="
-      inline-block
-      overflow-hidden
-      scale-x-0
-      w-0
-      group-hover:scale-x-100
-      group-hover:w-auto
-      origin-left
-      transition-all
-      duration-300
-      ease-out
-    ">
-      {title}
-    </span>
-  </div>
-  )
+    <g className={`cursor-pointer ${active ? '' : 'opacity-0'}`} onMouseOver={onMouseOver} onMouseOut={onMouseOut} onClick={onClickPoi}>
+      <rect
+        className="fill-midnight-950 stroke-midnight-950 stroke-2"
+        width={isOver ? width + 60 + 20 : 60}
+        height="60"
+        x={x}
+        y={y}
+        ry="30"
+      />
+      <image
+        className="stroke-white text-white fill-white"
+        width="30"
+        height="30"
+        x={x + 15}
+        y={y + 15}
+        href={icon}
+      />
+      <text ref={textEl} x={x + 60} y={y + 35} className={` fill-white text-xl transition-opacity duration-300 uppercase ${isOver ? 'opacity-1' : 'opacity-0'}`}>
+        {title}
+      </text>
+    </g>
+  );
 }

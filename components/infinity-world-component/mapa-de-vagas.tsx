@@ -6,7 +6,7 @@ import depositG1 from "../../public/deposit-g1-blue.png";
 import { FloorPlanInfinityWorldMapa } from "../floorplans";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import parkingSlots from "./parkingSlots.json";
+import { parkingSlots } from "./parkingSlots";
 import InfoMapa from "../info-mapa";
 
 export default function MapaDeVagas() {
@@ -43,7 +43,7 @@ export default function MapaDeVagas() {
           </MiniMenuContainer>
         </>
       )}
-      {infoParking && (
+      {infoParking && parkingSelection && (
         // <div>{JSON.stringify(currentSlot)}</div>
         <InfoMapa
           parkingSpace={infoParking.parkingSpace}

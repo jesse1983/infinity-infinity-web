@@ -1,6 +1,5 @@
 import MiniMenuContainer from "../mini-menu-container";
-import bgInfinityBlue from "../../public/bg-infinity-blue.png";
-import bgInfinitySea from "../../public/bg-infinty-sea.png";
+import tabelaVendas from "../../public/tabela-vendas.png";
 import { FloorPlanInfinityWorldMapa } from "../floorplans";
 import { useState } from "react";
 import Image from "next/image";
@@ -20,11 +19,7 @@ export default function TabelaDeVendas() {
           <div
             className="container mx-auto mt-[64px] overflow-y-scroll w-[80%] h-[80%] bg-[length:100%_100%]"
             style={{
-              backgroundImage: `url(${
-                priceTable === "Infinity Blue"
-                  ? bgInfinityBlue.src
-                  : bgInfinitySea.src
-              })`,
+              backgroundImage: `url(${tabelaVendas.src})`,
             }}
           ></div>
         </>

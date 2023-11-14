@@ -41,12 +41,12 @@ export default function Header({ menu }: { menu: Page[] }) {
         <ul className={`overflow-hidden sm:h-auto sm:grid sm:grid-cols-5 bg-midnight-900/70 m-0 p-0 transition-all duration-300 ease-in-out ${open ? 'h-[322px]' : 'h-0'}`}>
           {menu.map((item) => (
             <li key={item.uri} className="text-center">
-              <a
+              <Link
                 href={item.uri}
                 className="flex justify-center items-center h-16 hover:bg-midnight-950 transition duration-500 hover:ease-in-out"
               >
                 {item.title}
-              </a>
+              </Link>
             </li>
           ))}
         </ul>

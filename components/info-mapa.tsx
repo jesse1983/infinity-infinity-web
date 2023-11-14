@@ -1,4 +1,4 @@
-import Voltar from "./voltar";
+import BackButton from "./voltar";
 
 type InfoProps = {
   identifier: string;
@@ -27,7 +27,7 @@ export default function InfoMapa(props: InfoProps) {
             </div>
           </div>
           <div className="col-span-2 self-center ">
-            <Voltar
+            <BackButton
               onClick={() => (props.onBack ? props.onBack() : undefined)}
             />
           </div>

@@ -12,9 +12,12 @@ import FloorPlan from "./floor-plan";
 import { Carousel } from "react-responsive-carousel";
 import IconClose from "../public/icon-close.svg";
 import IconFullscreen from "../public/icon-fullscreen.svg";
+import IconRuler from "../public/icon-ruler.svg";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { AMBIENT, ENTERPRISE, FLOOR } from "../types";
 import { InfinitySeaNavCircle } from "./building-circle";
+import { DECORATED } from "../types/floor";
+import { Decorated } from "./decorated";
 
 type indexType = {
   generalSettings: Settings;
@@ -35,6 +38,7 @@ export default function Enterprise({
 }: indexType) {
   const [selectedAmbient, setSelectedAmbient] = useState<AMBIENT | undefined>();
   const [floor, setFloor] = useState<FLOOR | undefined>();
+  const [showDecorated, setShowDecorated] = useState(false);
   const imagesRefs = useRef([]);
   const floors = enterprises.find((e) => e.slug === enterprise).floors;
 
@@ -70,9 +74,9 @@ export default function Enterprise({
   const rotateNav = (selectedFloor) => {
     const found = floors.find((a) => a.slug === selectedFloor);
     setFloor(found);
-  }
+  };
   const buildingCircle = () => (
-    <div className="left-0 fixed z-50 overflow-hidden h-[calc(100vh/2_-_10vh)] w-5/12 bottom-0 hidden lg:block">
+    <div className="left-[10%] fixed z-50 overflow-hidden h-[calc(100vh/2_-_15vh)] w-[calc(100vh/2)] bottom-0 hidden lg:block">
       <InfinitySeaNavCircle floor={floor?.slug} onClick={rotateNav} />
     </div>
   );
@@ -152,9 +156,9 @@ export default function Enterprise({
           )}
         </div>
 
-        <MiniMenuContainer title={logo} noBorder slot={buildingCircle()}>
+        <MiniMenuContainer title={logo} noBorder slot={!showDecorated && buildingCircle()}>
           {floor && (
-            <div className="w-full p-24">
+            <div className="w-full p-24 relative">
               <FloorPlan src={floor.floorPlanSrc}>
                 {floor.ambients.map((ambient) => (
                   <FloorPlan.Path
@@ -165,9 +169,21 @@ export default function Enterprise({
                   />
                 ))}
               </FloorPlan>
+              {floor.decorated?.length && !showDecorated && (
+                <div
+                  className="absolute bg-midnight-950 p-4 z-50 text-white bottom-14 right-14 border border-white uppercase flex items-center gap-4 hover:bg-white hover:text-midnight-950 cursor-pointer transition duration-300"
+                  onClick={() => setShowDecorated(true)}
+                >
+                  <span className="w-7 h-7 inline-block">
+                    <IconRuler />
+                  </span>
+                  <span>Opções de plantas</span>
+                </div>
+              )}
             </div>
           )}
         </MiniMenuContainer>
+        {floor?.decorated?.length && showDecorated && <Decorated decorated={floor.decorated} onClose={() => setShowDecorated(undefined)} />}
       </div>
     </Layout>
   );

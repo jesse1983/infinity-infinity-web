@@ -17,6 +17,22 @@ export const enterprises: ENTERPRISE[] = [
         coords: { x: 780, y: 400 },
         slug: "apartament",
         floorPlanSrc: floorPlanInfinityBlueApartament.src,
+        decorated: [
+          {
+            title: "Laís Galvão",
+            subtitle: "287,32m²",
+            description:
+              "3 suítes, sala ampliada e home office + suíte master com 2 sanitários",
+            floorPlanSrc: floorPlanInfinitySeaApartament.src,
+          },
+          {
+            title: "Tatiana Melo",
+            subtitle: "287,32m²",
+            description:
+              "3 suítes e suíte master com 2 sanitários",
+            floorPlanSrc: floorPlanInfinitySeaApartament.src,
+          },
+        ],
         ambients: [
           {
             title: "Suíte Master",
@@ -105,12 +121,10 @@ export const enterprises: ENTERPRISE[] = [
         coords: { x: 1180, y: 770 },
         slug: "beach-club",
         floorPlanSrc: floorPlanInfinitySeaClub.src,
-        ambients: [
-        ],
+        ambients: [],
       },
     ],
   },
-
 ];
 
 // <FloorPlan.Poi title="Rooftop" icon='/icon-infinity.svg' x={760} y={170} onClick={() => gotoBuilding(BUILDING.INFINITY_BLUE, BUILDING_AREA.ROOTOP)} />

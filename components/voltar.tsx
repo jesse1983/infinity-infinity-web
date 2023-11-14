@@ -1,6 +1,6 @@
 import BackSVG from "../public/voltar.svg";
 
-export default function Voltar({ onClick = () => undefined }) {
+export default function BackButton({ onClick = () => undefined }) {
   return (
     <div className="flex flex-col mx-14">
       <div

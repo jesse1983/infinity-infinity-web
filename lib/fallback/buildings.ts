@@ -39,22 +39,6 @@ export const enterprises: ENTERPRISE[] = [
         slug: "rooftop",
         coords: { x: 760, y: 170 },
         floorPlanSrc: floorPlanInfinityBlueRooftop.src,
-        decorated: [
-          {
-            title: "Laís Galvão",
-            subtitle: "287,32m²",
-            description:
-              "3 suítes, sala ampliada e home office + suíte master com 2 sanitários",
-            floorPlanSrc: floorPlanInfinitySeaApartament.src,
-          },
-          {
-            title: "Tatiana Melo",
-            subtitle: "287,32m²",
-            description:
-              "3 suítes e suíte master com 2 sanitários",
-            floorPlanSrc: floorPlanInfinitySeaApartament.src,
-          },
-        ],
         ambients: [
           {
             photoSrc: photoInfinityBlueRooftop01.src,
@@ -85,6 +69,22 @@ export const enterprises: ENTERPRISE[] = [
         coords: { x: 780, y: 400 },
         slug: "apartament",
         floorPlanSrc: floorPlanInfinityBlueApartament.src,
+        decorated: [
+          {
+            title: "Laís Galvão",
+            subtitle: "287,32m²",
+            description:
+              "3 suítes, sala ampliada e home office + suíte master com 2 sanitários",
+            floorPlanSrc: floorPlanInfinitySeaApartament.src,
+          },
+          {
+            title: "Tatiana Melo",
+            subtitle: "287,32m²",
+            description:
+              "3 suítes e suíte master com 2 sanitários",
+            floorPlanSrc: floorPlanInfinitySeaApartament.src,
+          },
+        ],
         ambients: [
           {
             photoSrc: photoInfinityBluePlantaTipo02.src,
@@ -146,7 +146,7 @@ export const enterprises: ENTERPRISE[] = [
       },
       {
         title: "Beach Lounge",
-        coords: { x: 850, y: 770 },
+        coords: { x: 850, y: 790 },
         slug: "beach-lounge",
         floorPlanSrc: floorPlanInfinityBlueLounge.src,
         ambients: [
@@ -237,7 +237,7 @@ export const enterprises: ENTERPRISE[] = [
       },
       {
         title: "Beach Club",
-        coords: { x: 1080, y: 770 },
+        coords: { x: 1130, y: 790 },
         slug: "beach-club",
         floorPlanSrc: floorPlanInfinitySeaClub.src,
         ambients: [

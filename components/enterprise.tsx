@@ -169,7 +169,7 @@ export default function Enterprise({
                   />
                 ))}
               </FloorPlan>
-              {floor.decorated?.length && !showDecorated && (
+              {floor.decorated?.length && !showDecorated && !setSelectedAmbient && (
                 <div
                   className="absolute bg-midnight-950 p-4 z-50 text-white bottom-14 right-14 border border-white uppercase flex items-center gap-4 hover:bg-white hover:text-midnight-950 cursor-pointer transition duration-300"
                   onClick={() => setShowDecorated(true)}

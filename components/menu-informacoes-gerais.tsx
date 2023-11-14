@@ -32,6 +32,7 @@ export default function MenuInformacoes({ currentPage }) {
               item.basis
             } ${currentPage === item.href ? "bg-dusk" : ""}`}
             href={item.href}
+            key={item.title}
           >
             {item.title}
           </Link>

@@ -1,6 +1,7 @@
 import { Page, Settings } from "../models";
 import allSettingsJson from './fallback/allSettings.json';
 import getPageJson from './fallback/getPage.json';
+import { enterprises } from './fallback/buildings';
 
 const API_URL = process.env.WORDPRESS_API_URL
 
@@ -106,4 +107,9 @@ export async function allSettings() {
   } catch (e) {
     return allSettingsJson;
   }
+}
+
+
+export async function getEnterprises() {
+  return enterprises;
 }

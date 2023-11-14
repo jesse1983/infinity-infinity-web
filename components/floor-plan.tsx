@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useId, useState } from "react";
 import { Tooltip } from "react-tooltip";
 import { v4 as uuidv4 } from "uuid";
 import Poi from "./poi";
@@ -14,16 +14,17 @@ type Path = {
 };
 
 type Poi = {
-  left: number;
-  top: number;
+  x: number;
+  y: number;
   title?: string;
   icon?: string;
+  svg?: string;
 };
 
 type Props = {
   src: string;
   children?: React.ReactNode;
-  paths?: Path[];
+  onLoad?: Function;
 };
 
 type PathProps = {
@@ -47,15 +48,24 @@ const getNodes = (children, componentName) => {
       c.type.name === componentName
   );
 };
+const cacheKey = "FLOORPLAN: ";
 
-function FloorPlan({ src, children }: Props) {
-  const clipPathUuid = uuidv4();
-  const tooltipUuid = uuidv4();
-  const pois: React.ReactNode = getNodes(children, "Poi");
+function setCachedSize(src: string, d: string, v: number) {
+  const key = cacheKey + d + src;
+  return localStorage.setItem(key, v.toString());
+}
+
+function FloorPlan({ src, children, onLoad }: Props) {
+  const clipPathUuid = useId();
+  const tooltipUuid = useId();
+  const poisNodes: React.ReactNode[] = getNodes(children, "Poi");
   const pathNodes: React.ReactNode[] = getNodes(children, "Path");
   const paths: PathProps[] = pathNodes.map((n) =>
     React.isValidElement(n) && n.props ? n.props : {}
   );
+  // const pois: Poi[] = poisNodes.map((n) =>
+  //   React.isValidElement(n) && n.props ? n.props : {}
+  // );
 
   const [width, setWidth] = useState(0);
   const [height, setHeight] = useState(0);
@@ -87,16 +97,20 @@ function FloorPlan({ src, children }: Props) {
     image.onload = () => {
       setWidth(image.width);
       setHeight(image.height);
+      setCachedSize(src, "w", image.width);
+      setCachedSize(src, "h", image.height);
+      if (onLoad) onLoad(image);
     };
     image.src = src;
-  });
+  }, []);
 
   return (
     <div className="w-auto relative">
-      {pois}
+      {/* {poisNodes} */}
       <Tooltip id={tooltipUuid} style={{ background: "transparent" }}>
         <div
           className={`
+              ${active ? '' : 'hidden'}
               bg-midnight-950
               px-7
               py-3
@@ -148,6 +162,8 @@ function FloorPlan({ src, children }: Props) {
             key={uuidv4()}
           />
         ))}
+        {poisNodes}
+
       </svg>
     </div>
   );

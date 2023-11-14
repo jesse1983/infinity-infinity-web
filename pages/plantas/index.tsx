@@ -12,6 +12,7 @@ import {
   FloorPlanInfinitySeaClub,
   FloorPlanInfinitySeaPavimento,
   FloorPlanInfinitySeaApartment,
+  FloorPlanInfinityWorldMapa,
 } from "../../components/floorplans";
 
 type indexType = {
@@ -74,6 +75,18 @@ export default function Index({
           Infinity Sea Apartment
         </div>
         <FloorPlanInfinitySeaApartment />
+      </section>
+      <section className="container m-auto bg-white my-10">
+        <div className="text-midnight-950 text-2xl text-center">
+          Infinity World Mapa
+        </div>
+        <FloorPlanInfinityWorldMapa isTable={false} />
+      </section>
+      <section className="container m-auto bg-white my-10">
+        <div className="text-midnight-950 text-2xl text-center">
+          Infinity World Mapa (Tabela)
+        </div>
+        <FloorPlanInfinityWorldMapa isTable={true} />
       </section>
     </Layout>
   );

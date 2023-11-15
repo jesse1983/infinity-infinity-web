@@ -23,41 +23,40 @@ export enum SCREEN {
   DEPOSIT_MAP = "DEPOSIT_MAP",
 }
 
-const items = [
-  {
-    icon: <MiniMenuItem01 className="w-7 md:w-10 xl:w-12" />,
-    screenComponent: <TabelaDeVendas />,
-    screen: SCREEN.SALES_TABLE,
-    text: "Tabela de vendas",
-    path: "tabela-de-vendas",
-  },
-  {
-    icon: <MiniMenuItem02 className="w-7 md:w-10 xl:w-12" />,
-    screenComponent: <MapaDeVagas />,
-    screen: SCREEN.PARKING_MAP,
-    text: "Mapa de vagas",
-    path: "mapa-de-vagas",
-  },
-  {
-    icon: <MiniMenuItem03 className="w-7 md:w-10 xl:w-12" />,
-    screenComponent: <MapaDeDepositos />,
-    screen: SCREEN.DEPOSIT_MAP,
-    text: "Mapa de depósitos",
-    path: "mapa-de-depositos",
-  },
-];
-
-function getScreenByRouter() {
+function getScreenByRouter(items) {
   const router = useRouter();
   const foundItem = items.find((item) => router.pathname.includes(item.path));
   if (foundItem) return foundItem.screen;
 }
 
 export function InfinityWorldComponent({ enterprises = [] }: { enterprises: ENTERPRISE[] }) {
+  const items = [
+    {
+      icon: <MiniMenuItem01 className="w-7 md:w-10 xl:w-12" />,
+      screenComponent: <TabelaDeVendas enterprises={enterprises} />,
+      screen: SCREEN.SALES_TABLE,
+      text: "Tabela de vendas",
+      path: "tabela-de-vendas",
+    },
+    {
+      icon: <MiniMenuItem02 className="w-7 md:w-10 xl:w-12" />,
+      screenComponent: <MapaDeVagas enterprises={enterprises} />,
+      screen: SCREEN.PARKING_MAP,
+      text: "Mapa de vagas",
+      path: "mapa-de-vagas",
+    },
+    {
+      icon: <MiniMenuItem03 className="w-7 md:w-10 xl:w-12" />,
+      screenComponent: <MapaDeDepositos enterprises={enterprises} />,
+      screen: SCREEN.DEPOSIT_MAP,
+      text: "Mapa de depósitos",
+      path: "mapa-de-depositos",
+    },
+  ];
   const router = useRouter();
 
   const [currentScreen, setCurrentScreen] = useState<SCREEN>(
-    getScreenByRouter()
+    getScreenByRouter(items)
   );
 
   const position = useMemo(() => {

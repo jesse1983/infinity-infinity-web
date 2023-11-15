@@ -35,7 +35,10 @@ export default function Index({
         <Title imageURL={bgMar} content="Mergulhe no seu mar" />
       </div>
       <div className="container mx-auto flex flex-col lg:flex-row justify-around items-center mb-10 lg:mb-1">
-        <div className="font-medium text-2xl leading-loose text-center lg:text-justify mb-10 lg:mb-1">
+        <div
+          className="font-medium text-2xl leading-loose text-center lg:text-justify mb-10 lg:mb-1"
+          data-aos="fade-up-right"
+        >
           <p>Estar onde se é</p>
           <p>Ser o que se quer</p>
           <p>
@@ -53,6 +56,7 @@ export default function Index({
         <Image
           src={CasalDobrado}
           alt="Foto dobrada de um casal se abraçando em uma praia"
+          data-aos="fade-up-left"
         />
       </div>
       <div className="container mx-auto flex flex-col lg:flex-row justify-around items-center mb-10">
@@ -60,8 +64,12 @@ export default function Index({
           src={CasalCortado}
           alt="Foto cortada de um casal observando a praia"
           className="mb-10 lg:mb-1"
+          data-aos="fade-down-right"
         />
-        <div className="font-medium text-2xl leading-loose text-center lg:text-right mr-20">
+        <div
+          className="font-medium text-2xl leading-loose text-center lg:text-right mr-20"
+          data-aos="fade-down-left"
+        >
           <p>Se encontar no mar</p>
           <p>que também é morar</p>
           <p>que também é morar</p>
@@ -81,7 +89,7 @@ export default function Index({
           className="absolute z-50"
         />
       </div> */}
-      <div>
+      <div data-aos="zoom-in-down">
         <video
           className=" w-auto min-w-full min-h-full max-h-none"
           autoPlay

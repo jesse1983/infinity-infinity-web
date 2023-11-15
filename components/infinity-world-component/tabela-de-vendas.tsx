@@ -6,7 +6,11 @@ import Image from "next/image";
 import BackButton from "../voltar";
 import { ENTERPRISE } from "../../types";
 
-export default function TabelaDeVendas({ enterprises }: { enterprises: ENTERPRISE[] }) {
+export default function TabelaDeVendas({
+  enterprises,
+}: {
+  enterprises: ENTERPRISE[];
+}) {
   const [selectedEnterprise, setSelectedEnterprise] = useState<ENTERPRISE>();
 
   const onBack = () => setSelectedEnterprise(undefined);
@@ -14,7 +18,7 @@ export default function TabelaDeVendas({ enterprises }: { enterprises: ENTERPRIS
     <>
       {selectedEnterprise && (
         <>
-          <div className="self-center">
+          <div className="self-center" data-aos="zoom-in">
             <BackButton onClick={() => (onBack ? onBack() : undefined)} />
           </div>
           <div
@@ -22,6 +26,7 @@ export default function TabelaDeVendas({ enterprises }: { enterprises: ENTERPRIS
             style={{
               backgroundImage: `url(${selectedEnterprise.salesTable})`,
             }}
+            data-aos="zoom-out"
           ></div>
         </>
       )}

@@ -6,14 +6,18 @@ import { useState } from "react";
 import { ENTERPRISE } from "../../types";
 import { DEPOSIT } from "../../types/deposit";
 
-export default function MapaDeDepositos({ enterprises }: { enterprises: ENTERPRISE[] }) {
+export default function MapaDeDepositos({
+  enterprises,
+}: {
+  enterprises: ENTERPRISE[];
+}) {
   const [selectedDeposit, setSelectedDeposit] = useState<DEPOSIT>();
   const [selectedEnterprise, setSelectedEnterprise] = useState<ENTERPRISE>();
 
   const setDeposit = (enterprise, deposit) => {
     setSelectedEnterprise(enterprise);
     setSelectedDeposit(deposit);
-  }
+  };
   return (
     <>
       {selectedDeposit && (
@@ -31,7 +35,10 @@ export default function MapaDeDepositos({ enterprises }: { enterprises: ENTERPRI
           <div className="flex flex-col gap-y-24 text-center">
             {enterprises.map((enterprise) => (
               <div key={uuidv4()}>
-                <div className="self-center mb-10 text-3xl uppercase font-light mx-auto">
+                <div
+                  className="self-center mb-10 text-3xl uppercase font-light mx-auto"
+                  data-aos="zoom-in"
+                >
                   {enterprise.title}
                 </div>
                 <div className="flex flex-row">

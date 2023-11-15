@@ -26,7 +26,10 @@ export default function Index({
       </Head>
       <Header menu={menu} />
       <div className="relative flex items-center justify-center h-[calc(100vh-150px)] w-screen overflow-hidden">
-        <div className="flex items-end justify-end relative z-30 w-auto h-full sm:w-screen">
+        <div
+          className="flex items-end justify-end relative z-30 w-auto h-full sm:w-screen"
+          data-aos="fade-up-left"
+        >
           <a
             href="./infinity-world"
             className="px-10 py-5 mb-7 mr-7 border hover:bg-white hover:text-midnight-950 transition duration-500 hover:ease-in-out"
@@ -39,6 +42,7 @@ export default function Index({
           autoPlay
           muted
           loop
+          data-aos="zoom-in"
           // poster="./home.jpg"
         >
           {/* <source src="./banner01.webm" type="video/webm" /> */}

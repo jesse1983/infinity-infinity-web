@@ -33,7 +33,7 @@ export default function Descritivo({
       <Header menu={menu} />
       <Title imageURL={bgPraia} content="Seu infinito pé na areia" />
       <MenuInformacoes currentPage={currentURL} />
-      <div className="container mx-auto">
+      <div className="container mx-auto" data-aos="fade-right">
         <div className="container mx-auto">
           <div>
             <p className="uppercase font-medium text-justify text-xl mb-2">

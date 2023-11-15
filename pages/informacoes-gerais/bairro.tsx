@@ -39,8 +39,9 @@ export default function Bairro({
           src={ImageNeighbor}
           alt="Vista dos prédios Infinity na beira da praia"
           className="w-full mb-10"
+          data-aos="zoom-in-down"
         />
-        <div className="">
+        <div data-aos="zoom-in-down">
           <p className="text-[24px] text-justify font-medium">
             LOREM IPSUM DOLOT SIT AMET CONSEECCT AKADDKKS ALDAKSKA DJFJF
           </p>

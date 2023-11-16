@@ -16,6 +16,9 @@ import { BUILDING } from "../../enums/building";
 import { BUILDING_AREA } from "../../enums/building-area";
 import { ENTERPRISE, FLOOR } from "../../types";
 import TabelaDeVendas from "./tabela-de-vendas";
+import InfinityLogoBlue from "../../public/logo-infinity-blue-white.svg";
+import InfinityLogoSea from "../../public/logo-infinity-sea-white.svg";
+import ItemMapa from "../item-mapa";
 
 export enum SCREEN {
   SALES_TABLE = "SALES_TABLE",
@@ -63,6 +66,9 @@ export function InfinityWorldComponent({
     getScreenByRouter(items)
   );
 
+  const [buildingDetails, setBuildingDetails] = useState<ENTERPRISE>();
+  const [direction, setDirection] = useState<string>();
+
   const position = useMemo(() => {
     return currentScreen ? "bottom-0 right-0" : "bottom-[25%] right-10";
   }, [currentScreen]);
@@ -102,6 +108,11 @@ export function InfinityWorldComponent({
     []
   );
 
+  const clickBuildingDetails = (enterprise: ENTERPRISE, direction: string) => {
+    setBuildingDetails(enterprise);
+    setDirection(direction);
+  };
+
   return (
     <div className="relative max-h-screen " data-aos="zoom-out">
       <div
@@ -132,9 +143,49 @@ export function InfinityWorldComponent({
           {item.screenComponent}
         </div>
       ))}
-
+      {buildingDetails && (
+        <div
+          className={`flex flex-col px-2 absolute w-1/5 z-20 text-center top-[20%] ${direction}`}
+          data-aos="zoom-in"
+        >
+          <div className="bg-dusk flex flex-row text-center rounded-t-3xl">
+            <div className="w-full text-3xl font-medium p-8 ml-12">
+              {buildingDetails.area}
+            </div>
+            <ItemMapa
+              identifier="X"
+              isApartmentInfo={true}
+              onClick={() => setBuildingDetails(undefined)}
+            />
+          </div>
+          <div className="bg-midnight-950 leading-tight border-white text-xl rounded-b-3xl mb-10">
+            {buildingDetails.features.map((feature, i) => (
+              <div
+                className={`py-3 ${
+                  i === buildingDetails.features.length - 1 ? "" : "border-b"
+                }`}
+              >
+                {feature}
+              </div>
+            ))}
+          </div>
+          <img src={buildingDetails.logo} />
+        </div>
+      )}
       <div className="">
         <FloorPlan src={roofTop.src} onLoad={scrollToBottom}>
+          <FloorPlan.Path
+            title={"Infinity Blue"}
+            coords="m 650.34595,244.25823 -16.69319,13.7393 -1.52777,469.63462 163.72365,-0.99498 0.34756,-12.5225 124.36387,-6.71658 1.67999,-468.28169 -4.8043,-3.16321 -21.92955,-3.92985 -0.30536,-14.12017 4.05404,-1.43352 0.36927,-4.16029 -195.8216,-33.71256 -1.87703,1.39514 v 3.63937 l -14.31199,-1.01263 -37.19983,32.39774 z"
+            onClick={(ev) => clickBuildingDetails(enterprises[0], "left-[5%]")}
+          />
+          <FloorPlan.Path
+            title={"Infinity Sea"}
+            coords="m 990.26489,155.08884 -0.0589,19.16434 -9.47572,5.86163 0.35537,1.95262 7.59924,1.53823 0.33361,7.70718 -18.12559,10.65442 -4.23344,504.61432 99.08344,1.66689 50.7551,-0.18565 167.9397,2.45917 1.8619,-555.62118 -6.5855,-5.64578 -18.1504,-4.23036 v -7.36315 l 16.6577,-7.51778 -0.6463,-2.5847 -152.6622,-34.516545 -8.4432,5.281279 -25.2483,-5.585702 h -2.1233 l 0.086,8.953498 -10.9751,-1.4198 z"
+            onClick={(ev) =>
+              clickBuildingDetails(enterprises[1], "right-[10%]")
+            }
+          />
           {floors
             .filter((f) => f.coords)
             .map((floor) => (

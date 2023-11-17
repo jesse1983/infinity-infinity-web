@@ -29,10 +29,23 @@ import photoInfinitySeaPlantaTipo04 from "../../public/photo-infinity-sea-planta
 import floorPlanInfinitySeaApartament from "../../public/floor-plan-infinity-sea-apartment.png";
 import floorPlanInfinitySeaClub from "../../public/floor-plan-infinity-sea-club.png";
 
+import depositG1 from "../../public/deposit-g1-blue.png";
+import bgInfinityBlue from "../../public/bg-infinity-blue.png";
+import bgInfinitySea from "../../public/bg-infinty-sea.png";
+import tabelaVendas from "../../public/tabela-vendas.png";
+
 export const enterprises: ENTERPRISE[] = [
   {
     title: "Infinity Blue",
     slug: "infinity-blue",
+    area: "287,32m²",
+    logo: "/logo-infinity-blue-blue.svg",
+    features: [
+      "4 suítes com vista mar",
+      "4 vagas de garagem por unidade",
+      "2 unidades por pavimento",
+      "16 pavimentos tipo",
+    ],
     floors: [
       {
         title: "Rooftop",
@@ -80,8 +93,7 @@ export const enterprises: ENTERPRISE[] = [
           {
             title: "Tatiana Melo",
             subtitle: "287,32m²",
-            description:
-              "3 suítes e suíte master com 2 sanitários",
+            description: "3 suítes e suíte master com 2 sanitários",
             floorPlanSrc: floorPlanInfinitySeaApartament.src,
           },
         ],
@@ -159,11 +171,88 @@ export const enterprises: ENTERPRISE[] = [
         ],
       },
     ],
+    garages: [
+      {
+        number: "1001",
+        identifier: "G1",
+        image: depositG1.src,
+      },
+      {
+        number: "1002",
+        identifier: "G2",
+        image: depositG1.src,
+      },
+      {
+        number: "1003",
+        identifier: "G3",
+        image: depositG1.src,
+      },
+      {
+        number: "1004",
+        identifier: "G4",
+        image: depositG1.src,
+      },
+      {
+        number: "1005",
+        identifier: "G5",
+        image: depositG1.src,
+      },
+      {
+        number: "1006",
+        identifier: "G6",
+        image: depositG1.src,
+      },
+      {
+        number: "1007",
+        identifier: "G7",
+        image: depositG1.src,
+      },
+      {
+        number: "1008",
+        identifier: "G8",
+        image: depositG1.src,
+      },
+      {
+        number: "1009",
+        identifier: "G9",
+        image: depositG1.src,
+      },
+      {
+        number: "1010",
+        identifier: "G10",
+        image: depositG1.src,
+      },
+      {
+        number: "1011",
+        identifier: "G11",
+        image: depositG1.src,
+      },
+    ],
+    bgImage: bgInfinityBlue.src,
+    salesTable: tabelaVendas.src,
+    deposits: [
+      {
+        identifier: "G1",
+        image: depositG1.src,
+      },
+      {
+        identifier: "G2",
+        image: depositG1.src,
+      },
+    ],
   },
 
   {
     title: "Infinity Sea",
     slug: "infinity-sea",
+    area: "288,38m²",
+    logo: "/logo-infinity-sea-blue.svg",
+    features: [
+      "4 suítes com vista mar",
+      "4 vagas de garagem por unidade",
+      "2 unidades por pavimento",
+      "16 pavimentos tipo",
+    ],
     floors: [
       {
         title: "Planta tipo",
@@ -248,6 +337,75 @@ export const enterprises: ENTERPRISE[] = [
               "m 578.30025,226.04258 -0.58518,613.17785 290.39767,0.0491 0.42506,-612.9309 z",
           },
         ],
+      },
+    ],
+    garages: [
+      {
+        number: "1001",
+        identifier: "G1",
+        image: depositG1.src,
+      },
+      {
+        number: "1002",
+        identifier: "G2",
+        image: depositG1.src,
+      },
+      {
+        number: "1003",
+        identifier: "G3",
+        image: depositG1.src,
+      },
+      {
+        number: "1004",
+        identifier: "G4",
+        image: depositG1.src,
+      },
+      {
+        number: "1005",
+        identifier: "G5",
+        image: depositG1.src,
+      },
+      {
+        number: "1006",
+        identifier: "G6",
+        image: depositG1.src,
+      },
+      {
+        number: "1007",
+        identifier: "G7",
+        image: depositG1.src,
+      },
+      {
+        number: "1008",
+        identifier: "G8",
+        image: depositG1.src,
+      },
+      {
+        number: "1009",
+        identifier: "G9",
+        image: depositG1.src,
+      },
+      {
+        number: "1010",
+        identifier: "G10",
+        image: depositG1.src,
+      },
+      {
+        number: "1011",
+        identifier: "G11",
+        image: depositG1.src,
+      },
+    ],
+    bgImage: bgInfinitySea.src,
+    salesTable: tabelaVendas.src,
+    deposits: [
+      {
+        identifier: "G1",
+        image: depositG1.src,
+      },
+      {
+        identifier: "G2",
+        image: depositG1.src,
       },
     ],
   },

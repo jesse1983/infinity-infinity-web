@@ -105,12 +105,12 @@ function FloorPlan({ src, children, onLoad }: Props) {
   }, []);
 
   return (
-    <div className="w-auto relative">
+    <div className="w-auto relative" data-aos="zoom-out">
       {/* {poisNodes} */}
       <Tooltip id={tooltipUuid} style={{ background: "transparent" }}>
         <div
           className={`
-              ${active ? '' : 'hidden'}
+              ${active ? "" : "hidden"}
               bg-midnight-950
               px-7
               py-3
@@ -118,7 +118,8 @@ function FloorPlan({ src, children, onLoad }: Props) {
               whitespace-nowrap
               uppercase
               text-md
-              pointer-events-none`}
+              pointer-events-none
+`}
         >
           {label}
         </div>
@@ -163,7 +164,6 @@ function FloorPlan({ src, children, onLoad }: Props) {
           />
         ))}
         {poisNodes}
-
       </svg>
     </div>
   );

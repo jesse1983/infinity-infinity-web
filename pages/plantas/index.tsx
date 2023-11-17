@@ -80,13 +80,13 @@ export default function Index({
         <div className="text-midnight-950 text-2xl text-center">
           Infinity World Mapa
         </div>
-        <FloorPlanInfinityWorldMapa isTable={false} />
+        <FloorPlanInfinityWorldMapa isSalesTable={false} />
       </section>
       <section className="container m-auto bg-white my-10">
         <div className="text-midnight-950 text-2xl text-center">
           Infinity World Mapa (Tabela)
         </div>
-        <FloorPlanInfinityWorldMapa isTable={true} />
+        <FloorPlanInfinityWorldMapa isSalesTable={true} />
       </section>
     </Layout>
   );

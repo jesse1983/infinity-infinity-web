@@ -4,34 +4,39 @@ import { FloorPlanInfinityWorldMapa } from "../floorplans";
 import { useState } from "react";
 import Image from "next/image";
 import BackButton from "../voltar";
+import { ENTERPRISE } from "../../types";
 
-export default function TabelaDeVendas() {
-  const [priceTable, setPriceTable] = useState<any>();
+export default function TabelaDeVendas({
+  enterprises,
+}: {
+  enterprises: ENTERPRISE[];
+}) {
+  const [selectedEnterprise, setSelectedEnterprise] = useState<ENTERPRISE>();
 
-  const onBack = () => setPriceTable(undefined);
+  const onBack = () => setSelectedEnterprise(undefined);
   return (
     <>
-      {priceTable && (
+      {selectedEnterprise && (
         <>
-          <div className="self-center">
+          <div className="self-center" data-aos="zoom-in">
             <BackButton onClick={() => (onBack ? onBack() : undefined)} />
           </div>
           <div
             className="container mx-auto mt-[64px] overflow-y-scroll w-[80%] h-[80%] bg-[length:100%_100%]"
             style={{
-              backgroundImage: `url(${tabelaVendas.src})`,
+              backgroundImage: `url(${selectedEnterprise.salesTable})`,
             }}
+            data-aos="zoom-out"
           ></div>
         </>
       )}
-      {!priceTable && (
+      {!selectedEnterprise && (
         <MiniMenuContainer title="Tabela de Vendas">
           <div className="w-full p-24">
             <FloorPlanInfinityWorldMapa
-              getApartment={(desiredApartment) =>
-                setPriceTable(desiredApartment)
-              }
-              isTable={true}
+              getApartment={setSelectedEnterprise}
+              enterprises={enterprises}
+              isSalesTable={true}
             />
           </div>
         </MiniMenuContainer>

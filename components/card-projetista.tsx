@@ -2,7 +2,7 @@ import PlayIcon from "../public/icone-play.svg";
 
 export default function CardProjetista({ nome }) {
   return (
-    <div>
+    <div data-aos="zoom-out">
       <p className="text-2xl mb-2 uppercase text-justify font-medium">
         Projeto Arquitetônico
       </p>

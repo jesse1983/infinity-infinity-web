@@ -53,7 +53,7 @@ export default function Index({
             alt="Drone carregando um pacote enquanto sobrevoa prédios"
             className="block lg:hidden mx-auto mb-5"
           />
-          <div className="container flex flex-col mr-10">
+          <div className="container flex flex-col mr-10" data-aos="fade-right">
             <p className="text-3xl text-justify font-medium mb-6">
               LOREM IPSUM DOLOT SIT AMET CONSEECCT AKADDKKS ALDAKSKA DJFJF
             </p>
@@ -73,9 +73,13 @@ export default function Index({
             src={DroneTecnologia}
             alt="Drone carregando um pacote enquanto sobrevoa prédios"
             className="hidden lg:block"
+            data-aos="fade-left"
           />
         </div>
-        <div className="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
+        <div
+          className="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10"
+          data-aos="zoom-in-down"
+        >
           <Inovacao
             image={<PredioPalmeira className="w-24" />}
             content="Pé na areia e vista mar permanente"

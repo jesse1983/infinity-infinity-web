@@ -25,7 +25,10 @@ export default function MenuInformacoes({ currentPage }) {
   ];
   return (
     <div>
-      <div className="container mx-auto flex-col flex sm:flex-row gap-4 mb-10">
+      <div
+        className="container mx-auto flex-col flex sm:flex-row gap-4 mb-10"
+        data-aos="zoom-out"
+      >
         {items.map((item) => (
           <Link
             className={`text-center py-2 uppercase border-2 border-dusk hover:bg-dusk transition ease-in-out delay-70 ${

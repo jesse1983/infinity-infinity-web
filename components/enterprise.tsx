@@ -76,7 +76,10 @@ export default function Enterprise({
     setFloor(found);
   };
   const buildingCircle = () => (
-    <div className="left-[10%] fixed z-50 overflow-hidden h-[calc(100vh/2_-_15vh)] w-[calc(100vh/2)] bottom-0 hidden lg:block">
+    <div
+      className="left-[10%] fixed z-50 overflow-hidden h-[calc(100vh/2_-_15vh)] w-[calc(100vh/2)] bottom-0 hidden lg:block"
+      data-aos="zoom-in"
+    >
       <InfinitySeaNavCircle floor={floor?.slug} onClick={rotateNav} />
     </div>
   );
@@ -137,7 +140,7 @@ export default function Enterprise({
                     {ambient.title}
                   </div>
                   <div
-                    className="absolute z-50 top-10 right-10 w-12 cursor-pointer"
+                    className="absolute z-50 top-10 right-10 w-12 cursor-pointer transition ease-in-out delay-50"
                     onClick={() => setSelectedAmbient(undefined)}
                   >
                     <IconClose />
@@ -156,7 +159,11 @@ export default function Enterprise({
           )}
         </div>
 
-        <MiniMenuContainer title={logo} noBorder slot={!showDecorated && buildingCircle()}>
+        <MiniMenuContainer
+          title={logo}
+          noBorder
+          slot={!showDecorated && buildingCircle()}
+        >
           {floor && (
             <div className="w-full p-24 relative">
               <FloorPlan src={floor.floorPlanSrc}>
@@ -169,21 +176,28 @@ export default function Enterprise({
                   />
                 ))}
               </FloorPlan>
-              {floor.decorated?.length && !showDecorated && !setSelectedAmbient && (
-                <div
-                  className="absolute bg-midnight-950 p-4 z-50 text-white bottom-14 right-14 border border-white uppercase flex items-center gap-4 hover:bg-white hover:text-midnight-950 cursor-pointer transition duration-300"
-                  onClick={() => setShowDecorated(true)}
-                >
-                  <span className="w-7 h-7 inline-block">
-                    <IconRuler />
-                  </span>
-                  <span>Opções de plantas</span>
-                </div>
-              )}
+              {floor.decorated?.length &&
+                !showDecorated &&
+                !setSelectedAmbient && (
+                  <div
+                    className="absolute bg-midnight-950 p-4 z-50 text-white bottom-14 right-14 border border-white uppercase flex items-center gap-4 hover:bg-white hover:text-midnight-950 cursor-pointer transition duration-300"
+                    onClick={() => setShowDecorated(true)}
+                  >
+                    <span className="w-7 h-7 inline-block">
+                      <IconRuler />
+                    </span>
+                    <span>Opções de plantas</span>
+                  </div>
+                )}
             </div>
           )}
         </MiniMenuContainer>
-        {floor?.decorated?.length && showDecorated && <Decorated decorated={floor.decorated} onClose={() => setShowDecorated(undefined)} />}
+        {floor?.decorated?.length && showDecorated && (
+          <Decorated
+            decorated={floor.decorated}
+            onClose={() => setShowDecorated(undefined)}
+          />
+        )}
       </div>
     </Layout>
   );

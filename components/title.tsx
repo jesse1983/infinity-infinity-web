@@ -4,7 +4,7 @@ export default function Inovacao({ imageURL, content }) {
       className="text-center text-4xl sm:pt-24 mb-14 uppercase w-auto sm:py-12"
       style={{ backgroundImage: `url(${imageURL.src})` }}
     >
-      <h2>{content}</h2>
+      <h2 data-aos="zoom-out">{content}</h2>
     </div>
   );
 }

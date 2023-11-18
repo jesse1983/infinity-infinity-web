@@ -5,6 +5,9 @@ import { PARKING } from "./parking";
 export type ENTERPRISE = {
   title: string;
   slug: string;
+  area?: string;
+  features?: string[];
+  logo?: string;
   floors?: FLOOR[];
   garages?: PARKING[];
   bgImage?: string;

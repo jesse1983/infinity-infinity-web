@@ -34,12 +34,18 @@ import bgInfinityBlue from "../../public/bg-infinity-blue.png";
 import bgInfinitySea from "../../public/bg-infinty-sea.png";
 import tabelaVendas from "../../public/tabela-vendas.png";
 
-
-
 export const enterprises: ENTERPRISE[] = [
   {
     title: "Infinity Blue",
     slug: "infinity-blue",
+    area: "287,32m²",
+    logo: "/logo-infinity-blue-blue.svg",
+    features: [
+      "4 suítes com vista mar",
+      "4 vagas de garagem por unidade",
+      "2 unidades por pavimento",
+      "16 pavimentos tipo",
+    ],
     floors: [
       {
         title: "Rooftop",
@@ -87,8 +93,7 @@ export const enterprises: ENTERPRISE[] = [
           {
             title: "Tatiana Melo",
             subtitle: "287,32m²",
-            description:
-              "3 suítes e suíte master com 2 sanitários",
+            description: "3 suítes e suíte master com 2 sanitários",
             floorPlanSrc: floorPlanInfinitySeaApartament.src,
           },
         ],
@@ -240,6 +245,14 @@ export const enterprises: ENTERPRISE[] = [
   {
     title: "Infinity Sea",
     slug: "infinity-sea",
+    area: "288,38m²",
+    logo: "/logo-infinity-sea-blue.svg",
+    features: [
+      "4 suítes com vista mar",
+      "4 vagas de garagem por unidade",
+      "2 unidades por pavimento",
+      "16 pavimentos tipo",
+    ],
     floors: [
       {
         title: "Planta tipo",
@@ -381,7 +394,7 @@ export const enterprises: ENTERPRISE[] = [
         number: "1011",
         identifier: "G11",
         image: depositG1.src,
-      }
+      },
     ],
     bgImage: bgInfinitySea.src,
     salesTable: tabelaVendas.src,

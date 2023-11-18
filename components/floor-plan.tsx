@@ -118,7 +118,8 @@ function FloorPlan({ src, children, onLoad }: Props) {
               whitespace-nowrap
               uppercase
               text-md
-              pointer-events-none`}
+              pointer-events-none
+`}
         >
           {label}
         </div>

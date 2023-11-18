@@ -140,14 +140,14 @@ export default function Enterprise({
                     {ambient.title}
                   </div>
                   <div
-                    className="absolute z-50 top-10 right-10 w-12 cursor-pointer transition ease-in-out delay-50"
+                    className="absolute z-50 top-10 right-10 w-12 cursor-pointer transition-all hover:scale-75 ease-in-out delay-110"
                     onClick={() => setSelectedAmbient(undefined)}
                   >
                     <IconClose />
                   </div>
                   {document?.fullscreenEnabled && (
                     <div
-                      className="absolute z-50 bottom-10 right-10 w-12 cursor-pointer"
+                      className="absolute z-50 bottom-10 right-10 w-12 cursor-pointer hover:scale-150 transition-all ease-in-out delay-50"
                       onClick={() => setFullScreen(i)}
                     >
                       <IconFullscreen />

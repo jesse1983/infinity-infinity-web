@@ -8,9 +8,12 @@ const montSerrat = Montserrat({ subsets: ["latin"] });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <main className={montSerrat.className}>
-      <Component {...pageProps} />
-    </main>
+    <>
+      <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+      <main className={montSerrat.className}>
+        <Component {...pageProps} />
+      </main>
+    </>
   );
 }
 

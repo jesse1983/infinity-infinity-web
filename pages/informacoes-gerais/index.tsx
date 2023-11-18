@@ -48,8 +48,6 @@ export default function Index({
         <div className="lg:flex lg:flex-row justify-between mb-20">
           <Image
             src={DroneTecnologia}
-            width={200}
-            height={200}
             alt="Drone carregando um pacote enquanto sobrevoa prédios"
             className="block lg:hidden mx-auto mb-5"
           />

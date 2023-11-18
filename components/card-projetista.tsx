@@ -18,7 +18,7 @@ export default function CardProjetista({ nome }) {
         tristique, lorem purus tempor magna, sit amet hendrerit urna enim
         maximus nisi.
       </p>
-      <div className="lg:text-center font-bold text-xl py-2 w-1/4 mb-10 cursor-pointer uppercase bg-dusk flex justify-around px-16">
+      <div className="lg:text-center font-bold text-xl py-2 w-1/4 mb-10 cursor-pointer uppercase bg-dusk hover:bg-midnight-500 transition ease-in-out delay-100 flex justify-around px-16">
         <PlayIcon className="w-1/12" />
         Vídeo Depoimento
       </div>

@@ -156,7 +156,7 @@ export function InfinityWorldComponent({
               <div className="absolute right-2 top-2 w-8 h-8">
                 <button
                   onClick={() => setBuildingDetails(undefined)}
-                  className="rounded-full flex w-8 h-8 text-base justify-center items-center bg-midnight-950"
+                  className="rounded-full flex w-8 h-8 text-base justify-center items-center bg-midnight-950 transition-all ease-in-out delay-80 hover:scale-150 hover:bg-midnight-900"
                 >
                   <IconClose />
                 </button>

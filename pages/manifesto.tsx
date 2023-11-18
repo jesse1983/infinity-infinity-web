@@ -57,7 +57,7 @@ export default function Index({
           src={CasalDobrado}
           alt="Foto dobrada de um casal se abraçando em uma praia"
           // data-aos impossibilita usar o hover:scale do tailwind
-          data-aos="zoom-in"
+          data-aos="fade-up-left"
         />
       </div>
       <div className="container mx-auto flex flex-col lg:flex-row justify-around items-center mb-10">

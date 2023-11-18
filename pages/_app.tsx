@@ -2,6 +2,7 @@ import { AppProps } from "next/app";
 import { Montserrat } from "next/font/google";
 import "../styles/index.css";
 import "./mouse-trail.css";
+import "./shine.css";
 
 const montSerrat = Montserrat({ subsets: ["latin"] });
 

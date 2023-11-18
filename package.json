@@ -16,6 +16,7 @@
     "lodash": "^4.17.21",
     "next": "latest",
     "react": "^18.2.0",
+    "react-curved-text": "^3.0.0",
     "react-dom": "^18.2.0",
     "react-photo-sphere-viewer": "^3.4.0-psv5.4.0",
     "react-responsive-carousel": "^3.2.23",

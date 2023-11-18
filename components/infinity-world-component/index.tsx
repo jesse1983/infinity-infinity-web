@@ -147,13 +147,6 @@ export function InfinityWorldComponent({
                 onClick={() => gotoEnterprise(floor.enterprise, floor.slug)}
               />
             ))}
-          {/* <FloorPlan.Poi title="Rooftop" icon='/icon-infinity.svg' x={760} y={170} onClick={() => gotoBuilding(BUILDING.INFINITY_BLUE, BUILDING_AREA.ROOFTOP)} />
-          <FloorPlan.Poi title="Planta tipo" icon='/icon-infinity.svg' x={780} y={400} onClick={() => gotoBuilding(BUILDING.INFINITY_BLUE, BUILDING_AREA.APARTAMENT)} />
-          <FloorPlan.Poi title="Pavimento térreo" icon='/icon-infinity.svg' x={760} y={700} onClick={() => gotoBuilding(BUILDING.INFINITY_BLUE, BUILDING_AREA.GROUND)} />
-          <FloorPlan.Poi title="Beach Lounge" icon='/icon-infinity.svg' x={880} y={780} onClick={() => gotoBuilding(BUILDING.INFINITY_BLUE, BUILDING_AREA.BEACH)} />
-
-          <FloorPlan.Poi title="Planta tipo" icon='/icon-infinity.svg' x={1180} y={380} onClick={() => gotoBuilding(BUILDING.INFINITY_SEA, BUILDING_AREA.APARTAMENT)}  />
-          <FloorPlan.Poi title="Beach Club" icon='/icon-infinity.svg' x={1180} y={770} onClick={() => gotoBuilding(BUILDING.INFINITY_SEA, BUILDING_AREA.BEACH)}  /> */}
         </FloorPlan>
       </div>
     </div>

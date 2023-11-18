@@ -56,7 +56,8 @@ export default function Index({
         <Image
           src={CasalDobrado}
           alt="Foto dobrada de um casal se abraçando em uma praia"
-          data-aos="fade-up-left"
+          // data-aos impossibilita usar o hover:scale do tailwind
+          data-aos="zoom-in"
         />
       </div>
       <div className="container mx-auto flex flex-col lg:flex-row justify-around items-center mb-10">
@@ -82,13 +83,6 @@ export default function Index({
           <p>ele é vista e guia.</p>
         </div>
       </div>
-      {/* <div>
-        <Image
-          src={InfinityLinha}
-          alt="Logo Infinity em Azul"
-          className="absolute z-50"
-        />
-      </div> */}
       <div data-aos="zoom-in-down">
         <video
           className=" w-auto min-w-full min-h-full max-h-none"

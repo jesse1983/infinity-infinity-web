@@ -22,7 +22,7 @@ export default function ItemMapa(props: ItemProps) {
       <div
         className={`${
           props.isApartmentInfo
-            ? "bg-midnight-950 w-8 h-8 text-sm mt-5 mr-5"
+            ? "bg-midnight-950 w-8 h-8 text-sm"
             : "bg-dusk w-32 h-32 text-4xl"
         } rounded-full flex items-center justify-center font-light cursor-pointer`}
         onClick={props.onClick}

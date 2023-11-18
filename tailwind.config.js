@@ -50,6 +50,11 @@ module.exports = {
         small: "0 5px 10px rgba(0, 0, 0, 0.12)",
         medium: "0 8px 30px rgba(0, 0, 0, 0.12)",
       },
+      keyframes: {
+        shine: {
+          '20%, 100%': { transform: 'translate-x-[150%]' },
+        }
+      },
     },
   },
   plugins: [],

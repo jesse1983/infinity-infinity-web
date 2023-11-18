@@ -1,0 +1,11 @@
+.trail { /* className for the trail elements */
+    position: absolute;
+    height: 6px; width: 6px;
+    border-radius: 3px;
+    background: #5f8dB1;
+    pointer-events: none;
+  }
+
+body {
+  cursor: none;
+}

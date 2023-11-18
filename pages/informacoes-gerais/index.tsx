@@ -76,10 +76,7 @@ export default function Index({
             data-aos="fade-left"
           />
         </div>
-        <div
-          className="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10"
-          data-aos="zoom-in-down"
-        >
+        <div className="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
           <Inovacao
             image={<PredioPalmeira className="w-24" />}
             content="Pé na areia e vista mar permanente"

@@ -32,7 +32,7 @@ export default function Index({
         >
           <a
             href="./infinity-world"
-            className="px-10 py-5 mb-7 mr-7 border hover:bg-white hover:text-midnight-950 transition duration-500 hover:ease-in-out"
+            className="px-10 py-5 mb-7 mr-7 border border-slate-200 hover:bg-slate-200 hover:text-midnight-950 transition duration-500 hover:ease-in-out"
           >
             Pular
           </a>

@@ -1,0 +1,35 @@
+.pular {
+    transition-property: all;
+    transition-duration: .6s;
+    transition-timing-function: ease;
+    
+    overflow: hidden;
+    position: relative;
+    
+    span {
+      z-index: 20;
+    }
+    
+    &:after {
+
+      background: #fff;
+      content: "";
+      height: 155px;
+      left: -75px;
+      opacity: .2;
+      position: absolute;
+      top: -50px;
+      transform: rotate(35deg);
+      transition: all 1000ms cubic-bezier(0.19, 1, 0.22, 1);
+      width: 50px;
+      z-index: 10;
+    }
+  }
+  
+  .pular:hover {
+    
+    &:after {
+      left: 120%;
+      transition: all 1000ms cubic-bezier(0.19, 1, 0.22, 1);
+    }
+  }

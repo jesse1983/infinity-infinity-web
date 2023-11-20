@@ -10,7 +10,7 @@ export default function Index({
   menu,
   page,
   preview,
-  enterprises
+  enterprises,
 }: PROPS) {
   return (
     <Layout preview={preview}>

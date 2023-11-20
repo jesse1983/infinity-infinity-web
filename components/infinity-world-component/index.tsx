@@ -19,6 +19,8 @@ import TabelaDeVendas from "./tabela-de-vendas";
 import InfinityLogoBlue from "../../public/logo-infinity-blue-white.svg";
 import InfinityLogoSea from "../../public/logo-infinity-sea-white.svg";
 import ItemMapa from "../item-mapa";
+import BuildingInfo from "../buildingInfo";
+import IconClose from "../../public/icon-close-borderless.svg";
 
 export enum SCREEN {
   SALES_TABLE = "SALES_TABLE",
@@ -143,25 +145,28 @@ export function InfinityWorldComponent({
           {item.screenComponent}
         </div>
       ))}
-      {buildingDetails && (
+      {buildingDetails && !currentScreen && (
         <div
-          className={`flex flex-col px-2 absolute w-1/5 z-20 text-center top-[20%] ${direction}`}
+          className={`flex flex-col absolute w-1/5 z-20 text-center top-[20%] ${direction}`}
           data-aos="zoom-in"
         >
-          <div className="bg-dusk flex flex-row text-center rounded-t-3xl">
-            <div className="w-full text-3xl font-medium p-8 ml-12">
-              {buildingDetails.area}
+          <div className="bg-dusk flex flex-row text-center rounded-t-3xl overflow-hidden">
+            <div className="w-full text-3xl font-medium relative">
+              <div className="py-8 text-center">{buildingDetails.area}</div>
+              <div className="absolute right-2 top-2 w-8 h-8">
+                <button
+                  onClick={() => setBuildingDetails(undefined)}
+                  className="rounded-full flex w-8 h-8 text-base justify-center items-center bg-midnight-950 transition-all ease-in-out delay-80 hover:scale-150 hover:bg-midnight-900"
+                >
+                  <IconClose />
+                </button>
+              </div>
             </div>
-            <ItemMapa
-              identifier="X"
-              isApartmentInfo={true}
-              onClick={() => setBuildingDetails(undefined)}
-            />
           </div>
           <div className="bg-midnight-950 leading-tight border-white text-xl rounded-b-3xl mb-10">
             {buildingDetails.features.map((feature, i) => (
               <div
-                className={`py-3 ${
+                className={`py-3 px-3 text-lg ${
                   i === buildingDetails.features.length - 1 ? "" : "border-b"
                 }`}
               >
@@ -176,11 +181,13 @@ export function InfinityWorldComponent({
         <FloorPlan src={roofTop.src} onLoad={scrollToBottom}>
           <FloorPlan.Path
             title={"Infinity Blue"}
+            noBorder
             coords="m 650.34595,244.25823 -16.69319,13.7393 -1.52777,469.63462 163.72365,-0.99498 0.34756,-12.5225 124.36387,-6.71658 1.67999,-468.28169 -4.8043,-3.16321 -21.92955,-3.92985 -0.30536,-14.12017 4.05404,-1.43352 0.36927,-4.16029 -195.8216,-33.71256 -1.87703,1.39514 v 3.63937 l -14.31199,-1.01263 -37.19983,32.39774 z"
             onClick={(ev) => clickBuildingDetails(enterprises[0], "left-[5%]")}
           />
           <FloorPlan.Path
             title={"Infinity Sea"}
+            noBorder
             coords="m 990.26489,155.08884 -0.0589,19.16434 -9.47572,5.86163 0.35537,1.95262 7.59924,1.53823 0.33361,7.70718 -18.12559,10.65442 -4.23344,504.61432 99.08344,1.66689 50.7551,-0.18565 167.9397,2.45917 1.8619,-555.62118 -6.5855,-5.64578 -18.1504,-4.23036 v -7.36315 l 16.6577,-7.51778 -0.6463,-2.5847 -152.6622,-34.516545 -8.4432,5.281279 -25.2483,-5.585702 h -2.1233 l 0.086,8.953498 -10.9751,-1.4198 z"
             onClick={(ev) =>
               clickBuildingDetails(enterprises[1], "right-[10%]")
@@ -198,13 +205,6 @@ export function InfinityWorldComponent({
                 onClick={() => gotoEnterprise(floor.enterprise, floor.slug)}
               />
             ))}
-          {/* <FloorPlan.Poi title="Rooftop" icon='/icon-infinity.svg' x={760} y={170} onClick={() => gotoBuilding(BUILDING.INFINITY_BLUE, BUILDING_AREA.ROOFTOP)} />
-          <FloorPlan.Poi title="Planta tipo" icon='/icon-infinity.svg' x={780} y={400} onClick={() => gotoBuilding(BUILDING.INFINITY_BLUE, BUILDING_AREA.APARTAMENT)} />
-          <FloorPlan.Poi title="Pavimento térreo" icon='/icon-infinity.svg' x={760} y={700} onClick={() => gotoBuilding(BUILDING.INFINITY_BLUE, BUILDING_AREA.GROUND)} />
-          <FloorPlan.Poi title="Beach Lounge" icon='/icon-infinity.svg' x={880} y={780} onClick={() => gotoBuilding(BUILDING.INFINITY_BLUE, BUILDING_AREA.BEACH)} />
-
-          <FloorPlan.Poi title="Planta tipo" icon='/icon-infinity.svg' x={1180} y={380} onClick={() => gotoBuilding(BUILDING.INFINITY_SEA, BUILDING_AREA.APARTAMENT)}  />
-          <FloorPlan.Poi title="Beach Club" icon='/icon-infinity.svg' x={1180} y={770} onClick={() => gotoBuilding(BUILDING.INFINITY_SEA, BUILDING_AREA.BEACH)}  /> */}
         </FloorPlan>
       </div>
     </div>

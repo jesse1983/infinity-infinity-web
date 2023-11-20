@@ -15,9 +15,8 @@ import IconFullscreen from "../public/icon-fullscreen.svg";
 import IconRuler from "../public/icon-ruler.svg";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { AMBIENT, ENTERPRISE, FLOOR } from "../types";
-import { InfinitySeaNavCircle } from "./building-circle";
-import { DECORATED } from "../types/floor";
 import { Decorated } from "./decorated";
+import { CircleText } from "./circle-text";
 
 type indexType = {
   generalSettings: Settings;
@@ -72,15 +71,16 @@ export default function Enterprise({
   };
 
   const rotateNav = (selectedFloor) => {
-    const found = floors.find((a) => a.slug === selectedFloor);
+    const found = floors[selectedFloor];
     setFloor(found);
   };
+
   const buildingCircle = () => (
     <div
-      className="left-[10%] fixed z-50 overflow-hidden h-[calc(100vh/2_-_15vh)] w-[calc(100vh/2)] bottom-0 hidden lg:block"
+      className="left-[10%] fixed z-50 overflow-hidden h-[calc(100vh/2_-_25vh)] w-[calc(100vh/2)] bottom-0 hidden lg:block"
       data-aos="zoom-in"
     >
-      <InfinitySeaNavCircle floor={floor?.slug} onClick={rotateNav} />
+      <CircleText texts={floors.map((floor) => floor.title)} active={floor?.title} onClick={rotateNav} />
     </div>
   );
 
@@ -140,14 +140,14 @@ export default function Enterprise({
                     {ambient.title}
                   </div>
                   <div
-                    className="absolute z-50 top-10 right-10 w-12 cursor-pointer transition ease-in-out delay-50"
+                    className="absolute z-50 top-10 right-10 w-12 cursor-pointer transition-all hover:scale-75 ease-in-out delay-110"
                     onClick={() => setSelectedAmbient(undefined)}
                   >
                     <IconClose />
                   </div>
                   {document?.fullscreenEnabled && (
                     <div
-                      className="absolute z-50 bottom-10 right-10 w-12 cursor-pointer"
+                      className="absolute z-50 bottom-10 right-10 w-12 cursor-pointer hover:scale-150 transition-all ease-in-out delay-50"
                       onClick={() => setFullScreen(i)}
                     >
                       <IconFullscreen />

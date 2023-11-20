@@ -48,8 +48,6 @@ export default function Index({
         <div className="lg:flex lg:flex-row justify-between mb-20">
           <Image
             src={DroneTecnologia}
-            width={200}
-            height={200}
             alt="Drone carregando um pacote enquanto sobrevoa prédios"
             className="block lg:hidden mx-auto mb-5"
           />
@@ -76,10 +74,7 @@ export default function Index({
             data-aos="fade-left"
           />
         </div>
-        <div
-          className="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10"
-          data-aos="zoom-in-down"
-        >
+        <div className="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
           <Inovacao
             image={<PredioPalmeira className="w-24" />}
             content="Pé na areia e vista mar permanente"

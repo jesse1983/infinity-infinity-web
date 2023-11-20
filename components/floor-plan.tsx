@@ -34,6 +34,7 @@ type PathProps = {
   onMouseOver?: React.MouseEventHandler<SVGPathElement>;
   onMouseOut?: React.MouseEventHandler<SVGPathElement>;
   onClick?: React.MouseEventHandler<SVGPathElement>;
+  noBorder?: boolean;
 };
 
 function Path(options: PathProps) {
@@ -153,7 +154,7 @@ function FloorPlan({ src, children, onLoad }: Props) {
         />
         {paths.map((path, i) => (
           <path
-            className="fill-black/10 hover:fill-white/0 hover:stroke-midnight-700 hover:stroke-[4px] cursor-pointer"
+            className={`fill-black/10 hover:fill-white/0 hover:stroke-[4px] cursor-pointer ${path.noBorder ? '' : 'hover:stroke-midnight-700'}`}
             d={path.coords}
             onMouseOver={(e) => setActivePath(e, i)}
             onMouseOut={setDisablePaths}

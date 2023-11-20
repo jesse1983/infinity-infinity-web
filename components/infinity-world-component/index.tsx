@@ -19,6 +19,8 @@ import TabelaDeVendas from "./tabela-de-vendas";
 import InfinityLogoBlue from "../../public/logo-infinity-blue-white.svg";
 import InfinityLogoSea from "../../public/logo-infinity-sea-white.svg";
 import ItemMapa from "../item-mapa";
+import BuildingInfo from "../buildingInfo";
+import IconClose from "../../public/icon-close-borderless.svg";
 
 export enum SCREEN {
   SALES_TABLE = "SALES_TABLE",
@@ -143,25 +145,28 @@ export function InfinityWorldComponent({
           {item.screenComponent}
         </div>
       ))}
-      {buildingDetails && (
+      {buildingDetails && !currentScreen && (
         <div
-          className={`flex flex-col px-2 absolute w-1/5 z-20 text-center top-[20%] ${direction}`}
+          className={`flex flex-col absolute w-1/5 z-20 text-center top-[20%] ${direction}`}
           data-aos="zoom-in"
         >
-          <div className="bg-dusk flex flex-row text-center rounded-t-3xl">
-            <div className="w-full text-3xl font-medium p-8 ml-12">
-              {buildingDetails.area}
+          <div className="bg-dusk flex flex-row text-center rounded-t-3xl overflow-hidden">
+            <div className="w-full text-3xl font-medium relative">
+              <div className="py-8 text-center">{buildingDetails.area}</div>
+              <div className="absolute right-2 top-2 w-8 h-8">
+                <button
+                  onClick={() => setBuildingDetails(undefined)}
+                  className="rounded-full flex w-8 h-8 text-base justify-center items-center bg-midnight-950 transition-all ease-in-out delay-80 hover:scale-150 hover:bg-midnight-900"
+                >
+                  <IconClose />
+                </button>
+              </div>
             </div>
-            <ItemMapa
-              identifier="X"
-              isApartmentInfo={true}
-              onClick={() => setBuildingDetails(undefined)}
-            />
           </div>
           <div className="bg-midnight-950 leading-tight border-white text-xl rounded-b-3xl mb-10">
             {buildingDetails.features.map((feature, i) => (
               <div
-                className={`py-3 ${
+                className={`py-3 px-3 text-lg ${
                   i === buildingDetails.features.length - 1 ? "" : "border-b"
                 }`}
               >

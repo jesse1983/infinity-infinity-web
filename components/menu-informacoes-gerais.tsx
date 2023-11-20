@@ -31,7 +31,7 @@ export default function MenuInformacoes({ currentPage }) {
       >
         {items.map((item) => (
           <Link
-            className={`text-center py-2 uppercase border-2 border-dusk hover:bg-dusk transition ease-in-out delay-70 ${
+            className={`text-center py-2 uppercase border-2 border-dusk hover:bg-dusk transition ease-in-out delay-90 ${
               item.basis
             } ${currentPage === item.href ? "bg-dusk" : ""}`}
             href={item.href}

@@ -17,13 +17,11 @@ export default function MiniMenuContainer({
             noBorder ? infinityBGNoBorder.src : infinityBG.src
           })`,
         }}
-        data-aos="fade-right"
       >
         <span
           className={`mx-[10%] font-light uppercase text-4xl leading-tight ${
             noBorder ? "w-full" : "w-1/2 pb-6 border-b-2"
           }`}
-          data-aos="fade-right"
         >
           {title}
         </span>

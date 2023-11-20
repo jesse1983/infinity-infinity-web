@@ -1,5 +1,6 @@
 "use client";
 
+import React from "react";
 import { useId, useMemo } from "react";
 
 type Props = {
@@ -41,7 +42,7 @@ export const CircleText = ({
           d="M50 250A200 200 0 1 1 450 250A200 200 0 1 1 50 250"
         ></path>
         {texts.map((text, i) => (
-          <>
+          <React.Fragment key={text}>
             <text
               style={{
                 fontSize: "30px",
@@ -59,7 +60,7 @@ export const CircleText = ({
                 <tspan>{text}</tspan>
               </textPath>
             </text>
-          </>
+          </React.Fragment>
         ))}
       </svg>
     </div>

@@ -153,7 +153,7 @@ export function InfinityWorldComponent({
           <div className="bg-dusk flex flex-row text-center rounded-t-3xl overflow-hidden">
             <div className="w-full text-3xl font-medium relative">
               <div className="py-8 text-center">{buildingDetails.area}</div>
-              <div className="absolute right-2 top-2 w-8 h-8">
+              <div className="absolute hover:right-4 hover:top-4 transition-all ease-in-out delay-50 right-2 top-2 w-8 h-8">
                 <button
                   onClick={() => setBuildingDetails(undefined)}
                   className="rounded-full flex w-8 h-8 text-base justify-center items-center bg-midnight-950 transition-all ease-in-out delay-80 hover:scale-150 hover:bg-midnight-900"

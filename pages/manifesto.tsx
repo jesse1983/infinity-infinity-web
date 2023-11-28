@@ -37,7 +37,7 @@ export default function Index({
       <div className="container mx-auto flex flex-col lg:flex-row justify-around items-center mb-10 lg:mb-1">
         <div
           className="font-medium text-2xl leading-loose text-center lg:text-justify mb-10 lg:mb-1"
-          data-aos="fade-up-right"
+          data-aos="fade-right"
         >
           <p>Estar onde se é</p>
           <p>Ser o que se quer</p>
@@ -57,7 +57,7 @@ export default function Index({
           src={CasalDobrado}
           alt="Foto dobrada de um casal se abraçando em uma praia"
           // data-aos impossibilita usar o hover:scale do tailwind
-          data-aos="fade-up-left"
+          data-aos="fade-left"
         />
       </div>
       <div className="container mx-auto flex flex-col lg:flex-row justify-around items-center mb-10">
@@ -65,11 +65,11 @@ export default function Index({
           src={CasalCortado}
           alt="Foto cortada de um casal observando a praia"
           className="mb-10 lg:mb-1"
-          data-aos="fade-down-right"
+          data-aos="fade-right"
         />
         <div
           className="font-medium text-2xl leading-loose text-center lg:text-right mr-20"
-          data-aos="fade-down-left"
+          data-aos="fade-left"
         >
           <p>Se encontar no mar</p>
           <p>que também é morar</p>

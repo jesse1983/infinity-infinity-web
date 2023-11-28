@@ -12,14 +12,8 @@ import roofTop from "../../public/rooftop.jpg";
 import miniMenuBg from "../../public/mini-menu-bg.png";
 import MapaDeDepositos from "./mapa-de-depositos";
 import MapaDeVagas from "./mapa-de-vagas";
-import { BUILDING } from "../../enums/building";
-import { BUILDING_AREA } from "../../enums/building-area";
 import { ENTERPRISE, FLOOR } from "../../types";
 import TabelaDeVendas from "./tabela-de-vendas";
-import InfinityLogoBlue from "../../public/logo-infinity-blue-white.svg";
-import InfinityLogoSea from "../../public/logo-infinity-sea-white.svg";
-import ItemMapa from "../item-mapa";
-import BuildingInfo from "../buildingInfo";
 import IconClose from "../../public/icon-close-borderless.svg";
 
 export enum SCREEN {
@@ -153,7 +147,7 @@ export function InfinityWorldComponent({
           <div className="bg-dusk flex flex-row text-center rounded-t-3xl overflow-hidden">
             <div className="w-full text-3xl font-medium relative">
               <div className="py-8 text-center">{buildingDetails.area}</div>
-              <div className="absolute right-2 top-2 w-8 h-8">
+              <div className="absolute hover:right-4 hover:top-4 transition-all ease-in-out delay-50 right-2 top-2 w-8 h-8">
                 <button
                   onClick={() => setBuildingDetails(undefined)}
                   className="rounded-full flex w-8 h-8 text-base justify-center items-center bg-midnight-950 transition-all ease-in-out delay-80 hover:scale-150 hover:bg-midnight-900"

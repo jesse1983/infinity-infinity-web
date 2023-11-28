@@ -17,6 +17,7 @@ module.exports = {
         success: "#0070f3",
         cyan: "#79FFE1",
         dusk: "#5f8dB1",
+        night: "#5F8DB157",
         midnight: {
           50: "#eff8ff",
           100: "#dbeffe",

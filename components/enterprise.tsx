@@ -6,6 +6,7 @@ import Header from "./header";
 import MiniMenuContainer from "./mini-menu-container";
 import LogoInfinityBlue from "../public/logo-infinity-blue-white.svg";
 import LogoInfinitySea from "../public/logo-infinity-sea-white.svg";
+import Chevron from "../public/voltar.svg";
 import { createRef, useEffect, useMemo, useRef, useState } from "react";
 import React from "react";
 import FloorPlan from "./floor-plan";
@@ -107,7 +108,7 @@ export default function Enterprise({
         <meta name="description" content={page.title}></meta>
       </Head>
       <Header menu={menu} />
-      <div className="w-full relative h-[calc(100vh_-_140px)] flex">
+      <div className="w-full relative h-[calc(100vh_-_140px)] flex border border-white">
         <div
           className={`absolute bg-midnight-950/70 w-full h-full z-40 transition-opacity duration-500 ${
             selectedAmbient ? "opacity-100" : "opacity-0 invisible"
@@ -117,11 +118,13 @@ export default function Enterprise({
             <Carousel
               showArrows
               centerMode
-              infiniteLoop
+              dynamicHeight
               showStatus={false}
               showThumbs={false}
               showIndicators={false}
               centerSlidePercentage={80}
+              renderArrowPrev={(clickHandler, hasPrev) => hasPrev && <div className="absolute z-50 h-full flex p-4"><div className="m-auto rounded-full w-24 h-24 cursor-pointer flex items-center justify-center bg-white" onClick={clickHandler}><Chevron /></div></div>}
+              renderArrowNext={(clickHandler, hasNext) => hasNext && <div className="absolute z-50 right-0 top-0 float-right h-full flex p-4"><div className="m-auto rounded-full w-24 h-24 cursor-pointer flex items-center justify-center bg-white rotate-180" onClick={clickHandler}><Chevron /></div></div>}
               selectedItem={floor?.ambients.findIndex(
                 (a) => a.photoSrc === selectedAmbient.photoSrc
               )}
@@ -133,7 +136,7 @@ export default function Enterprise({
                 >
                   <img
                     src={ambient.photoSrc}
-                    className="w-auto h-[calc(100vh_-_300px)]"
+                    className="w-auto max-h-[calc(100vh_-_300px)]"
                     ref={imagesRefs.current[i]}
                   />
                   <div className="absolute z-50 bottom-0 border border-white p-2 bg-midnight-950 uppercase text-xl">
@@ -147,7 +150,7 @@ export default function Enterprise({
                   </div>
                   {document?.fullscreenEnabled && (
                     <div
-                      className="absolute z-50 bottom-10 right-10 w-12 cursor-pointer hover:scale-150 transition-all ease-in-out delay-50"
+                      className="absolute z-50 bottom-16 right-10 w-12 cursor-pointer hover:scale-150 transition-all ease-in-out delay-50"
                       onClick={() => setFullScreen(i)}
                     >
                       <IconFullscreen />

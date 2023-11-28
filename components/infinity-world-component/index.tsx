@@ -12,14 +12,8 @@ import roofTop from "../../public/rooftop.jpg";
 import miniMenuBg from "../../public/mini-menu-bg.png";
 import MapaDeDepositos from "./mapa-de-depositos";
 import MapaDeVagas from "./mapa-de-vagas";
-import { BUILDING } from "../../enums/building";
-import { BUILDING_AREA } from "../../enums/building-area";
 import { ENTERPRISE, FLOOR } from "../../types";
 import TabelaDeVendas from "./tabela-de-vendas";
-import InfinityLogoBlue from "../../public/logo-infinity-blue-white.svg";
-import InfinityLogoSea from "../../public/logo-infinity-sea-white.svg";
-import ItemMapa from "../item-mapa";
-import BuildingInfo from "../buildingInfo";
 import IconClose from "../../public/icon-close-borderless.svg";
 
 export enum SCREEN {

@@ -3,10 +3,28 @@ import { Page } from "../models";
 import Link from "next/link";
 import LogoWhite from "../public/logo-infinity-white.svg";
 import { useState } from "react";
+import { usePathname } from "next/navigation";
+
+const slugify = text =>
+  text
+    .toString()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/[^\w-]+/g, '')
+    .replace(/--+/g, '-')
 
 export default function Header({ menu }: { menu: Page[] }) {
   const [open, setOpen] = useState(false);
   const toggle = () => setOpen(!open);
+
+
+  const isItemActive = (title: string) => {
+    const currentURL = usePathname();
+    return currentURL.includes(slugify(title));
+  }
 
   return (
     <header className="text-center">
@@ -43,7 +61,7 @@ export default function Header({ menu }: { menu: Page[] }) {
             <li key={item.uri} className="text-center">
               <Link
                 href={item.uri}
-                className="flex justify-center items-center h-16 hover:bg-midnight-950 transition duration-500 hover:ease-in-out"
+                className={`flex justify-center items-center h-16 hover:bg-midnight-950 transition duration-500 hover:ease-in-out ${isItemActive(item.title) ? 'bg-midnight-950' : ''}`}
               >
                 {item.title}
               </Link>

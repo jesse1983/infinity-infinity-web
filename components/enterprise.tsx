@@ -165,7 +165,7 @@ export default function Enterprise({
         <MiniMenuContainer
           title={logo}
           noBorder
-          slot={!showDecorated && buildingCircle()}
+          slot={!showDecorated && !selectedAmbient && buildingCircle()}
         >
           {floor && (
             <div className="w-full p-24 relative">

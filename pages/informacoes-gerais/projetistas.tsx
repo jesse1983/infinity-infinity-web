@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import Layout from "../../components/layout";
-import { allSettings, getPage } from "../../lib/api";
+import { allSettings, filterSubpagesByParent, getPage } from "../../lib/api";
 import { Settings, Page } from "../../models";
 import Header from "../../components/header";
 import MenuInformacoes from "../../components/menu-informacoes-gerais";
@@ -15,6 +15,7 @@ type indexType = {
   menu: Page[];
   page: Page;
   preview: boolean;
+  subpages: Page[];
 };
 
 export default function Projetistas({
@@ -22,6 +23,7 @@ export default function Projetistas({
   menu,
   page,
   preview,
+  subpages, 
 }: indexType) {
   const currentURL = usePathname();
   return (
@@ -32,26 +34,21 @@ export default function Projetistas({
       </Head>
       <Header menu={menu} />
       <Title imageURL={bgPraia} content="Seu infinito pé na areia" />
-      <MenuInformacoes currentPage={currentURL} />
+      <MenuInformacoes currentPage={currentURL} subpages={subpages} />
       <div className="container mx-auto">
-        <CardProjetista nome="Sidney Quintela" />
-        <CardProjetista nome="Laís Galvão" />
-        <CardProjetista nome="Tatiana Melo" />
-        <CardProjetista nome="Laís Galvão" />
-        <CardProjetista nome="Feu Arquitetura (Alexandre Feu)" />
-        <CardProjetista nome="GW Arquitetos" />
-        <CardProjetista nome="Júlia Leal" />
-        <CardProjetista nome="GAM Arquitetos" />
+        <div dangerouslySetInnerHTML={{__html: page.content }} className="[&>*]:mb-10 [&>p]:text-2xl [&>h2]:text-4xl [&>h3]:text-3xl text-justify font-light"  />
+
       </div>
     </Layout>
   );
 }
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  const page = await getPage("/");
-  const { menu, generalSettings } = await allSettings();
+  const page = await getPage("inovacao-e-tecnologia");
+  const { menu, generalSettings, subpages } = await allSettings();
+  const filteredSubpages = filterSubpagesByParent('informacoes-gerais', subpages);
   return {
-    props: { generalSettings, menu, page, preview },
+    props: { generalSettings, menu, page, preview, subpages: filteredSubpages },
     revalidate: 10,
   };
 };

@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import Layout from "../../components/layout";
-import { allSettings, getPage } from "../../lib/api";
+import { allSettings, filterSubpagesByParent, getPage } from "../../lib/api";
 import { Settings, Page } from "../../models";
 import Header from "../../components/header";
 import MenuInformacoes from "../../components/menu-informacoes-gerais";
@@ -14,6 +14,7 @@ import Title from "../../components/title";
 type indexType = {
   generalSettings: Settings;
   menu: Page[];
+  subpages: Page[];
   page: Page;
   preview: boolean;
 };
@@ -23,6 +24,7 @@ export default function Bairro({
   menu,
   page,
   preview,
+  subpages
 }: indexType) {
   const currentURL = usePathname();
   return (
@@ -33,29 +35,16 @@ export default function Bairro({
       </Head>
       <Header menu={menu} />
       <Title imageURL={bgPraia} content="Seu infinito pé na areia" />
-      <MenuInformacoes currentPage={currentURL} />
+      <MenuInformacoes currentPage={currentURL} subpages={subpages} />
       <div className="container mx-auto">
-        <Image
-          src={ImageNeighbor}
-          alt="Vista dos prédios Infinity na beira da praia"
+        <img
+          src={page.featuredImage.mediaItemUrl}
+          alt={page.featuredImage.altText}
           className="w-full mb-10"
           data-aos="zoom-in-down"
         />
         <div data-aos="zoom-in-down">
-          <p className="text-[24px] text-justify font-medium">
-            LOREM IPSUM DOLOT SIT AMET CONSEECCT AKADDKKS ALDAKSKA DJFJF
-          </p>
-          <p className="text-[22px] mt-2 mb-12 text-justify font-light">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-            Pellentesque ultrices nulla non accumsan cursus. Aenean facilisis
-            aliquam lobortis. Vivamus elementum orci nunc, sit amet sodales nisi
-            fringilla iaculis. Interdum et malesuada fames ac ante ipsum primis
-            in faucibus. Phasellus sed urna ut ipsum porta porttitor. Proin
-            luctus condimentum est, ac gravida justo condimentum elementum. Nunc
-            scelerisque dui risus, ut hendrerit quam malesuada nec. Suspendisse
-            feugiat, mi in faucibus tristique, lorem purus tempor magna, sit
-            amet hendrerit urna enim maximus nisi.
-          </p>
+          <div dangerouslySetInnerHTML={{__html: page.content }} className="[&>*]:mb-10 [&>p]:text-2xl [&>h2]:text-4xl [&>h3]:text-3xl text-justify font-light"  />
         </div>
       </div>
     </Layout>
@@ -63,10 +52,12 @@ export default function Bairro({
 }
 
 export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  const page = await getPage("/");
-  const { menu, generalSettings } = await allSettings();
+  const page = await getPage("/o-bairro");
+  const { menu, generalSettings, subpages } = await allSettings();
+  const filteredSubpages = filterSubpagesByParent('informacoes-gerais', subpages);
   return {
-    props: { generalSettings, menu, page, preview },
+    props: { generalSettings, menu, page, preview, subpages: filteredSubpages },
     revalidate: 10,
   };
 };
+

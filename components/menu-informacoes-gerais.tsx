@@ -1,28 +1,33 @@
 import Link from "next/link";
 
-export default function MenuInformacoes({ currentPage }) {
-  const items = [
-    {
-      title: "Inovação e Tecnologia",
-      href: "/informacoes-gerais",
-      basis: " sm:basis-[40%]",
-    },
-    {
-      title: "Projetistas",
-      href: "/informacoes-gerais/projetistas",
-      basis: " sm:basis-[20%]",
-    },
-    {
-      title: "O Bairro",
-      href: "/informacoes-gerais/bairro",
-      basis: " sm:basis-[20%]",
-    },
-    {
-      title: "Descritivo",
-      href: "/informacoes-gerais/descritivo",
-      basis: " sm:basis-[20%]",
-    },
-  ];
+export default function MenuInformacoes({ currentPage, subpages = [] }) {
+  const items = subpages.map((page, i) => ({
+    title: page.title,
+    href: '/informacoes-gerais' + (i === 0 ? '' : ('/' + page.slug)),
+    basis: i === 0 ? 'sm:basis-[40%]' : 'sm:basis-[20%]',
+  }));
+  // const items = [
+  //   {
+  //     title: "Inovação e Tecnologia",
+  //     href: "/informacoes-gerais",
+  //     basis: " sm:basis-[40%]",
+  //   },
+  //   {
+  //     title: "Projetistas",
+  //     href: "/informacoes-gerais/projetistas",
+  //     basis: " sm:basis-[20%]",
+  //   },
+  //   {
+  //     title: "O Bairro",
+  //     href: "/informacoes-gerais/bairro",
+  //     basis: " sm:basis-[20%]",
+  //   },
+  //   {
+  //     title: "Descritivo",
+  //     href: "/informacoes-gerais/descritivo",
+  //     basis: " sm:basis-[20%]",
+  //   },
+  // ];
   return (
     <div>
       <div

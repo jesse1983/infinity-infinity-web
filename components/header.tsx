@@ -14,7 +14,7 @@ const slugify = text =>
     .trim()
     .replace(/\s+/g, '-')
     .replace(/[^\w-]+/g, '')
-    .replace(/--+/g, '-')
+    .replace(/--+/g, '-');
 
 export default function Header({ menu }: { menu: Page[] }) {
   const [open, setOpen] = useState(false);
@@ -58,9 +58,9 @@ export default function Header({ menu }: { menu: Page[] }) {
         </button>
         <ul className={`overflow-hidden sm:h-auto sm:grid sm:grid-cols-5 bg-midnight-900/70 m-0 p-0 transition-all duration-300 ease-in-out ${open ? 'h-[322px]' : 'h-0'}`}>
           {menu.map((item) => (
-            <li key={item.uri} className="text-center">
+            <li key={item.slug} className="text-center">
               <Link
-                href={item.uri}
+                href={'/' + item.slug}
                 className={`flex justify-center items-center h-16 hover:bg-midnight-950 transition duration-500 hover:ease-in-out ${isItemActive(item.title) ? 'bg-midnight-950' : ''}`}
               >
                 {item.title}

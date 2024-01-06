@@ -1,8 +1,8 @@
 import Head from "next/head";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Layout from "../../components/layout";
-import { allSettings, getPage } from "../../lib/api";
-import { Settings, Page } from "../../models";
+import { allSettings, getImagesByText, getPage } from "../../lib/api";
+import { Settings, Page, Image } from "../../models";
 import Header from "../../components/header";
 import Panorama from "../../components/panorama";
 import FloorPlan from "../../components/floor-plan";
@@ -12,6 +12,7 @@ type indexType = {
   menu: Page[];
   page: Page;
   preview: boolean;
+  images360: Image[],
 };
 
 export default function Index({
@@ -19,6 +20,7 @@ export default function Index({
   menu,
   page,
   preview,
+  images360,
 }: indexType) {
   return (
     <Layout preview={preview}>
@@ -28,7 +30,7 @@ export default function Index({
       </Head>
       <Header menu={menu} />
       <section>
-        <Panorama />
+        <Panorama images={images360} />
         <div
           className="text-center text-4xl py-7 uppercase w-auto"
           style={{ backgroundImage: "url(./bg-aqua-title.jpg)" }}
@@ -37,21 +39,21 @@ export default function Index({
         </div>
         <div className=" bg-white ">
           <div className="container lg:grid lg:grid-cols-3 gap-7 m-auto text-midnight-900 p-7 text-2xl leading-relaxed">
-            <div
-              className="text-4xl uppercase text-center lg:text-left"
+            {page.featuredImage && <div
+              className="text-4xl uppercase text-center lg:text-left mb-7"
               data-aos="fade-right"
             >
               <p className="mb-7">
-                Exclusividade, segurança e qualidade de vida
+              { page.featuredImage.altText }
               </p>
               <img
-                src="https://picsum.photos/500/300"
+                src={ page.featuredImage.mediaItemUrl }
                 alt=""
                 className="w-full"
               />
-            </div>
+            </div>}
             <div className="col-span-2 font-light" data-aos="fade-left">
-              <p className="mb-7">
+              {/* <p className="mb-7">
                 Com a requalificação do Rio Vermelho, o seu novo bairro te
                 proporcionará ainda mais qualidade de vida, segurança e maior
                 valorização no seu empreendimento pé na areia.
@@ -65,7 +67,10 @@ export default function Index({
                 Com a requalificação do Rio Vermelho, o seu novo bairro te
                 proporcionará ainda mais qualidade de vida, segurança e maior
                 valorização no seu empreendimento pé na areia.
-              </p>
+              </p> */}
+
+                <div dangerouslySetInnerHTML={{__html: page.content }} className="[&>p]:mb-7"  />
+
             </div>
           </div>
         </div>
@@ -97,11 +102,12 @@ export default function Index({
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  const page = await getPage("/");
+
+export const getServerSideProps: GetServerSideProps = async ({ preview = false }) => {
+  const page = await getPage("/localizacao");
   const { menu, generalSettings } = await allSettings();
+  const images360 = await getImagesByText('360');
   return {
-    props: { generalSettings, menu, page, preview },
-    revalidate: 10,
+    props: { generalSettings, menu, page, preview, images360 },
   };
 };

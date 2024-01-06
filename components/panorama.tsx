@@ -2,21 +2,28 @@
 import dynamic from "next/dynamic";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
+import { Image } from '../models';
 
-export default function Panorama() {
-  const panoramas = [
-    { src: "./panorama1.jpg", alt: "Nascer do sol" },
-    { src: "./panorama2.jpg", alt: "Pôr do sol" },
+const ReactPhotoSphereViewer = dynamic(
+  () =>
+    import("react-photo-sphere-viewer").then(
+      (mod) => mod.ReactPhotoSphereViewer
+    ),
+  {
+    ssr: false,
+  }
+);
+
+export default function Panorama({ images }: { images: Image[] }) {
+  const panoramas1 = [
+    { src: "./cdn/panorama1.jpg", alt: "Nascer do sol" },
+    { src: "./cdn/panorama2.jpg", alt: "Pôr do sol" },
   ];
-  const ReactPhotoSphereViewer = dynamic(
-    () =>
-      import("react-photo-sphere-viewer").then(
-        (mod) => mod.ReactPhotoSphereViewer
-      ),
-    {
-      ssr: false,
-    }
-  );
+
+  const panoramas = images.map((img) => ({
+    alt: img.altText,
+    src: `./api/cdn?imageUrl=${img.mediaItemUrl}`,
+  })).sort((a, b) => a.alt > b.alt ? 1 : -1);
 
   const [current, setCurrent] = useState(0);
   const clickCurrent = (ev, i) => {

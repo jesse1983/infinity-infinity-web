@@ -3,5 +3,16 @@ export type Page = {
     title: string,
     menuOrder: number,
     uri: string,
+    slug: string,
     content: string,
+    featuredImage?: Image;
+    parent?: any
+
+}
+
+export type Image = {
+  altText: string;
+  mediaItemUrl: string;
+  sourceUrl: string;
+  sizes: string;
 }

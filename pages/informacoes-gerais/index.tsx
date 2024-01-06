@@ -1,7 +1,7 @@
 import Head from "next/head";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Layout from "../../components/layout";
-import { allSettings, getPage } from "../../lib/api";
+import { allSettings, filterSubpagesByParent, getPage } from "../../lib/api";
 import { Settings, Page } from "../../models";
 import Header from "../../components/header";
 import MenuInformacoes from "../../components/menu-informacoes-gerais";
@@ -26,6 +26,7 @@ type indexType = {
   menu: Page[];
   page: Page;
   preview: boolean;
+  subpages: Page[],
 };
 
 export default function Index({
@@ -33,6 +34,7 @@ export default function Index({
   menu,
   page,
   preview,
+  subpages,
 }: indexType) {
   const currentURL = usePathname();
   return (
@@ -43,29 +45,16 @@ export default function Index({
       </Head>
       <Header menu={menu} />
       <Title imageURL={bgPraia} content="Seu infinito pé na areia" />
-      <MenuInformacoes currentPage={currentURL} />
+      <MenuInformacoes currentPage={currentURL} subpages={subpages} />
       <div className="container mx-auto">
         <div className="lg:flex lg:flex-row justify-between mb-20">
-          <Image
-            src={DroneTecnologia}
+          {page.featuredImage && <img
+            src={page.featuredImage.mediaItemUrl}
             alt="Drone carregando um pacote enquanto sobrevoa prédios"
             className="block lg:hidden mx-auto mb-5"
-          />
+          />}
           <div className="container flex flex-col mr-10" data-aos="fade-right">
-            <p className="text-3xl text-justify font-medium mb-6">
-              LOREM IPSUM DOLOT SIT AMET CONSEECCT AKADDKKS ALDAKSKA DJFJF
-            </p>
-            <p className="text-2xl text-justify font-light">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-              Pellentesque ultrices nulla non accumsan cursus. Aenean facilisis
-              aliquam lobortis. Vivamus elementum orci nunc, sit amet sodales
-              nisi fringilla iaculis. Interdum et malesuada fames ac ante ipsum
-              primis in faucibus. Phasellus sed urna ut ipsum porta porttitor.
-              Proin luctus condimentum est, ac gravida justo condimentum
-              elementum. Nunc scelerisque dui risus, ut hendrerit quam malesuada
-              nec. Suspendisse feugiat, mi in faucibus tristique, lorem purus
-              tempor magna, sit amet hendrerit urna enim maximus nisi.
-            </p>
+            <div dangerouslySetInnerHTML={{__html: page.content }} className="[&>p]:text-2xl [&>*]:mb-10 [&>h2]:text-4xl text-justify font-light"  />
           </div>
           <Image
             src={DroneTecnologia}
@@ -125,11 +114,12 @@ export default function Index({
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  const page = await getPage("/");
-  const { menu, generalSettings } = await allSettings();
+export const getServerSideProps: GetServerSideProps = async ({ preview = false }) => {
+  const page = await getPage("inovacao-e-tecnologia");
+  const { menu, generalSettings, subpages } = await allSettings();
+  const filteredSubpages = filterSubpagesByParent('informacoes-gerais', subpages);
   return {
-    props: { generalSettings, menu, page, preview },
-    revalidate: 10,
+    props: { generalSettings, menu, page, preview, subpages: filteredSubpages },
+
   };
 };

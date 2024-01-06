@@ -3,6 +3,7 @@ import { FLOOR } from "./floor";
 import { PARKING } from "./parking";
 
 export type ENTERPRISE = {
+  id?: string;
   title: string;
   slug: string;
   area?: string;

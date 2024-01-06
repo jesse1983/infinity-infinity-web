@@ -1,0 +1,15 @@
+version: "3.5"
+
+services:
+  infinity-web-application:
+    image: infinity-web
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      WORDPRESS_API_URL: http://qa.infinitybyor.com.br/index.php?graphql
+      WORDPRESS_URL: http://qa.infinitybyor.com.br
+      AUTH_SECRET: INFINITYWEB
+      NODE_ENV: production

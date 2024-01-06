@@ -5,7 +5,7 @@ import { enterprises } from "./fallback/buildings";
 import { AMBIENT, ENTERPRISE, FLOOR } from "../types";
 import { PARKING } from "../types/parking";
 
-const API_URL = process.env.WORDPRESS_API_URL;
+const API_URL = process.env.WORDPRESS_API_URL || 'http://qa.infinitybyor.com.br/index.php?graphql';
 
 async function fetchAPI(query = "", { variables }: Record<string, any> = {}) {
   const headers = { "Content-Type": "application/json" };
@@ -59,38 +59,55 @@ const handlePage = (props: any): Page => {
 const handleGarages = (enterpriseId, garagesNode: any[]) => {
   return garagesNode
     .filter((a) => a.custom.enterprise.id === enterpriseId)
-    .map((a): PARKING => ({
-      number: a.custom.number,
-      identifier: a.custom.number,
-      image: a.custom?.image ? a.custom?.image?.mediaItemUrl : null,
-    }))
-    .sort((a, b) => a.identifier > b.identifier ? 1 : -1);
-}
+    .map(
+      (a): PARKING => ({
+        number: a.custom.number,
+        identifier: a.custom.number,
+        image: a.custom?.image ? a.custom?.image?.mediaItemUrl : null,
+      })
+    )
+    .sort((a, b) => (a.identifier > b.identifier ? 1 : -1));
+};
 
 const handleAmbients = (floorId, ambientsNode: any[]) => {
   return ambientsNode
     .filter((a) => a.details.floor.id === floorId)
-    .map((a): AMBIENT => ({
-      title: a.title,
-      coords: a.details?.coords,
-      photoSrc: a.details?.image?.mediaItemUrl,
-    }));
-}
+    .map(
+      (a): AMBIENT => ({
+        title: a.title,
+        coords: a.details?.coords,
+        photoSrc: a.details?.image?.mediaItemUrl,
+      })
+    );
+};
 
-const handleFloors = (enterpriseId, floorsNode: any[], ambientsNode: any[]): FLOOR[] => {
+const handleFloors = (
+  enterpriseId,
+  floorsNode: any[],
+  ambientsNode: any[]
+): FLOOR[] => {
   return floorsNode
     .filter((f) => f.floor_fields.enterpriseid?.id === enterpriseId)
     .map((f) => ({
       title: f.title,
       slug: f.slug,
       ambients: handleAmbients(f.id, ambientsNode),
-      coords: { x: Number.parseInt(f.floor_fields.coords.split(',')[0]), y: Number.parseInt(f.floor_fields.coords.split(',')[1]) },
+      coords: {
+        x: Number.parseInt(f.floor_fields.coords.split(",")[0]),
+        y: Number.parseInt(f.floor_fields.coords.split(",")[1]),
+      },
       floorPlanSrc: f.floor_fields?.photo?.mediaItemUrl,
       decorated: [],
     }));
-}
+};
 
-const handleEnterprises = (enterpriseNode = [], floorsNode = [], ambientsNode = [], garagesNode = [], depositsNode = []): ENTERPRISE[] => {
+const handleEnterprises = (
+  enterpriseNode = [],
+  floorsNode = [],
+  ambientsNode = [],
+  garagesNode = [],
+  depositsNode = []
+): ENTERPRISE[] => {
   return enterpriseNode.map(
     (e): ENTERPRISE => ({
       id: e.id,
@@ -102,8 +119,8 @@ const handleEnterprises = (enterpriseNode = [], floorsNode = [], ambientsNode = 
       logo: e.enterprises?.logo?.mediaItemUrl,
       bgImage: e.enterprises?.bgimage?.mediaItemUrl,
       salesTable: e.enterprises?.salestable?.mediaItemUrl,
-      garages: handleGarages(e.id,garagesNode),
-      deposits: handleGarages(e.id,depositsNode),
+      garages: handleGarages(e.id, garagesNode),
+      deposits: handleGarages(e.id, depositsNode),
     })
   );
 };
@@ -301,7 +318,13 @@ export async function getEnterprises() {
     const ambientsNode = data.ambients.nodes;
     const garagesNode = data.garages.nodes;
     const depositsNode = data.deposits.nodes;
-    const enterprises = handleEnterprises(enterprisesNode, floorsNode, ambientsNode, garagesNode, depositsNode);
+    const enterprises = handleEnterprises(
+      enterprisesNode,
+      floorsNode,
+      ambientsNode,
+      garagesNode,
+      depositsNode
+    );
     return enterprises;
   } catch (e) {
     return enterprises;
@@ -313,8 +336,9 @@ export function filterSubpagesByParent(slug: string, subpages: Page[]) {
 }
 
 export async function getImagesByText(search: string): Promise<Image[]> {
-  const data = await fetchAPI(
-    `
+  try {
+    const data = await fetchAPI(
+      `
   query MediaItems($search: String) {
     mediaItems(where: { search: $search }) {
         nodes {
@@ -326,8 +350,11 @@ export async function getImagesByText(search: string): Promise<Image[]> {
     }
   }
     `,
-    { variables: { search } }
-  );
-  const images: Image[] = data.mediaItems.nodes;
-  return images;
+      { variables: { search } }
+    );
+    const images: Image[] = data.mediaItems.nodes;
+    return images;
+  } catch (e) {
+    return [];
+  }
 }

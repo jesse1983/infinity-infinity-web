@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Layout from "../../components/layout";
 import { allSettings, getImagesByText, getPage } from "../../lib/api";
 import { Settings, Page, Image } from "../../models";
@@ -103,12 +103,11 @@ export default function Index({
 }
 
 
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
+export const getServerSideProps: GetServerSideProps = async ({ preview = false }) => {
   const page = await getPage("/localizacao");
   const { menu, generalSettings } = await allSettings();
   const images360 = await getImagesByText('360');
   return {
     props: { generalSettings, menu, page, preview, images360 },
-    revalidate: 10,
   };
 };

@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Layout from "../../components/layout";
 import { allSettings, filterSubpagesByParent, getPage } from "../../lib/api";
 import { Settings, Page } from "../../models";
@@ -38,8 +38,8 @@ export default function Bairro({
       <MenuInformacoes currentPage={currentURL} subpages={subpages} />
       <div className="container mx-auto">
         <img
-          src={page.featuredImage.mediaItemUrl}
-          alt={page.featuredImage.altText}
+          src={page.featuredImage?.mediaItemUrl}
+          alt={page.featuredImage?.altText}
           className="w-full mb-10"
           data-aos="zoom-in-down"
         />
@@ -51,13 +51,13 @@ export default function Bairro({
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
+export const getServerSideProps: GetServerSideProps = async ({ preview = false }) => {
   const page = await getPage("/o-bairro");
   const { menu, generalSettings, subpages } = await allSettings();
   const filteredSubpages = filterSubpagesByParent('informacoes-gerais', subpages);
   return {
     props: { generalSettings, menu, page, preview, subpages: filteredSubpages },
-    revalidate: 10,
+
   };
 };
 

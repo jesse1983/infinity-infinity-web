@@ -15,7 +15,7 @@
 // }
 
 // export default proxy()
-const WORDPRESS_URL = process.env.WORDPRESS_URL;
+const WORDPRESS_URL = process.env.WORDPRESS_URL  || "http://qa.infinitybyor.com.br";
 
 import { withImageProxy } from '@blazity/next-image-proxy'
 

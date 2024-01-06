@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Layout from "../../components/layout";
 import { allSettings, filterSubpagesByParent, getPage } from "../../lib/api";
 import { Settings, Page } from "../../models";
@@ -23,7 +23,7 @@ export default function Projetistas({
   menu,
   page,
   preview,
-  subpages, 
+  subpages,
 }: indexType) {
   const currentURL = usePathname();
   return (
@@ -43,12 +43,12 @@ export default function Projetistas({
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
+export const getServerSideProps: GetServerSideProps = async ({ preview = false }) => {
   const page = await getPage("inovacao-e-tecnologia");
   const { menu, generalSettings, subpages } = await allSettings();
   const filteredSubpages = filterSubpagesByParent('informacoes-gerais', subpages);
   return {
     props: { generalSettings, menu, page, preview, subpages: filteredSubpages },
-    revalidate: 10,
+
   };
 };

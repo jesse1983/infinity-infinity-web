@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Layout from "../components/layout";
 import Header from "../components/header";
 import Title from "../components/title";
@@ -100,11 +100,11 @@ export default function Index({
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
+export const getServerSideProps: GetServerSideProps = async ({ preview = false }) => {
   const page = await getPage("/manifesto");
   const { menu, generalSettings } = await allSettings();
   return {
     props: { generalSettings, menu, page, preview },
-    revalidate: 10,
+
   };
 };

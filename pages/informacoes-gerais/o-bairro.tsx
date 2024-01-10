@@ -4,9 +4,10 @@ import Layout from "../../components/layout";
 import { allSettings, filterSubpagesByParent, getPage } from "../../lib/api";
 import { Settings, Page } from "../../models";
 import Header from "../../components/header";
-import Link from "next/link";
 import MenuInformacoes from "../../components/menu-informacoes-gerais";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
+import ImageNeighbor from "../../public/predios-praia.png";
 import bgPraia from "../../public/bg-praia.png";
 import Title from "../../components/title";
 
@@ -18,12 +19,12 @@ type indexType = {
   preview: boolean;
 };
 
-export default function Descritivo({
+export default function Bairro({
   generalSettings,
   menu,
   page,
   preview,
-  subpages,
+  subpages
 }: indexType) {
   const currentURL = usePathname();
   return (
@@ -35,15 +36,23 @@ export default function Descritivo({
       <Header menu={menu} />
       <Title imageURL={bgPraia} content="Seu infinito pé na areia" />
       <MenuInformacoes currentPage={currentURL} subpages={subpages} />
-      <div className="container mx-auto" data-aos="fade-right">
-        <div dangerouslySetInnerHTML={{__html: page.content }} className="[&>*]:mb-10 [&>*]:text-2xl [&>ul>li]:list-disc [&>ul>li]:list-inside font-light"  />
+      <div className="container mx-auto">
+        <img
+          src={page.featuredImage?.mediaItemUrl}
+          alt={page.featuredImage?.altText}
+          className="w-full mb-10"
+          data-aos="zoom-in-down"
+        />
+        <div data-aos="zoom-in-down">
+          <div dangerouslySetInnerHTML={{__html: page.content }} className="[&>*]:mb-10 [&>p]:text-2xl [&>h2]:text-4xl [&>h3]:text-3xl text-justify font-light"  />
+        </div>
       </div>
     </Layout>
   );
 }
 
 export const getServerSideProps: GetServerSideProps = async ({ preview = false }) => {
-  const page = await getPage("/descritivo");
+  const page = await getPage("/o-bairro");
   const { menu, generalSettings, subpages } = await allSettings();
   const filteredSubpages = filterSubpagesByParent('informacoes-gerais', subpages);
   return {

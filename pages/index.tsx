@@ -53,11 +53,11 @@ export default function Index({
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
+export const getServerSideProps: GetStaticProps = async ({ preview = false }) => {
+  console.log(process.env.WORDPRESS_API_URL);
   const page = await getPage("/");
   const { menu, generalSettings } = await allSettings();
   return {
     props: { generalSettings, menu, page, preview },
-    revalidate: 10,
   };
 };

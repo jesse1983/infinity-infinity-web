@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { GetStaticProps } from "next";
+import { GetServerSideProps } from "next";
 import Layout from "../components/layout";
 import Header from "../components/header";
 import Title from "../components/title";
@@ -34,7 +34,10 @@ export default function Index({
       <div>
         <Title imageURL={bgMar} content="Mergulhe no seu mar" />
       </div>
-      <div className="container mx-auto flex flex-col lg:flex-row justify-around items-center mb-10 lg:mb-1">
+      <div dangerouslySetInnerHTML={{__html: page.content }} className="[&>div]:grid"  />
+
+      {/* <div className="container mx-auto flex flex-col lg:flex-row justify-around items-center mb-10 lg:mb-1">
+
         <div
           className="font-medium text-2xl leading-loose text-center lg:text-justify mb-10 lg:mb-1"
           data-aos="fade-right"
@@ -82,7 +85,7 @@ export default function Index({
           <p>O mar conecta, acalma e inspira</p>
           <p>ele é vista e guia.</p>
         </div>
-      </div>
+      </div> */}
       <div data-aos="zoom-in-down">
         <video
           className=" w-auto min-w-full min-h-full max-h-none"
@@ -97,11 +100,11 @@ export default function Index({
   );
 }
 
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
-  const page = await getPage("/");
+export const getServerSideProps: GetServerSideProps = async ({ preview = false }) => {
+  const page = await getPage("/manifesto");
   const { menu, generalSettings } = await allSettings();
   return {
     props: { generalSettings, menu, page, preview },
-    revalidate: 10,
+
   };
 };

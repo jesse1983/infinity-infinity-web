@@ -1,6 +1,6 @@
 "use client";
 import Enterprise from "../../../components/enterprise";
-import { getStaticProps } from "../../../props/getStaticProps";
+import { serverSideProps } from "../../../props/getServerSideProps";
 import { PROPS } from "../../../props/infinity-world-props";
 
 export default function Index({
@@ -22,4 +22,5 @@ export default function Index({
   );
 }
 
-export { getStaticProps };
+const getServerSideProps = serverSideProps;
+export { getServerSideProps };

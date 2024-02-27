@@ -1,6 +1,7 @@
 import MiniMenuContainer from "../mini-menu-container";
 import ItemMapa from "../item-mapa";
 import InfoMapa from "../info-mapa";
+import sortBy from "sort-by";
 import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import { ENTERPRISE } from "../../types";
@@ -18,6 +19,7 @@ export default function MapaDeDepositos({
     setSelectedEnterprise(enterprise);
     setSelectedDeposit(deposit);
   };
+
   return (
     <>
       {selectedDeposit && (
@@ -33,7 +35,7 @@ export default function MapaDeDepositos({
       {!selectedDeposit && (
         <MiniMenuContainer title="Mapa de Depósitos">
           <div className="flex flex-col gap-y-24 text-center">
-            {enterprises.map((enterprise) => (
+            {enterprises.sort().map((enterprise) => (
               <div key={uuidv4()}>
                 <div
                   className="self-center mb-10 text-3xl uppercase font-light mx-auto"

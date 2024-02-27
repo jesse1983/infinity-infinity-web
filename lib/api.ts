@@ -326,6 +326,8 @@ export async function getEnterprises() {
       garagesNode,
       depositsNode
     );
+    const compare = (a, b) => a.title > a.title ? 1 : -1;
+    enterprises.sort(compare);
     return enterprises;
   } catch (e) {
     return enterprises;

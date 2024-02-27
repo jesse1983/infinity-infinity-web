@@ -31,7 +31,7 @@ export default function MapaDeVagas({ enterprises }: { enterprises: ENTERPRISE[]
                         onClick={() => {
                           setInfoParking(item);
                         }}
-                        identifier={item.number}
+                        identifier={item.identifier}
                         key={uuidv4()}
                         isParkingSlot={true}
                       />

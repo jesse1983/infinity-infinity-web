@@ -179,7 +179,10 @@ export default function Enterprise({
                   />
                 ))}
               </FloorPlan>
-              {floor.decorated?.length &&
+              {/*
+              O primeiro 0 está nesse floor.decorated?.length abaixo, e colocando o !== 0 anula o 0
+              */}
+              {floor.decorated?.length !== 0 &&
                 !showDecorated &&
                 !setSelectedAmbient && (
                   <div
@@ -195,7 +198,10 @@ export default function Enterprise({
             </div>
           )}
         </MiniMenuContainer>
-        {floor?.decorated?.length && showDecorated && (
+        {/*
+          E o outro 0 está nesse floor?.decorated?.length abaixo, sendo resolvido usando da mesma forma
+        */}
+        {floor?.decorated?.length !== 0 && showDecorated && (
           <Decorated
             decorated={floor.decorated}
             onClose={() => setShowDecorated(undefined)}

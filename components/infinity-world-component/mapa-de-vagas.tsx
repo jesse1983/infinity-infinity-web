@@ -17,6 +17,10 @@ export default function MapaDeVagas({ enterprises }: { enterprises: ENTERPRISE[]
 
   const onBack = () => setSelectedEnterprise(undefined);
 
+  const compare = (a, b) => parseInt(a.parkingslot) >= parseInt(b.parkingslot) ? 1 : -1;
+
+  // console.log(selectedEnterprise.garages)
+
   return (
     <>
       {selectedEnterprise && !infoParking && (
@@ -25,13 +29,13 @@ export default function MapaDeVagas({ enterprises }: { enterprises: ENTERPRISE[]
             <div className="flex flex-col gap-y-24 text-center">
               <div key={uuidv4()}>
                 <div className="flex flex-row flex-wrap gap-y-10">
-                  {selectedEnterprise.garages.map((item) =>
+                  {selectedEnterprise.garages.sort(compare).map((item) =>
                    (
                       <ItemMapa
                         onClick={() => {
                           setInfoParking(item);
                         }}
-                        identifier={item.identifier}
+                        identifier={item.parkingslot}
                         key={uuidv4()}
                         isParkingSlot={true}
                       />
@@ -46,7 +50,7 @@ export default function MapaDeVagas({ enterprises }: { enterprises: ENTERPRISE[]
       {infoParking && selectedEnterprise && (
         // <div>{JSON.stringify(currentSlot)}</div>
         <InfoMapa
-          parkingSpace={infoParking.number}
+          parkingSpace={infoParking.parkingslot}
           identifier={infoParking.identifier}
           apartment={selectedEnterprise.title}
           mainImage={infoParking.image}

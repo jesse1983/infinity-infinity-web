@@ -64,6 +64,7 @@ const handleGarages = (enterpriseId, garagesNode: any[]) => {
       (a): PARKING => ({
         number: a.custom.number,
         identifier: a.custom.number,
+        parkingslot: a?.custom?.parkingslot || "",
         image: a.custom?.image ? a.custom?.image?.mediaItemUrl : null,
       })
     )
@@ -273,7 +274,7 @@ export async function getEnterprises() {
             }
           }
         }
-        garages {
+        garages(first: 0, last: 100) {
           nodes {
             title
             custom {
@@ -284,6 +285,7 @@ export async function getEnterprises() {
                 sizes
               }
               number
+              parkingslot
               enterprise {
                 ... on Enterprise {
                   id

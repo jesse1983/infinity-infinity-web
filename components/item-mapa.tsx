@@ -10,7 +10,7 @@ type ItemProps = {
 export default function ItemMapa(props: ItemProps) {
   return (
     <div
-      className={`w-auto flex flex-col  ${
+      className={`w-auto flex flex-col mt-5 ${
         props.isParkingSlot ? "mx-5" : "mx-14"
       } `}
       data-aos="zoom-in"

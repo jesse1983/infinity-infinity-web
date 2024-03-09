@@ -203,7 +203,7 @@ export async function getEnterprises() {
     const data = await fetchAPI(
       `
       query Enterprises {
-        enterprises {
+        enterprises(first: 0, last: 100) {
           nodes {
             id
             slug
@@ -233,7 +233,7 @@ export async function getEnterprises() {
             }
           }
         }
-        floors {
+        floors(first: 0, last: 100) {
           nodes {
             floor_fields {
               coords
@@ -255,7 +255,7 @@ export async function getEnterprises() {
             id
           }
         }
-        ambients {
+        ambients(first: 0, last: 100) {
           nodes {
             title
             details {
@@ -294,7 +294,7 @@ export async function getEnterprises() {
             }
           }
         }
-        deposits {
+        deposits(first: 0, last: 100) {
           nodes {
             title
             custom {

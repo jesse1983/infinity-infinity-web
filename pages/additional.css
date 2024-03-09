@@ -1,0 +1,30 @@
+.list-numbers ol {
+  list-style: none;
+  counter-reset: my-counter;
+}
+
+.list-numbers ol li {
+  counter-increment: my-counter;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.list-numbers ol li::before {
+  content: counter(my-counter);
+  background: #0F1F39;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  text-align: center;
+  padding-top: 2px;
+  margin-right: 10px;
+}
+
+.list-numbers a {
+  background: #0F1F39;
+  padding: 20px 40px;
+  margin-top: 20px;
+  display: inline-block;
+  text-transform: uppercase;
+}

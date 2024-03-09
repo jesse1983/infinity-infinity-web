@@ -149,7 +149,7 @@ export async function allSettings(): Promise<allSettingsType> {
     const data = await fetchAPI(
       `
       {
-        pages {
+        pages(first: 0, last: 100) {
           nodes {
             id
             content

@@ -22,7 +22,7 @@ export default function Panorama({ images }: { images: Image[] }) {
 
   const panoramas = images.map((img) => ({
     alt: img.altText,
-    src: `./api/cdn?imageUrl=${img.mediaItemUrl}`,
+    src: `/api/cdn?imageUrl=${img.mediaItemUrl}`,
   })).sort((a, b) => a.alt > b.alt ? 1 : -1);
 
   const [current, setCurrent] = useState(0);
@@ -44,7 +44,7 @@ export default function Panorama({ images }: { images: Image[] }) {
           />
         </div>
       ))}
-      <nav className="text-center uppercase">
+      <nav className="text-center uppercase hidden">
         {panoramas.map((panorama, i) => (
             <a href="#" className="px-7 py-7 inline-block" onClick={(e) => clickCurrent(e, i)} key={uuidv4()}>
                 <span className={i === current ? 'border-b border-midnight-300' : ''}>{panorama.alt}</span>

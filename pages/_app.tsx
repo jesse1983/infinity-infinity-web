@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import "../styles/index.css";
 import "./mouse-trail.css";
 import "./shine.css";
+import "./additional.css";
 
 const montSerrat = Montserrat({ subsets: ["latin"] });
 

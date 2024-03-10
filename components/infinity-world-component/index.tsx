@@ -109,10 +109,19 @@ export function InfinityWorldComponent({
     setDirection(direction);
   };
 
+  const bgOverlay = useMemo(() => {
+    return buildingDetails ? 'bg-white' : undefined;
+  }, [buildingDetails]);
+
+  const hidePois = useMemo(() => {
+    return !!buildingDetails;
+  }, [buildingDetails]);
+
+
   return (
     <div className="relative max-h-screen " data-aos="zoom-out">
       <div
-        style={{ backgroundImage: `url(${miniMenuBg.src})` }}
+        style={{ backgroundImage: `url(${miniMenuBg.src})`, display: hidePois ? 'none' : '' }}
         className={`absolute px-7 hidden w-[80px] lg:w-[324px] h-[50%] ${position} transition-top duration-300 drop-shadow-2xl z-50 sm:flex flex-col justify-around items-center uppercase text-sm font-bold bg-repeat-y bg-right`}
       >
         {items.map((item) => (
@@ -140,40 +149,42 @@ export function InfinityWorldComponent({
         </div>
       ))}
       {buildingDetails && !currentScreen && (
-        <div
-          className={`flex flex-col absolute w-1/5 z-20 text-center top-[20%] ${direction}`}
-          data-aos="zoom-in"
-        >
-          <div className="bg-dusk flex flex-row text-center rounded-t-3xl overflow-hidden">
-            <div className="w-full text-3xl font-medium relative">
-              <div className="py-8 text-center">{buildingDetails.area}</div>
-              <div className="absolute hover:right-4 hover:top-4 transition-all ease-in-out delay-50 right-2 top-2 w-8 h-8">
-                <button
-                  onClick={() => setBuildingDetails(undefined)}
-                  className="rounded-full flex w-8 h-8 text-base justify-center items-center bg-midnight-950 transition-all ease-in-out delay-80 hover:scale-150 hover:bg-midnight-900"
-                >
-                  <IconClose />
-                </button>
+        <div className="absolute top-0 bottom-0 left-0 right-0 z-20">
+          <div
+            className={`flex flex-col absolute w-1/5 z-30 text-center top-[20%] ${direction}`}
+            data-aos="zoom-in"
+          >
+            <div className="bg-dusk flex flex-row text-center rounded-t-3xl overflow-hidden">
+              <div className="w-full text-3xl font-medium relative">
+                <div className="py-8 text-center">{buildingDetails.area}</div>
+                <div className="absolute hover:right-4 hover:top-4 transition-all ease-in-out delay-50 right-2 top-2 w-8 h-8">
+                  <button
+                    onClick={() => setBuildingDetails(undefined)}
+                    className="rounded-full flex w-8 h-8 text-base justify-center items-center bg-midnight-950 transition-all ease-in-out delay-80 hover:scale-150 hover:bg-midnight-900"
+                  >
+                    <IconClose />
+                  </button>
+                </div>
               </div>
             </div>
+            <div className="bg-midnight-950 leading-tight border-white text-xl rounded-b-3xl mb-10">
+              {buildingDetails.features.map((feature, i) => (
+                <div
+                  className={`py-3 px-3 text-lg ${
+                    i === buildingDetails.features.length - 1 ? "" : "border-b"
+                  }`}
+                >
+                  {feature}
+                </div>
+              ))}
+            </div>
+            <img src={buildingDetails.logo} />
           </div>
-          <div className="bg-midnight-950 leading-tight border-white text-xl rounded-b-3xl mb-10">
-            {buildingDetails.features.map((feature, i) => (
-              <div
-                className={`py-3 px-3 text-lg ${
-                  i === buildingDetails.features.length - 1 ? "" : "border-b"
-                }`}
-              >
-                {feature}
-              </div>
-            ))}
-          </div>
-          <img src={buildingDetails.logo} />
         </div>
       )}
-      <div className="">
-        <FloorPlan src={roofTop.src} onLoad={scrollToBottom}>
-        <FloorPlan.Path
+      <div className={bgOverlay}>
+        <FloorPlan src={roofTop.src} onLoad={scrollToBottom} hidePois={hidePois}>
+          <FloorPlan.Path
             title={"Infinity Blue"}
             noBorder
             coords="m 709.15105,224.03528 16.22933,-0.35281 -1.05844,-15.5237 19.75744,-1.05844 151.00331,9.1731 10.93716,9.1731 12.70121,28.93054 -1.15061,20.79428 15.46747,31.68337 1.20684,565.29523 35.28115,-2.8225 -1.41125,19.75745 13.40684,4.93936 1.41125,191.92944 -293.53914,0.5292 2.46968,-199.16206 4.23373,0.35281 v 24.16759 l 16.40574,-0.35281 0.1764,-38.28005 -5.64498,0.17641 -0.35281,-10.23154 -4.58655,-574.02425 8.64388,-1.41125 0.35281,-21.87431 -7.76185,-9.87872 3.70452,-1.05844 z"
@@ -184,7 +195,7 @@ export function InfinityWorldComponent({
             noBorder
             coords="m 1487.8712,223.52994 52.8888,-0.49895 v -31.93285 l 209.5593,-3.49265 v 34.4276 l 54.3856,-0.9979 -1.4968,627.18112 67.3583,-0.99791 0.9979,240.4943 -452.0494,-2.9937 0.499,-234.50689 64.8636,-1.49685 z"
             onClick={(ev) =>
-              clickBuildingDetails(enterprises[1], "right-[10%]")
+              clickBuildingDetails(enterprises[1], "right-[5%]")
             }
           />
           {floors

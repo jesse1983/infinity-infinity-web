@@ -118,7 +118,7 @@ export default function Enterprise({
             <Carousel
               showArrows
               centerMode
-              dynamicHeight
+              // dynamicHeight
               showStatus={false}
               showThumbs={false}
               showIndicators={false}
@@ -168,7 +168,7 @@ export default function Enterprise({
           slot={!showDecorated && !selectedAmbient && buildingCircle()}
         >
           {floor && (
-            <div className="w-full p-24 relative">
+            <div className="w-full p-24 relative max-h-[calc(100vh_-_200px)]">
               <FloorPlan src={floor.floorPlanSrc}>
                 {floor.ambients.map((ambient) => (
                   <FloorPlan.Path
@@ -179,7 +179,7 @@ export default function Enterprise({
                   />
                 ))}
               </FloorPlan>
-              {floor.decorated?.length &&
+              {floor.decorated?.length > 0 &&
                 !showDecorated &&
                 !setSelectedAmbient && (
                   <div

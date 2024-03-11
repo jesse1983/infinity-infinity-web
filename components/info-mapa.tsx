@@ -26,11 +26,11 @@ export default function InfoMapa(props: InfoProps) {
               {props.parkingSpace && <p>{props.parkingSpace}</p>}
             </div>
           </div>
-          <div className="col-span-2 self-center" data-aos="zoom-in">
+          {/* <div className="col-span-2 self-center" data-aos="zoom-in">
             <BackButton
               onClick={() => (props.onBack ? props.onBack() : undefined)}
             />
-          </div>
+          </div> */}
           <img
             src={props.mainImage}
             alt={`Mapa ${props.identifier} do apartamento ${props.apartment}`}

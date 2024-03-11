@@ -25,7 +25,7 @@ export default function Index({
         <meta name="description" content={page.title}></meta>
       </Head>
       <Header menu={menu} />
-      <div className="relative flex items-center justify-center h-[calc(100vh-150px)] w-screen overflow-hidden">
+      <div className="relative flex items-center justify-center h-[calc(100vh-100px)] w-screen overflow-hidden">
         <div
           className="flex items-end justify-end relative z-30 w-auto h-full sm:w-screen"
           data-aos="fade-up-left"

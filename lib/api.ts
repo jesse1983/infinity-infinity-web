@@ -64,6 +64,7 @@ const handleGarages = (enterpriseId, garagesNode: any[]) => {
       (a): PARKING => ({
         number: a.custom.number,
         identifier: a.custom.number,
+        parkingslot: a?.custom?.parkingslot || "",
         image: a.custom?.image ? a.custom?.image?.mediaItemUrl : null,
       })
     )
@@ -202,7 +203,7 @@ export async function getEnterprises() {
     const data = await fetchAPI(
       `
       query Enterprises {
-        enterprises {
+        enterprises(first: 0, last: 100) {
           nodes {
             id
             slug
@@ -232,7 +233,7 @@ export async function getEnterprises() {
             }
           }
         }
-        floors {
+        floors(first: 0, last: 100) {
           nodes {
             floor_fields {
               coords
@@ -254,7 +255,7 @@ export async function getEnterprises() {
             id
           }
         }
-        ambients {
+        ambients(first: 0, last: 100) {
           nodes {
             title
             details {
@@ -273,7 +274,7 @@ export async function getEnterprises() {
             }
           }
         }
-        garages {
+        garages(first: 0, last: 100) {
           nodes {
             title
             custom {
@@ -284,6 +285,7 @@ export async function getEnterprises() {
                 sizes
               }
               number
+              parkingslot
               enterprise {
                 ... on Enterprise {
                   id
@@ -292,7 +294,7 @@ export async function getEnterprises() {
             }
           }
         }
-        deposits {
+        deposits(first: 0, last: 100) {
           nodes {
             title
             custom {
@@ -326,6 +328,8 @@ export async function getEnterprises() {
       garagesNode,
       depositsNode
     );
+    const compare = (a, b) => a.title > a.title ? 1 : -1;
+    enterprises.sort(compare);
     return enterprises;
   } catch (e) {
     return enterprises;

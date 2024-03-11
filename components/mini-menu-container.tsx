@@ -11,7 +11,7 @@ export default function MiniMenuContainer({
     <div className="w-full h-[calc(100%_-_64px)] grid grid-cols-12 mt-[64px] relative">
       {slot}
       <div
-        className="hidden lg:col-span-3 lg:flex items-center bg-[length:100%_100%] h-[calc(100vh_-_200px)]"
+        className="hidden lg:col-span-3 lg:flex items-center bg-[length:100%_100%] h-[calc(100vh_-_175px)]"
         style={{
           backgroundImage: `url(${
             noBorder ? infinityBGNoBorder.src : infinityBG.src

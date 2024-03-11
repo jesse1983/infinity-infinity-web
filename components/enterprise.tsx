@@ -195,7 +195,7 @@ export default function Enterprise({
             </div>
           )}
         </MiniMenuContainer>
-        {floor?.decorated?.length && showDecorated && (
+        {floor?.decorated?.length > 0 && showDecorated && (
           <Decorated
             decorated={floor.decorated}
             onClose={() => setShowDecorated(undefined)}

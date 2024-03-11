@@ -141,7 +141,7 @@ export function InfinityWorldComponent({
       {items.map((item) => (
         <div
           key={uuidv4()}
-          className={`absolute bg-midnight-900 flex items-center justify-center z-10 h-full w-full transition duration-300 ${
+          className={`absolute bg-midnight-900 flex items-center justify-center z-10 h-[130%] w-full transition duration-300 ${
             currentScreen === item.screen ? "" : "hidden"
           }`}
         >

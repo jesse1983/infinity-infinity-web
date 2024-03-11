@@ -1,7 +1,7 @@
 'use client'
 import { Page } from "../models";
 import Link from "next/link";
-import LogoWhite from "../public/logo-infinity-white.svg";
+import LogoWhite from "../public/logo-infinity-small-white.svg";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -29,7 +29,7 @@ export default function Header({ menu }: { menu: Page[] }) {
   return (
     <header className="text-center">
       <div>
-        <Link href="/" className="w-[330px] h-[80px] block  m-auto my-7">
+        <Link href="/" className="w-[200px] h-[50px] block  m-auto my-7">
           <LogoWhite className="m-auto" />
         </Link>
       </div>

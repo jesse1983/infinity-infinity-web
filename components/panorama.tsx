@@ -15,10 +15,10 @@ const ReactPhotoSphereViewer = dynamic(
 );
 
 export default function Panorama({ images }: { images: Image[] }) {
-  const panoramas1 = [
-    { src: "./cdn/panorama1.jpg", alt: "Nascer do sol" },
-    { src: "./cdn/panorama2.jpg", alt: "Pôr do sol" },
-  ];
+  // const panoramas1 = [
+  //   { src: "./cdn/panorama1.JPG", alt: "Nascer do sol" },
+  //   { src: "./cdn/panorama2.jpg", alt: "Pôr do sol" },
+  // ];
 
   const panoramas = images.map((img) => ({
     alt: img.altText,

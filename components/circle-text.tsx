@@ -8,12 +8,14 @@ type Props = {
   active?: string;
   space?: number;
   onClick?: Function;
+  enterprise: string;
 };
 
 const mapSizesSea = new Map<string, number[]>();
-mapSizesSea.set('BEACH CLUB', [270, 50]);
-mapSizesSea.set('PAVIMENTO TÉRREO', [380, 290]);
-mapSizesSea.set('PLANTA TIPO', [120, 160]);
+mapSizesSea.set('SUBSOLO 3', [160, 60]);
+mapSizesSea.set('BEACH CLUB', [180, 340]);
+mapSizesSea.set('PAVIMENTO TÉRREO', [320, 240]);
+mapSizesSea.set('PLANTA TIPO', [100, 140]);
 
 const mapSizesBlue = new Map<string, number[]>();
 mapSizesBlue.set('BEACH LOUNGE', [210, 50]);
@@ -21,18 +23,18 @@ mapSizesBlue.set('PAVIMENTO TÉRREO', [300, 310]);
 mapSizesBlue.set('ROOFTOP', [160, 230]);
 mapSizesBlue.set('PLANTA TIPO', [120, 140]);
 
-const getSize = (str: string, size: number) => {
+const getSize = (str: string, enterprise: string) => {
   if (str) {
-    const source = size === 3 ? mapSizesSea : mapSizesBlue;
+    const source = enterprise === 'infinity-sea' ? mapSizesSea : mapSizesBlue;
     const found = source.get(str.toUpperCase());
     return found[0];
   }
   return str.length * 18;
 }
 
-const getRotate = (str: string, size: number) => {
+const getRotate = (str: string, enterprise: string) => {
   if (str) {
-    const source = size === 3 ? mapSizesSea : mapSizesBlue;
+    const source = enterprise === 'infinity-sea' ? mapSizesSea : mapSizesBlue;
     const found = source.get(str.toUpperCase());
     return found[1];
   }
@@ -44,17 +46,18 @@ export const CircleText = ({
   active,
   onClick = () => undefined,
   space = 100,
+  enterprise,
 }: Props) => {
   let sum = 0;
   const id = useId();
   const startOffset = [
     0,
-    ...texts.map((t) => getSize(t, texts.length)).map((t) => (sum += (t + space))),
+    ...texts.map((t) => getSize(t, enterprise)).map((t) => (sum += (t + space))),
   ];
 
   sum = 60;
   // const rotate = [60, ...texts.map((t) => sum += - ((space + getSize(t, 0)) / 2))];
-  const rotate = getRotate(active, texts.length);
+  const rotate = getRotate(active, enterprise);
 
   const setClick = (i) => {
     onClick(i);

@@ -41,7 +41,7 @@ export default function Index({
 
 
 export const getServerSideProps: GetServerSideProps = async ({ preview = false }) => {
-  const page = await getPage("/urbana");
+  const page = await getPage("/requalificacao");
   const { menu, generalSettings } = await allSettings();
   return {
     props: { generalSettings, menu, page, preview },

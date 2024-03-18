@@ -26,9 +26,9 @@ export default function MapaDeVagas({ enterprises }: { enterprises: ENTERPRISE[]
       {selectedEnterprise && !infoParking && (
         <>
           <MiniMenuContainer title="Mapa de Vagas">
-            <div className="flex flex-col gap-y-24 text-center">
+            <div className="flex flex-col text-center p-5">
               <div key={uuidv4()}>
-                <div className="flex flex-row flex-wrap gap-y-10">
+                <div className="grid grid-cols-5 gap-5">
                   {selectedEnterprise.garages.sort(compare).map((item) =>
                    (
                       <ItemMapa

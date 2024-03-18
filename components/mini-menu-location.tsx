@@ -13,13 +13,13 @@ const items = [
   },
   {
     icon: <Nav02 className="w-7 md:w-10 xl:w-12" />,
-    text: "Movimento",
-    path: "/localizacao/movimento",
+    text: "Sobre a localização",
+    path: "/localizacao/sobre-a-localizacao",
   },
   {
     icon: <Nav03 className="w-7 md:w-10 xl:w-12" />,
-    text: "Urbana",
-    path: "/localizacao/urbana",
+    text: "Requalificação",
+    path: "/localizacao/requalificacao",
   },
 ];
 

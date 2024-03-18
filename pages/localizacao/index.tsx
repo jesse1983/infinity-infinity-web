@@ -38,12 +38,12 @@ export default function Index({
         <meta name="description" content={page.title}></meta>
       </Head>
       <Header menu={menu} />
-      <section className="relative border">
+      <section className="relative">
         <MiniMenuLocation />
         <div className="h-16"></div>
-        <div className="grid grid-cols-[70%_30%] min-h-[calc(100vh_-_200px)]">
-          <div className="relative">
-            <img src="/conveniencias.png" className="w-full h-full" />
+        <div className="grid grid-cols-[70%_30%] min-h-[calc(100vh_-_170px)]">
+          <div className="relative bg-cover" style={{ backgroundImage: 'url(/conveniencias.png)' }}>
+            {/* <img src="/conveniencias.png" className="w-[100%] max-h-[calc(100vh_-_180px)]" /> */}
             <a
               href="/localizacao/vista-360"
               className="absolute bottom-0 right-0 border border-white rounded-full px-6 py-3 mr-10 mb-5"

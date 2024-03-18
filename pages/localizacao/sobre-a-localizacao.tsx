@@ -37,13 +37,27 @@ export default function Index({
         ></div>
         <div>
           <div className="container">
-            <div className="grid grid-cols-2 h-[calc(100vh_-_200px)]">
-              <div className="font-light text-white bg-[#AFA181] flex flex-col gap-5 justify-center" data-aos="fade-left">
-                {images.map((image) => <div><img src={image.mediaItemUrl} className="h-[30vh] m-auto" /></div>)}
+            <div className="grid grid-cols-2 h-[calc(100vh_-_177px)]">
+              <div
+                className="font-light text-white bg-[#AFA181] flex flex-col gap-5 justify-center p-10"
+                _data-aos="fade-left"
+              >
+                {images.map((image, i) => (
+                  <div>
+                    <img
+                      src={image.mediaItemUrl}
+                      className={
+                        `h-[30vh] w-[27vw] ${(i % 2 === 0) ? "float-right" : ""}` 
+                      }
+                    />
+                  </div>
+                ))}
               </div>
               <div className="font-light text-white flex" data-aos="fade-right">
                 <div className="m-auto p-20">
-                  <h1 className=" text-white text-2xl mb-7 uppercase">{page.title}</h1>
+                  <h1 className=" text-white text-2xl mb-7 uppercase">
+                    {page.title}
+                  </h1>
                   <div
                     dangerouslySetInnerHTML={{ __html: page.content }}
                     className="[&>p]:mb-7"
@@ -84,7 +98,7 @@ export default function Index({
 export const getServerSideProps: GetServerSideProps = async ({
   preview = false,
 }) => {
-  const page = await getPage("/movimento");
+  const page = await getPage("/sobre-a-localizacao");
   const { menu, generalSettings } = await allSettings();
   const images = await getImagesByText("movimento");
   return {

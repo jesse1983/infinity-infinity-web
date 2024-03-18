@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { GetStaticProps } from "next";
 import Layout from "../components/layout";
-import { allSettings, getPage } from "../lib/api";
-import { Settings, Page } from "../models";
+import { allSettings, getImagesByText, getPage } from "../lib/api";
+import { Settings, Page, Image } from "../models";
 import Header from "../components/header";
 
 type indexType = {
@@ -10,6 +10,7 @@ type indexType = {
   menu: Page[];
   page: Page;
   preview: boolean;
+  video: Image;
 };
 
 export default function Index({
@@ -17,6 +18,7 @@ export default function Index({
   menu,
   page,
   preview,
+  video,
 }: indexType) {
   return (
     <Layout preview={preview}>
@@ -46,7 +48,7 @@ export default function Index({
           // poster="./home.jpg"
         >
           {/* <source src="./banner01.webm" type="video/webm" /> */}
-          <source src="./home.mp4" type="video/mp4" />
+          <source src={video.mediaItemUrl} type="video/mp4" />
         </video>
       </div>
     </Layout>
@@ -57,7 +59,8 @@ export const getServerSideProps: GetStaticProps = async ({ preview = false }) =>
   console.log(process.env.WORDPRESS_API_URL);
   const page = await getPage("/");
   const { menu, generalSettings } = await allSettings();
+  const [video] = await getImagesByText("home");
   return {
-    props: { generalSettings, menu, page, preview },
+    props: { generalSettings, menu, page, preview, video },
   };
 };

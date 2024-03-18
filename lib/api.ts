@@ -1,3 +1,4 @@
+import NodeFetchCache, { FileSystemCache } from 'node-fetch-cache';
 import { Page, Settings, Image } from "../models";
 import allSettingsJson from "./fallback/allSettings.json";
 import getPageJson from "./fallback/getPage.json";
@@ -7,6 +8,14 @@ import { PARKING } from "../types/parking";
 
 const API_URL = process.env.WORDPRESS_API_URL || 'http://qa.infinitybyor.com.br/index.php?graphql';
 const WORDPRESS_URL = process.env.WORDPRESS_URL || 'http://qa.infinitybyor.com.br';
+
+const fetch = NodeFetchCache.create({
+  shouldCacheResponse: (response) => response.ok,
+  cache:  new FileSystemCache({
+    cacheDirectory: './.cache',
+    ttl: 6000,
+  })
+});
 
 async function fetchAPI(query = "", { variables }: Record<string, any> = {}) {
   const headers = { "Content-Type": "application/json" };
@@ -361,7 +370,7 @@ export async function getImagesByText(search: string): Promise<Image[]> {
     return images.map((image) => {
       const newImage = {};
       Object.keys(image).forEach((key) => {
-        if (image[key].toString().includes('http')) {
+        if (image[key]?.toString().includes('http')) {
           const extractedPath = image[key].split('/').filter((e, i) => i > 2).join('/');
           newImage[key] = [WORDPRESS_URL, extractedPath].join('/');
         }

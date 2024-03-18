@@ -76,12 +76,12 @@ export default function Enterprise({
     setFloor(found);
   };
 
-  const buildingCircle = () => (
+  const buildingCircle = (enterprise: string) => (
     <div
       className="left-[10%] fixed z-50 overflow-hidden h-[calc(100vh/2_-_25vh)] w-[calc(100vh/2)] bottom-0 hidden lg:block"
       data-aos="zoom-in"
     >
-      <CircleText texts={floors.map((floor) => floor.title)} active={floor?.title} onClick={rotateNav} />
+      <CircleText enterprise={enterprise} texts={floors.map((floor) => floor.title)} active={floor?.title} onClick={rotateNav} />
     </div>
   );
 
@@ -165,7 +165,7 @@ export default function Enterprise({
         <MiniMenuContainer
           title={logo}
           noBorder
-          slot={!showDecorated && !selectedAmbient && buildingCircle()}
+          slot={!showDecorated && !selectedAmbient && buildingCircle(enterprise)}
         >
           {floor && (
             <div className="w-full p-24 relative max-h-[calc(100vh_-_200px)]">

@@ -79,6 +79,7 @@ const handleAmbients = (floorId, ambientsNode: any[]) => {
         title: a.title,
         coords: a.details?.coords,
         photoSrc: a.details?.image?.mediaItemUrl,
+        notClickable: a.details?.notclickable,
       })
     );
 };
@@ -260,6 +261,7 @@ export async function getEnterprises() {
             title
             details {
               coords
+              notclickable
               image {
                 altText
                 mediaItemUrl

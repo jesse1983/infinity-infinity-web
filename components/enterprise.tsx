@@ -175,6 +175,7 @@ export default function Enterprise({
                     key={ambient.coords}
                     title={ambient.title}
                     coords={ambient.coords}
+                    notClickable={ambient.notClickable}
                     onClick={(ev) => openSlideShow(ev, ambient)}
                   />
                 ))}

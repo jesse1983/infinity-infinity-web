@@ -19,7 +19,7 @@ export default function MapaDeVagas({ enterprises }: { enterprises: ENTERPRISE[]
 
   const compare = (a, b) => parseInt(a.parkingslot) >= parseInt(b.parkingslot) ? 1 : -1;
 
-  // console.log(selectedEnterprise.garages)
+  // console.log(selectedEnterprise.slug)
 
   return (
     <>
@@ -28,7 +28,8 @@ export default function MapaDeVagas({ enterprises }: { enterprises: ENTERPRISE[]
           <MiniMenuContainer title="Mapa de Vagas">
             <div className="flex flex-col gap-y-24 text-center">
               <div key={uuidv4()}>
-                <div className="flex flex-row flex-wrap gap-y-10">
+                <div className={`grid ${selectedEnterprise.slug === "infinity-sea" ? 'grid-cols-8' : 'grid-cols-5'} gap-y-8`}>
+
                   {selectedEnterprise.garages.sort(compare).map((item) =>
                    (
                       <ItemMapa

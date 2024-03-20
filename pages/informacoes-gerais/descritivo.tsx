@@ -36,7 +36,7 @@ export default function Descritivo({
       <Title imageURL={bgPraia} content="Seu infinito pé na areia" />
       <MenuInformacoes currentPage={currentURL} subpages={subpages} />
       <div className="container mx-auto" data-aos="fade-right">
-        <div dangerouslySetInnerHTML={{__html: page.content }} className="[&>*]:mb-10 [&>*]:text-2xl [&>ul>li]:list-disc [&>ul>li]:list-inside font-light"  />
+        <div dangerouslySetInnerHTML={{__html: page.content }} className="descritivo [&>*]:mb-10 [&>*]:text-2xl [&>ul>li]:list-disc [&>ul>li]:list-inside font-light"  />
       </div>
     </Layout>
   );

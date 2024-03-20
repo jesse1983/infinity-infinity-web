@@ -117,12 +117,13 @@ export default function Enterprise({
           {selectedAmbient && (
             <Carousel
               showArrows
-              centerMode
+              infiniteLoop
+              // centerMode
+              // centerSlidePercentage={80}
               // dynamicHeight
               showStatus={false}
               showThumbs={false}
               showIndicators={false}
-              centerSlidePercentage={80}
               renderArrowPrev={(clickHandler, hasPrev) => hasPrev && <div className="absolute z-50 h-full flex p-4"><div className="m-auto rounded-full w-24 h-24 cursor-pointer flex items-center justify-center bg-white" onClick={clickHandler}><Chevron /></div></div>}
               renderArrowNext={(clickHandler, hasNext) => hasNext && <div className="absolute z-50 right-0 top-0 float-right h-full flex p-4"><div className="m-auto rounded-full w-24 h-24 cursor-pointer flex items-center justify-center bg-white rotate-180" onClick={clickHandler}><Chevron /></div></div>}
               selectedItem={floor?.ambients.findIndex(
@@ -131,7 +132,7 @@ export default function Enterprise({
             >
               {photographedAmbients.map((ambient, i) => (
                 <div
-                  className="p-7 flex flex-col relative items-center"
+                  className="p-7 flex flex-col relative items-center w-3/4 m-auto"
                   key={ambient.coords}
                 >
                   <img

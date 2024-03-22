@@ -50,8 +50,8 @@ export default function MapaDeVagas({ enterprises }: { enterprises: ENTERPRISE[]
       {infoParking && selectedEnterprise && (
         // <div>{JSON.stringify(currentSlot)}</div>
         <InfoMapa
-          parkingSpace={infoParking.parkingslot}
-          identifier={infoParking.identifier}
+          parkingSpace={infoParking.identifier}
+          identifier={infoParking.parkingslot}
           apartment={selectedEnterprise.title}
           mainImage={infoParking.image}
           bgImage={selectedEnterprise.bgImage}

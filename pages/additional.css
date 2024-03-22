@@ -78,3 +78,18 @@
 }
 
 
+
+
+.manifesto {
+  font-size: 1.4em;
+  line-height: 1.9em;
+}
+
+.manifesto > .wp-block-columns{
+  justify-content: center;
+  align-items: center;
+}
+
+.manifesto img, .manifesto figure {
+  width: 400px!important;
+}

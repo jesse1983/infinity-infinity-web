@@ -3,18 +3,19 @@ import { GetServerSideProps } from "next";
 import Layout from "../components/layout";
 import Header from "../components/header";
 import Title from "../components/title";
-import { allSettings, getPage } from "../lib/api";
+import { allSettings, filterSubpagesByParent, getPage } from "../lib/api";
 import { Settings, Page } from "../models";
-import Image from "next/image";
 import bgMar from "../public/bg-mar.png";
-import CasalDobrado from "../public/casal-dobrado.png";
-import CasalCortado from "../public/casal-cortado.png";
-import InfinityLinha from "../public/infinity-linha.png";
+import Chevron from "../public/voltar.svg";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 
 type indexType = {
   generalSettings: Settings;
   menu: Page[];
   page: Page;
+  blocks: Page[];
   preview: boolean;
 };
 
@@ -23,6 +24,7 @@ export default function Index({
   menu,
   page,
   preview,
+  blocks,
 }: indexType) {
   return (
     <Layout preview={preview}>
@@ -34,67 +36,51 @@ export default function Index({
       <div>
         <Title imageURL={bgMar} content="Mergulhe no seu mar" />
       </div>
-      <div dangerouslySetInnerHTML={{__html: page.content }} className="[&>div]:grid"  />
-
-      {/* <div className="container mx-auto flex flex-col lg:flex-row justify-around items-center mb-10 lg:mb-1">
-
-        <div
-          className="font-medium text-2xl leading-loose text-center lg:text-justify mb-10 lg:mb-1"
-          data-aos="fade-right"
+      <div className="container mx-auto">
+        <Carousel
+          showArrows
+          // infiniteLoop
+          // centerMode
+          // centerSlidePercentage={80}
+          // dynamicHeight
+          showStatus={false}
+          showThumbs={false}
+          showIndicators={false}
+          renderArrowPrev={(clickHandler, hasPrev) =>
+            hasPrev && (
+              <div className="absolute z-50 h-full flex p-4">
+                <div
+                  className="m-auto rounded-full w-12 h-12 cursor-pointer flex items-center justify-center bg-white"
+                  onClick={clickHandler}
+                >
+                  <Chevron className="scale-50" />
+                </div>
+              </div>
+            )
+          }
+          renderArrowNext={(clickHandler, hasNext) =>
+            hasNext && (
+              <div className="absolute z-50 right-0 top-0 float-right h-full flex p-4">
+                <div
+                  className="m-auto rounded-full w-12 h-12 cursor-pointer flex items-center justify-center bg-white rotate-180"
+                  onClick={clickHandler}
+                >
+                  <Chevron className="scale-50" />
+                </div>
+              </div>
+            )
+          }
+          selectedItem={0}
         >
-          <p>Estar onde se é</p>
-          <p>Ser o que se quer</p>
-          <p>
-            Tocar o <span className="font-bold">infinito</span> e acalmar o seu
-            mar
-          </p>
-          <p>Sentir a areia fria ao amanhecer</p>
-          <p>deixar a branca espuma tocar o caminhar</p>
-          <p>O laranja que aquece e invade por inteiro</p>
-          <p>
-            são pinceladas de quem vive o{" "}
-            <span className="font-bold">Rio Vermelho</span>
-          </p>
-        </div>
-        <Image
-          src={CasalDobrado}
-          alt="Foto dobrada de um casal se abraçando em uma praia"
-          // data-aos impossibilita usar o hover:scale do tailwind
-          data-aos="fade-left"
-        />
-      </div>
-      <div className="container mx-auto flex flex-col lg:flex-row justify-around items-center mb-10">
-        <Image
-          src={CasalCortado}
-          alt="Foto cortada de um casal observando a praia"
-          className="mb-10 lg:mb-1"
-          data-aos="fade-right"
-        />
-        <div
-          className="font-medium text-2xl leading-loose text-center lg:text-right mr-20"
-          data-aos="fade-left"
-        >
-          <p>Se encontar no mar</p>
-          <p>que também é morar</p>
-          <p>que também é morar</p>
-          <p>tocar o infinito e fluir</p>
-          <p>
-            Permita-se <span className="font-bold">mergulhar</span>
-          </p>
-          <p>transbordar limites</p>
-          <p>O mar conecta, acalma e inspira</p>
-          <p>ele é vista e guia.</p>
-        </div>
-      </div> */}
-      <div data-aos="zoom-in-down">
-        <video
-          className=" w-auto min-w-full min-h-full max-h-none"
-          autoPlay
-          muted
-          loop
-        >
-          <source src="./bg-alto-mar.mp4" type="video/mp4" />
-        </video>
+          {blocks.map((block) => (
+            <div className="text-left px-36">
+              <div
+                dangerouslySetInnerHTML={{ __html: block.content }} className="manifesto"
+              />
+            </div>
+          ))}
+        </Carousel>
+        <p className="text-center mt-12 uppercase"><a href="/" className="py-4 px-10 border border-white hover:bg-white hover:text-midnight-950 transition duration-500 hover:ease-in-out">Assista ao video</a></p>
       </div>
     </Layout>
   );
@@ -102,9 +88,11 @@ export default function Index({
 
 export const getServerSideProps: GetServerSideProps = async ({ preview = false }) => {
   const page = await getPage("/manifesto");
-  const { menu, generalSettings } = await allSettings();
+  const { menu, generalSettings, subpages } = await allSettings();
+  const blocks = filterSubpagesByParent("manifesto", subpages);
+
   return {
-    props: { generalSettings, menu, page, preview },
+    props: { generalSettings, menu, page, preview, blocks },
 
   };
 };

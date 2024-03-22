@@ -24,6 +24,7 @@ type Poi = {
 type Props = {
   src: string;
   children?: React.ReactNode;
+  hidePois?: boolean;
   onLoad?: Function;
 };
 
@@ -57,7 +58,7 @@ function setCachedSize(src: string, d: string, v: number) {
   return localStorage.setItem(key, v.toString());
 }
 
-function FloorPlan({ src, children, onLoad }: Props) {
+function FloorPlan({ src, children, onLoad, hidePois }: Props) {
   const clipPathUuid = useId();
   const tooltipUuid = useId();
   const poisNodes: React.ReactNode[] = getNodes(children, "Poi");
@@ -105,8 +106,7 @@ function FloorPlan({ src, children, onLoad }: Props) {
       if (onLoad) onLoad(image);
     };
     image.src = src;
-  }, []);
-
+  }, [src]);
   return (
     <div className="w-auto relative" data-aos="zoom-out">
       {/* {poisNodes} */}
@@ -114,6 +114,7 @@ function FloorPlan({ src, children, onLoad }: Props) {
         <div
           className={`
               ${active ? "" : "hidden"}
+              ${hidePois ? 'hidden' : ''}
               bg-midnight-950
               px-7
               py-3
@@ -130,7 +131,8 @@ function FloorPlan({ src, children, onLoad }: Props) {
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox={`0 0 ${width} ${height}`}
-        className="w-auto h-auto"
+        className="m-auto"
+        style={{ maxWidth: `${width}px`, maxHeight: `${height}px`  }}
       >
         <image
           href={src}
@@ -166,7 +168,7 @@ function FloorPlan({ src, children, onLoad }: Props) {
             key={uuidv4()}
           />
         ))}
-        {poisNodes}
+        {hidePois ? undefined : poisNodes}
       </svg>
     </div>
   );

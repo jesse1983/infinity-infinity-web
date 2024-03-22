@@ -26,7 +26,7 @@ export default function MapaDeVagas({ enterprises }: { enterprises: ENTERPRISE[]
       {selectedEnterprise && !infoParking && (
         <>
           <MiniMenuContainer title="Mapa de Vagas">
-            <div className="flex flex-col gap-y-24 text-center">
+            <div className="flex flex-col text-center p-5">
               <div key={uuidv4()}>
                 <div className={`grid ${selectedEnterprise.slug === "infinity-sea" ? 'grid-cols-8' : 'grid-cols-5'} gap-y-8`}>
 
@@ -51,8 +51,8 @@ export default function MapaDeVagas({ enterprises }: { enterprises: ENTERPRISE[]
       {infoParking && selectedEnterprise && (
         // <div>{JSON.stringify(currentSlot)}</div>
         <InfoMapa
-          parkingSpace={infoParking.parkingslot}
-          identifier={infoParking.identifier}
+          parkingSpace={infoParking.identifier}
+          identifier={infoParking.parkingslot}
           apartment={selectedEnterprise.title}
           mainImage={infoParking.image}
           bgImage={selectedEnterprise.bgImage}

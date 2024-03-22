@@ -47,67 +47,10 @@ export default function Index({
       <Title imageURL={bgPraia} content="Seu infinito pé na areia" />
       <MenuInformacoes currentPage={currentURL} subpages={subpages} />
       <div className="container mx-auto">
-        <div className="lg:flex lg:flex-row justify-between mb-20">
-          {page.featuredImage && <img
-            src={page.featuredImage.mediaItemUrl}
-            alt="Drone carregando um pacote enquanto sobrevoa prédios"
-            className="block lg:hidden mx-auto mb-5"
-          />}
-          <div className="container flex flex-col mr-10" data-aos="fade-right">
+        <div className="justify-between mb-20">
+          <div className="container flex flex-col inovation" data-aos="fade-right">
             <div dangerouslySetInnerHTML={{__html: page.content }} className="[&>p]:text-2xl [&>*]:mb-10 [&>h2]:text-4xl text-justify font-light"  />
           </div>
-          <Image
-            src={DroneTecnologia}
-            alt="Drone carregando um pacote enquanto sobrevoa prédios"
-            className="hidden lg:block"
-            data-aos="fade-left"
-          />
-        </div>
-        <div className="container grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-10">
-          <Inovacao
-            image={<PredioPalmeira className="w-24" />}
-            content="Pé na areia e vista mar permanente"
-          />
-
-          <Inovacao
-            image={<Diamante className="w-24" />}
-            content="Conceitos de casas suspensas exclusivas"
-          />
-
-          <Inovacao
-            image={<FechaduraEletronica className="w-24" />}
-            content="Porta com fechadura eletrônica"
-          />
-
-          <Inovacao
-            image={<Chuva className="w-24" />}
-            content="Reaproveitamento de água de chuva"
-          />
-
-          <Inovacao
-            image={<PainelSolar className="w-24" />}
-            content="Paineis fotovoltáicos para a geração de energia"
-          />
-
-          <Inovacao
-            image={<Infraestrutura className="w-24" />}
-            content="Apartamento com infraestrutura para automação"
-          />
-
-          <Inovacao
-            image={<CarroEletrico className="w-24" />}
-            content="Vagas com infraestrutura para carregamento de carro elétrico"
-          />
-
-          <Inovacao
-            image={<IPTUVerde className="w-24" />}
-            content="Candidato ao IPTU Verde"
-          />
-
-          <Inovacao
-            image={<MedidorGeral className="w-24" />}
-            content="Infraestrutura para medição individual de energia, água e gás"
-          />
         </div>
       </div>
     </Layout>

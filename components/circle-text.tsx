@@ -8,23 +8,56 @@ type Props = {
   active?: string;
   space?: number;
   onClick?: Function;
+  enterprise: string;
 };
+
+const mapSizesSea = new Map<string, number[]>();
+mapSizesSea.set('SUBSOLO 3', [160, 60]);
+mapSizesSea.set('BEACH CLUB', [180, 340]);
+mapSizesSea.set('PAVIMENTO TÉRREO', [320, 240]);
+mapSizesSea.set('PLANTA TIPO', [100, 140]);
+
+const mapSizesBlue = new Map<string, number[]>();
+mapSizesBlue.set('BEACH LOUNGE', [210, 50]);
+mapSizesBlue.set('PAVIMENTO TÉRREO', [300, 310]);
+mapSizesBlue.set('ROOFTOP', [160, 230]);
+mapSizesBlue.set('PLANTA TIPO', [120, 140]);
+
+const getSize = (str: string, enterprise: string) => {
+  if (str) {
+    const source = enterprise === 'infinity-sea' ? mapSizesSea : mapSizesBlue;
+    const found = source.get(str.toUpperCase());
+    return found[0];
+  }
+  return str.length * 18;
+}
+
+const getRotate = (str: string, enterprise: string) => {
+  if (str) {
+    const source = enterprise === 'infinity-sea' ? mapSizesSea : mapSizesBlue;
+    const found = source.get(str.toUpperCase());
+    return found[1];
+  }
+  return 0;
+}
 
 export const CircleText = ({
   texts = [],
   active,
   onClick = () => undefined,
   space = 100,
+  enterprise,
 }: Props) => {
   let sum = 0;
   const id = useId();
   const startOffset = [
     0,
-    ...texts.map((t) => t.length * 18).map((t) => (sum += (t + space))),
+    ...texts.map((t) => getSize(t, enterprise)).map((t) => (sum += (t + space))),
   ];
 
   sum = 60;
-  const rotate = [60, ...texts.map((t) => sum += - ((space + (t.length * 8)) / 2))];
+  // const rotate = [60, ...texts.map((t) => sum += - ((space + getSize(t, 0)) / 2))];
+  const rotate = getRotate(active, enterprise);
 
   const setClick = (i) => {
     onClick(i);
@@ -34,7 +67,7 @@ export const CircleText = ({
     return texts.findIndex((text) => text === active);
   }, [active]);
   return (
-    <div className="w-[calc(100vh/2)] h-[calc(100vh/2)] transition-all duration-500 ease-in-out" style={{ transform: `rotate(${rotate[activeIndex]}deg)` }}>
+    <div className="w-[calc(100vh/2)] h-[calc(100vh/2)] transition-all duration-500 ease-in-out" style={{ transform: `rotate(${rotate}deg)` }}>
       <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           id={id}
@@ -45,7 +78,7 @@ export const CircleText = ({
           <React.Fragment key={text}>
             <text
               style={{
-                fontSize: "30px",
+                fontSize: texts.length === 3 ? "40px" : '30px',
                 fill: "rgb(255, 255, 255)",
                 fillOpacity: i === activeIndex ? 1 : 0.3,
                 textTransform: "uppercase",

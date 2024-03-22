@@ -4,16 +4,25 @@ import Layout from "../../components/layout";
 import { allSettings, getImagesByText, getPage } from "../../lib/api";
 import { Settings, Page, Image } from "../../models";
 import Header from "../../components/header";
-import Panorama from "../../components/panorama";
-import FloorPlan from "../../components/floor-plan";
+import MiniMenuLocation from "../../components/mini-menu-location";
 
 type indexType = {
   generalSettings: Settings;
   menu: Page[];
   page: Page;
   preview: boolean;
-  images360: Image[],
+  images360: Image[];
 };
+
+const points = [
+  { title: "Gastronomia", icon: "/conv01.png" },
+  { title: "Supermercados", icon: "/conv02.png" },
+  { title: "Serviços / Comércio", icon: "/conv03.png" },
+  { title: "Educação", icon: "/conv04.png" },
+  { title: "Lazer", icon: "/conv05.png" },
+  { title: "Saúde", icon: "/conv06.png" },
+  { title: "Bem estar", icon: "/conv07.png" },
+];
 
 export default function Index({
   generalSettings,
@@ -29,84 +38,44 @@ export default function Index({
         <meta name="description" content={page.title}></meta>
       </Head>
       <Header menu={menu} />
-      <section>
-        <Panorama images={images360} />
-        <div
-          className="text-center text-4xl py-7 uppercase w-auto"
-          style={{ backgroundImage: "url(./bg-aqua-title.jpg)" }}
-        >
-          <h2 data-aos="zoom-out">Onde o movimento acontece</h2>
-        </div>
-        <div className=" bg-white ">
-          <div className="container lg:grid lg:grid-cols-3 gap-7 m-auto text-midnight-900 p-7 text-2xl leading-relaxed">
-            {page.featuredImage && <div
-              className="text-4xl uppercase text-center lg:text-left mb-7"
-              data-aos="fade-right"
+      <section className="relative">
+        <MiniMenuLocation />
+        <div className="h-16"></div>
+        <div className="grid grid-cols-[70%_30%] min-h-[calc(100vh_-_170px)]">
+          <div className="relative bg-cover" style={{ backgroundImage: 'url(/conveniencias.png)' }}>
+            {/* <img src="/conveniencias.png" className="w-[100%] max-h-[calc(100vh_-_180px)]" /> */}
+            <a
+              href="/localizacao/vista-360"
+              className="absolute bottom-0 right-0 border border-white rounded-full px-6 py-3 mr-10 mb-5"
             >
-              <p className="mb-7">
-              { page.featuredImage.altText }
-              </p>
-              <img
-                src={ page.featuredImage.mediaItemUrl }
-                alt=""
-                className="w-full"
-              />
-            </div>}
-            <div className="col-span-2 font-light" data-aos="fade-left">
-              {/* <p className="mb-7">
-                Com a requalificação do Rio Vermelho, o seu novo bairro te
-                proporcionará ainda mais qualidade de vida, segurança e maior
-                valorização no seu empreendimento pé na areia.
-              </p>
-              <p className="mb-7">
-                Com a requalificação do Rio Vermelho, o seu novo bairro te
-                proporcionará ainda mais qualidade de vida, segurança e maior
-                valorização no seu empreendimento pé na areia.
-              </p>
-              <p className="mb-7">
-                Com a requalificação do Rio Vermelho, o seu novo bairro te
-                proporcionará ainda mais qualidade de vida, segurança e maior
-                valorização no seu empreendimento pé na areia.
-              </p> */}
-
-                <div dangerouslySetInnerHTML={{__html: page.content }} className="[&>p]:mb-7"  />
-
-            </div>
+              VISTA 360º
+            </a>
+          </div>
+          <div className="flex m-auto p-16">
+            <ul data-aos="fade-left">
+              {points.map((point) => (
+                <li className="flex items-top">
+                  <span
+                    className="w-7 h-7 inline-block mr-2 bg-cover mb-5"
+                    style={{ backgroundImage: `url(${point.icon})` }}
+                  ></span>
+                  <span className="pt-1">{point.title}</span>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
-        <FloorPlan src="./map-localization.png">
-          <FloorPlan.Poi
-            title="Shopping Da Praia"
-            icon="/icon-shopping-bag.svg"
-            y={32}
-            x={360}
-          />
-          <FloorPlan.Poi
-            title="Shopping Horizon"
-            icon="/icon-shopping-bag.svg"
-            y={32}
-            x={202}
-          />
-
-          <FloorPlan.Path
-            title="Infinity Blue"
-            coords="m 789.64053,690.2321 129.41851,-33.76135 65.64708,234.45383 -123.79163,58.14455 z"
-          />
-          <FloorPlan.Path
-            title="Infinity Sea"
-            coords="m 1149.7616,581.44552 127.5429,307.60343 223.2001,-80.65212 -121.916,-315.10596 z"
-          />
-        </FloorPlan>
       </section>
     </Layout>
   );
 }
 
-
-export const getServerSideProps: GetServerSideProps = async ({ preview = false }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  preview = false,
+}) => {
   const page = await getPage("/localizacao");
   const { menu, generalSettings } = await allSettings();
-  const images360 = await getImagesByText('360');
+  const images360 = await getImagesByText("360");
   return {
     props: { generalSettings, menu, page, preview, images360 },
   };

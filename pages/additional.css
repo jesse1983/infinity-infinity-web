@@ -1,0 +1,95 @@
+.list-numbers ol {
+  list-style: none;
+  counter-reset: my-counter;
+}
+
+.list-numbers ol li {
+  counter-increment: my-counter;
+  margin-bottom: 15px;
+  font-size: 14px;
+}
+
+.list-numbers ol li::before {
+  content: counter(my-counter);
+  background: #0F1F39;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  text-align: center;
+  padding-top: 2px;
+  margin-right: 10px;
+}
+
+.list-numbers a {
+  background: #0F1F39;
+  padding: 20px 40px;
+  margin-top: 20px;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+
+
+.inovation ul {
+  display: flex;
+  padding: 0px 5%;
+  justify-content: center;
+  gap: 30px;
+  padding: 2rem 0;
+}
+
+.inovation ul li {
+  text-align: center;
+  /* border:  1px solid #FFF; */
+  background-image: url(/icon-isolation.png);
+  background-position: center top;
+  background-repeat: no-repeat;
+  padding-top: 50px;
+  width: 20vh;
+}
+
+
+.wp-block-columns {
+  display: flex;
+  gap: 30px
+}
+
+.wp-block-columns p, .wp-block-columns ul {
+  margin-bottom: 2em;
+}
+
+.wp-block-columns ul li {
+  font-size: 18px;
+  list-style-position: inside;
+  list-style-type: disc;
+}
+
+
+.descritivo > div > div > figure {
+  width: 400px;
+  gap: 10px;
+  display: flex;
+  overflow: hidden;
+}
+
+.descritivo > div > div > figure > figure {
+  min-width: 190px;
+}
+
+
+
+
+.manifesto {
+  font-size: 1.4em;
+  line-height: 1.9em;
+}
+
+.manifesto > .wp-block-columns{
+  justify-content: center;
+  align-items: center;
+}
+
+.manifesto img, .manifesto figure {
+  width: 400px!important;
+}

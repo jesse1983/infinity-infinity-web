@@ -76,12 +76,12 @@ export default function Enterprise({
     setFloor(found);
   };
 
-  const buildingCircle = () => (
+  const buildingCircle = (enterprise: string) => (
     <div
       className="left-[10%] fixed z-50 overflow-hidden h-[calc(100vh/2_-_25vh)] w-[calc(100vh/2)] bottom-0 hidden lg:block"
       data-aos="zoom-in"
     >
-      <CircleText texts={floors.map((floor) => floor.title)} active={floor?.title} onClick={rotateNav} />
+      <CircleText enterprise={enterprise} texts={floors.map((floor) => floor.title)} active={floor?.title} onClick={rotateNav} />
     </div>
   );
 
@@ -117,12 +117,13 @@ export default function Enterprise({
           {selectedAmbient && (
             <Carousel
               showArrows
-              centerMode
-              dynamicHeight
+              infiniteLoop
+              // centerMode
+              // centerSlidePercentage={80}
+              // dynamicHeight
               showStatus={false}
               showThumbs={false}
               showIndicators={false}
-              centerSlidePercentage={80}
               renderArrowPrev={(clickHandler, hasPrev) => hasPrev && <div className="absolute z-50 h-full flex p-4"><div className="m-auto rounded-full w-24 h-24 cursor-pointer flex items-center justify-center bg-white" onClick={clickHandler}><Chevron /></div></div>}
               renderArrowNext={(clickHandler, hasNext) => hasNext && <div className="absolute z-50 right-0 top-0 float-right h-full flex p-4"><div className="m-auto rounded-full w-24 h-24 cursor-pointer flex items-center justify-center bg-white rotate-180" onClick={clickHandler}><Chevron /></div></div>}
               selectedItem={floor?.ambients.findIndex(
@@ -131,7 +132,7 @@ export default function Enterprise({
             >
               {photographedAmbients.map((ambient, i) => (
                 <div
-                  className="p-7 flex flex-col relative items-center"
+                  className="p-7 flex flex-col relative items-center w-3/4 m-auto"
                   key={ambient.coords}
                 >
                   <img
@@ -165,10 +166,10 @@ export default function Enterprise({
         <MiniMenuContainer
           title={logo}
           noBorder
-          slot={!showDecorated && !selectedAmbient && buildingCircle()}
+          slot={!showDecorated && !selectedAmbient && buildingCircle(enterprise)}
         >
           {floor && (
-            <div className="w-full p-24 relative">
+            <div className="w-full p-24 relative max-h-[calc(100vh_-_200px)]">
               <FloorPlan src={floor.floorPlanSrc}>
                 {floor.ambients.map((ambient) => (
                   <FloorPlan.Path
@@ -180,10 +181,7 @@ export default function Enterprise({
                   />
                 ))}
               </FloorPlan>
-              {/*
-              O primeiro 0 está nesse floor.decorated?.length abaixo, e colocando o !== 0 anula o 0
-              */}
-              {floor.decorated?.length !== 0 &&
+              {floor.decorated?.length > 0 &&
                 !showDecorated &&
                 !setSelectedAmbient && (
                   <div
@@ -199,10 +197,7 @@ export default function Enterprise({
             </div>
           )}
         </MiniMenuContainer>
-        {/*
-          E o outro 0 está nesse floor?.decorated?.length abaixo, sendo resolvido usando da mesma forma
-        */}
-        {floor?.decorated?.length !== 0 && showDecorated && (
+        {floor?.decorated?.length > 0 && showDecorated && (
           <Decorated
             decorated={floor.decorated}
             onClose={() => setShowDecorated(undefined)}

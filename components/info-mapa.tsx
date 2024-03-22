@@ -20,9 +20,9 @@ export default function InfoMapa(props: InfoProps) {
       <div className="container mx-auto h-full">
         <div className="h-full pt-[64px] grid grid-cols-12">
           <div className="flex items-end col-span-2 text-4xl uppercase font-light  h-full">
-            <div className="border-l-2 pl-8 pb-[100%]" data-aos="fade-right">
-              <p className="mb-3">{props.identifier}</p>
-              <p className="text-3xl">{props.apartment}</p>
+            <div className="border-l-2 pl-8 pb-[100%]" data-aos="fade-right" data-aos-duration="300">
+              <p className="mb-3" data-aos="fade-left" data-aos-duration="600">{props.identifier}</p>
+              <p className="text-xl mb-10" data-aos="fade-right" data-aos-duration="900"><a href="#" onClick={() => (props.onBack ? props.onBack() : undefined)}>{props.apartment}</a></p>
               {props.parkingSpace && <p>{props.parkingSpace}</p>}
             </div>
           </div>
@@ -31,12 +31,14 @@ export default function InfoMapa(props: InfoProps) {
               onClick={() => (props.onBack ? props.onBack() : undefined)}
             />
           </div> */}
-          <img
-            src={props.mainImage}
-            alt={`Mapa ${props.identifier} do apartamento ${props.apartment}`}
-            className="col-span-8 mx-auto self-center"
-            data-aos="zoom-out"
-          />
+          <div className="col-span-8 mx-auto self-center p-20">
+            <img
+              src={props.mainImage}
+              alt={`Mapa ${props.identifier} do apartamento ${props.apartment}`}
+              data-aos="zoom-in"
+            />
+          </div>
+
         </div>
       </div>
     </div>

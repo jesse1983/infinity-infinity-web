@@ -1,12 +1,8 @@
 import MiniMenuContainer from "../mini-menu-container";
 import ItemMapa from "../item-mapa";
-import bgInfinityBlue from "../../public/bg-infinity-blue.png";
-import bgInfinitySea from "../../public/bg-infinty-sea.png";
-import depositG1 from "../../public/deposit-g1-blue.png";
 import { FloorPlanInfinityWorldMapa } from "../floorplans";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { parkingSlots } from "./parkingSlots";
 import InfoMapa from "../info-mapa";
 import { ENTERPRISE } from "../../types";
 import { PARKING } from "../../types/parking";
@@ -61,7 +57,7 @@ export default function MapaDeVagas({ enterprises }: { enterprises: ENTERPRISE[]
       )}
       {!selectedEnterprise && (
         <MiniMenuContainer title="Mapa de Vagas">
-          <div className="w-full p-24">
+          <div className="w-full px-24">
             <FloorPlanInfinityWorldMapa
               getApartment={setSelectedEnterprise}
               enterprises={enterprises}

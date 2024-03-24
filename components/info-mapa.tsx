@@ -20,7 +20,7 @@ export default function InfoMapa(props: InfoProps) {
       <div className="container mx-auto h-full">
         <div className="h-full pt-[64px] grid grid-cols-12">
           <div className="flex items-end col-span-2 text-4xl uppercase font-light  h-full">
-            <div className="border-l-2 pl-8 pb-[100%]" data-aos="fade-right" data-aos-duration="300">
+            <div className="border-l-2 pl-8 ml-4 pb-[100%]" data-aos="fade-right" data-aos-duration="300">
               <p className="mb-3" data-aos="fade-left" data-aos-duration="600">{props.identifier}</p>
               <p className="text-xl mb-10" data-aos="fade-right" data-aos-duration="900"><a href="#" onClick={() => (props.onBack ? props.onBack() : undefined)}>{props.apartment}</a></p>
               {props.parkingSpace && <p>{props.parkingSpace}</p>}

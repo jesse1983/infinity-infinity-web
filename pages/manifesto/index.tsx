@@ -1,12 +1,12 @@
 import Head from "next/head";
 import { GetServerSideProps } from "next";
-import Layout from "../components/layout";
-import Header from "../components/header";
-import Title from "../components/title";
-import { allSettings, filterSubpagesByParent, getPage } from "../lib/api";
-import { Settings, Page } from "../models";
-import bgMar from "../public/bg-mar.png";
-import Chevron from "../public/voltar.svg";
+import Layout from "../../components/layout";
+import Header from "../../components/header";
+import Title from "../../components/title";
+import { allSettings, filterSubpagesByParent, getPage } from "../../lib/api";
+import { Settings, Page } from "../../models";
+import bgMar from "../../public/bg-mar.png";
+import Chevron from "../../public/voltar.svg";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
@@ -39,10 +39,6 @@ export default function Index({
       <div className="container mx-auto">
         <Carousel
           showArrows
-          // infiniteLoop
-          // centerMode
-          // centerSlidePercentage={80}
-          // dynamicHeight
           showStatus={false}
           showThumbs={false}
           showIndicators={false}
@@ -80,7 +76,7 @@ export default function Index({
             </div>
           ))}
         </Carousel>
-        <p className="text-center mt-12 uppercase"><a href="/" className="py-4 px-10 border border-white hover:bg-white hover:text-midnight-950 transition duration-500 hover:ease-in-out">Assista ao video</a></p>
+        <p className="text-center mt-12 uppercase"><a href="/manifesto/video" className="py-4 px-10 border border-white hover:bg-white hover:text-midnight-950 transition duration-500 hover:ease-in-out">Assista ao video</a></p>
       </div>
     </Layout>
   );

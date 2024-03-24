@@ -48,6 +48,9 @@
   padding-top: 50px;
   width: 20vh;
 }
+.inovation ul li:nth-child(2n) {
+  background-image: url(/icon-isolation-inverted.png);
+}
 
 
 .wp-block-columns {

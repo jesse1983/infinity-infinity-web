@@ -79,7 +79,6 @@ export default function Projetistas({
         >
           {designers.map((designer) => (
             <div className=" text-left px-24">
-              <h2 className="mb-5">{designer.title}</h2>
               <div
                 dangerouslySetInnerHTML={{ __html: designer.content }}
                 className="[&>*]:mb-10 [&>p]:text-2xl [&>h2]:text-4xl [&>h3]:text-3xl text-justify font-light"

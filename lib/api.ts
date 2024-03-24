@@ -5,6 +5,7 @@ import getPageJson from "./fallback/getPage.json";
 import { enterprises } from "./fallback/buildings";
 import { AMBIENT, ENTERPRISE, FLOOR } from "../types";
 import { PARKING } from "../types/parking";
+import { DECORATED } from '../types/floor';
 
 const API_URL = process.env.WORDPRESS_API_URL || 'http://qa.infinitybyor.com.br/index.php?graphql';
 const WORDPRESS_URL = process.env.WORDPRESS_URL || 'http://qa.infinitybyor.com.br';
@@ -13,7 +14,7 @@ const fetch = NodeFetchCache.create({
   shouldCacheResponse: (response) => response.ok,
   cache:  new FileSystemCache({
     cacheDirectory: './.cache',
-    ttl: 6000,
+    ttl: 60000,
   })
 });
 
@@ -68,13 +69,13 @@ const handlePage = (props: any): Page => {
 
 const handleGarages = (enterpriseId, garagesNode: any[]) => {
   return garagesNode
-    .filter((a) => a.custom.enterprise.id === enterpriseId)
+    .filter((a) => a.other_fields.enterprise.id === enterpriseId)
     .map(
       (a): PARKING => ({
-        number: a.custom.number,
-        identifier: a.custom.number,
-        parkingslot: a?.custom?.parkingslot || "",
-        image: a.custom?.image ? a.custom?.image?.mediaItemUrl : null,
+        number: a.other_fields.number,
+        identifier: a.other_fields.number,
+        parkingslot: a?.other_fields?.parkingslot || "",
+        image: a.other_fields?.image ? a.other_fields?.image?.mediaItemUrl : null,
       })
     )
     .sort((a, b) => (a.identifier > b.identifier ? 1 : -1));
@@ -93,10 +94,24 @@ const handleAmbients = (floorId, ambientsNode: any[]) => {
     );
 };
 
+const handleDecorated = (floorId, decoratedNode: any[]) => {
+  return decoratedNode
+    .filter((a) => a.custom.floor.id === floorId)
+    .map(
+      (a): DECORATED => ({
+        title: a.title,
+        floorPlanSrc: a.custom?.image?.mediaItemUrl,
+        description: a.custom.description,
+        subtitle: a.custom.subtitle,
+      })
+    );
+};
+
 const handleFloors = (
   enterpriseId,
   floorsNode: any[],
-  ambientsNode: any[]
+  ambientsNode: any[],
+  decoratedNode: unknown[],
 ): FLOOR[] => {
   return floorsNode
     .filter((f) => f.floor_fields.enterpriseid?.id === enterpriseId)
@@ -109,7 +124,7 @@ const handleFloors = (
         y: Number.parseInt(f.floor_fields.coords.split(",")[1]),
       },
       floorPlanSrc: f.floor_fields?.photo?.mediaItemUrl,
-      decorated: [],
+      decorated: handleDecorated(f.id, decoratedNode),
     }));
 };
 
@@ -118,7 +133,8 @@ const handleEnterprises = (
   floorsNode = [],
   ambientsNode = [],
   garagesNode = [],
-  depositsNode = []
+  depositsNode = [],
+  decoratedNode = [],
 ): ENTERPRISE[] => {
   return enterpriseNode.map(
     (e): ENTERPRISE => ({
@@ -127,7 +143,7 @@ const handleEnterprises = (
       slug: e.slug,
       area: e.enterprises?.area.toLocaleString("pt-BR") + "m²",
       features: e.enterprises?.features?.split(/\r\n/),
-      floors: handleFloors(e.id, floorsNode, ambientsNode),
+      floors: handleFloors(e.id, floorsNode, ambientsNode, decoratedNode),
       logo: e.enterprises?.logo?.mediaItemUrl,
       bgImage: e.enterprises?.bgimage?.mediaItemUrl,
       salesTable: e.enterprises?.salestable?.mediaItemUrl,
@@ -288,7 +304,7 @@ export async function getEnterprises() {
         garages(first: 0, last: 100) {
           nodes {
             title
-            custom {
+            other_fields {
               image {
                 altText
                 mediaItemUrl
@@ -308,7 +324,7 @@ export async function getEnterprises() {
         deposits(first: 0, last: 100) {
           nodes {
             title
-            custom {
+            other_fields {
               image {
                 altText
                 mediaItemUrl
@@ -324,6 +340,26 @@ export async function getEnterprises() {
             }
           }
         }
+        decorateds {
+          nodes {
+            title
+            custom {
+              subtitle
+              description
+              image{
+                altText
+                mediaItemUrl
+                sourceUrl
+                sizes
+              }
+              floor {
+                ... on Floor {
+                  id
+                }
+              }
+            }
+          }
+        }
       }
       `
     );
@@ -332,17 +368,20 @@ export async function getEnterprises() {
     const ambientsNode = data.ambients.nodes;
     const garagesNode = data.garages.nodes;
     const depositsNode = data.deposits.nodes;
+    const decoratedNode = data.decorateds.nodes;
     const enterprises = handleEnterprises(
       enterprisesNode,
       floorsNode,
       ambientsNode,
       garagesNode,
-      depositsNode
+      depositsNode,
+      decoratedNode
     );
     const compare = (a, b) => a.title > a.title ? 1 : -1;
     enterprises.sort(compare);
     return enterprises;
   } catch (e) {
+    console.error(e);
     return enterprises;
   }
 }

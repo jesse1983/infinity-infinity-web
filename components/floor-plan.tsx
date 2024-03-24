@@ -11,6 +11,7 @@ type Path = {
   onMouseOver?: Function;
   onMouseOut?: Function;
   onClick?: Function;
+  notClickable?: boolean;
 };
 
 type Poi = {
@@ -81,7 +82,6 @@ function FloorPlan({ src, children, onLoad, hidePois }: Props) {
     setPathActive(index);
     const path = paths[index];
     if (path.title) setLabel(path.title);
-    // console.log(path.notClickable)
     if (path.onMouseDown) path.onMouseDown(ev);
   };
 
@@ -93,7 +93,7 @@ function FloorPlan({ src, children, onLoad, hidePois }: Props) {
 
   const clickOnPath = (ev, path: Path) => {
     ev.preventDefault();
-    if (path.onClick) path.onClick(ev);
+    if (path.onClick && path.notClickable !== true) path.onClick(ev);
   };
 
   useEffect(() => {

@@ -11,13 +11,14 @@ import { createRef, useEffect, useMemo, useRef, useState } from "react";
 import React from "react";
 import FloorPlan from "./floor-plan";
 import { Carousel } from "react-responsive-carousel";
-import IconClose from "../public/icon-close.svg";
+import IconMaximize from "../public/maximize.svg";
 import IconFullscreen from "../public/icon-fullscreen.svg";
 import IconRuler from "../public/icon-ruler.svg";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { AMBIENT, ENTERPRISE, FLOOR } from "../types";
 import { Decorated } from "./decorated";
 import { CircleText } from "./circle-text";
+import { SlideShow } from "./slideshow";
 
 type indexType = {
   generalSettings: Settings;
@@ -100,7 +101,11 @@ export default function Enterprise({
       );
     }
   }, []);
-
+  const selected = floor?.ambients.findIndex(
+    (a) => selectedAmbient && a.photoSrc === selectedAmbient.photoSrc
+  ) || 0;
+  const [currentImage, setCurrentImage] = useState(selected);
+  const onChangeImage = (index) => setCurrentImage(index);
   return (
     <Layout preview={preview}>
       <Head>
@@ -109,60 +114,61 @@ export default function Enterprise({
       </Head>
       <Header menu={menu} />
       <div className="w-full relative h-[calc(100vh_-_140px)] flex border border-white">
+
         <div
-          className={`absolute bg-midnight-950/70 w-full h-full z-40 transition-opacity duration-500 ${
+          className={`absolute bg-midnight-950 w-full h-full z-40 transition-opacity duration-500 flex flex-col ${
             selectedAmbient ? "opacity-100" : "opacity-0 invisible"
           }`}
         >
           {selectedAmbient && (
-            <Carousel
-              showArrows
-              infiniteLoop
-              // centerMode
-              // centerSlidePercentage={80}
-              // dynamicHeight
-              showStatus={false}
-              showThumbs={false}
-              showIndicators={false}
-              renderArrowPrev={(clickHandler, hasPrev) => hasPrev && <div className="absolute z-50 h-full flex p-4"><div className="m-auto rounded-full w-24 h-24 cursor-pointer flex items-center justify-center bg-white" onClick={clickHandler}><Chevron /></div></div>}
-              renderArrowNext={(clickHandler, hasNext) => hasNext && <div className="absolute z-50 right-0 top-0 float-right h-full flex p-4"><div className="m-auto rounded-full w-24 h-24 cursor-pointer flex items-center justify-center bg-white rotate-180" onClick={clickHandler}><Chevron /></div></div>}
-              selectedItem={floor?.ambients.findIndex(
-                (a) => a.photoSrc === selectedAmbient.photoSrc
-              )}
-            >
-              {photographedAmbients.map((ambient, i) => (
-                <div
-                  className="p-7 flex flex-col relative items-center w-3/4 m-auto"
-                  key={ambient.coords}
-                >
-                  <img
-                    src={ambient.photoSrc}
-                    className="w-auto max-h-[calc(100vh_-_300px)]"
-                    ref={imagesRefs.current[i]}
-                  />
-                  <div className="absolute z-50 bottom-0 border border-white p-2 bg-midnight-950 uppercase text-xl">
-                    {ambient.title}
-                  </div>
+            <>
+              <Carousel
+                className="flex"
+                infiniteLoop={photographedAmbients.length > 1}
+                useKeyboardArrows
+                centerMode={photographedAmbients.length > 1}
+                centerSlidePercentage={75}
+                // dynamicHeight
+                showStatus={false}
+                showThumbs={false}
+                showIndicators={false}
+                showArrows={false}
+                onChange={onChangeImage}
+                // renderArrowPrev={(clickHandler, hasPrev) => hasPrev && <div className="absolute z-50 h-full flex p-4"><div className="m-auto rounded-full w-24 h-24 cursor-pointer flex items-center justify-center bg-white" onClick={clickHandler}><Chevron /></div></div>}
+                // renderArrowNext={(clickHandler, hasNext) => hasNext && <div className="absolute z-50 right-0 top-0 float-right h-full flex p-4"><div className="m-auto rounded-full w-24 h-24 cursor-pointer flex items-center justify-center bg-white rotate-180" onClick={clickHandler}><Chevron /></div></div>}
+                selectedItem={currentImage}
+              >
+                {photographedAmbients.map((ambient, i) => (
                   <div
-                    className="absolute z-50 top-10 right-10 w-12 cursor-pointer transition-all hover:scale-75 ease-in-out delay-110"
-                    onClick={() => setSelectedAmbient(undefined)}
+                    className={'cursor-pointer p-7 flex flex-col relative items-center m-auto transition-all duration-300 ' + (currentImage === i ? '' : ' opacity-30 scale-y-75') }
+                    key={ambient.coords}
+                    onClick={() => setCurrentImage(i)}
                   >
-                    <IconClose />
-                  </div>
-                  {document?.fullscreenEnabled && (
+                    <img
+                      src={ambient.photoSrc}
+                      className="w-auto max-h-[calc(100vh_-_300px)] self-center"
+
+                      ref={imagesRefs.current[i]}
+                    />
+                    <div className="absolute z-50 bottom-0 border border-white p-2 bg-midnight-950 uppercase text-xl">
+                      {ambient.title}
+                    </div>
                     <div
-                      className="absolute z-50 bottom-16 right-10 w-12 cursor-pointer hover:scale-150 transition-all ease-in-out delay-50"
+                      className={'absolute z-50 top-10 right-10 w-12 cursor-pointer transition-all duration-300 ease-in-out delay-300 hover:scale-100'
+                      + (i === currentImage ? ' scale-75' : ' scale-0')}
                       onClick={() => setFullScreen(i)}
                     >
-                      <IconFullscreen />
+                      <IconMaximize />
                     </div>
-                  )}
-                </div>
-              ))}
-            </Carousel>
+                  </div>
+                ))}
+              </Carousel>
+              <div className="absolute bottom-28 left-16 scale-75" >
+                <div className="m-auto rounded-full w-24 h-24 cursor-pointer flex items-center justify-center bg-white" onClick={() => setSelectedAmbient(null)}><Chevron /></div>
+              </div>
+            </>
           )}
         </div>
-
         <MiniMenuContainer
           title={logo}
           noBorder
@@ -183,7 +189,7 @@ export default function Enterprise({
               </FloorPlan>
               {floor.decorated?.length > 0 &&
                 !showDecorated &&
-                !setSelectedAmbient && (
+                !selectedAmbient && (
                   <div
                     className="absolute bg-midnight-950 p-4 z-50 text-white bottom-14 right-14 border border-white uppercase flex items-center gap-4 hover:bg-white hover:text-midnight-950 cursor-pointer transition duration-300"
                     onClick={() => setShowDecorated(true)}

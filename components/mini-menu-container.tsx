@@ -18,7 +18,7 @@ export default function MiniMenuContainer({
           })`,
         }}
       >
-        <div className="h-[calc(100vh_-_175px)] flex">
+        <div className="h-[calc(100vh_-_175px)] flex w-full items-center">
           <span
             className={`mx-[10%] font-light uppercase text-4xl leading-tight ${
               noBorder ? "w-full" : "w-1/2 pb-4 border-b-2 m-auto"

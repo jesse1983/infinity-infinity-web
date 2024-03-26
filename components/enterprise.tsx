@@ -43,9 +43,12 @@ export default function Enterprise({
   const imagesRefs = useRef([]);
   const floors = enterprises.find((e) => e.slug === enterprise).floors;
 
-  const openSlideShow = (ev, ambient: AMBIENT) => {
+  const openSlideShow = (ev, ambient: AMBIENT, index: number) => {
     ev.preventDefault();
-    if (ambient.photoSrc) setSelectedAmbient(ambient);
+    if (ambient.photoSrc) {
+      setSelectedAmbient(ambient);
+      setCurrentImage(index);
+    }
   };
 
   const setFullScreen = (imageIndex) => {
@@ -177,13 +180,13 @@ export default function Enterprise({
           {floor && (
             <div className="w-full p-24 relative max-h-[calc(100vh_-_200px)]">
               <FloorPlan src={floor.floorPlanSrc}>
-                {floor.ambients.map((ambient) => (
+                {floor.ambients.map((ambient, i) => (
                   <FloorPlan.Path
                     key={ambient.coords}
                     title={ambient.title}
                     coords={ambient.coords}
                     notClickable={ambient.notClickable}
-                    onClick={(ev) => openSlideShow(ev, ambient)}
+                    onClick={(ev) => openSlideShow(ev, ambient, i)}
                   />
                 ))}
               </FloorPlan>

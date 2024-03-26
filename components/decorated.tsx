@@ -24,6 +24,10 @@ export function Decorated({ decorated, onClose = () => undefined }: { decorated:
       </div>
     );
   };
+  const odd = (i: number, total: number) => {
+    if (i === (total - 1) && i % 2 === 0) return ' col-start-4';
+    return '';
+  }
   return (
     <div className="absolute z-30 bg-midnight-950 h-full w-full">
       {selectedDecorated ? (
@@ -40,9 +44,9 @@ export function Decorated({ decorated, onClose = () => undefined }: { decorated:
         </MiniMenuContainer>
       ) : (
         <MiniMenuContainer title="Opções de plantas">
-          <div className="grid grid-flow-col auto-cols-fr w-full text-center gap-12 text-white p-12 font-thin">
-            {decorated.map((deco) => (
-              <div className="border-b border-b-white pb-8">
+          <div className="grid grid-cols-12 w-full text-center gap-12 text-white p-12 font-thin">
+            {decorated.map((deco, i) => (
+              <div className={'border-b border-b-white pb-8 col-span-6' + odd(i, decorated.length)}>
                 <h1
                   className="text-2xl  bg-dusk p-4 uppercase mb-16 cursor-pointer"
                   onClick={() => setSelectedDecorated(deco)}

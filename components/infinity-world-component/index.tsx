@@ -33,7 +33,7 @@ export function InfinityWorldComponent({
 }: {
   enterprises: ENTERPRISE[];
 }) {
-  const items = [
+  const subPageItems = [
     {
       icon: <MiniMenuItem01 className="w-7 md:w-10 xl:w-12" />,
       screenComponent: <TabelaDeVendas enterprises={enterprises} />,
@@ -59,7 +59,7 @@ export function InfinityWorldComponent({
   const router = useRouter();
 
   const [currentScreen, setCurrentScreen] = useState<SCREEN>(
-    getScreenByRouter(items)
+    getScreenByRouter(subPageItems)
   );
 
   const [buildingDetails, setBuildingDetails] = useState<ENTERPRISE>();
@@ -124,7 +124,7 @@ export function InfinityWorldComponent({
         style={{ backgroundImage: `url(${miniMenuBg.src})`, display: hidePois ? 'none' : '' }}
         className={`absolute px-7 hidden w-[80px] lg:w-[324px] h-[50%] ${position} transition-top duration-300 drop-shadow-2xl z-50 sm:flex flex-col justify-around items-center uppercase text-sm font-bold bg-repeat-y bg-right`}
       >
-        {items.map((item) => (
+        {subPageItems.map((item) => (
           <Link
             href={`/infinity-world/${item.path}`}
             key={uuidv4()}
@@ -138,10 +138,10 @@ export function InfinityWorldComponent({
           </Link>
         ))}
       </div>
-      {items.map((item) => (
+      {subPageItems.map((item) => (
         <div
           key={uuidv4()}
-          className={`absolute bg-midnight-900 flex items-center justify-center z-10 min-h-[calc(100vh_-_150px)] w-full transition duration-300 ${
+          className={`absolute  bg-midnight-900 flex items-center justify-center z-10 min-h-[calc(100vh_-_80px)] w-full transition duration-300 ${
             currentScreen === item.screen ? "" : "hidden"
           }`}
         >

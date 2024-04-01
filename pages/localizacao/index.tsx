@@ -48,7 +48,7 @@ export default function Index({
               href="/localizacao/vista-360"
               className="absolute bottom-0 right-0 border border-white rounded-full px-6 py-3 mr-10 mb-5"
             >
-              VISTA 360º
+              VISTAS
             </a>
           </div>
           <div className="flex m-auto p-16">

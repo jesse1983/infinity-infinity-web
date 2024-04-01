@@ -95,3 +95,8 @@
 .manifesto img, .manifesto figure {
   width: 400px!important;
 }
+
+.with-controls::-webkit-media-controls-panel {
+    display: flex !important;
+    opacity: 1 !important;
+}

@@ -83,13 +83,13 @@ const handleGarages = (enterpriseId, garagesNode: any[]) => {
 
 const handleAmbients = (floorId, ambientsNode: any[]) => {
   return ambientsNode
-    .filter((a) => a.details.floor.id === floorId)
+    .filter((a) => a?.details?.floor?.id === floorId && a?.details?.image?.mediaItemUrl)
     .map(
       (a): AMBIENT => ({
-        title: a.title,
-        coords: a.details?.coords,
-        photoSrc: a.details?.image?.mediaItemUrl,
-        notClickable: a.details?.notclickable,
+        title: a?.title,
+        coords: a?.details?.coords,
+        photoSrc: a?.details?.image?.mediaItemUrl,
+        notClickable: a?.details?.notclickable,
       })
     );
 };
@@ -365,7 +365,7 @@ export async function getEnterprises() {
     );
     const enterprisesNode = data.enterprises.nodes;
     const floorsNode = data.floors.nodes;
-    const ambientsNode = data.ambients.nodes;
+    const ambientsNode = data.ambients?.nodes;
     const garagesNode = data.garages.nodes;
     const depositsNode = data.deposits.nodes;
     const decoratedNode = data.decorateds.nodes;
@@ -381,7 +381,7 @@ export async function getEnterprises() {
     enterprises.sort(compare);
     return enterprises;
   } catch (e) {
-    console.error(e);
+    console.error('ERROR GET ENTERPISES', e);
     return enterprises;
   }
 }

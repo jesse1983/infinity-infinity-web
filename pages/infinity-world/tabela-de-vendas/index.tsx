@@ -17,6 +17,9 @@ export default function Index({
       <Head>
         <title>{generalSettings.title}</title>
         <meta name="description" content={page.title}></meta>
+        <script>
+          document.body.style = "overflow: hidden";
+        </script>
       </Head>
       <Header menu={menu} />
       <InfinityWorldComponent enterprises={enterprises} />

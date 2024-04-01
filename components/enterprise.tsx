@@ -57,7 +57,7 @@ export default function Enterprise({
   };
 
   const photographedAmbients = useMemo(() => {
-    return floor?.ambients.filter((ambient) => ambient.photoSrc);
+    return floor?.ambients?.filter((ambient) => ambient?.photoSrc);
   }, [floor]);
 
   const logo = (
@@ -104,8 +104,8 @@ export default function Enterprise({
       );
     }
   }, []);
-  const selected = floor?.ambients.findIndex(
-    (a) => selectedAmbient && a.photoSrc === selectedAmbient.photoSrc
+  const selected = floor?.ambients?.findIndex(
+    (a) => selectedAmbient && a?.photoSrc === selectedAmbient?.photoSrc
   ) || 0;
   const [currentImage, setCurrentImage] = useState(selected);
   const onChangeImage = (index) => setCurrentImage(index);
@@ -146,13 +146,16 @@ export default function Enterprise({
                     className={'cursor-pointer p-7 flex flex-col relative items-center m-auto transition-all duration-300 ' + (currentImage === i ? '' : ' opacity-30 scale-y-75') }
                     key={ambient.coords}
                     onClick={() => setCurrentImage(i)}
+                    style={{ backgroundImage: i !== currentImage ? `url(${ambient.photoSrc})` : '' }}
                   >
-                    <img
-                      src={ambient.photoSrc}
-                      className="w-auto max-h-[calc(100vh_-_300px)] self-center"
+                    <span>
+                      <img
+                        src={ambient.photoSrc}
+                        className="w-auto max-h-[calc(100vh_-_300px)] self-center"
 
-                      ref={imagesRefs.current[i]}
-                    />
+                        ref={imagesRefs.current[i]}
+                      />
+                    </span>
                     <div className="absolute z-50 bottom-0 border border-white p-2 bg-midnight-950 uppercase text-xl">
                       {ambient.title}
                     </div>

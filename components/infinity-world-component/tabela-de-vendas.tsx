@@ -22,12 +22,12 @@ export default function TabelaDeVendas({
             <BackButton onClick={() => (onBack ? onBack() : undefined)} />
           </div>
           <div
-            className="container mx-auto mt-[64px] overflow-y-scroll w-[80%] h-[80%] bg-[length:100%_100%]"
-            style={{
-              backgroundImage: `url(${selectedEnterprise.salesTable})`,
-            }}
+            className="container mx-auto mt-[64px] max-w-[75%] h-[75vh] bg-[length:100%_100%]  text-center"
             data-aos="zoom-out"
-          ></div>
+          >
+
+            <iframe src={selectedEnterprise.salesTable} className="m-auto w-full h-full" />
+          </div>
         </>
       )}
       {!selectedEnterprise && (

@@ -4,16 +4,17 @@ import Layout from "../../components/layout";
 import { allSettings, getImagesByText, getPage } from "../../lib/api";
 import { Settings, Page, Image } from "../../models";
 import Header from "../../components/header";
-import Panorama from "../../components/panorama";
-import FloorPlan from "../../components/floor-plan";
 import MiniMenuLocation from "../../components/mini-menu-location";
+import { Carousel } from "react-responsive-carousel";
+import Chevron from "../../public/voltar.svg";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 
 type indexType = {
   generalSettings: Settings;
   menu: Page[];
   page: Page;
   preview: boolean;
-  images360: Image[],
+  images360: Image[];
 };
 
 export default function Index({
@@ -32,68 +33,65 @@ export default function Index({
       <Header menu={menu} />
       <section>
         <MiniMenuLocation />
-        <Panorama images={images360} />
-        <div
-          className="text-center text-4xl py-7 uppercase w-auto h-16"
-          style={{ backgroundImage: "url(/bg-aqua-title.jpg)" }}
+        <Carousel
+          showArrows
+          infiniteLoop
+          // centerMode
+          // centerSlidePercentage={80}
+          // dynamicHeight
+          animationHandler="fade"
+          showStatus={false}
+          showThumbs={false}
+          showIndicators
+          renderArrowPrev={(clickHandler, hasPrev) =>
+            hasPrev && (
+              <div className="absolute z-50 right-0 bottom-0 flex p-4 mr-[calc(50vw_+_90px)] scale-75 mb-5">
+                <div
+                  className="m-auto rounded-full w-12 h-12 cursor-pointer flex items-center justify-center bg-white"
+                  onClick={clickHandler}
+                >
+                  <Chevron className="scale-50" />
+                </div>
+              </div>
+            )
+          }
+          renderArrowNext={(clickHandler, hasNext) =>
+            hasNext && (
+              <div className="absolute z-50 right-0 bottom-0 flex p-4 mr-[calc(50vw_-_170px)] scale-75 mb-5">
+                <div
+                  className="m-auto rounded-full w-12 h-12 cursor-pointer flex items-center justify-center bg-white rotate-180"
+                  onClick={clickHandler}
+                >
+                  <Chevron className="scale-50" />
+                </div>
+              </div>
+            )
+          }
+          selectedItem={0}
         >
-        </div>
-        {/* <div className=" bg-white ">
-          <div className="container lg:grid lg:grid-cols-3 gap-7 m-auto text-midnight-900 p-7 text-2xl leading-relaxed">
-            {page.featuredImage && <div
-              className="text-4xl uppercase text-center lg:text-left mb-7"
-              data-aos="fade-right"
+          {images360.map((image) => (
+            <div
+              className="h-[calc(100vh_-_110px)] bg-bottom bg-cover"
+              style={{ backgroundImage: `url(${image.mediaItemUrl})` }}
             >
-              <p className="mb-7">
-              { page.featuredImage.altText }
-              </p>
-              <img
-                src={ page.featuredImage.mediaItemUrl }
-                alt=""
-                className="w-full"
-              />
-            </div>}
-            <div className="col-span-2 font-light" data-aos="fade-left">
-
-
-                <div dangerouslySetInnerHTML={{__html: page.content }} className="[&>p]:mb-7"  />
-
+              <img src={image.mediaItemUrl} className=" opacity-0" />
+              <div className="absolute z-50 bg-white rounded-3xl text-black bottom-0 mb-9 ml-[calc(50vw_-_100px)] w-[200px] py-3 px-2 whitespace-nowrap uppercase overflow-hidden tracking-tighter text-center">
+                {image.altText}
+              </div>
             </div>
-          </div>
-        </div>
-        <FloorPlan src="./map-localization.png">
-          <FloorPlan.Poi
-            title="Shopping Da Praia"
-            icon="/icon-shopping-bag.svg"
-            y={32}
-            x={360}
-          />
-          <FloorPlan.Poi
-            title="Shopping Horizon"
-            icon="/icon-shopping-bag.svg"
-            y={32}
-            x={202}
-          />
-
-          <FloorPlan.Path
-            title="Infinity Blue"
-            coords="m 789.64053,690.2321 129.41851,-33.76135 65.64708,234.45383 -123.79163,58.14455 z"
-          />
-          <FloorPlan.Path
-            title="Infinity Sea"
-            coords="m 1149.7616,581.44552 127.5429,307.60343 223.2001,-80.65212 -121.916,-315.10596 z"
-          />
-        </FloorPlan> */}
+          ))}
+        </Carousel>
       </section>
     </Layout>
   );
 }
 
-
-export const getServerSideProps: GetServerSideProps = async ({ preview = false }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  preview = false,
+}) => {
   const page = await getPage("/localizacao/vista-360");
   const { menu, generalSettings } = await allSettings();
-  const images360 = await getImagesByText('360');
+  const images360 = await getImagesByText("360");
   return {
     props: { generalSettings, menu, page, preview, images360 },
   };

@@ -148,24 +148,25 @@ export default function Enterprise({
                     onClick={() => setCurrentImage(i)}
                     style={{ backgroundImage: i !== currentImage ? `url(${ambient.photoSrc})` : '' }}
                   >
-                    <span>
+                    <span className="relative">
                       <img
                         src={ambient.photoSrc}
                         className="w-auto max-h-[calc(100vh_-_300px)] self-center"
 
                         ref={imagesRefs.current[i]}
                       />
+                      <div
+                        className={'absolute z-50 top-3 right-3 w-12 cursor-pointer transition-all duration-300 ease-in-out delay-300 hover:scale-100'
+                        + (i === currentImage ? ' scale-75' : ' scale-0')}
+                        onClick={() => setFullScreen(i)}
+                      >
+                        <IconMaximize />
+                      </div>
                     </span>
                     <div className="absolute z-50 bottom-0 border border-white p-2 bg-midnight-950 uppercase text-xl">
                       {ambient.title}
                     </div>
-                    <div
-                      className={'absolute z-50 top-10 right-10 w-12 cursor-pointer transition-all duration-300 ease-in-out delay-300 hover:scale-100'
-                      + (i === currentImage ? ' scale-75' : ' scale-0')}
-                      onClick={() => setFullScreen(i)}
-                    >
-                      <IconMaximize />
-                    </div>
+
                   </div>
                 ))}
               </Carousel>

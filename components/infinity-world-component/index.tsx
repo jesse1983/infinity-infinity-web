@@ -119,7 +119,7 @@ export function InfinityWorldComponent({
 
 
   return (
-    <div className="relative max-h-screen " data-aos="zoom-out">
+    <div className="relative max-h-[calc(100vh_-_110px)]" data-aos="zoom-out">
       <div
         style={{ backgroundImage: `url(${miniMenuBg.src})`, display: hidePois ? 'none' : '' }}
         className={`absolute px-7 hidden w-[80px] lg:w-[324px] h-[50%] ${position} transition-top duration-300 drop-shadow-2xl z-50 sm:flex flex-col justify-around items-center uppercase text-sm font-bold bg-repeat-y bg-right`}
@@ -141,7 +141,7 @@ export function InfinityWorldComponent({
       {subPageItems.map((item) => (
         <div
           key={uuidv4()}
-          className={`absolute  bg-midnight-900 flex items-center justify-center z-10 min-h-[calc(100vh_-_80px)] w-full transition duration-300 ${
+          className={`absolute bg-midnight-900 flex items-center justify-center z-10 min-h-[calc(100vh_-_110px)] w-full transition duration-300 ${
             currentScreen === item.screen ? "" : "hidden"
           }`}
         >
@@ -183,7 +183,7 @@ export function InfinityWorldComponent({
         </div>
       )}
       <div className={bgOverlay}>
-        <FloorPlan src={roofTop.src} onLoad={scrollToBottom} hidePois={hidePois}>
+        {!currentScreen && <FloorPlan src={roofTop.src} onLoad={scrollToBottom} hidePois={hidePois}>
           <FloorPlan.Path
             title={"Infinity Blue"}
             noBorder
@@ -210,7 +210,7 @@ export function InfinityWorldComponent({
                 onClick={() => gotoEnterprise(floor.enterprise, floor.slug)}
               />
             ))}
-        </FloorPlan>
+        </FloorPlan>}
       </div>
     </div>
   );

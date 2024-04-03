@@ -19,6 +19,7 @@
   text-align: center;
   padding-top: 2px;
   margin-right: 10px;
+  color: #FFF
 }
 
 .list-numbers a {
@@ -27,6 +28,7 @@
   margin-top: 20px;
   display: inline-block;
   text-transform: uppercase;
+  color: #FFF;
 }
 
 

@@ -66,7 +66,7 @@ export function InfinityWorldComponent({
   const [direction, setDirection] = useState<string>();
 
   const position = useMemo(() => {
-    return currentScreen ? "bottom-0 right-0" : "bottom-[25%] right-10";
+    return currentScreen ? " bottom-0 right-0 " : " bottom-[25%] right-10";
   }, [currentScreen]);
 
   const gotoEnterprise = (enterprise: string, area: string) => {
@@ -119,11 +119,11 @@ export function InfinityWorldComponent({
 
 
   return (
-    <div className="relative max-h-[calc(100vh_-_110px)]" data-aos="zoom-out">
+    <div className="relative h-[calc(100vh_-_110px)]" data-aos="zoom-out">
       <div
         style={{ backgroundImage: `url(${miniMenuBg.src})`, display: hidePois ? 'none' : '' }}
         className={`absolute px-7 hidden w-[80px] lg:w-[324px] h-[50%] ${position} transition-top duration-300 drop-shadow-2xl z-50 sm:flex flex-col justify-around items-center uppercase text-sm font-bold bg-repeat-y bg-right`}
-      >
+      > 
         {subPageItems.map((item) => (
           <Link
             href={`/infinity-world/${item.path}`}

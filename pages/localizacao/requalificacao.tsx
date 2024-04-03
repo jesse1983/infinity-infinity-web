@@ -29,9 +29,9 @@ export default function Index({
       <section className="relative">
         <MiniMenuLocation />
         <div className="h-16"></div>
-        <div className=" bg-dusk grid grid-cols-[60%_40%]">
-          <div className="bg-white"><img src="/urbana-map.png" className="w-full h-full" /></div>
-          <div dangerouslySetInnerHTML={{__html: page.content }} className="[&>h2]:mb-10 [&>h2]:text-xl p-10 list-numbers" data-aos="fade-left"  />          
+        <div className=" bg-white grid grid-cols-[45%_55%] bg-right bg-no-repeat bg-contain" style={{ backgroundImage: 'url(/requalificacao.png)' }}>
+          <div dangerouslySetInnerHTML={{__html: page.content }} className="[&>h2]:mb-10 [&>h2]:text-xl p-10 list-numbers text-midnight-950 " data-aos="fade-left"  />          
+          <div></div>
         </div>
        
       </section>

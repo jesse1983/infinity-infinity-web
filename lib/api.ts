@@ -83,12 +83,12 @@ const handleGarages = (enterpriseId, garagesNode: any[]) => {
 
 const handleAmbients = (floorId, ambientsNode: any[]) => {
   return ambientsNode
-    .filter((a) => a?.details?.floor?.id === floorId && a?.details?.image?.mediaItemUrl)
+    .filter((a) => (a?.details?.floor?.id === floorId) && a?.details?.coords)
     .map(
       (a): AMBIENT => ({
         title: a?.title,
         coords: a?.details?.coords,
-        photoSrc: a?.details?.image?.mediaItemUrl,
+        photoSrc: a?.details?.image ? a?.details?.image?.mediaItemUrl : null,
         notClickable: a?.details?.notclickable,
       })
     );
@@ -119,6 +119,7 @@ const handleFloors = (
       title: f.title,
       slug: f.slug,
       ambients: handleAmbients(f.id, ambientsNode),
+      // ambients: [],
       coords: {
         x: Number.parseInt(f.floor_fields.coords.split(",")[0]),
         y: Number.parseInt(f.floor_fields.coords.split(",")[1]),

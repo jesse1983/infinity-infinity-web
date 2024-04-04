@@ -43,11 +43,11 @@ export default function Enterprise({
   const imagesRefs = useRef([]);
   const floors = enterprises.find((e) => e.slug === enterprise).floors;
 
-  const openSlideShow = (ev, ambient: AMBIENT, index: number) => {
+  const openSlideShow = (ev, ambient: AMBIENT, ambients: AMBIENT[]) => {
     ev.preventDefault();
     if (ambient.photoSrc) {
       setSelectedAmbient(ambient);
-      setCurrentImage(index);
+      setCurrentImage(ambients.filter((a) => a.photoSrc).findIndex((a) => a.photoSrc === ambient.photoSrc));
     }
   };
 
@@ -198,13 +198,13 @@ export default function Enterprise({
           {floor && (
             <div className="w-full p-24 relative max-h-[calc(100vh_-_200px)]">
               <FloorPlan src={floor.floorPlanSrc}>
-                {floor.ambients.map((ambient, i) => (
+                {floor.ambients.map((ambient, i, all) => (
                   <FloorPlan.Path
                     key={ambient.coords}
                     title={ambient.title}
                     coords={ambient.coords}
                     notClickable={ambient.notClickable}
-                    onClick={(ev) => openSlideShow(ev, ambient, i)}
+                    onClick={(ev) => openSlideShow(ev, ambient, all)}
                   />
                 ))}
               </FloorPlan>

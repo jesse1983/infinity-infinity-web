@@ -36,10 +36,7 @@ export default function Index({
       <div className="relative flex items-center justify-center h-[calc(100vh-110px)] w-screen overflow-hidden">
         {video && (
           <>
-            <div
-              className="absolute z-30 bottom-20 right-4"
-              data-aos="fade-up-left"
-            >
+            <div className="absolute z-30 bottom-20 left-4">
               <a
                 href="/localizacao/requalificacao"
                 className="uppercase px-10 py-5 mb-7 ml-7 border border-slate-200 hover:bg-slate-200 hover:text-midnight-950 transition duration-500 hover:ease-in-out"

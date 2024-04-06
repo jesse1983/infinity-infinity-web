@@ -2,10 +2,11 @@ import NodeFetchCache, { FileSystemCache } from 'node-fetch-cache';
 import { Page, Settings, Image } from "../models";
 import allSettingsJson from "./fallback/allSettings.json";
 import getPageJson from "./fallback/getPage.json";
-import { enterprises } from "./fallback/buildings";
+import enterprises from "./fallback/buildings.json";
 import { AMBIENT, ENTERPRISE, FLOOR } from "../types";
 import { PARKING } from "../types/parking";
 import { DECORATED } from '../types/floor';
+import fs from 'fs';
 
 const API_URL = process.env.WORDPRESS_API_URL || 'http://qa.infinitybyor.com.br/index.php?graphql';
 const WORDPRESS_URL = process.env.WORDPRESS_URL || 'http://qa.infinitybyor.com.br';
@@ -17,6 +18,12 @@ const fetch = NodeFetchCache.create({
     ttl: 60000,
   })
 });
+
+const createFallback = (name, json) => {
+  if (process.env.NODE_ENV === 'development') {
+    // fs.writeFile(`lib/fallback/${name}.json`, JSON.stringify(json, null, 2), () => {});
+  }
+}
 
 async function fetchAPI(query = "", { variables }: Record<string, any> = {}) {
   const headers = { "Content-Type": "application/json" };
@@ -41,6 +48,7 @@ async function fetchAPI(query = "", { variables }: Record<string, any> = {}) {
     console.error(json.errors);
     throw new Error("Failed to fetch API");
   }
+
   return json.data;
 }
 
@@ -161,6 +169,8 @@ export async function getPage(slugDirty) {
     const page = [...menu, ...subpages].find((page) =>
       page.slug.endsWith(slug)
     );
+    createFallback('getPage', handlePage(page));
+
     return handlePage(page);
   } catch (e) {
     return getPageJson;
@@ -219,6 +229,8 @@ export async function allSettings(): Promise<allSettingsType> {
         .sort((a, b) => (a.menuOrder > b.menuOrder ? 1 : -1))
         .map((page) => handlePage(page)) as Page[],
     };
+
+    createFallback('allSettings', result);
     return result;
   } catch (e) {
     return Object.assign(allSettingsJson) as allSettingsType;
@@ -380,6 +392,8 @@ export async function getEnterprises() {
     );
     const compare = (a, b) => a.title > a.title ? 1 : -1;
     enterprises.sort(compare);
+
+    createFallback('buildings', enterprises);
     return enterprises;
   } catch (e) {
     console.error('ERROR GET ENTERPISES', e);

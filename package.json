@@ -22,6 +22,7 @@
     "react-curved-text": "^3.0.0",
     "react-dom": "^18.2.0",
     "react-photo-sphere-viewer": "^3.4.0-psv5.4.0",
+    "react-player": "^2.15.1",
     "react-responsive-carousel": "^3.2.23",
     "react-tooltip": "^5.21.6",
     "sharp": "^0.32.6",

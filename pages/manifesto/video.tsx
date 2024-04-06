@@ -9,6 +9,7 @@ import {
   getPage,
 } from "../../lib/api";
 import { Settings, Page, Image } from "../../models";
+import VideoFull from "../../components/video-full";
 
 type indexType = {
   generalSettings: Settings;
@@ -34,28 +35,7 @@ export default function Index({
       </Head>
       <Header menu={menu} />
       <div className="relative flex items-center justify-center h-[calc(100vh-110px)] w-screen overflow-hidden">
-        {video && (
-          <>
-            <div className="absolute z-30 bottom-20 left-4">
-              <a
-                href="/localizacao/requalificacao"
-                className="uppercase px-10 py-5 mb-7 ml-7 border border-slate-200 hover:bg-slate-200 hover:text-midnight-950 transition duration-500 hover:ease-in-out"
-              >
-                <span>Voltar</span>
-              </a>
-            </div>
-            <video
-              className="h-[calc(100vh_-_120px)] with-controls"
-              controls
-              loop
-              data-aos="zoom-in"
-              // poster="./home.jpg"
-            >
-              {/* <source src="./banner01.webm" type="video/webm" /> */}
-              <source src={video.mediaItemUrl} type="video/mp4" />
-            </video>
-          </>
-        )}
+        <VideoFull video={video} backLink="/manifesto" />
       </div>
     </Layout>
   );

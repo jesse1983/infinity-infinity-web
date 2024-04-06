@@ -6,6 +6,7 @@ import { Settings, Page, Image } from "../models";
 import Header from "../components/header";
 import PlayButton from "../public/play.svg";
 import { useState } from "react";
+import VideoFull from "../components/video-full";
 
 type indexType = {
   generalSettings: Settings;
@@ -33,7 +34,7 @@ export default function Index({
       </Head>
       <Header menu={menu} />
       <div className="relative flex items-center justify-center h-[calc(100vh-110px)] w-screen overflow-hidden">
-        {!playInitialVideo && <div
+        <div
           className="absolute z-30 bottom-5 right-5"
         >
           <a
@@ -42,7 +43,7 @@ export default function Index({
           >
             <span>Pular</span>
           </a>
-        </div>}
+        </div>
         <video
           className={`absolute z-10 w-auto min-w-full min-h-full max-h-none ${playInitialVideo ? ' hidden' : ''}`}
           autoPlay
@@ -54,15 +55,7 @@ export default function Index({
           {/* <source src="./banner01.webm" type="video/webm" /> */}
           <source src={video.mediaItemUrl} type="video/mp4" />
         </video>
-        {intro && playInitialVideo && <video
-          className="absolute z-20 w-auto min-w-full h-[calc(100vh-110px)] with-controls"
-          controls={true}
-          autoPlay={false}
-          autoFocus={true}
-          data-aos="zoom-out"
-        >
-          <source src={intro?.mediaItemUrl} type="video/mp4" />
-        </video>}
+        {intro && playInitialVideo &&  <VideoFull video={intro} />}
         {intro && !playInitialVideo && <div className="absolute m-auto z-50 scale-50 md:scale-75 2xl:scale-100 cursor-pointer" onClick={() => setPlayInitialVideo(true)}>
           <PlayButton />
         </div>}

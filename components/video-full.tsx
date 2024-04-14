@@ -1,22 +1,23 @@
-import PlayButtonWhite from "../public/play-white.svg";
-import PauseButtonWhite from "../public/pause-white.svg";
-import { useState, useRef, useEffect, useMemo } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Image } from "../models";
+import Close from "../public/icon-close-filled.svg";
 
 export default function VideoFull({
   video,
+  onClose,
   backLink,
 }: {
   video: Image;
   backLink?: string;
+  onClose?: Function;
 }) {
   const [domLoaded, setDomLoaded] = useState(false);
   const videoPlayer = useRef<HTMLVideoElement | null>(null);
 
-  const setTogglePlay = () => {
-    return videoPlayer.current?.paused
-      ? videoPlayer.current?.play()
-      : videoPlayer.current?.pause();
+  const onCloseFn = (ev) => {
+    if (onClose) onClose(ev);
+    if (backLink) window.location.href = backLink;
+    ev.preventDefault();
   };
 
   useEffect(() => {
@@ -24,34 +25,25 @@ export default function VideoFull({
   }, []);
 
   return (
-    video &&
-    domLoaded && (
-      <>
-        {backLink && (
-          <div className="absolute z-30 bottom-10 left-4">
-            <a
-              href={backLink}
-              className="uppercase px-10 py-5 mb-7 ml-7 border border-slate-200 hover:bg-slate-200 hover:text-midnight-950 transition duration-500 hover:ease-in-out"
-            >
-              <span>Voltar</span>
-            </a>
-          </div>
-        )}
-        <div
-          className="absolute m-auto z-50 scale-50 md:scale-75 2xl:scale-100 cursor-pointer opacity-30 hover:opacity-100 transition-all duration-300"
-          onClick={() => setTogglePlay()}
-        >
-          <PlayButtonWhite />
+    video && (
+      <div className={`absolute z-50 top-0 left-0 right-0 bottom-0 bg-black bg-opacity-70 backdrop-blur-lg flex`}>
+        <div className="absolute top-4 right-4 scale-100 hover:scale-75 transition-all duration-300">
+          <a href="" onClick={onCloseFn}>
+            <Close />
+          </a>
         </div>
-        <video
-          className={`w-auto min-w-full min-h-full`}
-          autoPlay
-          loop
-          ref={videoPlayer}
-        >
-          <source src={video.mediaItemUrl} type="video/mp4" />
-        </video>
-      </>
+        <div className={`m-auto border overflow-hidden transition duration-500 ${domLoaded ? 'scale-100' : 'scale-0'}`}>
+          <video
+            className="max-w-[calc(100vw_-_150px)] max-h-[calc(100vh_-_100px)] "
+            autoPlay
+            controls
+            loop
+            ref={videoPlayer}
+          >
+            <source src={video.mediaItemUrl} type="video/mp4" />
+          </video>
+        </div>
+      </div>
     )
   );
 }

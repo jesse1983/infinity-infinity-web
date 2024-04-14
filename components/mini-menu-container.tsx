@@ -8,7 +8,7 @@ export default function MiniMenuContainer({
   slot = undefined,
 }) {
   return (
-    <div className="w-full h-[calc(100%_-_64px)] grid grid-cols-12 mt-[64px] relative">
+    <div className="w-full h-[calc(100%_-_60px)] grid grid-cols-12 mt-[64px] relative">
       {slot}
       <div
         className="hidden lg:col-span-3 lg:flex items-start bg-[length:100%_100%] bg-midnight-950"

@@ -47,7 +47,11 @@ export default function Enterprise({
     ev.preventDefault();
     if (ambient.photoSrc) {
       setSelectedAmbient(ambient);
-      setCurrentImage(ambients.filter((a) => a.photoSrc).findIndex((a) => a.photoSrc === ambient.photoSrc));
+      setCurrentImage(
+        ambients
+          .filter((a) => a.photoSrc)
+          .findIndex((a) => a.photoSrc === ambient.photoSrc)
+      );
     }
   };
 
@@ -57,8 +61,8 @@ export default function Enterprise({
     setTimeout(() => {
       el.requestFullscreen({ navigationUI: "show" });
     }, 10);
-    el.addEventListener('fullscreenchange', function () {
-      const fullScreen = !!document.fullscreenElement
+    el.addEventListener("fullscreenchange", function () {
+      const fullScreen = !!document.fullscreenElement;
       setIsFullscreen(fullScreen);
     });
   };
@@ -97,7 +101,12 @@ export default function Enterprise({
       className="left-[10%] fixed z-50 overflow-hidden h-[calc(100vh/2_-_25vh)] w-[calc(100vh/2)] bottom-0 hidden lg:block"
       data-aos="zoom-in"
     >
-      <CircleText enterprise={enterprise} texts={floors.map((floor) => floor.title)} active={floor?.title} onClick={rotateNav} />
+      <CircleText
+        enterprise={enterprise}
+        texts={floors.map((floor) => floor.title)}
+        active={floor?.title}
+        onClick={rotateNav}
+      />
     </div>
   );
 
@@ -115,11 +124,11 @@ export default function Enterprise({
         false
       );
     }
-    
   }, []);
-  const selected = floor?.ambients?.findIndex(
-    (a) => selectedAmbient && a?.photoSrc === selectedAmbient?.photoSrc
-  ) || 0;
+  const selected =
+    floor?.ambients?.findIndex(
+      (a) => selectedAmbient && a?.photoSrc === selectedAmbient?.photoSrc
+    ) || 0;
   const [currentImage, setCurrentImage] = useState(selected);
   const onChangeImage = (index) => setCurrentImage(index);
   return (
@@ -129,10 +138,9 @@ export default function Enterprise({
         <meta name="description" content={page.title}></meta>
       </Head>
       <Header menu={menu} />
-      <div className="w-full relative h-[calc(100vh_-_110px)] flex border border-white">
-
+      <div className="w-full relative h-[calc(100vh_-_110px)] flex border-t border-white">
         <div
-          className={`absolute bg-midnight-950 w-full h-full z-40 transition-opacity duration-500 flex flex-col justify-center ${
+          className={`absolute bg-midnight-950 w-full h-full z-40 transition-opacityx  duration-500 flex flex-col justify-center ${
             selectedAmbient ? "opacity-100" : "opacity-0 invisible"
           }`}
         >
@@ -143,7 +151,7 @@ export default function Enterprise({
                 infiniteLoop={photographedAmbients.length > 1}
                 useKeyboardArrows
                 centerMode={photographedAmbients.length > 1}
-                centerSlidePercentage={75}
+                centerSlidePercentage={70}
                 // dynamicHeight
                 showStatus={false}
                 showThumbs={false}
@@ -156,36 +164,66 @@ export default function Enterprise({
               >
                 {photographedAmbients.map((ambient, i) => (
                   <div
-                    className={'cursor-pointer p-7 flex flex-col relative items-center m-auto transition-all duration-300 ' + (currentImage === i ? '' : ' opacity-30 scale-y-75') }
+                    className={
+                      "cursor-pointer p-7 pt-0 flex flex-col h-[calc(100vh_-_200px)] relative items-center m-auto transition-all duration-300 " +
+                      (currentImage === i ? "" : " opacity-30 scale-y-75")
+                    }
                     key={ambient.coords}
                     onClick={() => setCurrentImage(i)}
-                    style={{ backgroundImage: i !== currentImage ? `url(${ambient.photoSrc})` : '' }}
+                    style={{
+                      backgroundImage:
+                        i !== currentImage ? `url(${ambient.photoSrc})` : "",
+                    }}
                   >
-                    <span className="relative flex items-center justify-center" ref={imagesRefs.current[i]}>
-                      <span className="relative">
+                    <span
+                      className="relative flex items-center justify-center"
+                      ref={imagesRefs.current[i]}
+                    >
+                      <span
+                        className={`relative flex items-center justify-center ${
+                          isFullscreen
+                            ? "w-screen h-screen"
+                            : "h-[calc(100%_-_25px)]"
+                        }`}
+                      >
+                        {!isFullscreen && (
+                          <div className="absolute z-50 bottom-[-25px] border border-white p-2 bg-midnight-950 uppercase text-xl ">
+                            {ambient.title}
+                          </div>
+                        )}
                         <img
                           src={ambient.photoSrc}
-                          className="w-auto max-h-[calc(100vh_-_300px)] self-center"
+                          className={`w-auto self-center ${
+                            currentImage === i ? "" : " opacity-0"
+                          } ${
+                            isFullscreen
+                              ? "max-w-screen max-h-screen"
+                              : "max-h-[calc(100vh_-_225px)]"
+                          }`}
                         />
                         <div
-                          className={'absolute z-50 top-3 right-3 w-12 cursor-pointer transition-all duration-300 ease-in-out delay-300 hover:scale-100'
-                          + (i === currentImage ? ' scale-75' : ' scale-0')}
-                          onClick={() => isFullscreen ? exitFullScreen(i) : setFullScreen(i) }
+                          className={
+                            "absolute z-50 top-3 right-3 w-12 cursor-pointer transition-all duration-300 ease-in-out delay-300 hover:scale-100" +
+                            (i === currentImage ? " scale-75" : " scale-0")
+                          }
+                          onClick={() =>
+                            isFullscreen ? exitFullScreen(i) : setFullScreen(i)
+                          }
                         >
                           {isFullscreen ? <IconClose /> : <IconMaximize />}
-                          
                         </div>
                       </span>
                     </span>
-                    <div className="absolute z-50 bottom-0 border border-white p-2 bg-midnight-950 uppercase text-xl">
-                      {ambient.title}
-                    </div>
-
                   </div>
                 ))}
               </Carousel>
-              <div className="absolute bottom-4 left-16 scale-75" >
-                <div className="m-auto rounded-full w-24 h-24 cursor-pointer flex items-center justify-center bg-white" onClick={() => setSelectedAmbient(null)}><Chevron /></div>
+              <div className="absolute bottom-4 left-16 scale-75">
+                <div
+                  className="m-auto rounded-full w-24 h-24 cursor-pointer flex items-center justify-center bg-white"
+                  onClick={() => setSelectedAmbient(null)}
+                >
+                  <Chevron />
+                </div>
               </div>
             </>
           )}
@@ -193,7 +231,9 @@ export default function Enterprise({
         <MiniMenuContainer
           title={logo}
           noBorder
-          slot={!showDecorated && !selectedAmbient && buildingCircle(enterprise)}
+          slot={
+            !showDecorated && !selectedAmbient && buildingCircle(enterprise)
+          }
         >
           {floor && (
             <div className="w-full p-24 relative max-h-[calc(100vh_-_200px)]">

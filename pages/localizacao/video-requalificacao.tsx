@@ -34,10 +34,8 @@ export default function Index({
         <title>{generalSettings.title}</title>
         <meta name="description" content={page.title}></meta>
       </Head>
+      <VideoFull video={video} backLink="/localizacao/requalificacao" />
       <Header menu={menu} />
-      <div className="relative flex items-center justify-center h-[calc(100vh-110px)] w-screen overflow-hidden">
-        <VideoFull video={video} backLink="/localizacao/requalificacao" />
-      </div>
     </Layout>
   );
 }

@@ -27,11 +27,14 @@ export default function Index({
 }: indexType) {
   const [playInitialVideo, setPlayInitialVideo] = useState(false);
   return (
+    <>
     <Layout preview={preview}>
       <Head>
         <title>{generalSettings.title}</title>
         <meta name="description" content={page.title}></meta>
       </Head>
+      {intro && playInitialVideo &&  <VideoFull video={intro} onClose={() => setPlayInitialVideo(false)} />}
+
       <Header menu={menu} />
       <div className="relative flex items-center justify-center h-[calc(100vh-110px)] w-screen overflow-hidden">
         <div
@@ -45,7 +48,7 @@ export default function Index({
           </a>
         </div>
         <video
-          className={`absolute z-10 w-auto min-w-full min-h-full max-h-none ${playInitialVideo ? ' hidden' : ''}`}
+          className={`absolute z-10 w-auto min-w-full min-h-full max-h-none`}
           autoPlay
           muted
           loop
@@ -55,13 +58,13 @@ export default function Index({
           {/* <source src="./banner01.webm" type="video/webm" /> */}
           <source src={video.mediaItemUrl} type="video/mp4" />
         </video>
-        {intro && playInitialVideo &&  <VideoFull video={intro} />}
         {intro && !playInitialVideo && <div className="absolute m-auto z-50 scale-50 md:scale-75 2xl:scale-100 cursor-pointer" onClick={() => setPlayInitialVideo(true)}>
           <PlayButton />
         </div>}
-        
+
       </div>
     </Layout>
+    </>
   );
 }
 

@@ -193,11 +193,11 @@ export default function Enterprise({
                         )}
                         <img
                           src={ambient.photoSrc}
-                          className={`w-auto self-center ${
+                          className={`self-center ${
                             currentImage === i ? "" : " opacity-0"
                           } ${
                             isFullscreen
-                              ? "max-w-screen max-h-screen"
+                              ? "max-h-screen max-w-screen object-contain "
                               : "max-h-[calc(100vh_-_225px)]"
                           }`}
                         />

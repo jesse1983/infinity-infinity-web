@@ -236,7 +236,7 @@ export default function Enterprise({
           }
         >
           {floor && (
-            <div className="w-full p-24 relative max-h-[calc(100vh_-_200px)]">
+            <div className="w-full px-24 py-5 relative h-[calc(100vh_-_180px)] overflow-hidden flex" >
               <FloorPlan src={floor.floorPlanSrc}>
                 {floor.ambients.map((ambient, i, all) => (
                   <FloorPlan.Path

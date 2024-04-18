@@ -108,7 +108,7 @@ function FloorPlan({ src, children, onLoad, hidePois }: Props) {
     image.src = src;
   }, [src]);
   return (
-    <div className="w-auto relative" data-aos="zoom-out">
+    <div className="flex w-full m-auto relative" data-aos="zoom-out">
       {/* {poisNodes} */}
       <Tooltip id={tooltipUuid} style={{ background: "transparent" }}>
         <div

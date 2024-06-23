@@ -28,16 +28,29 @@ export default function Index({
         <meta name="description" content={page.title}></meta>
       </Head>
       <Header menu={menu} />
-      <section className="relative">
+      <section className="relative min-h-[calc(100vh_-_110px)] flex" style={{ backgroundImage: 'url(/bg-sobre-localizacao.jpg)' }}>
         <MiniMenuLocation />
-
-        <div
-          className="text-center text-4xl py-7 uppercase w-auto h-16"
-          style={{ backgroundImage: "url(/bg-aqua-title.jpg)" }}
-        ></div>
-        <div>
-          <div className="container">
-            <div className="grid grid-cols-2 h-[calc(100vh_-_177px)]">
+        <div className="m-auto">
+          <div className="container m-auto p-10">
+            <div className="grid grid-cols-12 gap-5 text-midnight-950">
+              <div className="col-span-6 flex items-center">
+                <div>
+                  <h1 className="text-2xl mb-7 uppercase">
+                    {page.title}
+                  </h1>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: page.content }}
+                    className="[&>p]:mb-7"
+                  />
+                </div>
+              </div>
+              {images.map((image, i) => (
+                <div className={'h-60 ' + (i === images.length - 1 ? `col-span-6` : `col-span-3`)}>
+                  <div className="w-full h-full bg-cover bg-top" style={{ backgroundImage: `url(${image.mediaItemUrl})` }}></div>
+                </div>
+              ))}
+            </div>
+            {/* <div className="grid grid-cols-2 h-[calc(100vh_-_177px)]">
               <div
                 className="font-light text-white bg-[#AFA181] flex flex-col gap-5 justify-center p-10"
                 _data-aos="fade-left"
@@ -46,9 +59,9 @@ export default function Index({
                   <div>
                     <img
                       src={image.mediaItemUrl}
-                      className={
-                        `h-[30vh] w-[27vw] ${(i % 2 === 0) ? "float-right" : ""}` 
-                      }
+                      className={`h-[30vh] w-[27vw] ${
+                        i % 2 === 0 ? "float-right" : ""
+                      }`}
                     />
                   </div>
                 ))}
@@ -64,32 +77,9 @@ export default function Index({
                   />
                 </div>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
-        {/* <FloorPlan src="./map-localization.png">
-          <FloorPlan.Poi
-            title="Shopping Da Praia"
-            icon="/icon-shopping-bag.svg"
-            y={32}
-            x={360}
-          />
-          <FloorPlan.Poi
-            title="Shopping Horizon"
-            icon="/icon-shopping-bag.svg"
-            y={32}
-            x={202}
-          />
-
-          <FloorPlan.Path
-            title="Infinity Blue"
-            coords="m 789.64053,690.2321 129.41851,-33.76135 65.64708,234.45383 -123.79163,58.14455 z"
-          />
-          <FloorPlan.Path
-            title="Infinity Sea"
-            coords="m 1149.7616,581.44552 127.5429,307.60343 223.2001,-80.65212 -121.916,-315.10596 z"
-          />
-        </FloorPlan> */}
       </section>
     </Layout>
   );
@@ -100,7 +90,8 @@ export const getServerSideProps: GetServerSideProps = async ({
 }) => {
   const page = await getPage("/sobre-a-localizacao");
   const { menu, generalSettings } = await allSettings();
-  const images = await getImagesByText("movimento");
+  const unSortedImages = await getImagesByText("movimento");
+  const images = unSortedImages.sort((a, b) => a.altText > b.altText ? 1 : -1 )
   return {
     props: { generalSettings, menu, page, preview, images },
   };

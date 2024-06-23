@@ -5,6 +5,7 @@ import { allSettings, getPage } from "../../lib/api";
 import { Settings, Page } from "../../models";
 import Header from "../../components/header";
 import MiniMenuLocation from "../../components/mini-menu-location";
+import Link from "next/link";
 
 type indexType = {
   generalSettings: Settings;
@@ -31,7 +32,12 @@ export default function Index({
         <div className="h-16"></div>
         <div className=" bg-white grid grid-cols-[45%_55%] h-[calc(100vh_-_170px)] bg-right bg-no-repeat bg-contain" style={{ backgroundImage: 'url(/requalificacao.png)' }}>
           <div dangerouslySetInnerHTML={{__html: page.content }} className="[&>h2]:mb-10 [&>h2]:text-xl p-10 list-numbers text-midnight-950 " data-aos="fade-left"  />          
-          <div></div>
+          <div>
+            <div className="text-midnight-950 w-[350px] mx-auto mt-10 leading-tight">
+            <h1 className="text-5xl uppercase mb-6">Requalificação Urbana</h1>
+            <p><Link href="video-requalificacao" className="border border-midnight-950 py-3 px-6 uppercase">Assista ao video</Link></p>
+            </div>
+          </div>
         </div>
        
       </section>

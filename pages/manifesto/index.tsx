@@ -10,7 +10,6 @@ import Chevron from "../../public/voltar.svg";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 
-
 type indexType = {
   generalSettings: Settings;
   menu: Page[];
@@ -33,62 +32,80 @@ export default function Index({
         <meta name="description" content={page.title}></meta>
       </Head>
       <Header menu={menu} />
-      <div>
-        <Title imageURL={bgMar} content="Mergulhe no seu mar" />
-      </div>
-      <div className="container mx-auto">
-        <Carousel
-          showArrows
-          showStatus={false}
-          showThumbs={false}
-          showIndicators={false}
-          renderArrowPrev={(clickHandler, hasPrev) =>
-            hasPrev && (
-              <div className="absolute z-50 h-full flex p-4">
-                <div
-                  className="m-auto rounded-full w-12 h-12 cursor-pointer flex items-center justify-center bg-white"
-                  onClick={clickHandler}
-                >
-                  <Chevron className="scale-50" />
+      <section
+        className="relative min-h-[calc(100vh_-_110px)] flex"
+        style={{ backgroundImage: "url(/bg-manifesto.png)" }}
+      >
+        <div className="w-full h-full">
+          <Carousel
+            showArrows
+            showStatus={false}
+            showThumbs={false}
+            showIndicators={false}
+            renderArrowPrev={(clickHandler, hasPrev) =>
+              hasPrev && (
+                <div className="absolute z-50 h-full flex p-4">
+                  <div
+                    className="m-auto rounded-full w-12 h-12 cursor-pointer flex items-center justify-center bg-white"
+                    onClick={clickHandler}
+                  >
+                    <Chevron className="scale-50" />
+                  </div>
                 </div>
-              </div>
-            )
-          }
-          renderArrowNext={(clickHandler, hasNext) =>
-            hasNext && (
-              <div className="absolute z-50 right-0 top-0 float-right h-full flex p-4">
-                <div
-                  className="m-auto rounded-full w-12 h-12 cursor-pointer flex items-center justify-center bg-white rotate-180"
-                  onClick={clickHandler}
-                >
-                  <Chevron className="scale-50" />
+              )
+            }
+            renderArrowNext={(clickHandler, hasNext) =>
+              hasNext && (
+                <div className="absolute z-50 right-0 top-0 float-right h-full flex p-4">
+                  <div
+                    className="m-auto rounded-full w-12 h-12 cursor-pointer flex items-center justify-center bg-white rotate-180"
+                    onClick={clickHandler}
+                  >
+                    <Chevron className="scale-50" />
+                  </div>
                 </div>
-              </div>
-            )
-          }
-          selectedItem={0}
-        >
-          {blocks.map((block) => (
-            <div className="text-left px-36">
+              )
+            }
+            selectedItem={0}
+          >
+            {blocks.map((block, i) => (
               <div
-                dangerouslySetInnerHTML={{ __html: block.content }} className="manifesto"
-              />
-            </div>
-          ))}
-        </Carousel>
-        <p className="text-center mt-12 uppercase"><a href="/manifesto/video" className="py-4 px-10 border border-white hover:bg-white hover:text-midnight-950 transition duration-500 hover:ease-in-out">Assista ao video</a></p>
-      </div>
+                className={
+                  "min-h-[calc(100vh_-_175px)] grid grid-cols-2 gap-10 mt-[65px] " +
+                  (i % 2 === 0 ? "text-left" : "text-right")
+                }
+              >
+                <div className={"m-auto " + (i % 2 === 0 ? 'order-1' : 'order-2')}>
+                  <div
+                    dangerouslySetInnerHTML={{ __html: block.content }}
+                    className="manifesto"
+                  />
+                  <p className="mt-12 uppercase">
+                    <a  
+                      href="/manifesto/video"
+                      className="py-4 px-10 border border-white hover:bg-white hover:text-midnight-950 transition duration-500 hover:ease-in-out"
+                    >
+                      Assista ao video
+                    </a>
+                  </p>
+                </div>
+                <div className={'bg-cover bg-center ' + (i % 2 === 0 ? 'order-2' : 'order-1')} style={{ backgroundImage: `url(${block.featuredImage?.mediaItemUrl})` }} />
+              </div>
+            ))}
+          </Carousel>
+        </div>
+      </section>
     </Layout>
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async ({ preview = false }) => {
+export const getServerSideProps: GetServerSideProps = async ({
+  preview = false,
+}) => {
   const page = await getPage("/manifesto");
   const { menu, generalSettings, subpages } = await allSettings();
   const blocks = filterSubpagesByParent("manifesto", subpages);
-
   return {
     props: { generalSettings, menu, page, preview, blocks },
-
   };
 };

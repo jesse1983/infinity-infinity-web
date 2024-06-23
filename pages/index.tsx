@@ -56,7 +56,7 @@ export default function Index({
           // poster="./home.jpg"
         >
           {/* <source src="./banner01.webm" type="video/webm" /> */}
-          <source src={video.mediaItemUrl} type="video/mp4" />
+          <source src={video?.mediaItemUrl} type="video/mp4" />
         </video>
         {intro && !playInitialVideo && <div className="absolute m-auto z-50 scale-50 md:scale-75 2xl:scale-100 cursor-pointer" onClick={() => setPlayInitialVideo(true)}>
           <PlayButton />
@@ -75,6 +75,6 @@ export const getServerSideProps: GetStaticProps = async ({ preview = false }) =>
   const [video] = await getImagesByText("home");
   const intro = await getImagesByText("inicial");
   return {
-    props: { generalSettings, menu, page, preview, video, intro: intro.length ? intro[0] : null },
+    props: { generalSettings, menu, page, preview, video: video ?? {}, intro: intro.length ? intro[0] : null },
   };
 };

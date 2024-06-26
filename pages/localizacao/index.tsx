@@ -56,14 +56,14 @@ export default function Index({
       <section className="relative">
         <MiniMenuLocation />
         <div className="h-16"></div>
-        <div className="grid grid-cols-[70%_30%] min-h-[calc(100vh_-_170px)]">
-          <div className="relative bg-cover" style={{ backgroundImage: 'url(/mapa-convivencia-inativo.png)' }}>
+        <div className="grid grid-cols-[70%_30%] min-h-[calc(100vh_-_170px)]" data-aos="fade">
+          <div className="relative bg-cover flex items-end" style={{ backgroundImage: 'url(/mapa-convivencia-inativo.png)' }}>
             {points.map((point, i) => (
-              <div className={`absolute w-full h-full transition-opacity duration-300 bg-cover ${ active === i+1 ? 'opacity-100' : 'opacity-0' }`} style={{ backgroundImage: point.image }}></div>
+              <div className={`absolute z-10 w-full h-full transition-opacity duration-300 bg-cover ${ active === i+1 ? 'opacity-100' : 'opacity-0' }`} style={{ backgroundImage: point.image }}></div>
             ))}
             {/* <img src="/conveniencias.png" className="w-[100%] max-h-[calc(100vh_-_180px)]" /> */}
             <div
-              className="absolute flex rid-flow-row items-center gap-4 bottom-0 uppercase left-10 px-6 py-3 mr-10 mb-5 text-2xl"
+              className="flex rid-flow-row items-center gap-4 uppercase px-6 py-3 mr-10 mb-5 text-2x z-50"
             >
               <PoiSVG /> Rio Vermelho
             </div>

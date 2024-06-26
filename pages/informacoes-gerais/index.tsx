@@ -6,20 +6,7 @@ import { Settings, Page } from "../../models";
 import Header from "../../components/header";
 import MenuInformacoes from "../../components/menu-informacoes-gerais";
 import { usePathname } from "next/navigation";
-import Image from "next/image";
-import bgPraia from "../../public/bg-praia.png";
-import Title from "../../components/title";
-import Inovacao from "../../components/inovacao";
-import DroneTecnologia from "../../public/drone-tecnologia.png";
-import PredioPalmeira from "../../public/predio-palmeira.svg";
-import Diamante from "../../public/diamante.svg";
-import FechaduraEletronica from "../../public/fechadura-eletronica.svg";
-import Chuva from "../../public/chuva.svg";
-import PainelSolar from "../../public/painel-sol.svg";
-import Infraestrutura from "../../public/infraestrutura.svg";
-import CarroEletrico from "../../public/carro-eletrico.svg";
-import IPTUVerde from "../../public/iptu-verde.svg";
-import MedidorGeral from "../../public/medidor-geral.svg";
+import Info from '../../public/informacoes-gerais.svg';
 
 type indexType = {
   generalSettings: Settings;
@@ -44,13 +31,12 @@ export default function Index({
         <meta name="description" content={page.title}></meta>
       </Head>
       <Header menu={menu} />
-      <Title imageURL={bgPraia} content="Seu infinito pé na areia" />
       <MenuInformacoes currentPage={currentURL} subpages={subpages} />
-      <div className="container mx-auto">
-        <div className="justify-between mb-20">
-          <div className="container flex flex-col inovation" data-aos="fade-right">
-            <div dangerouslySetInnerHTML={{__html: page.content }} className="[&>p]:text-2xl [&>*]:mb-10 [&>h2]:text-4xl text-justify font-light"  />
-          </div>
+
+      <div className="container mx-auto max-h-[calc(100vh_-_110px)]"  data-aos="fade">
+        <div className="container flex mt-[150px] relative">
+          <h1 className=" w-36 absolute font-thin text-[4em] uppercase" data-aos="flip-left" data-aos-duration="1000">Além mar</h1>
+          <Info className=" h-[calc(100vh_-_300px)] mx-auto" />
         </div>
       </div>
     </Layout>

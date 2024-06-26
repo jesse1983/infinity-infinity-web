@@ -79,8 +79,9 @@ export default function Index({
                   <div
                     dangerouslySetInnerHTML={{ __html: block.content }}
                     className="manifesto"
+                    data-aos="fade"
                   />
-                  <p className="mt-12 uppercase">
+                  <p className="mt-12 uppercase" data-aos="zoom-in">
                     <a  
                       href="/manifesto/video"
                       className="py-4 px-10 border border-white hover:bg-white hover:text-midnight-950 transition duration-500 hover:ease-in-out"

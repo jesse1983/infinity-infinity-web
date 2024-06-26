@@ -1,50 +1,22 @@
-import Link from "next/link";
+import MiniMenu from "./min-menu";
+import Info01 from "../public/info01.svg";
+import Info02 from "../public/info02.svg";
+import Info03 from "../public/info03.svg";
+import Info04 from "../public/info04.svg";
+
 
 export default function MenuInformacoes({ currentPage, subpages = [] }) {
   const items = subpages.map((page, i) => ({
-    title: page.title,
-    href: '/informacoes-gerais' + (i === 1 ? '' : ('/' + page.slug)),
-    basis: i === 0 ? 'sm:basis-[40%]' : 'sm:basis-[20%]',
+    text: page.title as string,
+    path: '/informacoes-gerais' + (i === 0 ? '' : ('/' + page.slug)),
+    icon: <Info01 />,
   }));
-  // const items = [
-  //   {
-  //     title: "Inovação e Tecnologia",
-  //     href: "/informacoes-gerais",
-  //     basis: " sm:basis-[40%]",
-  //   },
-  //   {
-  //     title: "Projetistas",
-  //     href: "/informacoes-gerais/projetistas",
-  //     basis: " sm:basis-[20%]",
-  //   },
-  //   {
-  //     title: "O Bairro",
-  //     href: "/informacoes-gerais/bairro",
-  //     basis: " sm:basis-[20%]",
-  //   },
-  //   {
-  //     title: "Descritivo",
-  //     href: "/informacoes-gerais/descritivo",
-  //     basis: " sm:basis-[20%]",
-  //   },
-  // ];
-  return (
-    <div>
-      <div
-        className="container mx-auto flex-col flex sm:flex-row gap-4 mb-10 justify-center"
-        data-aos="zoom-out"
-      >
-        {items.map((item) => (
-          <Link
-            className={`text-center py-2 px-10 uppercase border-2 border-dusk hover:bg-dusk transition ease-in-out delay-90 
-            ${currentPage === item.href ? "bg-dusk" : ""}`}
-            href={item.href}
-            key={item.title}
-          >
-            {item.title}
-          </Link>
-        ))}
-      </div>
-    </div>
-  );
+
+  if (items.length === 4) {
+    items[0].icon = <Info01 className="mr-1 w-10 scale-75" />;
+    items[1].icon = <Info02 className="mr-1 w-10 scale-75" />;
+    items[2].icon = <Info03 className="mr-1 w-10 scale-75" />;
+    items[3].icon = <Info04 className="mr-1 w-10 scale-75" />;
+  }
+  return MiniMenu({ items })
 }

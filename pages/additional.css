@@ -11,7 +11,7 @@
 
 .list-numbers ol li::before {
   content: counter(my-counter);
-  background: #0F1F39;
+  background: #0f1f39;
   border-radius: 50%;
   width: 25px;
   height: 25px;
@@ -19,19 +19,17 @@
   text-align: center;
   padding-top: 2px;
   margin-right: 10px;
-  color: #FFF
+  color: #fff;
 }
 
 .list-numbers a {
-  background: #0F1F39;
+  background: #0f1f39;
   padding: 20px 40px;
   margin-top: 20px;
   display: inline-block;
   text-transform: uppercase;
-  color: #FFF;
+  color: #fff;
 }
-
-
 
 .inovation ul {
   display: flex;
@@ -52,13 +50,13 @@
   background-image: url(/icon-isolation-inverted.png);
 }
 
-
 .wp-block-columns {
   display: flex;
-  gap: 30px
+  gap: 30px;
 }
 
-.wp-block-columns p, .wp-block-columns ul {
+.wp-block-columns p,
+.wp-block-columns ul {
   margin-bottom: 2em;
 }
 
@@ -69,38 +67,32 @@
 }
 
 .descritivo ul li {
-  font-size: 18px;
-}
-.descritivo > div > div > figure {
-  width: 400px;
-  gap: 10px;
-  display: flex;
-  overflow: hidden;
+  font-size: 16px;
 }
 
-.descritivo > div > div > figure > figure {
-  min-width: 190px;
-  display: none;
+.descritivo .wp-block-columns {
+  grid-template-columns: 1fr 1fr;
+  display: grid!important;
 }
-
 
 .manifesto {
   font-size: 1.4em;
   line-height: 1.9em;
 }
 
-.manifesto > .wp-block-columns{
+.manifesto > .wp-block-columns {
   justify-content: center;
   align-items: center;
 }
 
-.manifesto img, .manifesto figure {
-  width: 400px!important;
+.manifesto img,
+.manifesto figure {
+  width: 400px !important;
 }
 
 .with-controls::-webkit-media-controls-panel {
-    display: flex !important;
-    opacity: 1 !important;
+  display: flex !important;
+  opacity: 1 !important;
 }
 
 video::-webkit-media-controls-panel {

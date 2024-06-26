@@ -206,6 +206,7 @@ export async function allSettings(): Promise<allSettingsType> {
                 mediaItemUrl
                 sourceUrl
                 sizes
+                description
               }
             }
           }
@@ -409,17 +410,17 @@ export async function getImagesByText(search: string): Promise<Image[]> {
   try {
     const data = await fetchAPI(
       `
-  query MediaItems($search: String) {
-    mediaItems(where: { search: $search }) {
-        nodes {
-          altText
-          mediaItemUrl
-          sourceUrl
-          sizes
+        query MediaItems($search: String) {
+          mediaItems(where: { search: $search }) {
+              nodes {
+                altText
+                mediaItemUrl
+                sourceUrl
+                sizes
+              }
+          }
         }
-    }
-  }
-    `,
+      `,
       { variables: { search } }
     );
     const images: Image[] = data.mediaItems.nodes;

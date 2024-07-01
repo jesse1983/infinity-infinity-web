@@ -2,8 +2,7 @@ import BackButton from "./voltar";
 
 export default function MiniMenuContainer({
   children,
-  title,
-  onBack,
+  onBack = undefined,
   slot = undefined,
 }) {
   return (

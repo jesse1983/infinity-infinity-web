@@ -231,7 +231,6 @@ export default function Enterprise({
           )}
         </div>
         <MiniMenuContainer
-          title={logo}
           slot={
             !showDecorated && !selectedAmbient && buildingCircle(enterprise)
           }

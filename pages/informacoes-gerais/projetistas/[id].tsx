@@ -37,10 +37,9 @@ export default function Index({
       <Header menu={menu} />
       <MenuInformacoes currentPage={currentURL} subpages={subpages} />
       <section
-        className="min-h-[calc(100vh_-_110px)] bg-cover flex flex-col items-center justify-center"
+        className="min-h-[calc(100vh_-_174px)] bg-cover flex flex-col items-center justify-center"
         style={{ backgroundImage: "url(/bg-projetistas.jpg)" }}
       >
-        <div className="h-24"></div>
         <div className="container max-h-[calc(100vh_-_220px)]">
           <div className="grid grid-cols-12 gap-8">
             <div className="col-span-1 flex justify-end items-end">

@@ -49,18 +49,17 @@ export default function Descritivo({
       <Header menu={menu} />
       <MenuInformacoes currentPage={currentURL} subpages={subpages} />
       <section
-        className="relative min-h-[calc(100vh_-_110px)] flex"
+        className="relative min-h-[calc(100vh_-_174px)] flex"
         style={{ backgroundImage: "url(/bg-ficha-tecnica.jpg)" }}
       >
         <div className="container descritivo w-9/12 lg:w-2/3 xl:w-1/2 h-full my-auto">
           <div className="my-10" data-aos="flip-right">
-          <h1 className="pl-20 pb-3 border-b border-b-yellow-200 uppercase inline text-xl">Ficha Técnica</h1>
+          <h1 className="pl-20 pb-3 border-b border-b-yellow-200 uppercase inline text-xl" data-aos="flip-right">Ficha Técnica</h1>
           </div>
             <div
               dangerouslySetInnerHTML={{ __html: page.content }}
               className="descritivo pl-20 [&>*]:mb-5 [&>ul>li]:list-disc [&>ul>li]:list-inside font-light"
-              data-aos="flip-left"
-              data-aos-easing="ease-out-cubic"
+               data-aos="fade"
             />
         </div>
       </section>

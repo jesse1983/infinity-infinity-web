@@ -12,16 +12,16 @@ type Props = {
 };
 
 const mapSizesSea = new Map<string, number[]>();
-mapSizesSea.set('SUBSOLO 3', [160, 60]);
-mapSizesSea.set('BEACH CLUB', [180, 340]);
-mapSizesSea.set('PAVIMENTO TÉRREO', [320, 240]);
-mapSizesSea.set('PLANTA TIPO', [100, 140]);
+mapSizesSea.set('FITNESS', [140, 160]);
+mapSizesSea.set('BEACH CLUB', [180, 80]);
+mapSizesSea.set('PAVIMENTO TÉRREO', [320, 340]);
+mapSizesSea.set('PLANTA PADRÃO', [120, 140]);
 
 const mapSizesBlue = new Map<string, number[]>();
-mapSizesBlue.set('BEACH LOUNGE', [210, 50]);
-mapSizesBlue.set('PAVIMENTO TÉRREO', [300, 310]);
-mapSizesBlue.set('ROOFTOP', [160, 230]);
-mapSizesBlue.set('PLANTA TIPO', [120, 140]);
+mapSizesBlue.set('BEACH LOUNGE', [200, 150]);
+mapSizesBlue.set('PAVIMENTO TÉRREO', [300, 50]);
+mapSizesBlue.set('ROOFTOP', [160, 320]);
+mapSizesBlue.set('PLANTA PADRÃO', [140, 220]);
 
 const getSize = (str: string, enterprise: string) => {
   if (str) {
@@ -67,7 +67,7 @@ export const CircleText = ({
     return texts.findIndex((text) => text === active);
   }, [active]);
   return (
-    <div className="w-[calc(100vh/2)] h-[calc(100vh/2)] transition-all duration-500 ease-in-out" style={{ transform: `rotate(${rotate}deg)` }}>
+    <div className="w-[calc(65vh)] h-[calc(65vh)] hidden xl:block transition-all duration-500 ease-in-out" style={{ transform: `rotate(${rotate}deg)` }}>
       <svg viewBox="0 0 500 500" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path
           id={id}

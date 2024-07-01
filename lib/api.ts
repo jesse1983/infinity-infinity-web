@@ -1,15 +1,21 @@
 import NodeFetchCache, { FileSystemCache } from 'node-fetch-cache';
 import { Page, Settings, Image } from "../models";
 import allSettingsJson from "./fallback/allSettings.json";
-import getPageJson from "./fallback/getPage.json";
 import enterprises from "./fallback/buildings.json";
 import { AMBIENT, ENTERPRISE, FLOOR } from "../types";
 import { PARKING } from "../types/parking";
 import { DECORATED } from '../types/floor';
 import fs from 'fs';
 
+
 const API_URL = process.env.WORDPRESS_API_URL || 'http://qa.infinitybyor.com.br/index.php?graphql';
 const WORDPRESS_URL = process.env.WORDPRESS_URL || 'http://qa.infinitybyor.com.br';
+
+type allSettingsType = {
+  generalSettings: Settings;
+  menu: Page[];
+  subpages: Page[];
+};
 
 const fetch = NodeFetchCache.create({
   shouldCacheResponse: (response) => response.ok,
@@ -21,7 +27,7 @@ const fetch = NodeFetchCache.create({
 
 const createFallback = (name, json) => {
   if (process.env.NODE_ENV === 'development') {
-    // fs.writeFile(`lib/fallback/${name}.json`, JSON.stringify(json, null, 2), () => {});
+    fs.writeFile(`lib/fallback/${name}.json`, JSON.stringify(json, null, 2), () => {});
   }
 }
 
@@ -133,6 +139,7 @@ const handleFloors = (
         y: Number.parseInt(f.floor_fields.coords.split(",")[1]),
       },
       floorPlanSrc: f.floor_fields?.photo?.mediaItemUrl,
+      iconSrc: f.floor_fields?.icon?.mediaItemUrl || '',
       decorated: handleDecorated(f.id, decoratedNode),
     }));
 };
@@ -169,18 +176,15 @@ export async function getPage(slugDirty) {
     const page = [...menu, ...subpages].find((page) =>
       page.slug.endsWith(slug)
     );
-    createFallback('getPage', handlePage(page));
+    createFallback('getPage-' + slugDirty, handlePage(page));
 
     return handlePage(page);
   } catch (e) {
-    return getPageJson;
+    const json = require(`./fallback/getPage-${slugDirty}.json`)
+    return Object.assign(json) as Page;
   }
 }
-type allSettingsType = {
-  generalSettings: Settings;
-  menu: Page[];
-  subpages: Page[];
-};
+
 
 export async function allSettings(): Promise<allSettingsType> {
   try {
@@ -278,6 +282,12 @@ export async function getEnterprises() {
             floor_fields {
               coords
               photo {
+                altText
+                mediaItemUrl
+                sourceUrl
+                sizes
+              }
+              icon {
                 altText
                 mediaItemUrl
                 sourceUrl

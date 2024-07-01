@@ -1,4 +1,5 @@
 export type DEPOSIT = {
   identifier: string;
-  image: string,
+  image: string;
+  parkingslot?: string;
 }

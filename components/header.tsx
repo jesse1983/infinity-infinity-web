@@ -33,7 +33,8 @@ export default function Header({ menu }: { menu: Page[] }) {
           <LogoWhite className="m-auto" />
         </Link>
       </div>
-      <nav className="sm:h-auto sm:absolute z-40 w-screen shadow-[inset_0px_20px_20px_-20px_#000] text-lg">
+      <nav className="sm:h-autow-screen text-lg relative">
+        <div className="bg-[url('/bg-menu.jpg')] h-[64px] absolute w-screen -z-10 opacity-50"></div>
         <button
           onClick={toggle}
           type="button"
@@ -56,12 +57,12 @@ export default function Header({ menu }: { menu: Page[] }) {
             />
           </svg>
         </button>
-        <ul className={`overflow-hidden sm:h-auto sm:grid sm:grid-cols-5 bg-midnight-900/70 m-0 p-0 transition-all duration-300 ease-in-out ${open ? 'h-[322px]' : 'h-0'}`}>
+        <ul className={`overflow-hidden shadow-[inset_0px_20px_20px_-20px_#000] sm:h-auto sm:grid sm:grid-cols-5 gap-[1px] m-0 p-0 transition-all duration-300 ease-in-out ${open ? 'h-[322px]' : 'h-0'}`}>
           {menu.map((item, i) => (
             <li key={item.slug} className="text-center">
               <Link
                 href={'/' + (i === 0 ? '' : item.slug)}
-                className={`flex justify-center items-center h-16 hover:bg-midnight-950 transition duration-500 hover:ease-in-out ${isItemActive(item.title) ? 'bg-midnight-950' : ''}`}
+                className={`flex  justify-center items-center h-16 bg-midnight-950/70  hover:bg-midnight-950 transition duration-500 hover:ease-in-out ${isItemActive(item.title) ? 'bg-midnight-950' : ''}`}
               >
                 {item.title}
               </Link>

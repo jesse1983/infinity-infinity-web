@@ -29,7 +29,6 @@ export default function Index({
       <Header menu={menu} />
       <section className="relative">
         <MiniMenuLocation />
-        <div className="h-16"></div>
         <div
           className=" bg-white grid grid-cols-[45%_55%] h-[calc(100vh_-_170px)] bg-right bg-no-repeat bg-contain"
           data-aos="fade-right"

@@ -14,6 +14,7 @@ import { usePathname } from "next/navigation";
 import IconClose from "../../public/icon-close-filled.svg";
 import IconMaximize from "../../public/maximize.svg";
 import { useRef, useState } from "react";
+import SeaVideo from "../../components/sea-video";
 
 type indexType = {
   generalSettings: Settings;
@@ -74,13 +75,13 @@ export default function Descritivo({
       </Head>
       <Header menu={menu} />
       <MenuInformacoes currentPage={currentURL} subpages={subpages} />
+      <SeaVideo />
       <section
-        className="min-h-[calc(100vh_-_110px)]"
-        style={{ backgroundImage: "url(/bg-ficha-tecnica.jpg)" }}
+        className="min-h-[calc(100vh_-_174px)] "
       >
-        <div className="min-h-[calc(100vh_-_110px)] w-full grid grid-cols-4">
+        <div className="min-h-[calc(100vh_-_174px)] w-full grid grid-cols-4">
           <h1 className="uppercase inline text-2xl m-auto" data-aos="flip-down">Fachadas</h1>
-          <div className="min-h-[calc(100vh_-_185px)] col-span-2 mt-[75px]">
+          <div className="min-h-[calc(100vh_-_174px)] col-span-2">
             <div className="flex items-center justify-center gap-8 h-full">
               {['/fachada-sea.jpg', '/fachada-blue.jpg'].map((e, i) => (
               <div className="relative" ref={imagesRefs[i]} data-aos="flip-up" data-aos-duration={(i+1) * 500}>

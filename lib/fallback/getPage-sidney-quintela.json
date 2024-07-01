@@ -1,0 +1,20 @@
+{
+  "id": "cG9zdDo1MDE=",
+  "content": "\n<p><strong>PROJETO ARQUITETÔNICO</strong></p>\n\n\n\n<p><em>Sidney Quintela</em></p>\n\n\n\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultrices nulla non accumsan cursus. Aenean facilisis aliquam lobortis. Vivamus elementum orci nunc, sit amet sodales nisi fringilla iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus sed urna ut ipsum porta porttitor. Proin luctus condimentum est, ac gravida justo condimentum elementum. Nunc scelerisque dui risus, ut hendrerit quam malesuada nec. Suspendisse feugiat, mi in faucibus tristique, lorem purus tempor magna, sit amet hendrerit urna enim maximus nisi.</p>\n",
+  "title": "Sidney Quintela",
+  "slug": "sidney-quintela",
+  "uri": "/?page_id=501",
+  "menuOrder": null,
+  "parent": {
+    "node": {
+      "slug": "projetistas"
+    }
+  },
+  "featuredImage": {
+    "altText": "",
+    "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/Sidney-quintela.jpg",
+    "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/Sidney-quintela.jpg",
+    "sizes": "(max-width: 237px) 100vw, 237px",
+    "description": null
+  }
+}

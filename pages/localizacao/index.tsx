@@ -55,7 +55,6 @@ export default function Index({
       <Header menu={menu} />
       <section className="relative">
         <MiniMenuLocation />
-        <div className="h-16"></div>
         <div className="grid grid-cols-[70%_30%] min-h-[calc(100vh_-_170px)]" data-aos="fade">
           <div className="relative bg-cover flex items-end" style={{ backgroundImage: 'url(/mapa-convivencia-inativo.png)' }}>
             {points.map((point, i) => (

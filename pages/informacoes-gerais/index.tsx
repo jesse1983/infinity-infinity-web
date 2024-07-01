@@ -32,9 +32,8 @@ export default function Index({
       </Head>
       <Header menu={menu} />
       <MenuInformacoes currentPage={currentURL} subpages={subpages} />
-
-      <div className="container mx-auto max-h-[calc(100vh_-_110px)]"  data-aos="fade">
-        <div className="container flex mt-[150px] relative">
+      <div className="container mx-auto max-h-[calc(100vh_-_174px)] "  data-aos="fade">
+        <div className="container flex mt-[80px] relative">
           <h1 className=" w-36 absolute font-thin text-[4em] uppercase" data-aos="flip-left" data-aos-duration="1000">Além mar</h1>
           <Info className=" h-[calc(100vh_-_300px)] mx-auto" />
         </div>

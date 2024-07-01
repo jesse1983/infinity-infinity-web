@@ -6,20 +6,23 @@ import FloorPlan from "../floor-plan";
 import MiniMenuItem01 from "../../public/mini-menu-item01.svg";
 import MiniMenuItem02 from "../../public/mini-menu-item02.svg";
 import MiniMenuItem03 from "../../public/mini-menu-item03.svg";
+import MiniMenuItem04 from "../../public/mini-menu-item04.svg";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import roofTop from "../../public/rooftop.png";
+import roofTop from "../../public/rooftop2.png";
 import miniMenuBg from "../../public/mini-menu-bg.png";
 import MapaDeDepositos from "./mapa-de-depositos";
 import MapaDeVagas from "./mapa-de-vagas";
 import { ENTERPRISE, FLOOR } from "../../types";
 import TabelaDeVendas from "./tabela-de-vendas";
 import IconClose from "../../public/icon-close-borderless.svg";
+import MiniMenu from "../min-menu";
 
 export enum SCREEN {
   SALES_TABLE = "SALES_TABLE",
   PARKING_MAP = "PARKING_MAP",
   DEPOSIT_MAP = "DEPOSIT_MAP",
+  VIEWS = "VIEWS",
 }
 
 function getScreenByRouter(items) {
@@ -35,25 +38,32 @@ export function InfinityWorldComponent({
 }) {
   const subPageItems = [
     {
-      icon: <MiniMenuItem01 className="w-7 md:w-10 xl:w-12" />,
+      icon: <MiniMenuItem01 className="mr-1 h-10 scale-75" />,
       screenComponent: <TabelaDeVendas enterprises={enterprises} />,
       screen: SCREEN.SALES_TABLE,
       text: "Tabela de vendas",
       path: "tabela-de-vendas",
     },
     {
-      icon: <MiniMenuItem02 className="w-7 md:w-10 xl:w-12" />,
+      icon: <MiniMenuItem02 className="mr-1 h-10 scale-75" />,
       screenComponent: <MapaDeVagas enterprises={enterprises} />,
       screen: SCREEN.PARKING_MAP,
       text: "Mapa de vagas",
       path: "mapa-de-vagas",
     },
     {
-      icon: <MiniMenuItem03 className="w-7 md:w-10 xl:w-12" />,
+      icon: <MiniMenuItem03 className="mr-1 h-10 scale-75" />,
       screenComponent: <MapaDeDepositos enterprises={enterprises} />,
       screen: SCREEN.DEPOSIT_MAP,
       text: "Mapa de depósitos",
       path: "mapa-de-depositos",
+    },
+    {
+      icon: <MiniMenuItem04 className="mr-1 h-10 scale-75" />,
+      screenComponent: <div>laklakl</div>,
+      screen: SCREEN.VIEWS,
+      text: "Vistas",
+      path: "vistas",
     },
   ];
   const router = useRouter();
@@ -64,10 +74,6 @@ export function InfinityWorldComponent({
 
   const [buildingDetails, setBuildingDetails] = useState<ENTERPRISE>();
   const [direction, setDirection] = useState<string>();
-
-  const position = useMemo(() => {
-    return currentScreen ? " bottom-0 right-0 " : " bottom-[25%] right-10";
-  }, [currentScreen]);
 
   const gotoEnterprise = (enterprise: string, area: string) => {
     const pathname = `/infinity-world/${enterprise}`;
@@ -117,31 +123,18 @@ export function InfinityWorldComponent({
     return !!buildingDetails;
   }, [buildingDetails]);
 
-
   return (
-    <div className="relative h-[calc(100vh_-_110px)]" data-aos="zoom-out">
-      <div
-        style={{ backgroundImage: `url(${miniMenuBg.src})`, display: hidePois ? 'none' : '' }}
-        className={`absolute px-7 hidden w-[80px] lg:w-[324px] h-[50%] ${position} transition-top duration-300 drop-shadow-2xl z-50 sm:flex flex-col justify-around items-center uppercase text-sm font-bold bg-repeat-y bg-right`}
-      > 
-        {subPageItems.map((item) => (
-          <Link
-            href={`/infinity-world/${item.path}`}
-            key={uuidv4()}
-            className="group  flex justify-between items-center gap-7 w-[324px] whitespace-nowrap hover:bg-midnight-950/50 px-7 py-2 border-l-8 border-midnight-950/0 hover:border-midnight-950 transition ease-in-out delay-50"
-            onClick={(ev) => changeScreen(ev, item)}
-          >
-            <span className="indent-2 opacity-0 group-hover:opacity-100">
-              {item.text}
-            </span>
-            <span>{item.icon}</span>
-          </Link>
-        ))}
-      </div>
+    <div className="relative h-[calc(100vh_-_174px)]  " data-aos="fade-in">
+      <MiniMenu items={subPageItems.map((s) => ({
+        icon: s.icon,
+        text: s.text,
+        path: '/infinity-world/'+s.path,
+        // onClick: (ev) => changeScreen(ev, s),
+      }))} />
       {subPageItems.map((item) => (
         <div
           key={uuidv4()}
-          className={`absolute bg-midnight-900 flex items-center justify-center z-10 min-h-[calc(100vh_-_110px)] w-full transition duration-300 ${
+          className={` bg-midnight-900 flex items-center justify-center z-10 min-h-[calc(100vh_-_174px)] w-full transition duration-300 ${
             currentScreen === item.screen ? "" : "hidden"
           }`}
         >
@@ -187,13 +180,13 @@ export function InfinityWorldComponent({
           <FloorPlan.Path
             title={"Infinity Blue"}
             noBorder
-            coords="m 709.15105,224.03528 16.22933,-0.35281 -1.05844,-15.5237 19.75744,-1.05844 151.00331,9.1731 10.93716,9.1731 12.70121,28.93054 -1.15061,20.79428 15.46747,31.68337 1.20684,565.29523 35.28115,-2.8225 -1.41125,19.75745 13.40684,4.93936 1.41125,191.92944 -293.53914,0.5292 2.46968,-199.16206 4.23373,0.35281 v 24.16759 l 16.40574,-0.35281 0.1764,-38.28005 -5.64498,0.17641 -0.35281,-10.23154 -4.58655,-574.02425 8.64388,-1.41125 0.35281,-21.87431 -7.76185,-9.87872 3.70452,-1.05844 z"
+            coords="m 820.48971,240.43039 3.36266,568.29 -12.60999,0.84066 1.05199,94.1522 -13.64523,0.43839 1.41081,55.87263 c 90.60155,-1.4784 180.3597,2.36885 270.94805,0.0159 l -1.6813,-32.78596 11.7694,-14.29132 -21.8573,-5.88466 -5.8847,-139.5505 -38.6706,-1.68133 2.522,-469.09145 -11.7693,-19.33531 1.6813,-18.49465 -11.76933,-25.21997 -152.16049,-7.56599 -10.08799,10.08799 z"
             onClick={(ev) => clickBuildingDetails(enterprises[0], "left-[5%]")}
           />
           <FloorPlan.Path
             title={"Infinity Sea"}
             noBorder
-            coords="m 1487.8712,223.52994 52.8888,-0.49895 v -31.93285 l 209.5593,-3.49265 v 34.4276 l 54.3856,-0.9979 -1.4968,627.18112 67.3583,-0.99791 0.9979,240.4943 -452.0494,-2.9937 0.499,-234.50689 64.8636,-1.49685 z"
+            coords="m 1496.3849,235.38639 292.5517,-5.04399 -3.3627,522.89405 62.2093,-1.68133 3.3626,208.48509 -232.0237,6.72532 -168.1331,-10.08798 -5.044,-163.08915 3.3626,-5.04399 1.6814,-31.9453 50.4399,-1.68133 z"
             onClick={(ev) =>
               clickBuildingDetails(enterprises[1], "right-[5%]")
             }
@@ -203,7 +196,7 @@ export function InfinityWorldComponent({
             .map((floor) => (
               <FloorPlan.Poi
                 key={uuidv4()}
-                icon="/icon-infinity.svg"
+                icon={floor.iconSrc || "/icon-infinity.svg"}
                 title={floor.title}
                 x={floor.coords.x}
                 y={floor.coords.y}

@@ -33,7 +33,7 @@ export default function Index({
       </Head>
       <Header menu={menu} />
       <section
-        className="relative min-h-[calc(100vh_-_110px)] flex"
+        className="relative min-h-[calc(100vh_-_174px)] flex"
         style={{ backgroundImage: "url(/bg-manifesto.png)" }}
       >
         <div className="w-full h-full">
@@ -71,7 +71,7 @@ export default function Index({
             {blocks.map((block, i) => (
               <div
                 className={
-                  "min-h-[calc(100vh_-_175px)] grid grid-cols-2 gap-10 mt-[65px] " +
+                  "min-h-[calc(100vh_-_175px)] grid grid-cols-2 gap-10" +
                   (i % 2 === 0 ? "text-left" : "text-right")
                 }
               >

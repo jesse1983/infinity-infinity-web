@@ -71,7 +71,7 @@ export default function Index({
         >
           {images360.map((image) => (
             <div
-              className="h-[calc(100vh_-_110px)] bg-bottom bg-cover"
+              className="h-[calc(100vh_-_174px)] bg-bottom bg-cover"
               style={{ backgroundImage: `url(${image.mediaItemUrl})` }}
             >
               <img src={image.mediaItemUrl} className=" opacity-0" />

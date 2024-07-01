@@ -18,15 +18,16 @@
           {
             "title": "Beach Lounge",
             "coords": "m 151.08367,174.38513 -0.75166,88.69588 -3.7583,0.75166 v -29.31474 l -68.401066,1.50332 -0.75166,136.05047 72.159366,-2.25498 2.25498,36.07968 100.72244,1.50332 -50.36122,-236.02125 z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/photo-infinity-blue-beach-lounge01.png",
+            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/113_Bar_06-scaled.jpg",
             "notClickable": null
           }
         ],
         "coords": {
-          "x": 900,
-          "y": 1025
+          "x": 770,
+          "y": 930
         },
         "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/OR_RV1_BEACH_AD_EF_ALTA-EM-PNG-3.png",
+        "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-beach-lounge.svg",
         "decorated": []
       },
       {
@@ -34,35 +35,36 @@
         "slug": "pavimento-terreo",
         "ambients": [
           {
-            "title": "Hall",
-            "coords": "m 647.88979,355.81612 -1.90276,-18.07622 -85.6242,-3.80552 v 32.34692 l -20.93036,1.90276 0.95138,49.47176 18.07622,2.85414 1.90276,29.49278 90.3811,-3.80552 2.85414,-18.07622 112.26284,-0.95138 2.85414,73.25627 h 33.2983 v -19.0276 l 120.82526,-1.90276 1.90276,-140.80425 -155.07494,0.95138 -2.85414,19.97898 z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/photo-infinity-blue-pavimento02.png",
+            "title": "Lobby",
+            "coords": "m 721.40624,351.09791 -2.10352,-21.5333 -94.65715,-4.53333 v 38.53332 l -23.1384,2.26665 1.05176,58.93329 19.98316,3.39997 2.10348,35.13335 99.91588,-4.53334 3.15523,-21.53333 124.10604,-1.13329 3.15523,87.26657 h 36.81112 v -22.66666 l 133.57183,-2.26668 2.1035,-167.73319 -171.43469,1.13332 -3.15524,23.79999 z",
+            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/109_Hall_04-scaled.jpg",
             "notClickable": null
           },
           {
             "title": "Academia",
-            "coords": "m 839.11717,194.08152 -0.95138,141.75562 83.72144,-3.80552 5.70828,68.49936 H 1167.3433 L 1119.7743,190.276 Z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/photo-infinity-blue-pavimento04.png",
+            "coords": "m 932.47958,172.39741 -1.10192,150.99742 96.96944,-4.05362 6.6116,72.96519 h 277.6854 l -55.0962,-223.96261 z",
+            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/114_Ftns_07-scaled.jpg",
             "notClickable": null
           },
           {
-            "title": "Mirante/Firepit",
-            "coords": "M 929.49827,72.304881 926.64413,195.0329 1130.2395,188.37324 1105.5036,64.693841 Z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/photo-infinity-blue-pavimento01.png",
+            "title": "Mirante",
+            "coords": "m 1055.6084,47.631152 -2.8541,122.728018 203.5954,-6.65966 -24.7359,-123.679398 z",
+            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/005_Mrnt_05-scaled.jpg",
             "notClickable": null
           },
           {
             "title": "Brinquedoteca",
-            "coords": "m 555.60593,191.22738 -2.85414,143.65838 95.138,-0.95138 3.80552,20.93036 27.59002,-2.85414 0.95138,-156.9777 z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/photo-infinity-blue-pavimento03.png",
+            "coords": "m 632.36864,188.48585 -2.85414,143.65838 95.138,-0.95138 3.80552,20.93036 27.59002,-2.85414 0.95138,-156.9777 z",
+            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/110_Brtc_05-scaled.jpg",
             "notClickable": null
           }
         ],
         "coords": {
-          "x": 660,
-          "y": 950
+          "x": 1030,
+          "y": 750
         },
         "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/OR_RV1_TERREO_02_EF_ALTA-EM-PNG.png",
+        "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-pavimento-terreo.svg",
         "decorated": []
       },
       {
@@ -70,39 +72,34 @@
         "slug": "rooftop",
         "ambients": [
           {
-            "title": "Daybeds",
-            "coords": "M 614.82478,73.938841 552.2099,75.271073 V 123.2314 l 61.94876,1.99835 v 69.94215 l 1.33224,4.66281 -65.27934,-1.99835 0.66611,-51.95702 63.28099,0.66611 z",
-            "photoSrc": null,
-            "notClickable": true
-          },
-          {
-            "title": "Deck",
-            "coords": "m 448.4062,50.869611 3.76812,300.507519 71.59427,-1.88406 -0.94203,-40.50728 34.8551,0.94203 0.94203,45.21743 78.18848,-5.65218 -3.76812,-142.24651 -79.1305,-0.94203 0.94203,-135.652292 16.0145,1.88406 -2.82609,-24.492776 z",
+            "title": "Gazebo",
+            "coords": "M 494.63913,603.98042 491.16798,721.99958 697.70151,720.264 695.96594,603.98042 Z",
             "photoSrc": null,
             "notClickable": true
           },
           {
             "title": "Piscina",
-            "coords": "m 614.82478,61.282643 -0.66612,147.877687 h 20.64959 l -1.99835,245.79668 137.21983,-1.33223 -83.93057,-404.998335 -72.60661,0.666116 z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/photo-infinity-blue-rooftop02.jpg",
+            "coords": "m 617.86502,270.74984 v 27.76922 h 52.06728 l -1.73558,52.06727 h -50.3317 l 1.73558,26.03364 53.80285,-1.73557 v 62.48073 l -53.80285,-3.47115 v 8.67788 h 76.36534 l 1.73557,279.42772 H 850.43219 L 754.97552,269.01427 Z",
+            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/004_Pisc_05-scaled.jpg",
             "notClickable": null
           },
           {
-            "title": "Rooftop Bar + Lounge",
-            "coords": "m 321.23218,46.159462 -2.82609,318.406088 -179.9277,0.94203 1.88406,35.79713 -48.043526,-0.94203 -0.94203,-39.56525 -55.57976,-1.88406 0.94203,-306.159699 z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/photo-infinity-blue-rooftop01.jpg",
+            "title": "Sky Bar",
+            "coords": "m 25.572626,275.73962 459.195424,-4.44741 -1.11186,171.22541 10.00668,2.22371 1.11186,67.82305 -153.43576,-1.11185 1.11185,107.84977 -205.69286,1.11185 v 37.80301 l -53.368961,1.11186 3.33556,-44.47414 H 26.68448 Z",
+            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/112_Grmt_05-1-scaled.jpg",
             "notClickable": null
           }
         ],
         "coords": {
-          "x": 690,
+          "x": 790,
           "y": 210
         },
-        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/OR_RV1_ROOFTOP_AD_EF_ALTA-EM-PNG.png",
+        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/rooftop-3.png",
+        "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-rooftop.svg",
         "decorated": []
       },
       {
-        "title": "Planta tipo",
+        "title": "Planta padrão",
         "slug": "150",
         "ambients": [
           {
@@ -114,27 +111,28 @@
           {
             "title": "Sanitário Suíte Master",
             "coords": "m 1231.5099,79.946082 31.7516,126.439548 -132.1095,-1.13399 0.567,-11.33987 -155.9232,-5.66993 V 83.348043 Z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/photo-infinity-blue-planta-tipo01.png",
+            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/102_Bahn_Blue_05-scaled.jpg",
             "notClickable": null
           },
           {
             "title": "Suíte Master",
             "coords": "M 970.23836,84.996088 V 192.44397 l 160.36994,-1.6037 -6.4148,181.21808 H 745.72039 l 8.0185,-293.477061 z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/photo-infinity-blue-planta-tipo03.png",
+            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/101_Suit_Blue_05-scaled.jpg",
             "notClickable": null
           },
           {
-            "title": "Sala de Estar",
+            "title": "Living",
             "coords": "m 586.95411,370.45465 -3.20739,182.82177 230.93276,-1.6037 -1.6037,128.29598 76.97759,-3.2074 v 134.71078 l 238.95123,-11.2259 3.2074,-432.99893 z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/photo-infinity-blue-planta-tipo02.png",
+            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/104_Lvng_Blue_05-scaled.jpg",
             "notClickable": null
           }
         ],
         "coords": {
-          "x": 860,
+          "x": 960,
           "y": 500
         },
         "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/RV01_APTO_TIPO_01_AD_R02_SEM-LEGENDA-COM-MAR-1.png",
+        "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-planta-padrao.svg",
         "decorated": [
           {
             "title": "Tatiana Melo",
@@ -274,21 +272,22 @@
     ],
     "floors": [
       {
-        "title": "Subsolo 3",
+        "title": "Fitness",
         "slug": "subsolo-3",
         "ambients": [
           {
             "title": "Academia",
             "coords": "m 871.91211,65.736096 -225.33008,0.976563 0.98438,172.859371 -399.49414,-0.97656 v 130.29101 h 224.48632 v 130.19141 l 398.36914,1.25 z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/academia.jpg",
+            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/115_Ftns_Sea_05-2-scaled.jpg",
             "notClickable": null
           }
         ],
         "coords": {
-          "x": 1830,
-          "y": 900
+          "x": 1410,
+          "y": 850
         },
         "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/Subsolo-3.png",
+        "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/icon-e-fitness.svg",
         "decorated": []
       },
       {
@@ -303,10 +302,11 @@
           }
         ],
         "coords": {
-          "x": 1390,
-          "y": 1010
+          "x": 1620,
+          "y": 890
         },
         "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/Beach-lounge-1.png",
+        "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-beach-lounge.svg",
         "decorated": []
       },
       {
@@ -314,45 +314,46 @@
         "slug": "pavimento-terreo-infinity-sea",
         "ambients": [
           {
-            "title": "Yatch Club",
+            "title": "Yatch Bar",
             "coords": "m 656.16002,135.62665 -0.0316,113.8548 99.83831,0.0434 -1.00042,-112.8524 z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/012_Ytch_Bar_04-scaled.jpg",
+            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/012_Ytch_Bar_04-1-scaled.jpg",
             "notClickable": null
           },
           {
             "title": "Salão de Festas",
-            "coords": "m 796.72834,368.42697 34.53725,-0.99144 -0.26433,244.33001 -261.95479,3.08552 -3.10475,-178.83453 135.30206,-0.97708 1.59547,-57.81429 92.54475,0.0755 z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/116_Fest_Sea_05-2-scaled.jpg",
+            "coords": "m 551.46145,461.66756 1.36051,48.52498 4.08154,0.90701 v 7.70958 l -61.67661,-0.90701 -1.81402,109.74808 210.87959,1.36051 v -14.05863 l 6.80257,-0.90701 0.907,8.61658 125.62075,0.90701 V 377.31573 l -34.91985,-0.90701 0.4535,4.53504 -96.14295,-0.4535 v 80.7238 z",
+            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/116_Fest_Sea_05-2-1-scaled.jpg",
             "notClickable": null
           },
           {
             "title": "Spa",
-            "coords": "m 570.22821,149.74235 -14.28171,0.53189 0.0345,67.99516 46.99633,-1.78315 -0.54631,-85.15046 -31.5248,-0.36013 z",
+            "coords": "m 570.42345,126.76077 -0.62138,19.57335 -15.8451,0.31069 -0.62137,68.97277 102.83778,0.93206 v -74.25447 h -20.50542 l -0.93207,-15.5344 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/117_Spa_Sea_04-scaled.jpg",
             "notClickable": null
           },
           {
             "title": "Parque Infantil",
-            "coords": "m 339.00048,618.77907 c -0.38384,-6.13974 -1.32372,-12.41837 -1.98558,-18.62755 -0.66186,-6.20919 3.24023,-9.84952 4.86034,-14.77428 1.62011,-4.92476 7.22869,-11.05797 10.84304,-16.58696 3.61434,-5.52898 6.455,-5.80362 9.6825,-8.70543 3.22751,-2.90182 4.01992,-11.31243 6.02988,-16.96864 2.00996,-5.65621 1.14812,-9.9236 1.72217,-14.88542 0.57406,-4.9618 0.24995,-8.87101 0.37493,-13.30652 0.12497,-4.43551 -1.89593,-6.14939 -2.8439,-9.22408 -0.94797,-3.0747 -4.60183,-13.27007 -6.90274,-19.90511 -2.30091,-6.63503 -7.35936,-12.59492 -11.03905,-18.89238 -3.67968,-6.29745 -8.46865,-8.47997 -12.70298,-12.71995 -4.23432,-4.23999 -6.18107,-7.30818 -9.27161,-10.96227 -3.09054,-3.65408 -4.27058,-16.04399 -6.40587,-24.06599 -2.13529,-8.022 -0.38743,-11.52375 -0.58115,-17.28564 -0.19372,-5.76188 1.31847,-5.89921 1.9777,-8.84883 0.65924,-2.94961 -1.13482,-10.15605 -1.70223,-15.23408 -0.56742,-5.07804 -9.29186,-8.6647 -13.93779,-12.99704 -4.64593,-4.33236 -8.05369,-5.54763 -12.08054,-8.32144 -4.02684,-2.77381 -3.77585,24.25156 -3.77585,24.25156 l -31.47521,0.59258 0.0858,239.13053 z",
+            "coords": "m 249.42746,387.74633 30.83831,-0.4535 0.4535,-20.86121 c 0,0 39.45489,1.36051 46.71096,29.9313 7.25608,28.57078 -15.41915,60.7696 -7.25607,71.2002 8.16308,10.4306 40.3619,47.16447 37.18737,65.75815 -3.17453,18.59368 11.58374,27.85259 -38.09438,66.21165 -35.82685,27.66378 -38.54788,34.01284 -38.54788,34.01284 h -31.29181 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/010_Parq_Inft_05-scaled.jpg",
             "notClickable": null
           },
           {
             "title": "Piscina Adulta & Infantil",
-            "coords": "m 1040.8519,22.511613 90.6381,0.465112 -5.9764,514.341205 -128.09106,-3.12787 0.17748,-80.82266 45.55408,-0.47028 0.9513,-161.18546 -45.50834,-1.64374 -2.43943,-36.66575 44.16187,2.22062 z",
+            "coords": "m 1004.9659,14.512143 h 141.4934 V 547.83341 h -139.6794 l 1.8141,-370.05965 54.4205,-1.81402 -1.814,-48.97849 h -54.4206 v -18.14017 h 54.4206 l -1.814,-48.978489 h -54.4206 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/011_Pisc_Sea_05-2-scaled.jpg",
             "notClickable": null
           }
         ],
         "coords": {
-          "x": 1390,
-          "y": 820
+          "x": 1830,
+          "y": 750
         },
         "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/pavimento-terreo.png",
+        "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-pavimento-terreo.svg",
         "decorated": []
       },
       {
-        "title": "Planta tipo",
+        "title": "Planta padrão",
         "slug": "planta-tipo",
         "ambients": [
           {
@@ -374,7 +375,7 @@
             "notClickable": null
           },
           {
-            "title": "Sala de Estar",
+            "title": "Living",
             "coords": "m 527.98613,307.05267 1.65594,174.86489 46.17234,0.78389 0.6673,13.13145 113.02942,1.63129 -0.13799,82.83904 134.02081,0.98486 -1.79108,61.35345 261.27793,-2.02639 -0.6122,-390.97248 -254.32214,3.14028 -0.10974,53.19933 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/photo-infinity-sea-planta-tipo01.png",
             "notClickable": null
@@ -385,6 +386,7 @@
           "y": 350
         },
         "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/Planta-tipo-sea.png",
+        "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-planta-padrao.svg",
         "decorated": [
           {
             "title": "GAM Arquitetos",
@@ -559,12 +561,6 @@
         "number": "G2",
         "identifier": "G2",
         "parkingslot": "1002",
-        "image": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/Group-41.png"
-      },
-      {
-        "number": "G2",
-        "identifier": "G2",
-        "parkingslot": "1002",
         "image": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/Group-42-1.png"
       },
       {
@@ -608,12 +604,6 @@
         "identifier": "G3",
         "parkingslot": "401",
         "image": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/Group-49.png"
-      },
-      {
-        "number": "G3",
-        "identifier": "G3",
-        "parkingslot": "402",
-        "image": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/Group-50.png"
       }
     ],
     "deposits": [

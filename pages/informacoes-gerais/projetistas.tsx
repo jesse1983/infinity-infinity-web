@@ -51,16 +51,16 @@ export default function Projetistas({
       <Header menu={menu} />
       <MenuInformacoes currentPage={currentURL} subpages={subpages} />
       <section
-        className="min-h-[calc(100vh_-_110px)] bg-cover"
+        className="min-h-[calc(100vh_-_174px)] bg-cover"
         style={{ backgroundImage: "url(/bg-projetistas.jpg)" }}
       >
-        <div className="container mx-auto flex min-h-[calc(100vh_-_110px)]">
+        <div className="container mx-auto flex min-h-[calc(100vh_-_174px)]">
           <div className="grid grid-cols-12 m-auto gap-5">
             <div className="col-span-3 flex items-center text-5xl  uppercase" data-aos="fade in">Permita-se fluir</div>
             <div className="col-span-9">
               <Carousel
                 showArrows
-                infiniteLoop
+                // infiniteLoop
                 // centerMode
                 // centerSlidePercentage={80}
                 // dynamicHeight
@@ -99,12 +99,12 @@ export default function Projetistas({
                       <div
                         className="text-center cursor-pointer hover:-translate-y-6 transition-all"
                         onClick={() => nav(designer.slug)}
-                        data-aos="fade"
-                        data-aos-duration={(i + 1) * 500}
                       >
                         <img
                           src={designer.featuredImage.mediaItemUrl}
-                          className="mb-6"
+                          className="mb-6 pt-10"
+                          data-aos="fade-up"
+                          data-aos-delay={(i + 1) * 100 }
                         />
                         <p className="font-bold">{designer.title}</p>
                         <div

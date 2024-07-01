@@ -1,4 +1,4 @@
-import MiniMenuContainer from "../mini-menu-container";
+import EnterpriseContainer from "../enterprise-container";
 import ItemMapa from "../item-mapa";
 import InfoMapa from "../info-mapa";
 import sortBy from "sort-by";
@@ -6,6 +6,9 @@ import { v4 as uuidv4 } from "uuid";
 import { useState } from "react";
 import { ENTERPRISE } from "../../types";
 import { DEPOSIT } from "../../types/deposit";
+import SeaVideo from "../sea-video";
+import { useRouter } from "next/router";
+import Link from "next/link";
 
 export default function MapaDeDepositos({
   enterprises,
@@ -14,6 +17,10 @@ export default function MapaDeDepositos({
 }) {
   const [selectedDeposit, setSelectedDeposit] = useState<DEPOSIT>();
   const [selectedEnterprise, setSelectedEnterprise] = useState<ENTERPRISE>();
+
+  const router = useRouter();
+
+  const onBack = () => router.push('/infinity-world');
 
   const setDeposit = (enterprise, deposit) => {
     setSelectedEnterprise(enterprise);
@@ -33,31 +40,37 @@ export default function MapaDeDepositos({
         />
       )}
       {!selectedDeposit && (
-        <MiniMenuContainer title="Mapa de Depósitos">
-          <div className="flex flex-col gap-y-24 text-center">
-            {enterprises.sort().map((enterprise) => (
-              <div key={uuidv4()}>
-                <div
-                  className="self-center mb-10 text-3xl uppercase font-light mx-auto"
-                  data-aos="zoom-in"
-                >
-                  {enterprise.title}
+        <>
+          <SeaVideo />
+          <EnterpriseContainer title="Mapa de depósitos" onBack={onBack}>
+            <div className="flex flex-col gap-y-24 text-center items-center">
+              {enterprises.sort().map((enterprise) => (
+                <div key={uuidv4()}>
+                  <div
+                    className="self-center mb-10 text-3xl uppercase font-light mx-auto"
+                    data-aos="zoom-in"
+                  >
+                    {enterprise.title}
+                  </div>
+                  <div className="flex flex-row gap-4">
+                    {enterprise.deposits.map((deposit) => (
+                      <ItemMapa
+                        onClick={() => {
+                          setDeposit(enterprise, deposit);
+                        }}
+                        identifier={deposit.identifier}
+                        key={uuidv4()}
+                        isFilled
+                      />
+                    ))}
+                  </div>
                 </div>
-                <div className="flex flex-row">
-                  {enterprise.deposits.map((deposit) => (
-                    <ItemMapa
-                      onClick={() => {
-                        setDeposit(enterprise, deposit);
-                      }}
-                      identifier={deposit.identifier}
-                      key={uuidv4()}
-                    />
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </MiniMenuContainer>
+              ))}
+              <div><Link href="/infinity-world/tabela-de-vendas" className="border border-white px-6 py-4 uppercase hover:text-midnight-950 hover:bg-white transition-all duration-300 ">Acesse a tabela de vendas</Link></div>
+
+            </div>
+          </EnterpriseContainer>
+        </>
       )}
     </>
   );

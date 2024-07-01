@@ -36,7 +36,7 @@ export default function Index({
       {intro && playInitialVideo &&  <VideoFull video={intro} onClose={() => setPlayInitialVideo(false)} />}
 
       <Header menu={menu} />
-      <div className="relative flex items-center justify-center h-[calc(100vh-110px)] w-screen overflow-hidden">
+      <div className="relative flex items-center justify-center h-[calc(100vh-174px)] w-screen overflow-hidden">
         <div
           className="absolute z-30 bottom-5 right-5"
         >

@@ -4,7 +4,6 @@ import Header from "../../../components/header";
 import { InfinityWorldComponent } from "../../../components/infinity-world-component";
 import { serverSideProps } from "../../../props/getServerSideProps";
 import { PROPS } from "../../../props/infinity-world-props";
-import Script from "next/script";
 
 export default function Index({
   generalSettings,

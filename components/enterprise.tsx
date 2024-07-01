@@ -18,6 +18,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { AMBIENT, ENTERPRISE, FLOOR } from "../types";
 import { Decorated } from "./decorated";
 import { CircleText } from "./circle-text";
+import { useRouter } from "next/router";
 
 type indexType = {
   generalSettings: Settings;
@@ -36,6 +37,7 @@ export default function Enterprise({
   enterprises,
   enterprise,
 }: indexType) {
+  const router = useRouter()
   const [selectedAmbient, setSelectedAmbient] = useState<AMBIENT | undefined>();
   const [floor, setFloor] = useState<FLOOR | undefined>();
   const [showDecorated, setShowDecorated] = useState(false);
@@ -98,7 +100,7 @@ export default function Enterprise({
 
   const buildingCircle = (enterprise: string) => (
     <div
-      className="left-[10%] fixed z-50 overflow-hidden h-[calc(100vh/2_-_25vh)] w-[calc(100vh/2)] bottom-0 hidden lg:block"
+      className="left-[-15%] absolute z-50 overflow-hidden h-[calc(100vh_-_174px)] w-[calc(25vw_+_15%)] top-0 pt-[3%] lg:block"
       data-aos="zoom-in"
     >
       <CircleText
@@ -138,7 +140,7 @@ export default function Enterprise({
         <meta name="description" content={page.title}></meta>
       </Head>
       <Header menu={menu} />
-      <div className="w-full relative h-[calc(100vh_-_110px)] flex border-t border-white">
+      <div className="w-full relative h-[calc(100vh_-_174px)] flex ">
         <div
           className={`absolute bg-midnight-950 w-full h-full z-40 transition-opacityx  duration-500 flex flex-col justify-center ${
             selectedAmbient ? "opacity-100" : "opacity-0 invisible"
@@ -230,13 +232,13 @@ export default function Enterprise({
         </div>
         <MiniMenuContainer
           title={logo}
-          noBorder
           slot={
             !showDecorated && !selectedAmbient && buildingCircle(enterprise)
           }
+          onBack={() => router.push('/infinity-world')}
         >
           {floor && (
-            <div className="w-full px-24 py-5 relative h-[calc(100vh_-_180px)] overflow-hidden flex" >
+            <div className="w-[75vw] relative h-[calc(100vh_-_174px)] overflow-hidden flex flex-col items-center">
               <FloorPlan src={floor.floorPlanSrc}>
                 {floor.ambients.map((ambient, i, all) => (
                   <FloorPlan.Path
@@ -252,7 +254,7 @@ export default function Enterprise({
                 !showDecorated &&
                 !selectedAmbient && (
                   <div
-                    className="absolute bg-midnight-950 p-4 z-50 text-white bottom-14 right-14 border border-white uppercase flex items-center gap-4 hover:bg-white hover:text-midnight-950 cursor-pointer transition duration-300"
+                    className="absolute bg-midnight-950 p-4 z-50 text-white bottom-14 right-14  uppercase flex items-center gap-4 hover:bg-white hover:text-midnight-950 cursor-pointer transition duration-300"
                     onClick={() => setShowDecorated(true)}
                   >
                     <span className="w-7 h-7 inline-block">

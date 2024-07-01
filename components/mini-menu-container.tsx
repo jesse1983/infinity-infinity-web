@@ -1,34 +1,24 @@
-import infinityBG from "../public/infinity-mar-col.png";
-import infinityBGNoBorder from "../public/infinity-mar-col-noborder.png";
+import BackButton from "./voltar";
 
 export default function MiniMenuContainer({
   children,
   title,
-  noBorder = false,
+  onBack,
   slot = undefined,
 }) {
   return (
-    <div className="w-full h-[calc(100%_-_60px)] grid grid-cols-12 mt-[64px] relative">
+    <div className="w-full h-[calc(100%_-_60px)] grid grid-cols-12 relative z-10">
       {slot}
-      <div
-        className="hidden lg:col-span-3 lg:flex items-start bg-[length:100%_100%] bg-midnight-950"
-        style={{
-          backgroundImage: `url(${
-            noBorder ? infinityBGNoBorder.src : infinityBG.src
-          })`,
-        }}
-      >
+      <div className="hidden lg:col-span-3 lg:flex items-start bg-[length:100%_100%] bg-midnight-950">
         <div className="h-[calc(100vh_-_175px)] flex w-full items-center">
           <span
-            className={`mx-[10%] font-light uppercase text-4xl leading-tight ${
-              noBorder ? "w-full" : "w-1/2 pb-4 border-b-2 m-auto"
-            }`}
+            className={`mx-4 font-light uppercase text-4xl leading-tight scale-75 cursor-pointer z-50`}
           >
-            {title}
+            {onBack && <BackButton onClick={onBack} />}
           </span>
         </div>
       </div>
-      <div className="col-span-12 bg-midnight-950 lg:col-span-9 flex flex-col items-center justify-center">
+      <div className="col-span-12 bg-midnight-950 lg:col-span-9 flex flex-col items-center justify-center border-none">
         {children}
       </div>
     </div>

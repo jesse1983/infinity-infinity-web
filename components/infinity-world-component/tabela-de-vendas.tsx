@@ -3,7 +3,7 @@ import { useState } from "react";
 import BackButton from "../voltar";
 import { ENTERPRISE } from "../../types";
 import { useRouter } from "next/router";
-import IconClose from "../../public/icon-close-filled.svg";
+import IconClose from "../../public/icon-close-filled-dark.svg";
 
 export default function TabelaDeVendas({
   enterprises,
@@ -35,7 +35,7 @@ export default function TabelaDeVendas({
             data-aos="zoom-out"
           >
             <iframe
-              src={selectedEnterprise.salesTable}
+              src={selectedEnterprise.salesTable + '#toolbar=0&navpanes=0&scrollbar=0'}
               className="m-auto w-full h-full"
             />
           </div>

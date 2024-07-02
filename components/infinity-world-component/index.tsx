@@ -52,14 +52,14 @@ export function InfinityWorldComponent({
       path: "mapa-de-vagas",
     },
     {
-      icon: <MiniMenuItem03 className="mr-1 h-10 scale-75" />,
+      icon: <MiniMenuItem03 className="mr-2 h-10 scale-75" />,
       screenComponent: <MapaDeDepositos enterprises={enterprises} />,
       screen: SCREEN.DEPOSIT_MAP,
       text: "Mapa de depósitos",
       path: "mapa-de-depositos",
     },
     {
-      icon: <MiniMenuItem04 className="mr-1 h-10 scale-75" />,
+      icon: <MiniMenuItem04 className="mr-2 h-10 scale-75" />,
       screenComponent: <div>laklakl</div>,
       screen: SCREEN.VIEWS,
       text: "Vistas",

@@ -13,9 +13,9 @@ type Props = {
 
 const mapSizesSea = new Map<string, number[]>();
 mapSizesSea.set('FITNESS', [140, 160]);
-mapSizesSea.set('BEACH CLUB', [180, 80]);
+mapSizesSea.set('BEACH CLUB', [180, 90]);
 mapSizesSea.set('PAVIMENTO TÉRREO', [320, 340]);
-mapSizesSea.set('PLANTA PADRÃO', [120, 140]);
+mapSizesSea.set('PLANTA PADRÃO', [120, 230]);
 
 const mapSizesBlue = new Map<string, number[]>();
 mapSizesBlue.set('BEACH LOUNGE', [200, 150]);

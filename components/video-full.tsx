@@ -27,12 +27,13 @@ export default function VideoFull({
   return (
     video && (
       <div className={`absolute z-50 top-0 left-0 right-0 bottom-0 bg-black bg-opacity-70 backdrop-blur-lg flex`}>
-        <div className="absolute top-4 right-4 scale-100 hover:scale-75 transition-all duration-300">
+
+        <div className={`m-auto border overflow-hidden transition duration-500 ${domLoaded ? 'scale-100' : 'scale-0'}`}>
+        <div className="absolute top-4 right-4 scale-100 hover:scale-75 transition-all duration-300 z-20">
           <a href="" onClick={onCloseFn}>
             <Close />
           </a>
         </div>
-        <div className={`m-auto border overflow-hidden transition duration-500 ${domLoaded ? 'scale-100' : 'scale-0'}`}>
           <video
             className="max-w-[calc(100vw_-_150px)] max-h-[calc(100vh_-_100px)] "
             autoPlay

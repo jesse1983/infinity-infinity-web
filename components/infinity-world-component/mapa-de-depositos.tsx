@@ -66,7 +66,7 @@ export default function MapaDeDepositos({
                   </div>
                 </div>
               ))}
-              <div><Link href="/infinity-world/tabela-de-vendas" className="border border-white px-6 py-4 uppercase hover:text-midnight-950 hover:bg-white transition-all duration-300 ">Acesse a tabela de vendas</Link></div>
+              <div><Link href="/infinity-world/mapa-de-depositos/tabela-de-vendas" className="border border-white px-6 py-4 uppercase hover:text-midnight-950 hover:bg-white transition-all duration-300 ">Acesse a tabela de vendas</Link></div>
 
             </div>
           </EnterpriseContainer>

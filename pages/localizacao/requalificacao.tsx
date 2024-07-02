@@ -37,7 +37,7 @@ export default function Index({
         >
           <div
             dangerouslySetInnerHTML={{ __html: page.content }}
-            className="[&>h2]:mb-10 [&>h2]:text-xl p-10 list-numbers text-midnight-950 "
+            className="[&>h2]:mb-10 [&>h2]:text-xl pl-24 pt-20 list-numbers text-midnight-950 "
             data-aos="fade-left"
           />
           <div>
@@ -46,7 +46,7 @@ export default function Index({
               <p data-aos="zoom-in-down">
                 <Link
                   href="video-requalificacao"
-                  className="border border-midnight-950 py-3 px-6 uppercase"
+                  className="border border-midnight-950 py-3 px-6 uppercase hover:bg-midnight-950 hover:text-white hover:mt-2 transition-all duration-300"
                   
                 >
                   Assista ao video

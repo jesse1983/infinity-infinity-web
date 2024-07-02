@@ -8,6 +8,8 @@ import { PARKING } from "../../types/parking";
 import { DEPOSIT } from "../../types/deposit";
 import SeaVideo from "../sea-video";
 import EnterpriseContainer from "../enterprise-container";
+import BackButton from "../voltar";
+import { useRouter } from "next/router";
 
 export default function MapaDeVagas({
   enterprises,
@@ -18,6 +20,8 @@ export default function MapaDeVagas({
   const [infoParking, setInfoParking] = useState<PARKING | DEPOSIT>();
 
   const onBack = () => setSelectedEnterprise(undefined);
+
+  const router = useRouter();
 
   const compare = (a, b) =>
     a.parkingslot
@@ -33,38 +37,38 @@ export default function MapaDeVagas({
       {selectedEnterprise && !infoParking && (
         <>
           <SeaVideo />
-          <EnterpriseContainer title="Mapa de depósitos" onBack={onBack}>
-          <div className="flex flex-col text-center">
-                <div
-                  className={`grid ${
-                    selectedEnterprise.slug === "infinity-sea"
-                      ? "grid-cols-8"
-                      : "grid-cols-5"
-                  } gap-y-8 gap-4 mb-4`}
-                >
-                  {selectedEnterprise.garages.sort(compare).map((item) => (
-                    <ItemMapa
-                      onClick={() => {
-                        setInfoParking(item);
-                      }}
-                      identifier={item.parkingslot}
-                      key={uuidv4()}
-                      isFilled
-                    />
-                  ))}
-                </div>
-                <div className="flex justify-center items-center gap-4">
-                  {selectedEnterprise.deposits.sort(compare).map((item) => (
-                    <ItemMapa
-                      onClick={() => {
-                        setInfoParking(item);
-                      }}
-                      identifier={item.identifier}
-                      key={uuidv4()}
-                    />
-                  ))}
-                </div>
+          <EnterpriseContainer title="Mapa de vagas" onBack={onBack}>
+            <div className="flex flex-col text-center">
+              <div
+                className={`mx-auto grid ${
+                  selectedEnterprise.slug === "infinity-sea"
+                    ? "grid-cols-8"
+                    : "grid-cols-5 w-[68%] "
+                } gap-y-8 gap-4 mb-4`}
+              >
+                {selectedEnterprise.garages.sort(compare).map((item) => (
+                  <ItemMapa
+                    onClick={() => {
+                      setInfoParking(item);
+                    }}
+                    identifier={item.parkingslot}
+                    key={uuidv4()}
+                    isFilled
+                  />
+                ))}
               </div>
+              <div className="flex justify-center items-center gap-4">
+                {selectedEnterprise.deposits.sort(compare).map((item) => (
+                  <ItemMapa
+                    onClick={() => {
+                      setInfoParking(item);
+                    }}
+                    identifier={item.identifier}
+                    key={uuidv4()}
+                  />
+                ))}
+              </div>
+            </div>
           </EnterpriseContainer>
         </>
       )}
@@ -81,6 +85,12 @@ export default function MapaDeVagas({
       )}
       {!selectedEnterprise && (
         <div className="w-full overflow-hidden" data-aos="zoom-in">
+          <div
+            className="absolute z-50 cursor-pointer bottom-4 right-4 scale-75"
+            onClick={() => router.push("/infinity-world")}
+          >
+            <BackButton margin="m-0" />
+          </div>
           <div
             className="absolute w-full text-center z-50"
             data-aos="slide-down"

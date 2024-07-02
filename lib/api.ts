@@ -206,6 +206,7 @@ export async function allSettings(): Promise<allSettingsType> {
             }
             featuredImage {
               node {
+                title
                 altText
                 mediaItemUrl
                 sourceUrl
@@ -256,6 +257,7 @@ export async function getEnterprises() {
             enterprises {
               area
               bgimage {
+                title
                 altText
                 mediaItemUrl
                 sourceUrl
@@ -263,12 +265,14 @@ export async function getEnterprises() {
               }
               features
               logo {
+                title
                 altText
                 mediaItemUrl
                 sourceUrl
                 sizes
               }
               salestable {
+                title
                 altText
                 mediaItemUrl
                 sourceUrl
@@ -282,12 +286,14 @@ export async function getEnterprises() {
             floor_fields {
               coords
               photo {
+                title
                 altText
                 mediaItemUrl
                 sourceUrl
                 sizes
               }
               icon {
+                title
                 altText
                 mediaItemUrl
                 sourceUrl
@@ -312,6 +318,7 @@ export async function getEnterprises() {
               coords
               notclickable
               image {
+                title
                 altText
                 mediaItemUrl
                 sourceUrl
@@ -330,6 +337,7 @@ export async function getEnterprises() {
             title
             other_fields {
               image {
+                title
                 altText
                 mediaItemUrl
                 sourceUrl
@@ -350,6 +358,7 @@ export async function getEnterprises() {
             title
             other_fields {
               image {
+                title
                 altText
                 mediaItemUrl
                 sourceUrl
@@ -371,6 +380,7 @@ export async function getEnterprises() {
               subtitle
               description
               image{
+                title
                 altText
                 mediaItemUrl
                 sourceUrl
@@ -423,6 +433,7 @@ export async function getImagesByText(search: string): Promise<Image[]> {
         query MediaItems($search: String) {
           mediaItems(where: { search: $search }) {
               nodes {
+                title
                 altText
                 mediaItemUrl
                 sourceUrl
@@ -433,8 +444,8 @@ export async function getImagesByText(search: string): Promise<Image[]> {
       `,
       { variables: { search } }
     );
-    const images: Image[] = data.mediaItems.nodes;
-    return images.map((image) => {
+    const nodes: Image[] = data.mediaItems.nodes;
+    const images = nodes.map((image) => {
       const newImage = {};
       Object.keys(image).forEach((key) => {
         if (image[key]?.toString().includes('http')) {
@@ -442,9 +453,14 @@ export async function getImagesByText(search: string): Promise<Image[]> {
           newImage[key] = [WORDPRESS_URL, extractedPath].join('/');
         }
       });
+
       return { ...image, ...newImage } as Image;
     });
+
+    createFallback('image-'+search, images);
+    return images;
   } catch (e) {
-    return [];
+    const json = require(`./fallback/image-${search}.json`)
+    return Object.assign(json) as Image[];
   }
 }

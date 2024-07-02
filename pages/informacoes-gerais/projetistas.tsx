@@ -55,8 +55,8 @@ export default function Projetistas({
         style={{ backgroundImage: "url(/bg-projetistas.jpg)" }}
       >
         <div className="container mx-auto flex min-h-[calc(100vh_-_174px)]">
-          <div className="grid grid-cols-12 m-auto gap-5">
-            <div className="col-span-3 flex items-center text-5xl  uppercase" data-aos="fade in">Permita-se fluir</div>
+          <div className="grid grid-cols-12 m-auto gap-5 mr-[70px]">
+            <div className="col-span-3 flex items-center text-5xl  uppercase" data-aos="slide-right">Permita-se fluir</div>
             <div className="col-span-9">
               <Carousel
                 showArrows

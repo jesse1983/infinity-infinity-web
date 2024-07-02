@@ -12,6 +12,7 @@ export type Page = {
 
 export type Image = {
   altText: string;
+  title: string;
   description?: string;
   mediaItemUrl: string;
   sourceUrl: string;

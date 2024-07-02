@@ -33,7 +33,7 @@ export default function Index({
         <div className="m-auto">
           <div className="container m-auto p-10">
             <div className="grid grid-cols-12 gap-5 text-midnight-950">
-              <div data-aos="fade-down" className="col-span-6 flex items-center">
+              <div data-aos="slide-right" className="col-span-6 flex items-center">
                 <div>
                   <h1 className="text-2xl mb-7 uppercase">
                     {page.title}
@@ -45,7 +45,7 @@ export default function Index({
                 </div>
               </div>
               {images.map((image, i) => (
-                <div data-aos="flip-up" data-aos-duration={((i+2) * 250)} className={'h-60 ' + (i === images.length - 1 ? `col-span-6` : `col-span-3`)}>
+                <div data-aos={i > 2 ? 'slide-up' : 'slide-down' } data-aos-duration={((i+2) * 200)} className={'h-60 ' + (i === images.length - 1 ? `col-span-6` : `col-span-3`)}>
                   <div className="w-full h-full bg-cover bg-top" style={{ backgroundImage: `url(${image.mediaItemUrl})` }}></div>
                 </div>
               ))}

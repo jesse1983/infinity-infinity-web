@@ -253,7 +253,7 @@ export default function Enterprise({
                 !showDecorated &&
                 !selectedAmbient && (
                   <div
-                    className="absolute bg-midnight-950 p-4 z-50 text-white bottom-14 right-14  uppercase flex items-center gap-4 hover:bg-white hover:text-midnight-950 cursor-pointer transition duration-300"
+                    className="absolute bg-midnight-950 py-4 px-6 z-50 text-white bottom-4 right-44 uppercase flex items-center gap-4 hover:bg-white hover:text-midnight-950 cursor-pointer transition duration-300 border border-white"
                     onClick={() => setShowDecorated(true)}
                   >
                     <span className="w-7 h-7 inline-block">

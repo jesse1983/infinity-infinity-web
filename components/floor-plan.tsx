@@ -12,6 +12,7 @@ type Path = {
   onMouseOut?: Function;
   onClick?: Function;
   notClickable?: boolean;
+  bgTooltip?: string;
 };
 
 type Poi = {
@@ -38,6 +39,7 @@ type PathProps = {
   onClick?: React.MouseEventHandler<SVGPathElement>;
   noBorder?: boolean;
   notClickable?: boolean;
+  bgTooltip?: string; 
 };
 
 function Path(options: PathProps) {
@@ -76,11 +78,13 @@ function FloorPlan({ src, children, onLoad, hidePois }: Props) {
   const [active, setActive] = useState(false);
   const [pathActive, setPathActive] = useState();
   const [label, setLabel] = useState("");
+  const [bgTooltip, setBgTooltip] = useState("");
 
   const setActivePath = (ev, index) => {
     setActive(true);
     setPathActive(index);
     const path = paths[index];
+    setBgTooltip(path.bgTooltip);
     if (path.title) setLabel(path.title);
     if (path.onMouseDown) path.onMouseDown(ev);
   };
@@ -112,10 +116,11 @@ function FloorPlan({ src, children, onLoad, hidePois }: Props) {
       {/* {poisNodes} */}
       <Tooltip id={tooltipUuid} style={{ background: "transparent" }}>
         <div
+          style={{ backgroundColor: bgTooltip }}
           className={`
               ${active ? "" : "hidden"}
               ${hidePois ? 'hidden' : ''}
-              bg-midnight-950
+              ${!bgTooltip ? 'bg-midnight-950' : '' }
               px-7
               py-3
               rounded-3xl

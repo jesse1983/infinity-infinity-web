@@ -19,7 +19,7 @@ export default function MiniMenuContainer({
           </span>
         </div>
       </div>
-      <div className={`col-span-12 ${bg} lg:col-span-9 flex flex-col items-center justify-center border-none`}>
+      <div className={`col-span-9 ${bg} lg:col-span-9 flex flex-col items-center justify-center border-none`}>
         {children}
       </div>
     </div>

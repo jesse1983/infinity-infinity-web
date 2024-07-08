@@ -198,6 +198,7 @@ export function InfinityWorldComponent({
                 key={uuidv4()}
                 icon={floor.iconSrc || "/icon-infinity.svg"}
                 title={floor.title}
+                reverse={floor.reverse}
                 x={floor.coords.x}
                 y={floor.coords.y}
                 onClick={() => gotoEnterprise(floor.enterprise, floor.slug)}

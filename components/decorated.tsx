@@ -78,7 +78,7 @@ export function Decorated({
             </h1>
 
             <div className="grid grid-cols-12 w-[60%] mx-auto text-center gap-20 text-white p-12 font-thin">
-              {decorated.map((deco, i) => (
+              {decorated.sort((a, b) => a.sort > b.sort ? 1 : -1).map((deco, i) => (
                 <div
                   className={
                     "border-b border-b-white pb-8 col-span-6" +
@@ -87,10 +87,10 @@ export function Decorated({
                   onClick={() => setSelectedDecorated(deco)}
                   data-aos="slide-down"
                 >
-                  <h1 className="text-2xl p-4 mb-8 cursor-pointer border border-white hover:bg-white hover:text-midnight-950 duration-300 transition-all">
+                  <h1 className="text-3xl p-4 mb-8 cursor-pointer border border-white hover:bg-white hover:text-midnight-950 duration-300 transition-all">
                     {deco.title}
                   </h1>
-                  <p>{deco.description}</p>
+                  <p className="text-2xl">{deco.description}</p>
                 </div>
               ))}
               <div

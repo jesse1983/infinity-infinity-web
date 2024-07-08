@@ -19,6 +19,8 @@ import { AMBIENT, ENTERPRISE, FLOOR } from "../types";
 import { Decorated } from "./decorated";
 import { CircleText } from "./circle-text";
 import { useRouter } from "next/router";
+import BackButton from "./voltar";
+import { slugify } from "../helpers/slugify";
 
 type indexType = {
   generalSettings: Settings;
@@ -37,7 +39,7 @@ export default function Enterprise({
   enterprises,
   enterprise,
 }: indexType) {
-  const router = useRouter()
+  const router = useRouter();
   const [selectedAmbient, setSelectedAmbient] = useState<AMBIENT | undefined>();
   const [floor, setFloor] = useState<FLOOR | undefined>();
   const [showDecorated, setShowDecorated] = useState(false);
@@ -94,23 +96,9 @@ export default function Enterprise({
   };
 
   const rotateNav = (selectedFloor) => {
-    const found = floors[selectedFloor];
+    const found = floors.find((f) => slugify(f.title) === selectedFloor);
     setFloor(found);
   };
-
-  const buildingCircle = (enterprise: string) => (
-    <div
-      className="left-[-15%] absolute z-50 overflow-hidden h-[calc(100vh_-_174px)] w-[calc(25vw_+_15%)] top-0 pt-[3%] lg:block"
-      data-aos="zoom-in"
-    >
-      <CircleText
-        enterprise={enterprise}
-        texts={floors.map((floor) => floor.title)}
-        active={floor?.title}
-        onClick={rotateNav}
-      />
-    </div>
-  );
 
   useEffect(() => {
     const selectedFloor = getFloorPlan();
@@ -139,7 +127,7 @@ export default function Enterprise({
         <title>{generalSettings.title}</title>
         <meta name="description" content={page.title}></meta>
       </Head>
-      <Header menu={menu} />
+      <Header menu={menu} logo={enterprise.includes("sea") ? "SEA" : "BLUE"} />
       <div className="w-full relative h-[calc(100vh_-_174px)] flex ">
         <div
           className={`absolute bg-midnight-950 w-full h-full z-40 transition-opacityx  duration-500 flex flex-col justify-center ${
@@ -230,14 +218,29 @@ export default function Enterprise({
             </>
           )}
         </div>
-        <MiniMenuContainer
-          slot={
-            !showDecorated && !selectedAmbient && buildingCircle(enterprise)
-          }
-          onBack={() => router.push('/infinity-world')}
-        >
+        <div className="flex flex-row justify-between w-screen h-[calc(100vh_-_174px)]">
+          <div
+            className="overflow-hidden w-[20vw] h-full relative"
+            data-aos="zoom-in"
+          >
+            <div className="absolute left-1 top-[calc(50vh_-_160px)] scale-75 z-10">
+              <BackButton onClick={() => router.back()} />
+            </div>
+            <div
+              className={`${
+                enterprise.includes("blue") ? "-ml-[540px]" : "-ml-[440px]"
+              } mt-[calc(-160px_+_5vh)] scale-[0.9] `}
+            >
+              <CircleText
+                enterprise={enterprise}
+                texts={floors.map((floor) => floor.title)}
+                active={floor?.title}
+                onClick={rotateNav}
+              />
+            </div>
+          </div>
           {floor && (
-            <div className="w-[75vw] relative h-[calc(100vh_-_174px)] overflow-hidden flex flex-col items-center">
+            <div className="w-[80vw] relative h-[calc(100vh_-_174px)] overflow-hidden flex flex-col items-center ">
               <FloorPlan src={floor.floorPlanSrc}>
                 {floor.ambients.map((ambient, i, all) => (
                   <FloorPlan.Path
@@ -245,6 +248,7 @@ export default function Enterprise({
                     title={ambient.title}
                     coords={ambient.coords}
                     notClickable={ambient.notClickable}
+                    bgTooltip={ambient.notClickable ? '#9c917c' : undefined}
                     onClick={(ev) => openSlideShow(ev, ambient, all)}
                   />
                 ))}
@@ -264,7 +268,7 @@ export default function Enterprise({
                 )}
             </div>
           )}
-        </MiniMenuContainer>
+        </div>
         {floor?.decorated?.length > 0 && showDecorated && (
           <Decorated
             decorated={floor.decorated}

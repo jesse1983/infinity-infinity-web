@@ -132,6 +132,7 @@ const handleFloors = (
     .map((f) => ({
       title: f.title,
       slug: f.slug,
+      reverse: f.floor_fields?.reverse || false,
       ambients: handleAmbients(f.id, ambientsNode),
       // ambients: [],
       coords: {
@@ -285,6 +286,7 @@ export async function getEnterprises() {
           nodes {
             floor_fields {
               coords
+              reverse
               photo {
                 title
                 altText
@@ -378,6 +380,7 @@ export async function getEnterprises() {
             title
             custom {
               subtitle
+              order
               description
               image{
                 title

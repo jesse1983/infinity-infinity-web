@@ -2,6 +2,8 @@
 import { Page } from "../models";
 import Link from "next/link";
 import LogoWhite from "../public/logo-infinity-small-white.svg";
+import LogoSeaWhite from "../public/logo-infinity-sea-white.svg"; 
+import LogoBlueWhite from "../public/logo-infinity-blue-white.svg"; 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 
@@ -16,7 +18,7 @@ const slugify = text =>
     .replace(/[^\w-]+/g, '')
     .replace(/--+/g, '-');
 
-export default function Header({ menu }: { menu: Page[] }) {
+export default function Header({ menu, logo }: { menu: Page[], logo?: "SEA" | "BLUE" }) {
   const [open, setOpen] = useState(false);
   const toggle = () => setOpen(!open);
 
@@ -30,7 +32,9 @@ export default function Header({ menu }: { menu: Page[] }) {
     <header className="text-center">
       <div>
         <Link href="/" className="w-[200px] h-[50px] block  m-auto my-7">
-          <LogoWhite className="m-auto" />
+          {logo === 'SEA' && <LogoSeaWhite  className="m-auto" />}
+          {logo === 'BLUE' && <LogoBlueWhite  className="m-auto" />}
+          {!logo && <LogoWhite className="m-auto" />}
         </Link>
       </div>
       <nav className="sm:h-autow-screen text-lg relative">

@@ -10,11 +10,13 @@ export type DECORATED = {
   subtitle?: string;
   description?: string;
   floorPlanSrc?: string;
+  sort?: number;
 }
 
 export type FLOOR = {
   title: string;
   slug: string;
+  reverse?: boolean;
   ambients: AMBIENT[];
   coords?: XY;
   floorPlanSrc?: string;

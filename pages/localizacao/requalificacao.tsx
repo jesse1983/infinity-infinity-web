@@ -41,7 +41,7 @@ export default function Index({
             data-aos="fade-left"
           />
           <div>
-            <div className="text-midnight-950 w-[350px] mx-auto mt-10 leading-tight">
+            <div className="text-midnight-950 w-[350px] mx-auto mt-[7vh] -pl-8 leading-tight">
               <h1 className="text-5xl uppercase mb-6"  data-aos="zoom-in-up">Requalificação Urbana</h1>
               <p data-aos="zoom-in-down">
                 <Link

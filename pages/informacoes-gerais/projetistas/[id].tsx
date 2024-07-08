@@ -53,7 +53,7 @@ export default function Index({
             <div
               dangerouslySetInnerHTML={{ __html: page.content }}
               data-aos="fade"
-              className="flex flex-col justify-center col-span-6 [&>p]:text-2xl [&>*]:mb-10 [&>h2]:text-4xl font-light"
+              className="flex flex-col justify-center col-span-6 [&>p]:text-md [&>*]:mb-10 [&>h2]:text-4xl font-light"
             />
             <div className="col-span-4" data-aos="zoom-in" >
               <img src={page.featuredImage.mediaItemUrl} className="h-full" />

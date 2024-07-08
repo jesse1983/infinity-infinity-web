@@ -52,7 +52,7 @@ export default function MapaDeDepositos({
                   >
                     {enterprise.title}
                   </div>
-                  <div className="flex flex-row gap-4">
+                  <div className="flex flex-row items-center justify-center gap-4">
                     {enterprise.deposits.map((deposit) => (
                       <ItemMapa
                         onClick={() => {

@@ -1,8 +1,8 @@
 import MiniMenu from "./min-menu";
-import Info01 from "../public/info01.svg";
-import Info02 from "../public/info02.svg";
+import Info01 from "../public/info04.svg";
+import Info02 from "../public/info01.svg";
 import Info03 from "../public/info03.svg";
-import Info04 from "../public/info04.svg";
+import Info04 from "../public/info02.svg";
 
 
 export default function MenuInformacoes({ currentPage, subpages = [] }) {

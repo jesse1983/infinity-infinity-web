@@ -57,7 +57,7 @@ export default function MapaDeVagas({
                   />
                 ))}
               </div>
-              <div className="flex justify-center items-center gap-4">
+              <div className="flex justify-center items-center gap-4 pt-8">
                 {selectedEnterprise.deposits.sort(compare).map((item) => (
                   <ItemMapa
                     onClick={() => {

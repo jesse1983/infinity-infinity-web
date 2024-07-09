@@ -1,5 +1,4 @@
 import ItemMapa from "../item-mapa";
-import { FloorPlanInfinityWorldMapa } from "../floorplans";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import InfoMapa from "../info-mapa";
@@ -8,8 +7,8 @@ import { PARKING } from "../../types/parking";
 import { DEPOSIT } from "../../types/deposit";
 import SeaVideo from "../sea-video";
 import EnterpriseContainer from "../enterprise-container";
-import BackButton from "../voltar";
 import { useRouter } from "next/router";
+import AeroMap from "../aero-map";
 
 export default function MapaDeVagas({
   enterprises,
@@ -31,7 +30,6 @@ export default function MapaDeVagas({
       : parseInt(a.identifier) >= parseInt(b.identifier)
       ? 1
       : -1;
-
   return (
     <>
       {selectedEnterprise && !infoParking && (
@@ -84,28 +82,11 @@ export default function MapaDeVagas({
         />
       )}
       {!selectedEnterprise && (
-        <div className="w-full overflow-hidden" data-aos="zoom-in">
-          <div
-            className="absolute z-50 cursor-pointer bottom-4 right-4 scale-75"
-            onClick={() => router.push("/infinity-world")}
-          >
-            <BackButton margin="m-0" />
-          </div>
-          <div
-            className="absolute w-full text-center z-50"
-            data-aos="slide-down"
-            data-aos-delay="500"
-          >
-            <h1 className=" uppercase font-thin text-5xl pl-[25vw] pt-14">
-              Mapa de vagas
-            </h1>
-          </div>
-          <FloorPlanInfinityWorldMapa
-            getApartment={setSelectedEnterprise}
-            enterprises={enterprises}
-            isSalesTable={true}
-          />
-        </div>
+        <AeroMap
+          enterprises={enterprises}
+          onClick={setSelectedEnterprise}
+          title="Mapa de vagas"
+        />
       )}
     </>
   );

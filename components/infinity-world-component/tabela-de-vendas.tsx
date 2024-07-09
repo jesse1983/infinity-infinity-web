@@ -4,6 +4,7 @@ import BackButton from "../voltar";
 import { ENTERPRISE } from "../../types";
 import { useRouter } from "next/router";
 import IconClose from "../../public/icon-close-filled-dark.svg";
+import AeroMap from "../aero-map";
 
 export default function TabelaDeVendas({
   enterprises,
@@ -42,22 +43,11 @@ export default function TabelaDeVendas({
         </>
       )}
       {!selectedEnterprise && (
-        <div className="w-full overflow-hidden" data-aos="zoom-in">
-          <div
-            className="absolute w-full text-center z-50"
-            data-aos="slide-down"
-            data-aos-delay="500"
-          >
-            <h1 className="uppercase font-thin text-5xl pl-[25vw] pt-14">
-              Tabela de vendas
-            </h1>
-          </div>
-          <FloorPlanInfinityWorldMapa
-            getApartment={setSelectedEnterprise}
-            enterprises={enterprises}
-            isSalesTable={true}
-          />
-        </div>
+                <AeroMap
+                enterprises={enterprises}
+                onClick={setSelectedEnterprise}
+                title="Tabela de vendas"
+              />
       )}
     </div>
   );

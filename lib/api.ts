@@ -128,9 +128,9 @@ const handleFloors = (
   decoratedNode: unknown[],
 ): FLOOR[] => {
   return floorsNode
-    .filter((f) => f.floor_fields.enterpriseid?.id === enterpriseId)
+    .filter((f) => f.floor_fields.enterpriseid?.id === enterpriseId && f.floor_fields?.main)
     .map((f) => ({
-      title: f.title,
+      title: f.title?.split('|')[0].trim(),
       slug: f.slug,
       reverse: f.floor_fields?.reverse || false,
       ambients: handleAmbients(f.id, ambientsNode),
@@ -142,6 +142,7 @@ const handleFloors = (
       floorPlanSrc: f.floor_fields?.photo?.mediaItemUrl,
       iconSrc: f.floor_fields?.icon?.mediaItemUrl || '',
       decorated: handleDecorated(f.id, decoratedNode),
+      main: f.floor_fields?.main,
     }));
 };
 
@@ -286,6 +287,7 @@ export async function getEnterprises() {
           nodes {
             floor_fields {
               coords
+              main
               reverse
               photo {
                 title

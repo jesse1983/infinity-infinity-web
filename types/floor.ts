@@ -22,4 +22,5 @@ export type FLOOR = {
   floorPlanSrc?: string;
   iconSrc?: string;
   decorated?: DECORATED[];
+  main: boolean;
 };

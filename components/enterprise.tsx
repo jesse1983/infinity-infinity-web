@@ -103,10 +103,10 @@ export default function Enterprise({
   useEffect(() => {
     const selectedFloor = getFloorPlan();
     if (selectedFloor) {
+      setFloor(selectedFloor);
       imagesRefs.current = selectedFloor.ambients.map(
         (_, i) => imagesRefs.current[i] ?? createRef()
       );
-      setFloor(selectedFloor);
       document.addEventListener(
         "keydown",
         (ev) =>
@@ -240,7 +240,7 @@ export default function Enterprise({
             </div>
           </div>
           {floor && (
-            <div className="w-[80vw] relative h-[calc(100vh_-_174px)] overflow-hidden flex flex-col items-center ">
+            <div className="w-[75vw] relative h-[calc(100vh_-_164px)] overflow-hidden flex flex-col items-center ">
               <FloorPlan src={floor.floorPlanSrc}>
                 {floor.ambients.map((ambient, i, all) => (
                   <FloorPlan.Path
@@ -257,7 +257,7 @@ export default function Enterprise({
                 !showDecorated &&
                 !selectedAmbient && (
                   <div
-                    className="absolute bg-midnight-950 py-4 px-6 z-50 text-white bottom-4 right-44 uppercase flex items-center gap-4 hover:bg-white hover:text-midnight-950 cursor-pointer transition duration-300 border border-white"
+                    className="absolute bg-midnight-950 py-4 px-6 z-50 text-white bottom-4 right-[45vw] uppercase flex items-center gap-4 hover:bg-white hover:text-midnight-950 cursor-pointer transition duration-300 border border-white"
                     onClick={() => setShowDecorated(true)}
                   >
                     <span className="w-7 h-7 inline-block">

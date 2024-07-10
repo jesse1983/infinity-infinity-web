@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { DECORATED } from "../types/floor";
 import MiniMenuContainer from "./mini-menu-container";
 import BackButton from "./voltar";
@@ -16,6 +16,10 @@ export function Decorated({
   >();
 
   const close = () => onClose();
+
+  const sortedDecorated = useMemo(() => {
+    return decorated.sort((a, b) => a.sort > b.sort ? 1 : -1)
+  }, [decorated])
 
   const decoratedTitle = (deco: DECORATED) => {
     return (
@@ -78,7 +82,7 @@ export function Decorated({
             </h1>
 
             <div className="grid grid-cols-12 w-[60%] mx-auto text-center gap-20 text-white p-12 font-thin">
-              {decorated.sort((a, b) => a.sort > b.sort ? 1 : -1).map((deco, i) => (
+              {sortedDecorated.map((deco, i) => (
                 <div
                   className={
                     "border-b border-b-white pb-8 col-span-6" +

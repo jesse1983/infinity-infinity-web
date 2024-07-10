@@ -18,7 +18,7 @@ const slugify = text =>
     .replace(/[^\w-]+/g, '')
     .replace(/--+/g, '-');
 
-export default function Header({ menu, logo }: { menu: Page[], logo?: "SEA" | "BLUE" }) {
+export default function Header({ menu, logo }: { menu: Page[], logo?: "SEA" | "BLUE" | string }) {
   const [open, setOpen] = useState(false);
   const toggle = () => setOpen(!open);
 

@@ -28,7 +28,8 @@ const getRotate = (str: string, enterprise: string) => {
   if (str) {
     const source = enterprise === "infinity-sea" ? mapSizesSea : mapSizesBlue;
     const found = source.get(str.toUpperCase());
-    return found[0];
+    console.log(str.toUpperCase(), enterprise, found);
+    if (found) return found[0];
   }
   return 0;
 };

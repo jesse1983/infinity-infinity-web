@@ -18,7 +18,7 @@
         "ambients": [
           {
             "title": "Beach Lounge",
-            "coords": "m 151.08367,174.38513 -0.75166,88.69588 -3.7583,0.75166 v -29.31474 l -68.401066,1.50332 -0.75166,136.05047 72.159366,-2.25498 2.25498,36.07968 100.72244,1.50332 -50.36122,-236.02125 z",
+            "coords": "m 275.20132,197.15915 2.73832,204.00496 -13.69161,-1.36916 -1.36916,-35.59818 -94.47209,-1.36916 -1.36916,177.9909 108.1637,1.36916 2.73832,69.8272 76.673,-1.36916 4.10749,54.76643 76.673,-1.36916 -105.42538,-468.25299 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/113_Bar_06-scaled.jpg",
             "notClickable": null
           }
@@ -27,9 +27,10 @@
           "x": 770,
           "y": 930
         },
-        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/OR_RV1_BEACH_AD_EF_ALTA-EM-PNG-3.png",
+        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/planta-beach-lounge.png",
         "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-beach-lounge.svg",
-        "decorated": []
+        "decorated": [],
+        "main": true
       },
       {
         "title": "Pavimento térreo",
@@ -67,7 +68,8 @@
         },
         "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/OR_RV1_TERREO_02_EF_ALTA-EM-PNG.png",
         "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-pavimento-terreo.svg",
-        "decorated": []
+        "decorated": [],
+        "main": true
       },
       {
         "title": "Rooftop",
@@ -99,58 +101,29 @@
         },
         "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/rooftop-3.png",
         "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-rooftop.svg",
-        "decorated": []
+        "decorated": [],
+        "main": true
       },
       {
         "title": "Planta padrão",
         "slug": "planta-padrao",
         "reverse": false,
-        "ambients": [
-          {
-            "title": "Varanda",
-            "coords": "m 1172.5747,294.421 h 85.5801 l 83.0255,401.07676 -171.7988,1.27732 z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/photo-infinity-blue-planta-tipo04.png",
-            "notClickable": null
-          },
-          {
-            "title": "Sanitário Suíte Master",
-            "coords": "m 1063.3644,208.20227 v 65.7817 l 104.7397,0.63865 0.6387,11.49584 h 82.3868 l -14.0505,-74.7229 -64.5044,1.27731 -0.6386,-7.02523 z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/102_Bahn_Blue_05-scaled.jpg",
-            "notClickable": null
-          },
-          {
-            "title": "Suíte Master",
-            "coords": "m 1160.4403,282.28651 -102.1852,-1.27731 -1.916,-73.44559 -144.97518,1.91597 1.91597,183.9333 247.79901,1.27731 z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/101_Suit_Blue_05-scaled.jpg",
-            "notClickable": null
-          },
-          {
-            "title": "Living",
-            "coords": "m 954.15396,602.89246 49.81524,2.55463 1.2773,84.94142 h 151.3618 l 2.5546,-290.58906 -358.92534,1.91597 -1.27732,116.87428 156.47103,2.55463 z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/104_Lvng_Blue_05-scaled.jpg",
-            "notClickable": null
-          }
-        ],
+        "ambients": [],
         "coords": {
           "x": 960,
           "y": 500
         },
-        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/planta-padrao-blue.png",
+        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/planta-padrao-blue-3.png",
         "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-planta-padrao.svg",
         "decorated": [
-          {
-            "title": "Tatiana Melo",
-            "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/tatiane-melo.png",
-            "description": "3 suítes e  suíte master com 2 sanitários",
-            "subtitle": "287,32m²"
-          },
           {
             "title": "Laís Galvão",
             "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/lais-galvao.png",
             "description": "3 suítes, sala ampliada e home office + suíte master com 2 sanitários",
             "subtitle": "287,32m²"
           }
-        ]
+        ],
+        "main": true
       }
     ],
     "logo": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/11/logo-infinity-blue-blue.svg",
@@ -293,7 +266,8 @@
         },
         "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/Subsolo-3.png",
         "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/icon-e-fitness.svg",
-        "decorated": []
+        "decorated": [],
+        "main": true
       },
       {
         "title": "Beach Club",
@@ -313,7 +287,8 @@
         },
         "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/Beach-lounge-1.png",
         "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-beach-lounge.svg",
-        "decorated": []
+        "decorated": [],
+        "main": true
       },
       {
         "title": "Pavimento térreo",
@@ -357,7 +332,8 @@
         },
         "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/pavimento-terreo.png",
         "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-pavimento-terreo.svg",
-        "decorated": []
+        "decorated": [],
+        "main": true
       },
       {
         "title": "Planta padrão",
@@ -414,7 +390,8 @@
             "description": "3 suítes com master ampliada e 2 sanitários",
             "subtitle": "288,38m²"
           }
-        ]
+        ],
+        "main": true
       }
     ],
     "logo": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/logo-infinity-sea-blue.svg",

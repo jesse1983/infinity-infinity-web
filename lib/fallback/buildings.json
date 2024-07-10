@@ -117,6 +117,12 @@
         "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-planta-padrao.svg",
         "decorated": [
           {
+            "title": "Tatiana Melo",
+            "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/tatiane-melo.png",
+            "description": "3 suítes e  suíte master com 2 sanitários",
+            "subtitle": "287,32m²"
+          },
+          {
             "title": "Laís Galvão",
             "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/lais-galvao.png",
             "description": "3 suítes, sala ampliada e home office + suíte master com 2 sanitários",
@@ -339,32 +345,7 @@
         "title": "Planta padrão",
         "slug": "planta-padrao-2",
         "reverse": true,
-        "ambients": [
-          {
-            "title": "Varanda",
-            "coords": "m 1095.2977,253.63983 v 390.04789 l 184.0533,-2.09615 -1.6233,-391.38381 z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/108_Vrnd_Sea_05-scaled.jpg",
-            "notClickable": null
-          },
-          {
-            "title": "Sanitário Suíte Master",
-            "coords": "m 708.45145,64.598014 -0.64412,87.393796 211.84439,2.02584 0.60235,-89.61026 z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/105_Banh_Mstr_Sea_05-1-scaled.jpg",
-            "notClickable": null
-          },
-          {
-            "title": "Suíte Master",
-            "coords": "m 706.99538,161.63882 0.11497,141.2953 112.25126,-0.90467 0.9472,-64.00687 410.69909,-1.12131 -5.8722,-171.707246 -298.53897,4.23909 1.27974,94.249886 z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/106_Suit_Mstr_Sea_04-1-scaled.jpg",
-            "notClickable": null
-          },
-          {
-            "title": "Living",
-            "coords": "m 527.98613,307.05267 1.65594,174.86489 46.17234,0.78389 0.6673,13.13145 113.02942,1.63129 -0.13799,82.83904 134.02081,0.98486 -1.79108,61.35345 261.27793,-2.02639 -0.6122,-390.97248 -254.32214,3.14028 -0.10974,53.19933 z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/photo-infinity-sea-planta-tipo01.png",
-            "notClickable": null
-          }
-        ],
+        "ambients": [],
         "coords": {
           "x": 1470,
           "y": 350
@@ -385,7 +366,7 @@
             "subtitle": "288,38m²"
           },
           {
-            "title": "GW Arquitetos",
+            "title": "Gaspar + Dantas",
             "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/floor-plan-infinity-sea-apartment.png",
             "description": "3 suítes com master ampliada e 2 sanitários",
             "subtitle": "288,38m²"

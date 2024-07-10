@@ -50,7 +50,7 @@ export function Decorated({
       {selectedDecorated ? (
         <div
           className="h-[calc(100vh_-_174px)] w-screen flex items-center overflow-hidden bg-cover "
-          style={{ backgroundImage: "url(/bg-projetistas.jpg)" }}
+          style={{ backgroundImage: "url(/bg-opcao.jpg)" }}
         >
           <MiniMenuContainer
             slot={decoratedTitle(selectedDecorated)}
@@ -81,11 +81,11 @@ export function Decorated({
               </span>
             </h1>
 
-            <div className="grid grid-cols-12 w-[60%] mx-auto text-center gap-20 text-white p-12 font-thin">
+            <div className="flex justify-center mx-auto text-center gap-20 text-white p-12 font-thin">
               {sortedDecorated.map((deco, i) => (
                 <div
                   className={
-                    "border-b border-b-white pb-8 col-span-6" +
+                    "border-b border-b-white pb-8 w-[300px]" +
                     odd(i, decorated.length)
                   }
                   onClick={() => setSelectedDecorated(deco)}

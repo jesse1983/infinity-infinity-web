@@ -19,7 +19,7 @@ export default function Index({
         <meta name="description" content={page.title}></meta>
       </Head>
       <Header menu={menu} />
-      <InfinityWorldComponent enterprises={enterprises} />
+      <InfinityWorldComponent enterprises={enterprises} page={page} />
     </Layout>
   );
 }

@@ -6,7 +6,6 @@ import { Settings, Page } from "../../models";
 import Header from "../../components/header";
 import MenuInformacoes from "../../components/menu-informacoes-gerais";
 import { usePathname } from "next/navigation";
-import Info from "../../public/informacoes-gerais.svg";
 
 type indexType = {
   generalSettings: Settings;
@@ -41,14 +40,14 @@ export default function Index({
           data-aos="fade"
         >
           <div className="container flex mt-[80px] relative">
-            <h1
-              className=" w-36 absolute font-thin text-[4em] uppercase"
-              data-aos="flip-left"
-              data-aos-duration="1000"
-            >
-              Além mar
-            </h1>
-            <Info className=" h-[calc(100vh_-_300px)] mx-auto" />
+            <div
+              dangerouslySetInnerHTML={{ __html: page.content }}
+              className="w-36 absolute font-thin text-[4em] uppercase"
+            />
+            <img
+              src={page.featuredImage?.mediaItemUrl}
+              className="h-[calc(100vh_-_300px)] mx-auto"
+            />
           </div>
         </div>
       </div>

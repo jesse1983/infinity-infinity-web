@@ -6,6 +6,7 @@ import { useRouter } from "next/router";
 import IconClose from "../../public/icon-close-filled-dark.svg";
 import AeroMap from "../aero-map";
 import { useSearchParams } from "next/navigation";
+import Download from "../download";
 
 export default function TabelaDeVendas({
   enterprises,
@@ -13,13 +14,14 @@ export default function TabelaDeVendas({
   enterprises: ENTERPRISE[];
 }) {
   const searchParams = useSearchParams();
-  const slug = searchParams.get('enterprise');
+  const slug = searchParams.get("enterprise");
   const enterprise = enterprises.find((e) => e.slug === slug);
 
-  const [selectedEnterprise, setSelectedEnterprise] = useState<ENTERPRISE>(enterprise);
-  
+  const [selectedEnterprise, setSelectedEnterprise] =
+    useState<ENTERPRISE>(enterprise);
+
   const router = useRouter();
-  const onBack = () => router.push('/infinity-world/tabela-de-vendas');
+  const onBack = () => router.push("/infinity-world/tabela-de-vendas");
 
   const go = (enterprise: ENTERPRISE) => {
     router.replace(
@@ -40,6 +42,13 @@ export default function TabelaDeVendas({
         }
       >
         {selectedEnterprise ? <IconClose /> : <BackButton margin="m-0" />}
+      </div>
+
+      <div
+        className="absolute z-50 selected:top-4 selected:bottom-full cursor-pointer bottom-4 right-24 scale-75"
+        onClick={() => true}
+      >
+        <Download />
       </div>
       {selectedEnterprise && (
         <>

@@ -17,6 +17,7 @@ import { ENTERPRISE, FLOOR } from "../../types";
 import TabelaDeVendas from "./tabela-de-vendas";
 import IconClose from "../../public/icon-close-borderless.svg";
 import MiniMenu from "../min-menu";
+import { Page } from "../../models";
 
 export enum SCREEN {
   SALES_TABLE = "SALES_TABLE",
@@ -33,8 +34,10 @@ function getScreenByRouter(items) {
 
 export function InfinityWorldComponent({
   enterprises = [],
+  page,
 }: {
   enterprises: ENTERPRISE[];
+  page?: Page,
 }) {
   const subPageItems = [
     {
@@ -176,7 +179,7 @@ export function InfinityWorldComponent({
         </div>
       )}
       <div className={bgOverlay}>
-        {!currentScreen && <FloorPlan src={roofTop.src} onLoad={scrollToBottom} hidePois={hidePois}>
+        {!currentScreen && <FloorPlan src={page?.featuredImage?.mediaItemUrl || roofTop.src} onLoad={scrollToBottom} hidePois={hidePois}>
           <FloorPlan.Path
             title={"Infinity Blue"}
             noBorder

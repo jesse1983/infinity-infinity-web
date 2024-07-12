@@ -25,7 +25,7 @@ export default function MiniMenu({ items = [] }: { items: ItemNav[] }) {
   }
   return (
     <div
-      className={`bg-contain absolute px-2 hidden w-[70px] hover:w-[299px] ${height} drop-shadow-2xl z-30 sm:flex flex-col uppercase text-sm font-bold bg-repeat-y bg-right right-0 mr-4 mt-[30vh] overflow-hidden`}
+      className={`bg-contain absolute px-2 hidden w-[70px] hover:w-[299px] ${height} drop-shadow-2xl z-30 sm:flex flex-col uppercase text-sm font-bold bg-repeat-y bg-right right-0 mr-4 mt-[27vh] overflow-hidden`}
     >
       <div className="relative">
         <div className={`bg-midnight-950/70 w-14 ${height} absolute z-40 right-0`} style={{ boxShadow: '5px -5px 4px 0px rgba(0,0,0,0.25)' }}></div>

@@ -21,7 +21,7 @@ export default function AeroMap({
       data-aos="fade"
     >
       <div
-        className="absolute z-50 cursor-pointer bottom-4 right-4 scale-75"
+        className="absolute z-50 cursor-pointer bottom-4 right-0 scale-50"
         onClick={() => router.push("/infinity-world")}
       >
         <BackButton margin="m-0" />

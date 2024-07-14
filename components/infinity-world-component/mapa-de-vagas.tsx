@@ -1,5 +1,5 @@
 import ItemMapa from "../item-mapa";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import InfoMapa from "../info-mapa";
 import { ENTERPRISE } from "../../types";
@@ -42,6 +42,18 @@ export default function MapaDeVagas({
       : parseInt(a.identifier) >= parseInt(b.identifier)
       ? 1
       : -1;
+
+  const deposits = useMemo(() => {
+    if (selectedEnterprise) return selectedEnterprise.deposits?.sort((a, b) => a.identifier > b.identifier ? 1 : -1);
+    return [];
+  }, [selectedEnterprise]);
+
+  const garages = useMemo(() => {
+    if (selectedEnterprise) return selectedEnterprise.garages?.sort(compare);
+    return [];
+  }, [selectedEnterprise]);
+
+
   return (
     <>
       {selectedEnterprise && !infoParking && (
@@ -56,7 +68,7 @@ export default function MapaDeVagas({
                     : "grid-cols-5 w-[68%] "
                 } gap-y-8 gap-4 mb-4`}
               >
-                {selectedEnterprise.garages.sort(compare).map((item) => (
+                {garages.map((item) => (
                   <ItemMapa
                     onClick={() => {
                       setInfoParking(item);
@@ -68,7 +80,7 @@ export default function MapaDeVagas({
                 ))}
               </div>
               <div className="flex justify-center items-center gap-4 pt-8">
-                {selectedEnterprise.deposits?.sort(compare).map((item) => (
+                {deposits.map((item) => (
                   <ItemMapa
                     onClick={() => {
                       setInfoParking(item);

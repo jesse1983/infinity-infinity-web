@@ -1,4 +1,0 @@
-- Imagens de plantas que pegam a tela toda
-- Não tenho o fundo do Arquitetos
-- Mapa de vagas e tabela de vendas (mesmo problema das plantas)
-- No perfil do arquiteto, não tem como colocar a linha

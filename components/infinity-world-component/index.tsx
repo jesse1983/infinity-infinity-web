@@ -3,28 +3,14 @@
 import { useMemo, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import FloorPlan from "../floor-plan";
-import MiniMenuItem01 from "../../public/mini-menu-item01.svg";
-import MiniMenuItem02 from "../../public/mini-menu-item02.svg";
-import MiniMenuItem03 from "../../public/mini-menu-item03.svg";
-import MiniMenuItem04 from "../../public/mini-menu-item04.svg";
 import { useRouter } from "next/router";
-import Link from "next/link";
 import roofTop from "../../public/rooftop2.png";
-import miniMenuBg from "../../public/mini-menu-bg.png";
-import MapaDeDepositos from "./mapa-de-depositos";
-import MapaDeVagas from "./mapa-de-vagas";
 import { ENTERPRISE, FLOOR } from "../../types";
-import TabelaDeVendas from "./tabela-de-vendas";
 import IconClose from "../../public/icon-close-borderless.svg";
 import MiniMenu from "../min-menu";
 import { Page } from "../../models";
+import infinityWorldItems, { SCREEN } from "../infinity-world-subitems";
 
-export enum SCREEN {
-  SALES_TABLE = "SALES_TABLE",
-  PARKING_MAP = "PARKING_MAP",
-  DEPOSIT_MAP = "DEPOSIT_MAP",
-  VIEWS = "VIEWS",
-}
 
 function getScreenByRouter(items) {
   const router = useRouter();
@@ -39,36 +25,7 @@ export function InfinityWorldComponent({
   enterprises: ENTERPRISE[];
   page?: Page,
 }) {
-  const subPageItems = [
-    {
-      icon: <MiniMenuItem01 className="mr-1 h-10 scale-75" />,
-      screenComponent: <TabelaDeVendas enterprises={enterprises} />,
-      screen: SCREEN.SALES_TABLE,
-      text: "Tabela de vendas",
-      path: "tabela-de-vendas",
-    },
-    {
-      icon: <MiniMenuItem02 className="mr-1 h-10 scale-75" />,
-      screenComponent: <MapaDeVagas enterprises={enterprises} />,
-      screen: SCREEN.PARKING_MAP,
-      text: "Mapa de vagas",
-      path: "mapa-de-vagas",
-    },
-    {
-      icon: <MiniMenuItem03 className="mr-2 h-10 scale-75" />,
-      screenComponent: <MapaDeDepositos enterprises={enterprises} />,
-      screen: SCREEN.DEPOSIT_MAP,
-      text: "Mapa de depósitos",
-      path: "mapa-de-depositos",
-    },
-    {
-      icon: <MiniMenuItem04 className="mr-2 h-10 scale-75" />,
-      screenComponent: <div>laklakl</div>,
-      screen: SCREEN.VIEWS,
-      text: "Vistas",
-      path: "vistas",
-    },
-  ];
+  const subPageItems = infinityWorldItems({ enterprises });
   const router = useRouter();
 
   const [currentScreen, setCurrentScreen] = useState<SCREEN>(

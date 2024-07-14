@@ -7,6 +7,7 @@ import { allSettings, getImagesByText } from "../../../lib/api";
 import { Image } from "../../../models";
 import { useRouter } from "next/router";
 import IconClose from "../../../public/icon-close-filled-dark.svg";
+import BoxDownload from "../../../components/box-download";
 
 type TableProps = PROPS & {
   files: Image[];
@@ -20,6 +21,8 @@ export default function Index({
 }: TableProps) {
   const router = useRouter();
 
+  const goBack = () => router.push('/infinity-world/mapa-de-depositos');
+
   return (
     <Layout preview={preview}>
       <Head>
@@ -27,18 +30,7 @@ export default function Index({
       </Head>
       <Header menu={menu} />
       <div className="h-[calc(100vh_-_174px)] w-full flex items-center">
-        <div className="container h-[calc(90vh_-_174px)] mx-auto relative">
-          <div
-            className={"absolute z-50 cursor-pointer  top-0 right-4 scale-75"}
-            onClick={() => router.push("/infinity-world/mapa-de-depositos")}
-          >
-            <IconClose />
-          </div>
-          <iframe
-            src={files[0].mediaItemUrl + "#toolbar=0&navpanes=0&scrollbar=0"}
-            className="m-auto w-full h-full"
-          />
-        </div>
+          <BoxDownload fileurl={files[0].mediaItemUrl} onClose={goBack} />
       </div>
     </Layout>
   );

@@ -12,6 +12,7 @@
     ],
     "floors": [
       {
+        "id": "cG9zdDozMDc=",
         "title": "Beach Lounge",
         "slug": "beach-lounge",
         "reverse": true,
@@ -39,6 +40,7 @@
         "main": true
       },
       {
+        "id": "cG9zdDoyOTc=",
         "title": "Pavimento térreo",
         "slug": "pavimento-terreo",
         "reverse": false,
@@ -108,6 +110,7 @@
         "main": true
       },
       {
+        "id": "cG9zdDoyODc=",
         "title": "Rooftop",
         "slug": "rooftop",
         "reverse": true,
@@ -141,6 +144,7 @@
         "main": true
       },
       {
+        "id": "cG9zdDoxNTA=",
         "title": "Planta padrão",
         "slug": "planta-padrao",
         "reverse": false,
@@ -156,13 +160,54 @@
             "title": "Tatiana Melo",
             "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/tatiane-melo.png",
             "description": "3 suítes e  suíte master com 2 sanitários",
-            "subtitle": "287,32m²"
+            "subtitle": "287,32m²",
+            "floorPlanExample": {
+              "id": "cG9zdDo2MzI=",
+              "title": "Planta – Tatiana Melo",
+              "slug": "planta-tatiana-melo",
+              "reverse": false,
+              "ambients": [
+                {
+                  "title": "Varanda",
+                  "coords": "m 762.20378,218.95642 87.84966,-1.58242 86.22274,405.1054 -174.88575,2e-5 z",
+                  "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/photo-infinity-blue-planta-tipo04.png",
+                  "notClickable": null
+                },
+                {
+                  "title": "Sanitário Suíte Master",
+                  "coords": "m 655.96506,131.58777 1.31587,69.08359 102.63847,-1.31588 1.31588,12.50084 84.21617,-0.65794 -16.44847,-73.68916 -62.50419,1.31588 -0.65794,-7.23733 z",
+                  "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/102_Bahn_Blue_05-scaled.jpg",
+                  "notClickable": null
+                },
+                {
+                  "title": "Suíte Master",
+                  "coords": "m 1160.4403,282.28651 -102.1852,-1.27731 -1.916,-73.44559 -144.97518,1.91597 1.91597,183.9333 247.79901,1.27731 z",
+                  "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/101_Suit_Blue_05-scaled.jpg",
+                  "notClickable": null
+                },
+                {
+                  "title": "Living",
+                  "coords": "m 954.15396,602.89246 49.81524,2.55463 1.2773,84.94142 h 151.3618 l 2.5546,-290.58906 -358.92534,1.91597 -1.27732,116.87428 156.47103,2.55463 z",
+                  "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/104_Lvng_Blue_05-scaled.jpg",
+                  "notClickable": null
+                }
+              ],
+              "coords": {
+                "x": null,
+                "y": null
+              },
+              "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/planta-gaspar-dantas.png",
+              "iconSrc": "",
+              "decorated": [],
+              "main": null
+            }
           },
           {
             "title": "Laís Galvão",
             "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/lais-galvao.png",
             "description": "3 suítes, sala ampliada e home office + suíte master com 2 sanitários",
-            "subtitle": "287,32m²"
+            "subtitle": "287,32m²",
+            "floorPlanExample": null
           }
         ],
         "main": true
@@ -291,6 +336,7 @@
     ],
     "floors": [
       {
+        "id": "cG9zdDozNzQ=",
         "title": "Fitness",
         "slug": "fitness",
         "reverse": true,
@@ -312,6 +358,7 @@
         "main": true
       },
       {
+        "id": "cG9zdDozMjc=",
         "title": "Beach Club",
         "slug": "beach-club",
         "reverse": false,
@@ -333,6 +380,7 @@
         "main": true
       },
       {
+        "id": "cG9zdDozMjU=",
         "title": "Pavimento térreo",
         "slug": "pavimento-terreo-infinity-sea",
         "reverse": false,
@@ -396,6 +444,7 @@
         "main": true
       },
       {
+        "id": "cG9zdDozMTE=",
         "title": "Planta padrão",
         "slug": "planta-padrao-2",
         "reverse": true,
@@ -409,21 +458,86 @@
         "decorated": [
           {
             "title": "GAM Arquitetos",
-            "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/gam.png",
+            "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/planta-gam-arq.png",
             "description": "Apartamento linear - 5 suítes + home office",
-            "subtitle": "576,76m²"
+            "subtitle": "576,76m²",
+            "floorPlanExample": {
+              "id": "cG9zdDo2NzU=",
+              "title": "Planta – Gam Arquitetos",
+              "slug": "planta-gam-arquitetos-infinity-sea",
+              "reverse": false,
+              "ambients": [],
+              "coords": {
+                "x": null,
+                "y": null
+              },
+              "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/planta-gam-arq.png",
+              "iconSrc": "",
+              "decorated": [],
+              "main": null
+            }
           },
           {
             "title": "Júlia Leal",
             "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/julia-leal.png",
             "description": "4 suítes com cozinha integrada + sala com home office e adega",
-            "subtitle": "288,38m²"
+            "subtitle": "288,38m²",
+            "floorPlanExample": {
+              "id": "cG9zdDo2NzM=",
+              "title": "Planta – Julia Leal",
+              "slug": "planta-julia-leal",
+              "reverse": false,
+              "ambients": [
+                {
+                  "title": "Varanda",
+                  "coords": "m 808.96254,216.15627 -2.78313,282.95135 139.1564,2.78313 1.85542,-288.5176 z",
+                  "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/108_Vrnd_Sea_05-scaled.jpg",
+                  "notClickable": null
+                }
+              ],
+              "coords": {
+                "x": null,
+                "y": null
+              },
+              "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/planta-julia-leal.png",
+              "iconSrc": "",
+              "decorated": [],
+              "main": null
+            }
           },
           {
             "title": "Gaspar + Dantas",
             "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/floor-plan-infinity-sea-apartment.png",
             "description": "3 suítes com master ampliada e 2 sanitários",
-            "subtitle": "288,38m²"
+            "subtitle": "288,38m²",
+            "floorPlanExample": {
+              "id": "cG9zdDo2MzQ=",
+              "title": "Planta – Gaspar + Dantas",
+              "slug": "planta-gaspar-dantas-infinity-sea",
+              "reverse": false,
+              "ambients": [
+                {
+                  "title": "Sanitário Suíte Master",
+                  "coords": "m 526.75962,126.60598 0.65599,76.09479 158.09348,0.65599 V 130.54192 125.95 Z",
+                  "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/105_Banh_Mstr_Sea_05-1-scaled.jpg",
+                  "notClickable": null
+                },
+                {
+                  "title": "Suíte Master",
+                  "coords": "m 614.00623,205.98072 -0.65599,52.47917 301.09921,2.62395 V 137.10182 l -225.00442,-1.96797 -0.65599,1.96797 0.65599,67.56692 -43.29531,1.31198 z",
+                  "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/106_Suit_Mstr_Sea_04-1-scaled.jpg",
+                  "notClickable": null
+                }
+              ],
+              "coords": {
+                "x": null,
+                "y": null
+              },
+              "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/planta-gaspar-dantas.png",
+              "iconSrc": "",
+              "decorated": [],
+              "main": null
+            }
           }
         ],
         "main": true

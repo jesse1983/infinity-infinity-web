@@ -11,9 +11,11 @@ export type DECORATED = {
   description?: string;
   floorPlanSrc?: string;
   sort?: number;
+  floorPlanExample?: FLOOR;
 }
 
 export type FLOOR = {
+  id: string;
   title: string;
   slug: string;
   reverse?: boolean;

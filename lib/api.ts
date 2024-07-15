@@ -1,15 +1,17 @@
-import NodeFetchCache, { FileSystemCache } from 'node-fetch-cache';
+import NodeFetchCache, { FileSystemCache } from "node-fetch-cache";
 import { Page, Settings, Image } from "../models";
 import allSettingsJson from "./fallback/allSettings.json";
 import enterprises from "./fallback/buildings.json";
 import { AMBIENT, ENTERPRISE, FLOOR } from "../types";
 import { PARKING } from "../types/parking";
-import { DECORATED } from '../types/floor';
-import fs from 'fs';
+import { DECORATED } from "../types/floor";
+import fs from "fs";
 
-
-const API_URL = process.env.WORDPRESS_API_URL || 'http://qa.infinitybyor.com.br/index.php?graphql';
-const WORDPRESS_URL = process.env.WORDPRESS_URL || 'http://qa.infinitybyor.com.br';
+const API_URL =
+  process.env.WORDPRESS_API_URL ||
+  "http://qa.infinitybyor.com.br/index.php?graphql";
+const WORDPRESS_URL =
+  process.env.WORDPRESS_URL || "http://qa.infinitybyor.com.br";
 
 type allSettingsType = {
   generalSettings: Settings;
@@ -19,17 +21,21 @@ type allSettingsType = {
 
 const fetch = NodeFetchCache.create({
   shouldCacheResponse: (response) => response.ok,
-  cache:  new FileSystemCache({
-    cacheDirectory: './.cache',
+  cache: new FileSystemCache({
+    cacheDirectory: "./.cache",
     ttl: 60000,
-  })
+  }),
 });
 
 const createFallback = (name, json) => {
-  if (process.env.NODE_ENV === 'development') {
-    fs.writeFile(`lib/fallback/${name}.json`, JSON.stringify(json, null, 2), () => {});
+  if (process.env.NODE_ENV === "development") {
+    fs.writeFile(
+      `lib/fallback/${name}.json`,
+      JSON.stringify(json, null, 2),
+      () => {}
+    );
   }
-}
+};
 
 async function fetchAPI(query = "", { variables }: Record<string, any> = {}) {
   const headers = { "Content-Type": "application/json" };
@@ -89,7 +95,9 @@ const handleGarages = (enterpriseId, garagesNode: any[]) => {
         number: a.other_fields.number,
         identifier: a.other_fields.number,
         parkingslot: a?.other_fields?.parkingslot || "",
-        image: a.other_fields?.image ? a.other_fields?.image?.mediaItemUrl : null,
+        image: a.other_fields?.image
+          ? a.other_fields?.image?.mediaItemUrl
+          : null,
       })
     )
     .sort((a, b) => (a.identifier > b.identifier ? 1 : -1));
@@ -97,10 +105,10 @@ const handleGarages = (enterpriseId, garagesNode: any[]) => {
 
 const handleAmbients = (floorId, ambientsNode: any[]) => {
   return ambientsNode
-    .filter((a) => (a?.details?.floor?.id === floorId) && a?.details?.coords)
+    .filter((a) => a?.details?.floor?.id === floorId && a?.details?.coords)
     .map(
       (a): AMBIENT => ({
-        title: a?.title,
+        title: a.title?.split("|")[0].trim(),
         coords: a?.details?.coords,
         photoSrc: a?.details?.image ? a?.details?.image?.mediaItemUrl : null,
         notClickable: a?.details?.notclickable,
@@ -117,6 +125,7 @@ const handleDecorated = (floorId, decoratedNode: any[]) => {
         floorPlanSrc: a.custom?.image?.mediaItemUrl,
         description: a.custom.description,
         subtitle: a.custom.subtitle,
+        floorPlanExample: a.custom?.floorPlan,
       })
     );
 };
@@ -126,11 +135,16 @@ const handleFloors = (
   floorsNode: any[],
   ambientsNode: any[],
   decoratedNode: unknown[],
+  isMain?: boolean,
 ): FLOOR[] => {
   return floorsNode
-    .filter((f) => f.floor_fields.enterpriseid?.id === enterpriseId && f.floor_fields?.main)
+    .filter(
+      (f) =>
+        f.floor_fields.enterpriseid?.id === enterpriseId && !!f.floor_fields?.main === !!isMain
+    )
     .map((f) => ({
-      title: f.title?.split('|')[0].trim(),
+      id: f.id,
+      title: f.title?.split("|")[0].trim(),
       slug: f.slug,
       reverse: f.floor_fields?.reverse || false,
       ambients: handleAmbients(f.id, ambientsNode),
@@ -140,7 +154,7 @@ const handleFloors = (
         y: Number.parseInt(f.floor_fields.coords.split(",")[1]),
       },
       floorPlanSrc: f.floor_fields?.photo?.mediaItemUrl,
-      iconSrc: f.floor_fields?.icon?.mediaItemUrl || '',
+      iconSrc: f.floor_fields?.icon?.mediaItemUrl || "",
       decorated: handleDecorated(f.id, decoratedNode),
       main: f.floor_fields?.main,
     }));
@@ -152,7 +166,7 @@ const handleEnterprises = (
   ambientsNode = [],
   garagesNode = [],
   depositsNode = [],
-  decoratedNode = [],
+  decoratedNode = []
 ): ENTERPRISE[] => {
   return enterpriseNode.map(
     (e): ENTERPRISE => ({
@@ -161,7 +175,7 @@ const handleEnterprises = (
       slug: e.slug,
       area: e.enterprises?.area.toLocaleString("pt-BR") + "m²",
       features: e.enterprises?.features?.split(/\r\n/),
-      floors: handleFloors(e.id, floorsNode, ambientsNode, decoratedNode),
+      floors: handleFloors(e.id, floorsNode, ambientsNode, decoratedNode, true),
       logo: e.enterprises?.logo?.mediaItemUrl,
       bgImage: e.enterprises?.bgimage?.mediaItemUrl,
       salesTable: e.enterprises?.salestable?.mediaItemUrl,
@@ -178,15 +192,14 @@ export async function getPage(slugDirty) {
     const page = [...menu, ...subpages].find((page) =>
       page.slug.endsWith(slug)
     );
-    createFallback('getPage-' + slugDirty, handlePage(page));
+    createFallback("getPage-" + slugDirty, handlePage(page));
 
     return handlePage(page);
   } catch (e) {
-    const json = require(`./fallback/getPage-${slugDirty}.json`)
+    const json = require(`./fallback/getPage-${slugDirty}.json`);
     return Object.assign(json) as Page;
   }
 }
-
 
 export async function allSettings(): Promise<allSettingsType> {
   try {
@@ -238,7 +251,7 @@ export async function allSettings(): Promise<allSettingsType> {
         .map((page) => handlePage(page)) as Page[],
     };
 
-    createFallback('allSettings', result);
+    createFallback("allSettings", result);
     return result;
   } catch (e) {
     return Object.assign(allSettingsJson) as allSettingsType;
@@ -396,6 +409,11 @@ export async function getEnterprises() {
                   id
                 }
               }
+              floorPlan {
+                ... on Floor {
+                  id
+                }
+              }
             }
           }
         }
@@ -408,21 +426,39 @@ export async function getEnterprises() {
     const garagesNode = data.garages.nodes;
     const depositsNode = data.deposits.nodes;
     const decoratedNode = data.decorateds.nodes;
-    const enterprises = handleEnterprises(
+    const allEnterprises = handleEnterprises(
       enterprisesNode,
       floorsNode,
       ambientsNode,
       garagesNode,
       depositsNode,
       decoratedNode
-    );
-    const compare = (a, b) => a.title > a.title ? 1 : -1;
+    ) as ENTERPRISE[];
+    const enterprises = allEnterprises.map((e) => {
+      return {
+        ...e,
+        floors: e.floors.map((f) => {
+          return { ...f, decorated: f.decorated.map((d) => {
+            const selectedFloors = floorsNode.filter((ef) => ef.id === d.floorPlanExample?.id);
+            const floorPlanExamples = handleFloors(e.id, selectedFloors, ambientsNode, []);            
+            if (d.floorPlanExample) {
+              return {
+                ...d,
+                floorPlanExample: floorPlanExamples[0], 
+              }
+            }
+            return d;
+          }) };
+        }),
+      };
+    });
+    const compare = (a, b) => (a.title > b.title ? 1 : -1);
     enterprises.sort(compare);
 
-    createFallback('buildings', enterprises);
+    createFallback("buildings", enterprises);
     return enterprises;
   } catch (e) {
-    console.error('ERROR GET ENTERPISES', e);
+    console.error("ERROR GET ENTERPISES", e);
     return enterprises;
   }
 }
@@ -453,19 +489,22 @@ export async function getImagesByText(search: string): Promise<Image[]> {
     const images = nodes.map((image) => {
       const newImage = {};
       Object.keys(image).forEach((key) => {
-        if (image[key]?.toString().includes('http')) {
-          const extractedPath = image[key].split('/').filter((e, i) => i > 2).join('/');
-          newImage[key] = [WORDPRESS_URL, extractedPath].join('/');
+        if (image[key]?.toString().includes("http")) {
+          const extractedPath = image[key]
+            .split("/")
+            .filter((e, i) => i > 2)
+            .join("/");
+          newImage[key] = [WORDPRESS_URL, extractedPath].join("/");
         }
       });
 
       return { ...image, ...newImage } as Image;
     });
 
-    createFallback('image-'+search, images);
+    createFallback("image-" + search, images);
     return images;
   } catch (e) {
-    const json = require(`./fallback/image-${search}.json`)
+    const json = require(`./fallback/image-${search}.json`);
     return Object.assign(json) as Image[];
   }
 }

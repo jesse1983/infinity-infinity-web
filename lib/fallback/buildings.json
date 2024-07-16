@@ -47,55 +47,55 @@
         "ambients": [
           {
             "title": "Meeting Room",
-            "coords": "m 762.19381,171.40892 v 176.82896 l 49.45791,0.67751 0.67751,-26.42272 32.52026,-1.35501 1.35502,-149.05124 z",
+            "coords": "m 636.56277,213.27713 0.81715,144.63621 h 38.40623 l 0.81715,-22.06315 27.78323,-1.63431 -0.81716,-120.93875 z",
             "photoSrc": null,
             "notClickable": true
           },
           {
             "title": "Estar Externo",
-            "coords": "m 489.83656,50.812921 0.6775,126.016039 128.72607,-0.6775 0.6775,-12.1951 421.40847,-0.67751 -1.355,-125.338536 z",
+            "coords": "m 411.84549,116.03583 -1.63431,95.60699 451.88602,-4.08577 V 103.77853 Z",
             "photoSrc": null,
             "notClickable": true
           },
           {
             "title": "Blue Station",
-            "coords": "m 326.23017,197.34439 158.7169,-0.38245 0.38245,65.78146 -158.33445,1.52981 z",
+            "coords": "m 280.28373,235.34028 128.29314,-1.63431 1.63431,53.93215 -130.7446,1.6343 z",
             "photoSrc": null,
             "notClickable": true
           },
           {
             "title": "Blue Park",
-            "coords": "m 326.61262,55.072853 162.15895,-4.589404 0.7649,141.506641 -162.92385,0.7649 z",
+            "coords": "m 281.91804,120.1216 -0.81715,107.04714 2.45146,3.26862 h 126.65883 l 2.45146,-114.40153 z",
             "photoSrc": null,
             "notClickable": true
           },
           {
             "title": "Guarita",
-            "coords": "m 182.4488,51.837151 96.78851,-1.161677 -4.55475,327.595936 55.79574,1.16171 1.13868,94.09672 151.44561,-1.16173 1.13868,139.40258 -300.61379,1.16167 z",
+            "coords": "m 162.61359,120.1216 0.81716,445.34879 245.14612,0.81715 1.63431,-111.13291 -127.47599,-1.6343 v -70.27522 l -47.39491,-0.81716 1.63431,-263.94066 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/guarita.jpg",
             "notClickable": null
           },
           {
             "title": "Lobby",
-            "coords": "m 721.40624,351.09791 -2.10352,-21.5333 -94.65715,-4.53333 v 38.53332 l -23.1384,2.26665 1.05176,58.93329 19.98316,3.39997 2.10348,35.13335 99.91588,-4.53334 3.15523,-21.53333 124.10604,-1.13329 3.15523,87.26657 h 36.81112 v -22.66666 l 133.57183,-2.26668 2.1035,-167.73319 -171.43469,1.13332 -3.15524,23.79999 z",
+            "coords": "m 716.64383,423.28564 v 71.09237 h 27.78323 v -21.24599 h 111.13291 l 1.63431,-127.47599 -142.18476,-0.81715 v 22.06315 l -109.4986,-1.63431 -1.6343,-18.79453 -77.62961,-0.81716 0.81715,98.05845 75.17815,-0.81715 0.81715,-19.61169 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/109_Hall_04-scaled.jpg",
             "notClickable": null
           },
           {
             "title": "Academia",
-            "coords": "m 939.02277,170.73141 319.78263,-1.35501 80.6232,385.50069 -128.7261,1.35502 0.6775,-31.16526 h -3.3875 l -0.6775,-122.62852 -168.0214,-0.6775 -1.355,-81.97818 -98.91583,2.03251 z",
+            "coords": "m 779.56467,215.72859 0.81715,124.20737 h 80.89822 l 0.81716,62.92084 h 136.46467 l 1.63433,125.02452 h 99.6927 l -67.0066,-312.96989 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/114_Ftns_07-scaled.jpg",
             "notClickable": null
           },
           {
             "title": "Mirante",
-            "coords": "m 1055.6084,47.631152 -2.8541,122.728018 203.5954,-6.65966 -24.7359,-123.679398 z",
+            "coords": "m 862.91435,104.96137 0.81716,104.59568 169.15079,0.81715 -22.8803,-108.68144 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/005_Mrnt_05-scaled.jpg",
             "notClickable": null
           },
           {
-            "title": "Brinquedoteca",
-            "coords": "m 632.36864,188.48585 -2.85414,143.65838 95.138,-0.95138 3.80552,20.93036 27.59002,-2.85414 0.95138,-156.9777 z",
+            "title": "Blue Kids",
+            "coords": "m 527.06416,214.91143 103.77853,-0.81715 -0.81715,143.00191 H 612.04815 V 339.1188 l -84.98399,2.45146 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/110_Brtc_05-scaled.jpg",
             "notClickable": null
           }
@@ -104,7 +104,7 @@
           "x": 1030,
           "y": 750
         },
-        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/OR_RV1_TERREO_02_EF_ALTA-EM-PNG.png",
+        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/pavimento-terreo-blue.png",
         "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-pavimento-terreo.svg",
         "decorated": [],
         "main": true
@@ -158,7 +158,7 @@
         "decorated": [
           {
             "title": "Tatiana Melo",
-            "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/tatiane-melo.png",
+            "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/planta-tatiana-melo.png",
             "description": "3 suítes e  suíte master com 2 sanitários",
             "subtitle": "287,32m²",
             "floorPlanExample": {
@@ -168,26 +168,48 @@
               "reverse": false,
               "ambients": [
                 {
-                  "title": "Varanda",
-                  "coords": "m 762.20378,218.95642 87.84966,-1.58242 86.22274,405.1054 -174.88575,2e-5 z",
-                  "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/photo-infinity-blue-planta-tipo04.png",
-                  "notClickable": null
-                },
-                {
                   "title": "Sanitário Suíte Master",
-                  "coords": "m 655.96506,131.58777 1.31587,69.08359 102.63847,-1.31588 1.31588,12.50084 84.21617,-0.65794 -16.44847,-73.68916 -62.50419,1.31588 -0.65794,-7.23733 z",
+                  "coords": "m 646.49807,106.59604 -1.38437,69.91039 h 97.59768 l 3.46091,11.07492 80.29312,-0.69219 -17.99673,-70.60257 -58.1433,-2.07655 v -3.46091 z",
                   "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/102_Bahn_Blue_05-scaled.jpg",
                   "notClickable": null
                 },
                 {
-                  "title": "Suíte Master",
-                  "coords": "m 1160.4403,282.28651 -102.1852,-1.27731 -1.916,-73.44559 -144.97518,1.91597 1.91597,183.9333 247.79901,1.27731 z",
+                  "title": "Suíte Master – Tatiana Melo",
+                  "coords": "m 736.48174,181.35171 2.07655,102.44295 -285.17902,2.76872 -2.76873,-40.14656 -95.52113,-4.15309 2.07655,-32.53256 0.69218,-8.99836 -22.14983,-0.69219 v -92.7524 l 166.1237,0.69219 v 19.38109 l 139.1286,4.1531 -0.69218,49.14492 z",
                   "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/101_Suit_Blue_05-scaled.jpg",
+                  "notClickable": null
+                }
+              ],
+              "coords": {
+                "x": null,
+                "y": null
+              },
+              "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/planta-tatiana-melo.png",
+              "iconSrc": "",
+              "decorated": [],
+              "main": null
+            }
+          },
+          {
+            "title": "Laís Galvão",
+            "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/planta-lais-galvao.png",
+            "description": "3 suítes, sala ampliada e home office + suíte master com 2 sanitários",
+            "subtitle": "287,32m²",
+            "floorPlanExample": {
+              "id": "cG9zdDo2Nzg=",
+              "title": "Planta – Lais Galvão",
+              "slug": "planta-lais-galvao-infinity-blue",
+              "reverse": false,
+              "ambients": [
+                {
+                  "title": "Varanda",
+                  "coords": "m 780.7355,161.33579 v 394.01605 l 167.82165,3.24293 -83.50546,-398.06971 z",
+                  "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/photo-infinity-blue-planta-tipo04.png",
                   "notClickable": null
                 },
                 {
-                  "title": "Living",
-                  "coords": "m 954.15396,602.89246 49.81524,2.55463 1.2773,84.94142 h 151.3618 l 2.5546,-290.58906 -358.92534,1.91597 -1.27732,116.87428 156.47103,2.55463 z",
+                  "title": "Sala Ampliada",
+                  "coords": "m 616.15678,149.1748 0.81074,116.7455 -167.01092,-2.4322 -0.81073,118.36696 116.74549,4.86439 -0.81073,81.07327 47.83322,4.05366 1.62147,80.26253 155.66066,2.43219 1.62146,-404.55557 -150.79626,-0.81073 z",
                   "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/104_Lvng_Blue_05-scaled.jpg",
                   "notClickable": null
                 }
@@ -196,18 +218,11 @@
                 "x": null,
                 "y": null
               },
-              "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/planta-gaspar-dantas.png",
+              "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/planta-lais-galvao.png",
               "iconSrc": "",
               "decorated": [],
               "main": null
             }
-          },
-          {
-            "title": "Laís Galvão",
-            "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/lais-galvao.png",
-            "description": "3 suítes, sala ampliada e home office + suíte master com 2 sanitários",
-            "subtitle": "287,32m²",
-            "floorPlanExample": null
           }
         ],
         "main": true
@@ -352,7 +367,7 @@
           "x": 1410,
           "y": 850
         },
-        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/Subsolo-3.png",
+        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/fitness-sea.png",
         "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/icon-e-fitness.svg",
         "decorated": [],
         "main": true
@@ -453,7 +468,7 @@
           "x": 1470,
           "y": 350
         },
-        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/Planta-tipo-sea.png",
+        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/planta-padrao-terreo-sea.png",
         "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-planta-padrao.svg",
         "decorated": [
           {

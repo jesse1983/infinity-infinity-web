@@ -240,7 +240,7 @@ export default function Enterprise({
             </div>
           </div>
           {floor && (
-            <div className="w-[75vw] relative h-[calc(100vh_-_164px)] overflow-hidden flex flex-col items-center ">
+            <div className="w-[75vw] relative h-[calc(100vh_-_164px)] overflow-hidden">
               <FloorPlan src={floor.floorPlanSrc}>
                 {floor.ambients.map((ambient, i, all) => (
                   <FloorPlan.Path

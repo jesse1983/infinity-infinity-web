@@ -128,6 +128,7 @@ function FloorPlan({ src, children, onLoad, hidePois }: Props) {
               uppercase
               text-md
               pointer-events-none
+              flex
 `}
         >
           {label}

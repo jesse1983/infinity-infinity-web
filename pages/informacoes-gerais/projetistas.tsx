@@ -1,6 +1,6 @@
 import Head from "next/head";
 import { GetServerSideProps } from "next";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Layout from "../../components/layout";
 import { allSettings, filterSubpagesByParent, getPage } from "../../lib/api";
 import { Settings, Page } from "../../models";
@@ -10,6 +10,7 @@ import { usePathname } from "next/navigation";
 import { Carousel } from "react-responsive-carousel";
 import Chevron from "../../public/voltar.svg";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { useState } from "react";
 
 type indexType = {
   generalSettings: Settings;
@@ -40,6 +41,14 @@ export default function Projetistas({
 }: indexType) {
   const currentURL = usePathname();
   const router = useRouter();
+  const searchParams = useSearchParams()
+  const pageNumber = searchParams.get('page') ? Number.parseInt(searchParams.get('page')) : 0;
+
+  const [selectedItem, setSelectedItem] = useState(pageNumber);
+  const onChangeNav = (e) => {
+    router.push('?page=' + e);
+    setSelectedItem(e);
+  }
 
   const nav = (slug) => router.push("projetistas/" + slug);
   return (
@@ -67,6 +76,8 @@ export default function Projetistas({
                 showStatus={false}
                 showThumbs={false}
                 showIndicators={false}
+                selectedItem={selectedItem}
+                onChange={onChangeNav}
                 renderArrowPrev={(clickHandler, hasPrev) =>
                   hasPrev && (
                     <div className="absolute z-50 h-full flex p-4">
@@ -91,7 +102,6 @@ export default function Projetistas({
                     </div>
                   )
                 }
-                selectedItem={0}
               >
                 {groupedDesigners.map((group) => (
                   <div className="grid grid-cols-3 gap-10 mx-24" data-aos="fade">

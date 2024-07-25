@@ -18,6 +18,12 @@
         "reverse": true,
         "ambients": [
           {
+            "title": "Play Beach",
+            "coords": "m 82.709096,301.69688 0.294338,72.40725 76.233646,-0.29434 0.29434,-71.81857 z",
+            "photoSrc": null,
+            "notClickable": true
+          },
+          {
             "title": "Clausura",
             "coords": "m 273.4681,118.01451 1.62779,64.29756 h 51.27527 l -13.02229,-65.11145 z",
             "photoSrc": null,
@@ -34,7 +40,7 @@
           "x": 770,
           "y": 930
         },
-        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/planta-beach-lounge.png",
+        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/lounge-blue.png",
         "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-beach-lounge.svg",
         "decorated": [],
         "main": true
@@ -46,6 +52,12 @@
         "reverse": false,
         "ambients": [
           {
+            "title": "Espaço Delivery",
+            "coords": "m 370.21336,332.80839 0.9591,43.15958 h 36.44588 l 0.9591,-43.15958 z",
+            "photoSrc": null,
+            "notClickable": true
+          },
+          {
             "title": "Meeting Room",
             "coords": "m 636.56277,213.27713 0.81715,144.63621 h 38.40623 l 0.81715,-22.06315 27.78323,-1.63431 -0.81716,-120.93875 z",
             "photoSrc": null,
@@ -53,12 +65,12 @@
           },
           {
             "title": "Estar Externo",
-            "coords": "m 411.84549,116.03583 -1.63431,95.60699 451.88602,-4.08577 V 103.77853 Z",
+            "coords": "M 862.09766 103.7793 L 411.8457 116.03516 L 410.33594 204.28125 L 409.53711 204.28906 L 411.45508 231.14453 L 410.49609 579.29688 L 549.56641 579.29688 L 549.56641 536.13867 L 517.91602 534.2207 L 520.72852 210.64258 L 862.09766 207.55664 L 862.09766 103.7793 z ",
             "photoSrc": null,
             "notClickable": true
           },
           {
-            "title": "Blue Station",
+            "title": "Bike Station",
             "coords": "m 280.28373,235.34028 128.29314,-1.63431 1.63431,53.93215 -130.7446,1.6343 z",
             "photoSrc": null,
             "notClickable": true
@@ -70,8 +82,8 @@
             "notClickable": true
           },
           {
-            "title": "Guarita",
-            "coords": "m 162.61359,120.1216 0.81716,445.34879 245.14612,0.81715 1.63431,-111.13291 -127.47599,-1.6343 v -70.27522 l -47.39491,-0.81716 1.63431,-263.94066 z",
+            "title": "Guarita com clausura",
+            "coords": "m 163.04734,119.88775 76.72815,-0.9591 -1.9182,204.28872 35.48677,-0.95911 1.91821,10.55013 33.56857,0.9591 0.9591,45.07779 99.7466,2.87731 V 581.2158 l -247.44831,0.9591 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/guarita.jpg",
             "notClickable": null
           },
@@ -82,13 +94,13 @@
             "notClickable": null
           },
           {
-            "title": "Academia",
-            "coords": "m 779.56467,215.72859 0.81715,124.20737 h 80.89822 l 0.81716,62.92084 h 136.46467 l 1.63433,125.02452 h 99.6927 l -67.0066,-312.96989 z",
+            "title": "Fitness",
+            "coords": "m 779.56467,215.72859 0.81715,124.20737 h 80.89822 l 0.81716,62.92084 2.19039,125.64236 135.90861,-0.61784 h 99.6927 l -67.0066,-312.96989 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/114_Ftns_07-scaled.jpg",
             "notClickable": null
           },
           {
-            "title": "Mirante",
+            "title": "Sunset Deck",
             "coords": "m 862.91435,104.96137 0.81716,104.59568 169.15079,0.81715 -22.8803,-108.68144 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/005_Mrnt_05-scaled.jpg",
             "notClickable": null
@@ -104,7 +116,7 @@
           "x": 1030,
           "y": 750
         },
-        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/pavimento-terreo-blue.png",
+        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/planta-terrea-blue-1.png",
         "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-pavimento-terreo.svg",
         "decorated": [],
         "main": true
@@ -123,7 +135,7 @@
           },
           {
             "title": "Piscina",
-            "coords": "m 617.86502,270.74984 v 27.76922 h 52.06728 l -1.73558,52.06727 h -50.3317 l 1.73558,26.03364 53.80285,-1.73557 v 62.48073 l -53.80285,-3.47115 v 8.67788 h 76.36534 l 1.73557,279.42772 H 850.43219 L 754.97552,269.01427 Z",
+            "coords": "m 486.08334,271.19168 v 169.69305 l 10.30846,0.79296 0.79296,160.9705 199.03249,1.58591 2.37887,114.97893 153.04092,1.58592 -95.94793,-451.19318 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/004_Pisc_05-scaled.jpg",
             "notClickable": null
           },
@@ -174,7 +186,7 @@
                   "notClickable": null
                 },
                 {
-                  "title": "Suíte Master – Tatiana Melo",
+                  "title": "Suíte Master",
                   "coords": "m 736.48174,181.35171 2.07655,102.44295 -285.17902,2.76872 -2.76873,-40.14656 -95.52113,-4.15309 2.07655,-32.53256 0.69218,-8.99836 -22.14983,-0.69219 v -92.7524 l 166.1237,0.69219 v 19.38109 l 139.1286,4.1531 -0.69218,49.14492 z",
                   "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/101_Suit_Blue_05-scaled.jpg",
                   "notClickable": null
@@ -357,8 +369,8 @@
         "reverse": true,
         "ambients": [
           {
-            "title": "Academia",
-            "coords": "m 871.91211,65.736096 -225.33008,0.976563 0.98438,172.859371 -399.49414,-0.97656 v 130.29101 h 224.48632 v 130.19141 l 398.36914,1.25 z",
+            "title": "Fitness",
+            "coords": "M 666.88914,53.608452 V 223.01116 H 270.1866 v 115.79426 h 79.34051 V 470.68221 H 874.88994 L 873.81777,54.680621 Z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/03/115_Ftns_Sea_05-2-scaled.jpg",
             "notClickable": null
           }
@@ -379,8 +391,20 @@
         "reverse": false,
         "ambients": [
           {
+            "title": "Play Beach",
+            "coords": "m 286.00241,466.1534 -1.0178,80.40637 h 145.54571 l -1.0178,-81.42418 z",
+            "photoSrc": null,
+            "notClickable": true
+          },
+          {
+            "title": "Clausura",
+            "coords": "m 623.61556,53.977112 0.35985,99.677728 56.85589,1.43939 0.35985,-100.397424 z",
+            "photoSrc": null,
+            "notClickable": true
+          },
+          {
             "title": "Beach Club",
-            "coords": "m 604,206 2,672 426,-2 -8,-668 z",
+            "coords": "m 434.02695,156.09741 3.80725,392.14716 243.66426,-1.90363 -1.90363,-388.3399 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/118_Beach_Club_Sea_05-1-scaled.jpg",
             "notClickable": null
           }
@@ -389,7 +413,7 @@
           "x": 1620,
           "y": 890
         },
-        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/Beach-lounge-1.png",
+        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/beach-club-sea.png",
         "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-beach-lounge.svg",
         "decorated": [],
         "main": true
@@ -401,50 +425,86 @@
         "reverse": false,
         "ambients": [
           {
-            "title": "Yatch Bar",
-            "coords": "m 1003.1149,550.62758 0,75.5593 79.9018,0 v 10.42197 h 59.0578 l 1.737,-83.37578 z",
-            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/012_Ytch_Bar_04-1.jpg",
-            "notClickable": null
-          },
-          {
-            "title": "Sala de Yoga",
-            "coords": "m 490.70123,147.64462 -0.8685,99.87724 55.58386,-0.8685 1.73699,-99.87724 z",
+            "title": "Lobby",
+            "coords": "m 490.93948,273.36403 0.41842,30.54425 40.44672,-0.41842 v 17.01552 h 66.52788 v -46.58346 z",
             "photoSrc": null,
             "notClickable": true
           },
           {
-            "title": "Lounge",
-            "coords": "M 1000.5094,552.36457 H 839.83733 l -2.6055,79.0333 -554.97006,1.73699 -0.8685,94.66626 830.28383,-11.29047 -0.8685,-46.89888 33.0029,-0.8685 -0.8685,-31.26592 -142.4336,2.60549 z",
+            "title": "Sea Kids",
+            "coords": "m 344.19085,347.62963 -0.15631,72.99597 77.52891,-0.15631 -0.46893,-73.6212 z",
+            "photoSrc": null,
+            "notClickable": true
+          },
+          {
+            "title": "Espaco Delivery",
+            "coords": "m 194.24416,144.86449 -0.13098,36.15064 27.76788,-0.13098 -0.6549,-36.28162 z",
+            "photoSrc": null,
+            "notClickable": true
+          },
+          {
+            "title": "Guarita com clausura",
+            "coords": "m 128.29931,68.333326 h 58.57142 l 1.39456,437.891114 -22.31293,2.78911 -1.39455,87.85714 -37.65306,-1.39456 z",
+            "photoSrc": null,
+            "notClickable": true
+          },
+          {
+            "title": "Sauna",
+            "coords": "m 614.30266,181.98978 -0.69728,23.70748 h 36.2585 l 0.69728,-23.0102 z",
+            "photoSrc": null,
+            "notClickable": true
+          },
+          {
+            "title": "Gourmet",
+            "coords": "M 690.90847,67.904359 V 178.40853 L 580.23085,177.42189 V 68.430821 Z",
+            "photoSrc": null,
+            "notClickable": true
+          },
+          {
+            "title": "Yatch Bar",
+            "coords": "m 742.41879,448.07794 0.77255,58.71366 101.20381,2.31764 v -59.48621 z",
+            "photoSrc": null,
+            "notClickable": null
+          },
+          {
+            "title": "Sala de Yoga",
+            "coords": "m 375.45841,161.46257 0.77255,72.61952 43.2627,-0.77254 -1.5451,-71.84698 z",
+            "photoSrc": null,
+            "notClickable": true
+          },
+          {
+            "title": "Estar Externo",
+            "coords": "m 820.44615,508.33669 -0.77254,57.16857 -592.54445,9.27058 0.77255,-68.75679 398.63485,-3.09019 0.77255,-57.16857 H 739.3286 l 3.09019,64.1215 z",
             "photoSrc": null,
             "notClickable": true
           },
           {
             "title": "Beauty",
-            "coords": "m 656.16002,135.62665 -0.0316,113.8548 99.83831,0.0434 -1.00042,-112.8524 z",
+            "coords": "m 496.74847,150.64689 v 81.11756 h 73.39208 l -1.5451,-82.66265 z",
             "photoSrc": null,
             "notClickable": true
           },
           {
             "title": "Salão de Festas",
-            "coords": "m 551.46145,461.66756 1.36051,48.52498 4.08154,0.90701 v 7.70958 l -61.67661,-0.90701 -1.81402,109.74808 210.87959,1.36051 v -14.05863 l 6.80257,-0.90701 0.907,8.61658 125.62075,0.90701 V 377.31573 l -34.91985,-0.90701 0.4535,4.53504 -96.14295,-0.4535 v 80.7238 z",
+            "coords": "m 380.0937,423.3564 0.77255,77.25481 243.35267,-1.54509 1.5451,-176.14099 -93.47833,3.0902 0.77255,56.39601 -108.9293,2.31765 0.77255,40.1725 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/116_Fest_Sea_05-2-1-scaled.jpg",
             "notClickable": null
           },
           {
-            "title": "Sala de massagem",
-            "coords": "m 570.42345,126.76077 -0.62138,19.57335 -15.8451,0.31069 -0.62137,68.97277 102.83778,0.93206 v -74.25447 h -20.50542 l -0.93207,-15.5344 z",
+            "title": "Salas de massagem",
+            "coords": "m 435.71717,146.0116 41.7176,-0.77254 1.54509,11.58822 15.45097,0.77255 v 54.85092 l -71.07443,0.77254 0.77254,-51.76072 11.58823,0.77255 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/117_Spa_Sea_04-scaled.jpg",
             "notClickable": null
           },
           {
             "title": "Sea Park",
-            "coords": "m 249.42746,387.74633 30.83831,-0.4535 0.4535,-20.86121 c 0,0 39.45489,1.36051 46.71096,29.9313 7.25608,28.57078 -15.41915,60.7696 -7.25607,71.2002 8.16308,10.4306 40.3619,47.16447 37.18737,65.75815 -3.17453,18.59368 11.58374,27.85259 -38.09438,66.21165 -35.82685,27.66378 -38.54788,34.01284 -38.54788,34.01284 h -31.29181 z",
+            "coords": "m 205.87568,330.8998 20.90309,0.3944 1.97199,-15.38152 c 0,0 26.03025,3.54958 31.15743,20.11429 5.12717,16.56471 1.57759,28.79104 1.57759,28.79104 0,0 -10.64874,19.7199 0.78879,34.31262 11.43754,14.59272 19.7199,29.57984 19.7199,29.57984 v 19.71989 c 0,0 -7.09917,20.90309 -29.57984,32.34062 -22.48068,11.43754 -24.84707,25.63586 -24.84707,25.63586 l -20.90308,0.7888 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/010_Parq_Inft_05-scaled.jpg",
             "notClickable": null
           },
           {
-            "title": "Piscina Adulta & Infantil",
-            "coords": "m 1004.9659,14.512143 h 141.4934 V 547.83341 h -139.6794 l 1.8141,-370.05965 54.4205,-1.81402 -1.814,-48.97849 h -54.4206 v -18.14017 h 54.4206 l -1.814,-48.978489 h -54.4206 z",
+            "title": "Piscina",
+            "coords": "m 674.96592,327.72105 -0.69728,115.74829 169.43875,-0.69728 V 66.938768 l -152.70406,2.789116 1.39456,259.387726 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/011_Pisc_Sea_05-2-scaled.jpg",
             "notClickable": null
           }
@@ -453,7 +513,7 @@
           "x": 1830,
           "y": 750
         },
-        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/pavimento-terreo.png",
+        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/pavimento-terreo-sea-1.png",
         "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-pavimento-terreo.svg",
         "decorated": [],
         "main": true
@@ -474,7 +534,7 @@
           {
             "title": "GAM Arquitetos",
             "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/planta-gam-arq.png",
-            "description": "Apartamento linear - 5 suítes + home office",
+            "description": "Apartamento Linear - 5 suítes + home office",
             "subtitle": "576,76m²",
             "floorPlanExample": {
               "id": "cG9zdDo2NzU=",

@@ -20,7 +20,7 @@ export default function MapaDeDepositos({
 
   const router = useRouter();
 
-  const onBack = () => router.push('/infinity-world');
+  const onBack = () => router.push("/infinity-world");
 
   const setDeposit = (enterprise, deposit) => {
     setSelectedEnterprise(enterprise);
@@ -43,31 +43,40 @@ export default function MapaDeDepositos({
         <>
           <SeaVideo />
           <EnterpriseContainer title="Mapa de depósitos" onBack={onBack}>
-            <div className="flex flex-col gap-y-24 text-center items-center">
-              {enterprises.sort().map((enterprise) => (
-                <div key={uuidv4()}>
-                  <div
-                    className="self-center mb-10 text-3xl uppercase font-light mx-auto"
-                    data-aos="zoom-in"
-                  >
-                    {enterprise.title}
+            <div className="flex flex-col h-full items-center justify-between ">
+              <div></div>
+              <div className="flex flex-col gap-y-24  text-center items-center">
+                {enterprises.sort().map((enterprise) => (
+                  <div key={uuidv4()}>
+                    <div
+                      className="self-center mb-10 text-3xl uppercase font-light mx-auto"
+                      data-aos="zoom-in"
+                    >
+                      {enterprise.title}
+                    </div>
+                    <div className="flex flex-row items-center justify-center gap-4">
+                      {enterprise.deposits.map((deposit) => (
+                        <ItemMapa
+                          onClick={() => {
+                            setDeposit(enterprise, deposit);
+                          }}
+                          identifier={deposit.identifier}
+                          key={uuidv4()}
+                          isFilled
+                        />
+                      ))}
+                    </div>
                   </div>
-                  <div className="flex flex-row items-center justify-center gap-4">
-                    {enterprise.deposits.map((deposit) => (
-                      <ItemMapa
-                        onClick={() => {
-                          setDeposit(enterprise, deposit);
-                        }}
-                        identifier={deposit.identifier}
-                        key={uuidv4()}
-                        isFilled
-                      />
-                    ))}
-                  </div>
-                </div>
-              ))}
-              <div><Link href="/infinity-world/mapa-de-depositos/tabela-de-vendas" className="border border-white px-6 py-4 uppercase hover:text-midnight-950 hover:bg-white transition-all duration-300 ">Acesse a tabela de vendas</Link></div>
-
+                ))}
+              </div>
+              <div className="mb-8">
+                <Link
+                  href="/infinity-world/mapa-de-depositos/tabela-de-vendas"
+                  className="border border-white px-6 py-4 uppercase hover:text-midnight-950 hover:bg-white transition-all duration-300 cursor-pointer"
+                >
+                  Acesse a tabela de vendas
+                </Link>
+              </div>
             </div>
           </EnterpriseContainer>
         </>

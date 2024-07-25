@@ -26,13 +26,13 @@ export function Decorated({
 
   const decoratedTitle = (deco: DECORATED) => {
     return (
-      <div className="absolute h-full lg:flex items-center justify-center flex-col w-3/12 py-12 text-center hidden">
-        <div className="lg:w-2/3">
+      <div className="absolute h-full lg:flex items-center justify-between flex-col w-3/12 py-12 text-center hidden">
+        <div className="w-full lg:w-9/12">
           <div className="uppercase" data-aos="slide-right">
             Opção
           </div>
           <div
-            className="text-4xl font-thin mb-20"
+            className="text-3xl font-thin mb-20"
             data-aos="slide-right"
             data-aos-delay="100"
           >
@@ -50,17 +50,19 @@ export function Decorated({
             data-aos="slide-right"
             data-aos-delay="300"
           >
-            {deco.description}
+            {deco.description.split(' - ').map((d) => <span className=" block">{d}</span>)}
           </div>
         </div>
         <div
-          className="absolute z-40 bottom-7 left-7"
+          className="scale-75"
+          data-aos="slide-right"
+          data-aos-delay="400"
           onClick={() => setSelectedDecorated(undefined)}
         >
           <BackButton />
         </div>
       </div>
-    );
+    );  
   };
   const odd = (i: number, total: number) => {
     if (i === total - 1 && i % 2 === 0) return " col-start-4";
@@ -170,7 +172,7 @@ export function Decorated({
                   <h1 className="text-3xl p-4 mb-8 cursor-pointer border border-white hover:bg-white hover:text-midnight-950 duration-300 transition-all">
                     {isClient ? deco.title : ""}
                   </h1>
-                  <p className="text-2xl">{isClient ? deco.description : ""}</p>
+                  <p className="text-2xl">{isClient ? deco.description.split(' - ').map((d) => <span className=" block">{d}</span>) : ""}</p>
                 </div>
               ))}
               <div

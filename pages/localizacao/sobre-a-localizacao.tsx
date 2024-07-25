@@ -28,7 +28,7 @@ export default function Index({
         <meta name="description" content={page.title}></meta>
       </Head>
       <Header menu={menu} />
-      <section className="relative min-h-[calc(100vh_-_174px)] flex" style={{ backgroundImage: 'url(/bg-sobre-localizacao.jpg)' }}>
+      <section className="relative min-h-[calc(100vh_-_174px)] flex bg-cover" style={{ backgroundImage: 'url(/bg-sobre-localizacao.jpg)' }}>
         <MiniMenuLocation />
         <div className="m-auto">
           <div className="container m-auto p-10">

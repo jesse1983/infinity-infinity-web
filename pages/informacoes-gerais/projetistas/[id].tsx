@@ -27,7 +27,7 @@ export default function Index({
   const router = useRouter();
   
   const clickHandler = () =>
-    router.push("/informacoes-gerais/projetistas");
+    router.back();
   return (
     <Layout preview={preview}>
       <Head>

@@ -37,7 +37,7 @@ export default function Index({
         >
           <div
             dangerouslySetInnerHTML={{ __html: page.content }}
-            className="[&>h2]:mb-10 [&>h2]:text-xl pl-24 pt-20 list-numbers text-midnight-950 "
+            className="[&>h2]:mb-10 [&>h2]:text-xl pl-24 pt-[7vh] list-numbers text-midnight-950 "
             data-aos="fade-left"
           />
           <div>

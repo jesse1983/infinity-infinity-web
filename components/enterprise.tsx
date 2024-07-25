@@ -128,7 +128,7 @@ export default function Enterprise({
         <meta name="description" content={page.title}></meta>
       </Head>
       <Header menu={menu} logo={enterprise.includes("sea") ? "SEA" : "BLUE"} />
-      <div className="w-full relative h-[calc(100vh_-_174px)] flex ">
+      <div className="w-full relative h-[calc(100vh_-_174px)] flex overflow-hidden">
         <div
           className={`absolute bg-midnight-950 w-full h-full z-40 transition-opacityx  duration-500 flex flex-col justify-center ${
             selectedAmbient ? "opacity-100" : "opacity-0 invisible"

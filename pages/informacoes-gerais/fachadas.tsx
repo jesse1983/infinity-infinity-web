@@ -83,7 +83,7 @@ export default function Descritivo({
           <h1 className="uppercase inline text-2xl m-auto" data-aos="flip-down">Fachadas</h1>
           <div className="min-h-[calc(100vh_-_174px)] col-span-2">
             <div className="flex items-center justify-center gap-8 h-full">
-              {['/fachada-sea.jpg', '/fachada-blue.jpg'].map((e, i) => (
+              {['/fachada-blue.jpg', '/fachada-sea.jpg'].map((e, i) => (
               <div className="relative" ref={imagesRefs[i]} data-aos="flip-up" data-aos-duration={(i+1) * 500}>
                 <span className="absolute right-1 top-1 scale-75 cursor-pointer hover:scale-95 transition-all" onClick={() => isFullscreen ? exitFullScreen() : setFullScreen(i)}>
                   {isFullscreen ? <IconClose />: <IconMaximize />}

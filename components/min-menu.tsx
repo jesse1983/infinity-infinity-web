@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { MouseEvent } from 'react';
+import { useRouter } from "next/router";
+import { MouseEvent, useMemo } from 'react';
 import { v4 as uuidv4 } from "uuid";
 
 export type ItemNav = {
@@ -10,6 +11,7 @@ export type ItemNav = {
 }
 
 export default function MiniMenu({ items = [] }: { items: ItemNav[] }) {
+  const router = useRouter();
   const height = items.length > 3 ? 'h-[260px]' : 'h-[160px]';
   const nav = (ev: MouseEvent<HTMLAnchorElement>, item: ItemNav) => {
     if (item.onClick) {
@@ -23,6 +25,11 @@ export default function MiniMenu({ items = [] }: { items: ItemNav[] }) {
     const minLen = length < 7 ? 8 : length;
     return `${(minLen * 14) + 48}px`;
   }
+
+  const isActive = (item: ItemNav) => {
+    return router.pathname.endsWith(item.path);
+  }
+
   return (
     <div
       className={`bg-contain absolute px-2 hidden w-[70px] hover:w-[299px] ${height} drop-shadow-2xl z-30 sm:flex flex-col uppercase text-sm font-bold bg-repeat-y bg-right right-0 mr-4 mt-[27vh] overflow-hidden`}
@@ -42,7 +49,7 @@ export default function MiniMenu({ items = [] }: { items: ItemNav[] }) {
                 <span className="opacity-0 group-hover:opacity-100">
                   {item.text}
                 </span>
-                <span>{item.icon}</span>
+                <span className={`group-hover:opacity-100 ${isActive(item) ? '' : 'opacity-40'}`}>{item.icon}</span>
               </Link>
             ))}
           </div>

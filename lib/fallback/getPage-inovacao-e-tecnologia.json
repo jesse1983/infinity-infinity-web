@@ -11,11 +11,11 @@
     }
   },
   "featuredImage": {
-    "title": "informacoes-gerais",
+    "title": "redeshPrancheta 1",
     "altText": "",
-    "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/informacoes-gerais.svg",
-    "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/informacoes-gerais.svg",
-    "sizes": "(max-width: 1px) 100vw, 1px",
+    "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/redeshPrancheta-1-2.png",
+    "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/redeshPrancheta-1-2.png",
+    "sizes": "(max-width: 300px) 100vw, 300px",
     "description": null
   }
 }

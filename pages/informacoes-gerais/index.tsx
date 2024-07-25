@@ -32,7 +32,7 @@ export default function Index({
       <Header menu={menu} />
       <MenuInformacoes currentPage={currentURL} subpages={subpages} />
       <div
-        className="h-[calc(100vh_-_174px)] w-screen border border-white/0"
+        className="h-[calc(100vh_-_174px)] w-screen border border-white/0 bg-cover"
         style={{ backgroundImage: "url(/bg-info.png)" }}
       >
         <div
@@ -42,11 +42,11 @@ export default function Index({
           <div className="container flex mt-[80px] relative">
             <div
               dangerouslySetInnerHTML={{ __html: page.content }}
-              className="w-36 absolute font-thin text-[4em] uppercase"
+              className="w-36 absolute font-thin text-[4em] leading-tight uppercase"
             />
             <img
               src={page.featuredImage?.mediaItemUrl}
-              className="h-[calc(100vh_-_300px)] mx-auto"
+              className="h-[calc(100vh_-_270px)] mx-auto"
             />
           </div>
         </div>

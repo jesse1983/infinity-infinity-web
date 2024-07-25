@@ -17,10 +17,11 @@ export default function MapaDeVagas({
   enterprises: ENTERPRISE[];
 }) {
   const searchParams = useSearchParams();
-  const slug = searchParams.get('enterprise');
+  const slug = searchParams.get("enterprise");
   const building = enterprises.find((e) => e.slug === slug);
-  
-  const [selectedEnterprise, setSelectedEnterprise] = useState<ENTERPRISE>(building);
+
+  const [selectedEnterprise, setSelectedEnterprise] =
+    useState<ENTERPRISE>(building);
   const [infoParking, setInfoParking] = useState<PARKING | DEPOSIT>();
 
   const onBack = () => router.push("/infinity-world/mapa-de-vagas");
@@ -44,7 +45,10 @@ export default function MapaDeVagas({
       : -1;
 
   const deposits = useMemo(() => {
-    if (selectedEnterprise) return selectedEnterprise.deposits?.sort((a, b) => a.identifier > b.identifier ? 1 : -1);
+    if (selectedEnterprise)
+      return selectedEnterprise.deposits?.sort((a, b) =>
+        a.identifier > b.identifier ? 1 : -1
+      );
     return [];
   }, [selectedEnterprise]);
 
@@ -53,42 +57,43 @@ export default function MapaDeVagas({
     return [];
   }, [selectedEnterprise]);
 
-
   return (
     <>
       {selectedEnterprise && !infoParking && (
         <>
           <SeaVideo />
           <EnterpriseContainer title="Mapa de vagas" onBack={onBack}>
-            <div className="flex flex-col text-center">
-              <div
-                className={`mx-auto grid ${
-                  selectedEnterprise.slug === "infinity-sea"
-                    ? "grid-cols-8"
-                    : "grid-cols-5 w-[68%] "
-                } gap-y-8 gap-4 mb-4`}
-              >
-                {garages.map((item) => (
-                  <ItemMapa
-                    onClick={() => {
-                      setInfoParking(item);
-                    }}
-                    identifier={item.parkingslot}
-                    key={uuidv4()}
-                    isFilled
-                  />
-                ))}
-              </div>
-              <div className="flex justify-center items-center gap-4 pt-8">
-                {deposits.map((item) => (
-                  <ItemMapa
-                    onClick={() => {
-                      setInfoParking(item);
-                    }}
-                    identifier={item.identifier}
-                    key={uuidv4()}
-                  />
-                ))}
+            <div className="flex h-full items-center justify-center">
+              <div className="flex flex-col text-center">
+                <div
+                  className={`mx-auto grid  ${
+                    selectedEnterprise.slug === "infinity-sea"
+                      ? "grid-cols-8"
+                      : "grid-cols-5 w-[68%] "
+                  } gap-y-[2vh] gap-[2vh] mb-2`}
+                >
+                  {garages.map((item) => (
+                    <ItemMapa
+                      onClick={() => {
+                        setInfoParking(item);
+                      }}
+                      identifier={item.parkingslot}
+                      key={uuidv4()}
+                      isFilled
+                    />
+                  ))}
+                </div>
+                <div className="flex justify-center items-center gap-4 pt-6">
+                  {deposits.map((item) => (
+                    <ItemMapa
+                      onClick={() => {
+                        setInfoParking(item);
+                      }}
+                      identifier={item.identifier}
+                      key={uuidv4()}
+                    />
+                  ))}
+                </div>
               </div>
             </div>
           </EnterpriseContainer>
@@ -106,11 +111,7 @@ export default function MapaDeVagas({
         />
       )}
       {!selectedEnterprise && (
-        <AeroMap
-          enterprises={enterprises}
-          onClick={go}
-          title="Mapa de vagas"
-        />
+        <AeroMap enterprises={enterprises} onClick={go} title="Mapa de vagas" />
       )}
     </>
   );

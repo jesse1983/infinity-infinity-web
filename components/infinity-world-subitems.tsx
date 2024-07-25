@@ -42,8 +42,8 @@ export default function infinityWorldItems({
       path: "mapa-de-depositos",
     },
     {
-      icon: <MiniMenuItem04 className="mr-2 h-10 scale-75" />,
-      screenComponent: <div>laklakl</div>,
+      icon: <MiniMenuItem04 className="mr-2 h-11 scale-75" />,
+      screenComponent: <div></div>,
       screen: SCREEN.VIEWS,
       text: "Vistas",
       path: "vistas",

@@ -58,7 +58,7 @@ export default function Descritivo({
           </div>
             <div
               dangerouslySetInnerHTML={{ __html: page.content }}
-              className="descritivo pl-20 [&>*]:mb-5 [&>ul>li]:list-disc [&>ul>li]:list-inside font-light"
+              className="descritivo pl-20 [&>*]:mb-0 [&>ul>li]:list-disc [&>ul>li]:list-inside font-light"
                data-aos="fade"
             />
         </div>

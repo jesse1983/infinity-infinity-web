@@ -69,7 +69,7 @@ export default function MapaDeVagas({
                   className={`mx-auto grid  ${
                     selectedEnterprise.slug === "infinity-sea"
                       ? "grid-cols-8"
-                      : "grid-cols-5 w-[68%] "
+                      : "grid-cols-5"
                   } gap-y-[2vh] gap-[2vh] mb-2`}
                 >
                   {garages.map((item) => (

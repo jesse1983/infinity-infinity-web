@@ -27,6 +27,7 @@ export function Decorated({
   const decoratedTitle = (deco: DECORATED) => {
     return (
       <div className="absolute h-full lg:flex items-center justify-between flex-col w-3/12 py-12 text-center hidden">
+        <div></div>
         <div className="w-full lg:w-9/12">
           <div className="uppercase" data-aos="slide-right">
             Opção
@@ -55,8 +56,6 @@ export function Decorated({
         </div>
         <div
           className="scale-75"
-          data-aos="slide-right"
-          data-aos-delay="400"
           onClick={() => setSelectedDecorated(undefined)}
         >
           <BackButton />

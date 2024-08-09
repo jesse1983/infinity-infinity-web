@@ -33,7 +33,7 @@ export default function Index({
       </Head>
       <Header menu={menu} />
       <section
-        className="relative min-h-[calc(100vh_-_174px)] flex"
+        className="relative min-h-[calc(100vh_-_174px)] flex bg-cover"
         style={{ backgroundImage: "url(/bg-manifesto.png)" }}
       >
         <div className="w-full h-full">

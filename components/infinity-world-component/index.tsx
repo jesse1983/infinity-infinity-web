@@ -84,7 +84,7 @@ export function InfinityWorldComponent({
   }, [buildingDetails]);
 
   return (
-    <div className="relative h-[calc(100vh_-_174px)]  " data-aos="fade-in">
+    <div className="relative h-[calc(100vh_-_174px)]" data-aos="fade-in">
       <MiniMenu items={subPageItems.map((s) => ({
         icon: s.icon,
         text: s.text,

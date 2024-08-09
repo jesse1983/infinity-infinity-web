@@ -61,7 +61,7 @@ export default function Header({ menu, logo }: { menu: Page[], logo?: "SEA" | "B
             />
           </svg>
         </button>
-        <ul className={`overflow-hidden shadow-[inset_0px_20px_20px_-20px_#000] sm:h-auto sm:grid sm:grid-cols-5 gap-[1px] m-0 p-0 transition-all duration-300 ease-in-out ${open ? 'h-[322px]' : 'h-0'}`}>
+        <ul className={`overflow-hidden shadow-[inset_0px_20px_20px_-20px_#000] sm:h-auto sm:grid sm:grid-cols-5 gap-0 m-0 p-0 transition-all duration-300 ease-in-out ${open ? 'h-[322px]' : 'h-0'}`}>
           {menu.map((item, i) => (
             <li key={item.slug} className="text-center">
               <Link

@@ -13,7 +13,7 @@ export default function Index({
   enterprises,
 }: PROPS) {
   return (
-    <Layout preview={preview}>
+    <Layout preview={preview} className="hide-scrollbar">
       <Head>
         <title>{generalSettings.title}</title>
         <meta name="description" content={page.title}></meta>

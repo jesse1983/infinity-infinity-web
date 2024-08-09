@@ -2,7 +2,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 
 export default function Document() {
   return (
-    <Html lang="en">
+    <Html lang="pt" className="hide-scrollbar">
       <Head />
       <body className="bg-midnight-950 overflow-x-hidden">
         <Main />

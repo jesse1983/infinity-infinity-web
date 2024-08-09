@@ -61,7 +61,7 @@ export default function Enterprise({
 
   const setFullScreen = (imageIndex) => {
     setIsFullscreen(true);
-    const el = imagesRefs.current[imageIndex].current;
+    const el = imagesRefs.current[imageIndex]?.current;
     setTimeout(() => {
       el.requestFullscreen({ navigationUI: "show" });
     }, 10);

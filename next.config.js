@@ -1,4 +1,16 @@
+const withPWA = require('next-pwa')({
+  dest: 'public',
+  disable: process.env.NODE_ENV === 'development',
+  runtimeCaching: [
+    {
+      urlPattern: new RegExp(`/^${process.env.WORDPRESS_API_URL}.*\.(png|jpg|jpeg|gif|svg|php)$/`),
+      handler: 'NetworkFirst',
+    },
+  ],
+});
+
 const isGithubActionsPages = process.env.GITHUB_ACTIONS_PAGES || false;
+
 
 if (!URL.canParse(process.env.WORDPRESS_API_URL)) {
   throw new Error(`
@@ -24,7 +36,7 @@ if (isGithubActionsPages) {
 
 
 /** @type {import('next').NextConfig} */
-module.exports = {
+module.exports = withPWA({
   images: {
     remotePatterns: [
       {
@@ -51,4 +63,4 @@ module.exports = {
   // assetPrefix: assetPrefix,
   // basePath: basePath,
   // output: 'standalone',
-}
+});

@@ -36,7 +36,7 @@ export default function Index({
       <Header menu={menu} />
       <div className="w-full relative h-[calc(100vh_-_174px)] " data-aos="fade">
         <Carousel
-          className="m-0"
+          className="m-0 mt-[6vh]"
           useKeyboardArrows
           centerSlidePercentage={70}
           // dynamicHeight
@@ -51,7 +51,7 @@ export default function Index({
           {images.map((view) => (
             <div
               key={view.mediaItemUrl}
-              className="w-screen h-[calc(100vh_-_174px)] bg-cover "
+              className="w-screen h-[calc(100vh_-_174px_-_24vh)] bg-cover "
               style={{ backgroundImage: `url(${view.mediaItemUrl})` }}
             ></div>
           ))}
@@ -95,7 +95,7 @@ export default function Index({
         </div>
         <div className="fixed bottom-5 left-5 z-50">
           <div
-            className="m-auto rounded-full w-24 h-24 cursor-pointer flex items-center justify-center bg-white scale-75"
+            className="m-auto rounded-full w-24 h-24 cursor-pointer flex items-center justify-center bg-white scale-50"
             onClick={() => router.push("/infinity-world")}
           >
             <Chevron />

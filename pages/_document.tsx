@@ -4,7 +4,7 @@ export default function Document() {
   return (
     <Html lang="pt" className="hide-scrollbar">
       <Head />
-      <body className="bg-midnight-950 overflow-x-hidden">
+      <body className="bg-midnight-950 overflow-hidden">
         <Main />
         <NextScript />
         <script src="https://unpkg.com/aos@next/dist/aos.js"></script>

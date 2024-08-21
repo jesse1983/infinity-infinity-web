@@ -81,12 +81,12 @@ export default function Index({
                     className="manifesto"
                     data-aos="fade"
                   />
-                  <p className="mt-12 uppercase" data-aos="zoom-in">
+                  <p className="mt-12 uppercase" data-aos="zoom-in" data-aos-anchor-placement="bottom-bottom">
                     <a  
                       href="/manifesto/video"
                       className="py-4 px-10 border border-white hover:bg-white hover:text-midnight-950 transition duration-500 hover:ease-in-out"
                     >
-                      Assista ao video
+                      Assista ao vídeo
                     </a>
                   </p>
                 </div>

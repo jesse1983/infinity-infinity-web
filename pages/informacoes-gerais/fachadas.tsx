@@ -35,10 +35,7 @@ export default function Descritivo({
 }: indexType) {
   const currentURL = usePathname();
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const imagesRefs = [
-    useRef(null),
-    useRef(null),
-  ];
+  const imagesRefs = [useRef(null), useRef(null)];
 
   const doubleImages = [[]];
   let curr = 0;
@@ -54,6 +51,7 @@ export default function Descritivo({
   const setFullScreen = (imageIndex) => {
     setIsFullscreen(true);
     const el = imagesRefs[imageIndex].current;
+    document.body.style.cursor = 'default';
     setTimeout(() => {
       el.requestFullscreen({ navigationUI: "show" });
     }, 10);
@@ -65,6 +63,8 @@ export default function Descritivo({
 
   const exitFullScreen = () => {
     document.exitFullscreen();
+    document.body.style.cursor = 'none';
+
   };
 
   return (
@@ -76,20 +76,30 @@ export default function Descritivo({
       <Header menu={menu} />
       <MenuInformacoes currentPage={currentURL} subpages={subpages} />
       <SeaVideo />
-      <section
-        className="min-h-[calc(100vh_-_174px)] "
-      >
+      <section className="min-h-[calc(100vh_-_174px)] ">
         <div className="min-h-[calc(100vh_-_174px)] w-full grid grid-cols-4">
-          <h1 className="uppercase inline text-2xl m-auto" data-aos="flip-down">Fachadas</h1>
+          <h1 className="uppercase inline text-2xl m-auto" data-aos="flip-down">
+            Fachadas
+          </h1>
           <div className="min-h-[calc(100vh_-_174px)] col-span-2">
             <div className="flex items-center justify-center gap-8 h-full">
-              {['/fachada-blue.jpg', '/fachada-sea.jpg'].map((e, i) => (
-              <div className="relative" ref={imagesRefs[i]} data-aos="flip-up" data-aos-duration={(i+1) * 500}>
-                <span className="absolute right-1 top-1 scale-75 cursor-pointer hover:scale-95 transition-all" onClick={() => isFullscreen ? exitFullScreen() : setFullScreen(i)}>
-                  {isFullscreen ? <IconClose />: <IconMaximize />}
-                </span>
-                <img src={e} className="m-auto" />
-              </div>
+              {["/fachada-blue.jpg", "/fachada-sea.jpg"].map((e, i) => (
+                <div data-aos="flip-up" data-aos-duration={(i + 1) * 500}>
+                  <div
+                    className={`relative z-0 ${isFullscreen ? "p-4" : ''}`}
+                    ref={imagesRefs[i]}
+                  >
+                    <span
+                      className="absolute right-1 top-1 scale-75 cursor-pointer hover:scale-95 transition-all"
+                      onClick={() =>
+                        isFullscreen ? exitFullScreen() : setFullScreen(i)
+                      }
+                    >
+                      {isFullscreen ? <IconClose /> : <IconMaximize />}
+                    </span>
+                    <img src={e} className="m-auto h-full" />
+                  </div>
+                </div>
               ))}
             </div>
           </div>

@@ -14,10 +14,10 @@ export default function BoxDownload({
         src={fileurl + "#toolbar=0&navpanes=0&scrollbar=0"}
         className="m-auto w-full h-full"
       />
-      <div className="absolute z-50 cursor-pointer top-6 right-14">
+      <div className="absolute z-50 cursor-pointer top-6 right-14 scale-75">
         <Close onClick={onClose} />
       </div>
-      <div className="absolute z-50 cursor-pointer bottom-4 right-14">
+      <div className="absolute z-50 cursor-pointer bottom-4 right-5 scale-75">
         <Download file={fileurl} />
       </div>
     </div>

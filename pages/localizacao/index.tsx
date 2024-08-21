@@ -31,7 +31,7 @@ const points = [
   { title: "Educação", icon: <Conv04 className="scale-[0.7]" /> },
   { title: "Lazer", icon: <Conv05 className="scale-[0.7]" /> },
   { title: "Saúde", icon: <Conv06 className="scale-[0.8]" /> },
-  { title: "Bem estar", icon: <Conv07  className="scale-[0.7]" /> },
+  { title: "Bem-estar", icon: <Conv07  className="scale-[0.7]" /> },
 ].map((e) => ({ ...e, image: `url(/mapa-convivencia-${slugify(e.title)}.png)` }));
 
 export default function Index({

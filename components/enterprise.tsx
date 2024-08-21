@@ -62,13 +62,17 @@ export default function Enterprise({
   const setFullScreen = (imageIndex) => {
     setIsFullscreen(true);
     const el = imagesRefs.current[imageIndex]?.current;
-    setTimeout(() => {
-      el.requestFullscreen({ navigationUI: "show" });
-    }, 10);
-    el.addEventListener("fullscreenchange", function () {
-      const fullScreen = !!document.fullscreenElement;
-      setIsFullscreen(fullScreen);
-    });
+    try {
+      setTimeout(() => {
+        el.requestFullscreen({ navigationUI: "show" });
+      }, 10);
+      el.addEventListener("fullscreenchange", function () {
+        const fullScreen = !!document.fullscreenElement;
+        setIsFullscreen(fullScreen);
+      });
+    } catch (e) {
+      console.log(imagesRefs, el);
+    }
   };
 
   const exitFullScreen = (imageIndex) => {
@@ -80,15 +84,6 @@ export default function Enterprise({
     return floor?.ambients?.filter((ambient) => ambient?.photoSrc);
   }, [floor]);
 
-  const logo = (
-    <div className="w-full">
-      {enterprise === "infinity-blue" ? (
-        <LogoInfinityBlue />
-      ) : (
-        <LogoInfinitySea />
-      )}
-    </div>
-  );
   const getFloorPlan = (): FLOOR | undefined => {
     const url = new URLSearchParams(location.search);
     const area = url.get("area").toLowerCase();
@@ -155,7 +150,7 @@ export default function Enterprise({
                 {photographedAmbients.map((ambient, i) => (
                   <div
                     className={
-                      "cursor-pointer p-7 pt-0 flex flex-col h-[calc(100vh_-_200px)] relative items-center m-auto transition-all duration-300 " +
+                      "cursor-pointer p-7 pt-0 flex flex-col h-[calc(100vh_-_200px)] relative items-center justify-center m-auto transition-all duration-300 " +
                       (currentImage === i ? "" : " opacity-30 scale-y-75")
                     }
                     key={ambient.coords}

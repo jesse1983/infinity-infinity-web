@@ -17,11 +17,15 @@ export default function VideoFull({
   const onCloseFn = (ev) => {
     if (onClose) onClose(ev);
     if (backLink) window.location.href = backLink;
+    videoPlayer?.current.pause();
     ev.preventDefault();
   };
 
   useEffect(() => {
     setDomLoaded(true);
+    videoPlayer.current.currentTime = 0;
+    videoPlayer.current.play();
+    videoPlayer.current.muted = false;
   }, []);
 
   return (
@@ -40,6 +44,7 @@ export default function VideoFull({
             controls
             loop
             ref={videoPlayer}
+            muted
           >
             <source src={video.mediaItemUrl} type="video/mp4" />
           </video>

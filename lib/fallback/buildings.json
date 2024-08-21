@@ -165,7 +165,7 @@
           "x": 960,
           "y": 500
         },
-        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/planta-padrao-blue-3.png",
+        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/planta-padrao-blue-3-1.png",
         "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-planta-padrao.svg",
         "decorated": [
           {
@@ -461,7 +461,7 @@
             "notClickable": true
           },
           {
-            "title": "Yatch Bar",
+            "title": "Yacht Bar",
             "coords": "m 742.41879,448.07794 0.77255,58.71366 101.20381,2.31764 v -59.48621 z",
             "photoSrc": null,
             "notClickable": null

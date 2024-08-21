@@ -36,9 +36,9 @@ export default function Index({
       {intro && playInitialVideo &&  <VideoFull video={intro} onClose={() => setPlayInitialVideo(false)} />}
 
       <Header menu={menu} />
-      <div className="relative flex items-center justify-center h-[calc(100vh-174px)] w-screen overflow-hidden">
+      <div className="relative flex items-center justify-center h-[calc(100vh-170px)] w-screen overflow-hidden">
         <video
-          className={`absolute z-10 w-auto min-w-full min-h-full max-h-none`}
+          className={`absolute z-10 min-w-full min-h-full object-fill`}
           autoPlay
           muted
           loop

@@ -49,7 +49,7 @@ export default function Index({
                   className="border border-midnight-950 py-3 px-6 uppercase hover:bg-midnight-950 hover:text-white hover:mt-2 transition-all duration-300"
                   
                 >
-                  Assista ao video
+                  Assista ao vídeo
                 </Link>
               </p>
             </div>

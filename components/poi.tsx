@@ -35,21 +35,21 @@ export default function Poi({ active = true, reverse = false, icon, title, y, x,
     <g className={`cursor-pointer ${active ? '' : 'opacity-0'}`} onMouseOver={onMouseOver} onMouseOut={onMouseOut} onClick={onClickPoi}>
       <rect
         className="fill-midnight-950 stroke-midnight-950 stroke-2"
-        width={isOver ? width + 60 + 20 : 60}
-        height="60"
+        width={isOver ? width + 80 + 20 : 80}
+        height="80"
         x={isInverse ? x - width - 15 : x}
         y={y}
-        ry="30"
+        ry="40"
       />
       <image
         className="stroke-white text-white fill-white"
-        width="30"
-        height="30"
-        x={isInverse ? x - width : x + 15}
-        y={y + 15}
+        width="40"
+        height="40"
+        x={isInverse ? x - width : x + 20}
+        y={y + 20}
         href={icon}
       />
-      <text ref={textEl} x={reverse ? x - width + 35 : x + 60} y={y + 35} className={` fill-white text-xl transition-opacity duration-300 uppercase ${isOver ? 'opacity-1' : 'opacity-0'}`}>
+      <text ref={textEl} x={reverse ? x - width + 45 : x + 60} y={y + 45} className={` fill-white text-xl transition-opacity duration-300 uppercase ${isOver ? 'opacity-1' : 'opacity-0'}`}>
         {title}
       </text>
     </g>

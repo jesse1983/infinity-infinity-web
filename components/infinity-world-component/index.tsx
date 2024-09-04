@@ -40,26 +40,6 @@ export function InfinityWorldComponent({
     router.push({ pathname, query: { area: area.toLowerCase() } });
   };
 
-  const changeScreen = (ev: React.MouseEvent, item) => {
-    ev.preventDefault();
-    setCurrentScreen(item.screen);
-    history.pushState({}, item.text, `/infinity-world/${item.path}`);
-    window.scrollTo({
-      left: 0,
-      top: document.body.scrollHeight,
-      behavior: "smooth",
-    });
-  };
-
-  const scrollToBottom = () => {
-    setTimeout(() => {
-      window.scrollTo({
-        left: 0,
-        top: document.body.scrollHeight,
-        behavior: "smooth",
-      });
-    }, 10);
-  };
 
   const floors: (FLOOR & { enterprise: string })[] = enterprises.reduce(
     (acc, cur) => {
@@ -84,7 +64,7 @@ export function InfinityWorldComponent({
   }, [buildingDetails]);
 
   return (
-    <div className="relative h-[calc(100vh_-_174px)]" data-aos="fade-in">
+    <div className="relative h-[calc(100vh_-_174px)] overflow-hidden" data-aos="fade-in">
       <MiniMenu items={subPageItems.map((s) => ({
         icon: s.icon,
         text: s.text,
@@ -135,19 +115,19 @@ export function InfinityWorldComponent({
           </div>
         </div>
       )}
-      <div className={bgOverlay}>
-        {!currentScreen && <FloorPlan src={page?.featuredImage?.mediaItemUrl || roofTop.src} onLoad={scrollToBottom} hidePois={hidePois}>
+      <div className={"w-full absolute bottom-0  " + bgOverlay}>
+        {!currentScreen && <FloorPlan src={page?.featuredImage?.mediaItemUrl || roofTop.src} hidePois={hidePois}>
           <FloorPlan.Path
             title={"Infinity Blue"}
             noBorder
             coords="m 820.48971,240.43039 3.36266,568.29 -12.60999,0.84066 1.05199,94.1522 -13.64523,0.43839 1.41081,55.87263 c 90.60155,-1.4784 180.3597,2.36885 270.94805,0.0159 l -1.6813,-32.78596 11.7694,-14.29132 -21.8573,-5.88466 -5.8847,-139.5505 -38.6706,-1.68133 2.522,-469.09145 -11.7693,-19.33531 1.6813,-18.49465 -11.76933,-25.21997 -152.16049,-7.56599 -10.08799,10.08799 z"
-            onClick={(ev) => clickBuildingDetails(enterprises[0], "left-[5%]")}
+            onClick={() => clickBuildingDetails(enterprises[0], "left-[5%]")}
           />
           <FloorPlan.Path
             title={"Infinity Sea"}
             noBorder
             coords="m 1496.3849,235.38639 292.5517,-5.04399 -3.3627,522.89405 62.2093,-1.68133 3.3626,208.48509 -232.0237,6.72532 -168.1331,-10.08798 -5.044,-163.08915 3.3626,-5.04399 1.6814,-31.9453 50.4399,-1.68133 z"
-            onClick={(ev) =>
+            onClick={() =>
               clickBuildingDetails(enterprises[1], "right-[5%]")
             }
           />

@@ -5,12 +5,12 @@ import { allSettings, getImagesByText, getPage } from "../../lib/api";
 import { Settings, Page, Image } from "../../models";
 import Header from "../../components/header";
 import MiniMenuLocation from "../../components/mini-menu-location";
-import { useMemo, useState } from "react";
+import { useState } from "react";
 import { slugify } from '../../helpers/slugify'
 import Conv01 from '../../public/conv01.svg';
 import Conv02 from '../../public/conv02.svg';
 import Conv03 from '../../public/conv03.svg';
-import Conv04 from '../../public/conv04.svg';
+// import Conv04 from '../../public/conv04.svg';
 import Conv05 from '../../public/conv05.svg';
 import Conv06 from '../../public/conv06.svg';
 import Conv07 from '../../public/conv07.svg';
@@ -28,7 +28,7 @@ const points = [
   { title: "Gastronomia", icon: <Conv01 className="scale-[0.7]" /> },
   { title: "Supermercado ", icon: <Conv02 className="scale-[0.6]" /> },
   { title: "Serviços / Comércio", icon: <Conv03 className="scale-[0.65]" /> },
-  { title: "Educação", icon: <Conv04 className="scale-[0.7]" /> },
+  // { title: "Educação", icon: <Conv04 className="scale-[0.7]" /> },
   { title: "Lazer", icon: <Conv05 className="scale-[0.7]" /> },
   { title: "Saúde", icon: <Conv06 className="scale-[0.8]" /> },
   { title: "Bem-estar", icon: <Conv07  className="scale-[0.7]" /> },

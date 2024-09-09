@@ -42,7 +42,7 @@ export default function Index({
           <div className="container flex mt-[80px] relative">
             <div
               dangerouslySetInnerHTML={{ __html: page.content }}
-              className="w-36 absolute font-thin text-[3.2em] uppercase"
+              className="pl-5 w-36 absolute font-thin text-[3.2em] uppercase"
             />
             <img
               src={page.featuredImage?.mediaItemUrl}

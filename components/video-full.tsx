@@ -24,7 +24,7 @@ export default function VideoFull({
   useEffect(() => {
     setDomLoaded(true);
     videoPlayer.current.currentTime = 0;
-    videoPlayer.current.play();
+    // videoPlayer.current.play();
     videoPlayer.current.muted = false;
   }, []);
 
@@ -40,7 +40,7 @@ export default function VideoFull({
         </div>
           <video
             className="max-w-[calc(100vw_-_150px)] max-h-[calc(100vh_-_100px)] "
-            autoPlay
+            autoPlay={false}
             controls
             loop
             ref={videoPlayer}

@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import FloorPlan from "../floor-plan";
 import { useRouter } from "next/router";
@@ -35,6 +35,7 @@ export function InfinityWorldComponent({
   const [buildingDetails, setBuildingDetails] = useState<ENTERPRISE>();
   const [direction, setDirection] = useState<string>();
 
+
   const gotoEnterprise = (enterprise: string, area: string) => {
     const pathname = `/infinity-world/${enterprise}`;
     router.push({ pathname, query: { area: area.toLowerCase() } });
@@ -63,8 +64,13 @@ export function InfinityWorldComponent({
     return !!buildingDetails;
   }, [buildingDetails]);
 
+  const bottom = useMemo(() => {
+    if (typeof(window) !== 'undefined' && !window.screenTop && !window.screenY) return 'bottom-0';
+    return '-bottom-16';
+  }, []);
+
   return (
-    <div className="relative h-[calc(100vh_-_174px)] overflow-hidden" data-aos="fade-in">
+    <div className="relative h-[calc(100vh_-_174px)] overflow-hidden bg-auto" data-aos="fade-in" style={{ backgroundImage: 'url(/bg-infinity-comp.png)' }}>
       <MiniMenu items={subPageItems.map((s) => ({
         icon: s.icon,
         text: s.text,
@@ -115,7 +121,7 @@ export function InfinityWorldComponent({
           </div>
         </div>
       )}
-      <div className={"w-full absolute bottom-0  " + bgOverlay}>
+      <div className={`w-full absolute ${bgOverlay} ${bottom}`}>
         {!currentScreen && <FloorPlan src={page?.featuredImage?.mediaItemUrl || roofTop.src} hidePois={hidePois}>
           <FloorPlan.Path
             title={"Infinity Blue"}

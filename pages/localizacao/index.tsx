@@ -56,9 +56,9 @@ export default function Index({
       <section className="relative">
         <MiniMenuLocation />
         <div className="grid grid-cols-[70%_30%] min-h-[calc(100vh_-_170px)]" data-aos="fade">
-          <div className="relative bg-cover flex items-end" style={{ backgroundImage: 'url(/mapa-convivencia-inativo.png)' }}>
+          <div className="relative bg-[length:100%_auto] bg-no-repeat flex items-end bg-" style={{ backgroundImage: 'url(/mapa-convivencia-inativo.png)' }}>
             {points.map((point, i) => (
-              <div className={`absolute z-10 w-full h-full transition-opacity duration-300 bg-cover ${ active === i+1 ? 'opacity-100' : 'opacity-0' }`} style={{ backgroundImage: point.image }}></div>
+              <div className={`absolute z-10 w-full h-full transition-opacity duration-300 bg-[length:100%_auto] bg-no-repeat ${ active === i+1 ? 'opacity-100' : 'opacity-0' }`} style={{ backgroundImage: point.image }}></div>
             ))}
             {/* <img src="/conveniencias.png" className="w-[100%] max-h-[calc(100vh_-_180px)]" /> */}
             <div

@@ -51,7 +51,7 @@ export default function Index({
           {images.map((view) => (
             <div
               key={view.mediaItemUrl}
-              className="w-screen h-[calc(100vh_-_174px_-_24vh)] bg-cover "
+              className="w-screen h-[calc(100vh_-_174px_-_24vh)] bg-[length:100vw_100%]"
               style={{ backgroundImage: `url(${view.mediaItemUrl})` }}
             ></div>
           ))}

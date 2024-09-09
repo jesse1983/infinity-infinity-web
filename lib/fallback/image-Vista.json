@@ -1,5 +1,12 @@
 [
   {
+    "title": "VISTA 1º ANDAR – INFINITY BLUE",
+    "altText": "",
+    "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/09/1°-Andar-Blue-scaled.jpg",
+    "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/09/1°-Andar-Blue-scaled.jpg",
+    "sizes": "(max-width: 300px) 100vw, 300px"
+  },
+  {
     "title": "VISTA 16º ANDAR – INFINITY SEA",
     "altText": "",
     "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/16°-Andar-Sea-scaled.jpg",
@@ -32,13 +39,6 @@
     "altText": "",
     "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/vista02.jpg",
     "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/vista02.jpg",
-    "sizes": "(max-width: 300px) 100vw, 300px"
-  },
-  {
-    "title": "VISTA 1º ANDAR – INFINITY BLUE",
-    "altText": "",
-    "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/vista01.jpg",
-    "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/vista01.jpg",
     "sizes": "(max-width: 300px) 100vw, 300px"
   }
 ]

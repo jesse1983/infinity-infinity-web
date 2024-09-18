@@ -78,9 +78,11 @@ export default function Descritivo({
       <SeaVideo />
       <section className="min-h-[calc(100vh_-_174px)] ">
         <div className="min-h-[calc(100vh_-_174px)] w-full grid grid-cols-4">
-          <h1 className="uppercase inline text-2xl m-auto" data-aos="flip-down">
+          <div className="flex justify-center">
+          <h1 className="uppercase inline text-5xl pt-[10vh]" data-aos="flip-down">
             Fachadas
           </h1>
+          </div>
           <div className="min-h-[calc(100vh_-_174px)] col-span-2">
             <div className="flex items-center justify-center gap-8 h-full">
               {["/fachada-blue.jpg", "/fachada-sea.jpg"].map((e, i) => (

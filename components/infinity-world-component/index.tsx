@@ -18,6 +18,13 @@ function getScreenByRouter(items) {
   if (foundItem) return foundItem.screen;
 }
 
+
+const fnBottom = () => {
+  if (typeof(window) !== 'undefined') console.log(window.innerHeight);
+  if (typeof(window) !== 'undefined' && window.innerHeight < 850) return '-bottom-24';
+  return 'bottom-0';
+};
+
 export function InfinityWorldComponent({
   enterprises = [],
   page,
@@ -34,6 +41,7 @@ export function InfinityWorldComponent({
 
   const [buildingDetails, setBuildingDetails] = useState<ENTERPRISE>();
   const [direction, setDirection] = useState<string>();
+  const [bottom, setBottom] = useState<string>(fnBottom());
 
 
   const gotoEnterprise = (enterprise: string, area: string) => {
@@ -64,11 +72,11 @@ export function InfinityWorldComponent({
     return !!buildingDetails;
   }, [buildingDetails]);
 
-  const bottom = useMemo(() => {
-    if (typeof(window) !== 'undefined' && !window.screenTop && !window.screenY) return 'bottom-0';
-    return '-bottom-16';
-  }, []);
+  useEffect(() => setBottom(fnBottom()), []);
 
+  if (typeof(window) !== 'undefined') {
+    window.addEventListener('resize', () => setBottom(fnBottom()));
+  }
   return (
     <div className="relative h-[calc(100vh_-_174px)] overflow-hidden bg-auto" data-aos="fade-in" style={{ backgroundImage: 'url(/bg-infinity-comp.png)' }}>
       <MiniMenu items={subPageItems.map((s) => ({

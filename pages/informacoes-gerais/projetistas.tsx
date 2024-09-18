@@ -65,8 +65,8 @@ export default function Projetistas({
       >
         <div className="container mx-auto flex min-h-[calc(100vh_-_174px)]">
           <div className="grid grid-cols-12 m-auto gap-5 mr-[70px]">
-            <div className="col-span-3 flex items-center text-5xl uppercase" data-aos="slide-right">
-              <span className="pl-5">Permita-se fluir </span></div>
+            <div className="col-span-3 flex pt-6 text-5xl uppercase" data-aos="slide-right">
+              <span className="pl-24">Permita-se fluir </span></div>
             <div className="col-span-9">
               <Carousel
                 showArrows

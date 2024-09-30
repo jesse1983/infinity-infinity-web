@@ -20,9 +20,8 @@ function getScreenByRouter(items) {
 
 
 const fnBottom = () => {
-  if (typeof(window) !== 'undefined') console.log(window.innerHeight);
-  if (typeof(window) !== 'undefined' && window.innerHeight < 850) return '-bottom-24';
-  return 'bottom-0';
+  if (typeof(window) !== 'undefined' && window.innerHeight < 800) return '-bottom-24';
+  return '-bottom-24';
 };
 
 export function InfinityWorldComponent({
@@ -72,7 +71,9 @@ export function InfinityWorldComponent({
     return !!buildingDetails;
   }, [buildingDetails]);
 
-  useEffect(() => setBottom(fnBottom()), []);
+  useEffect(() => {
+    setBottom(fnBottom()), []
+  });
 
   if (typeof(window) !== 'undefined') {
     window.addEventListener('resize', () => setBottom(fnBottom()));
@@ -129,7 +130,7 @@ export function InfinityWorldComponent({
           </div>
         </div>
       )}
-      <div className={`w-full absolute ${bgOverlay} ${bottom}`}>
+      <div className={`w-full absolute ${bgOverlay} -bottom-24 2xl:bottom-0`}>
         {!currentScreen && <FloorPlan src={page?.featuredImage?.mediaItemUrl || roofTop.src} hidePois={hidePois}>
           <FloorPlan.Path
             title={"Infinity Blue"}

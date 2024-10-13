@@ -130,8 +130,8 @@ export function InfinityWorldComponent({
           </div>
         </div>
       )}
-      <div className={`w-full absolute ${bgOverlay} -bottom-24 2xl:bottom-0`}>
-        {!currentScreen && <FloorPlan src={page?.featuredImage?.mediaItemUrl || roofTop.src} hidePois={hidePois}>
+      <div className={`w-full absolute ${bgOverlay}`}>
+        {!currentScreen && <FloorPlan src={page?.featuredImage?.mediaItemUrl || roofTop.src} hidePois={hidePois} heightPlaceholder="h-[calc(100vh_-_174px)]">
           <FloorPlan.Path
             title={"Infinity Blue"}
             noBorder

@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Layout from "../../../components/layout";
 import Header from "../../../components/header";
-import { serverSideProps } from "../../../props/getServerSideProps";
 import { PROPS } from "../../../props/infinity-world-props";
 import { Carousel } from "react-responsive-carousel";
 import Chevron from "../../../public/voltar.svg";

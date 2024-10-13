@@ -28,6 +28,7 @@ type Props = {
   children?: React.ReactNode;
   hidePois?: boolean;
   onLoad?: Function;
+  heightPlaceholder?: string;
 };
 
 type PathProps = {
@@ -61,7 +62,13 @@ function setCachedSize(src: string, d: string, v: number) {
   return localStorage.setItem(key, v.toString());
 }
 
-function FloorPlan({ src, children, onLoad, hidePois }: Props) {
+function FloorPlan({ 
+  src, 
+  children, 
+  onLoad, 
+  hidePois,
+  heightPlaceholder,
+}: Props) {
   const clipPathUuid = useId();
   const tooltipUuid = useId();
   const poisNodes: React.ReactNode[] = getNodes(children, "Poi");
@@ -112,7 +119,7 @@ function FloorPlan({ src, children, onLoad, hidePois }: Props) {
     image.src = src;
   }, [src]);
   return (
-    <div className="flex w-full m-auto relative">
+    <div className={`flex w-full ${heightPlaceholder || ''} m-auto relative`}>
       {/* {poisNodes} */}
       <Tooltip id={tooltipUuid} style={{ background: "transparent" }}>
         <div
@@ -129,7 +136,7 @@ function FloorPlan({ src, children, onLoad, hidePois }: Props) {
               text-md
               pointer-events-none
               flex
-`}
+          `}
         >
           {label}
         </div>
@@ -138,7 +145,8 @@ function FloorPlan({ src, children, onLoad, hidePois }: Props) {
         xmlns="http://www.w3.org/2000/svg"
         viewBox={`0 0 ${width} ${height}`}
         className="m-auto"
-        style={{ maxWidth: `${width}px`, maxHeight: `${height}px`  }}
+        preserveAspectRatio="none"
+          style={{ width: `100%`, height: `100%`  }}
       >
         <image
           href={src}

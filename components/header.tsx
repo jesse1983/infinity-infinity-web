@@ -23,9 +23,10 @@ export default function Header({ menu, logo }: { menu: Page[], logo?: "SEA" | "B
   const toggle = () => setOpen(!open);
 
 
-  const isItemActive = (title: string) => {
+  const isItemActive = (slug: string, index: number) => {
     const currentURL = usePathname();
-    return currentURL.includes(slugify(title));
+    if (currentURL === '/' && index === 0) return true;
+    return currentURL.indexOf(slug) > -1;
   }
 
   return (
@@ -63,10 +64,10 @@ export default function Header({ menu, logo }: { menu: Page[], logo?: "SEA" | "B
         </button>
         <ul className={`overflow-hidden shadow-[inset_0px_20px_20px_-20px_#000] sm:h-auto sm:grid sm:grid-cols-5 gap-0 m-0 p-0 transition-all duration-300 ease-in-out ${open ? 'h-[322px]' : 'h-0'}`}>
           {menu.map((item, i) => (
-            <li key={item.slug} className="text-center">
+            <li key={item.slug} className={`text-center ${isItemActive(item.slug, i) ? 'bg-midnight-950' : ''}`}>
               <Link
                 href={'/' + (i === 0 ? '' : item.slug)}
-                className={`flex  justify-center items-center h-16 bg-midnight-950/70  hover:bg-midnight-950 transition duration-500 hover:ease-in-out ${isItemActive(item.title) ? 'bg-midnight-950' : ''}`}
+                className={`flex  justify-center items-center h-16 bg-midnight-950/70  hover:bg-midnight-950 transition duration-500 hover:ease-in-out`}
               >
                 {item.title}
               </Link>

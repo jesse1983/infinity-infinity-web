@@ -94,6 +94,7 @@ const handleGarages = (enterpriseId, garagesNode: any[]) => {
       (a): PARKING => ({
         number: a.other_fields.number,
         identifier: a.other_fields.number,
+        noUnit: a.other_fields.noUnit || false,
         parkingslot: a?.other_fields?.parkingslot || "",
         image: a.other_fields?.image
           ? a.other_fields?.image?.mediaItemUrl
@@ -361,6 +362,7 @@ export async function getEnterprises() {
                 sizes
               }
               number
+              noUnit
               parkingslot
               enterprise {
                 ... on Enterprise {

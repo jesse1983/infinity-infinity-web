@@ -44,16 +44,14 @@ export default function MapaDeVagas({
       ? 1
       : -1;
 
-  const deposits = useMemo(() => {
-    if (selectedEnterprise)
-      return selectedEnterprise.deposits?.sort((a, b) =>
-        a.identifier > b.identifier ? 1 : -1
-      );
+  const noUnitGarages = useMemo(() => {
+    if (selectedEnterprise) return selectedEnterprise.garages
+      .filter((g) => g.noUnit)?.sort((a, b) => a.identifier > b.identifier ? 1 : -1);
     return [];
   }, [selectedEnterprise]);
 
   const garages = useMemo(() => {
-    if (selectedEnterprise) return selectedEnterprise.garages?.sort(compare);
+    if (selectedEnterprise) return selectedEnterprise.garages.filter((g) => !g.noUnit)?.sort(compare);
     return [];
   }, [selectedEnterprise]);
 
@@ -84,7 +82,7 @@ export default function MapaDeVagas({
                   ))}
                 </div>
                 <div className="flex justify-center items-center gap-4 pt-6">
-                  {deposits.map((item) => (
+                  {noUnitGarages.map((item) => (
                     <ItemMapa
                       onClick={() => {
                         setInfoParking(item);

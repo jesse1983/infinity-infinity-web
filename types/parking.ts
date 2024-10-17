@@ -3,4 +3,5 @@ export type PARKING = {
   identifier: string;
   parkingslot: string;
   image: string,
+  noUnit?: boolean;
 }

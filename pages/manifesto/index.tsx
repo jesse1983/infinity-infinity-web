@@ -71,7 +71,7 @@ export default function Index({
             {blocks.map((block, i) => (
               <div
                 className={
-                  "min-h-[calc(100vh_-_175px)] grid grid-cols-2 gap-10 " +
+                  "min-h-[calc(100vh_-_174px)] grid grid-cols-2 gap-10 " +
                   (i % 2 === 0 ? "text-left" : "text-right")
                 }
               >

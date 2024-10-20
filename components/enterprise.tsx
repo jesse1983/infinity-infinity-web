@@ -61,17 +61,19 @@ export default function Enterprise({
 
   const setFullScreen = (imageIndex) => {
     setIsFullscreen(true);
-    const el = imagesRefs.current[imageIndex]?.current;
-    try {
-      setTimeout(() => {
-        el.requestFullscreen({ navigationUI: "show" });
-      }, 10);
-      el.addEventListener("fullscreenchange", function () {
-        const fullScreen = !!document.fullscreenElement;
-        setIsFullscreen(fullScreen);
-      });
-    } catch (e) {
-      console.log(imagesRefs, el);
+    const el = imagesRefs?.current[imageIndex]?.current;
+    if (el) {
+      try {
+        setTimeout(() => {
+          el.requestFullscreen({ navigationUI: "show" });
+        }, 10);
+        el.addEventListener("fullscreenchange", function () {
+          const fullScreen = !!document.fullscreenElement;
+          setIsFullscreen(fullScreen);
+        });
+      } catch (e) {
+        console.log(imagesRefs, el);
+      }
     }
   };
 
@@ -202,13 +204,8 @@ export default function Enterprise({
                   </div>
                 ))}
               </Carousel>
-              <div className="absolute bottom-4 left-16 scale-75">
-                <div
-                  className="m-auto rounded-full w-24 h-24 cursor-pointer flex items-center justify-center bg-white"
-                  onClick={() => setSelectedAmbient(null)}
-                >
-                  <Chevron />
-                </div>
+              <div className="absolute bottom-4 left-16 scale-50">
+                <BackButton onClick={() => setSelectedAmbient(null)} margin="m-0" />
               </div>
             </>
           )}
@@ -218,7 +215,7 @@ export default function Enterprise({
             className="overflow-hidden w-[20vw] h-full relative"
             data-aos="zoom-in"
           >
-            <div className="absolute left-1 top-[calc(50vh_-_160px)] scale-75 z-10">
+            <div className="absolute left-1 top-[calc(50vh_-_160px)] scale-50 z-10">
               <BackButton onClick={() => router.back()} />
             </div>
             <div

@@ -10,6 +10,7 @@ import { GetServerSideProps } from "next";
 import { allSettings, getImagesByText } from "../../../lib/api";
 import { Image } from "../../../models";
 import { useRouter } from "next/router";
+import BackButton from "../../../components/voltar";
 
 type ViewProps = PROPS & {
   images: Image[];
@@ -92,13 +93,8 @@ export default function Index({
             ))}
           </div>
         </div>
-        <div className="fixed bottom-5 left-5 z-50">
-          <div
-            className="m-auto rounded-full w-24 h-24 cursor-pointer flex items-center justify-center bg-white scale-50"
-            onClick={() => router.push("/infinity-world")}
-          >
-            <Chevron />
-          </div>
+        <div className="fixed bottom-5 left-5 z-50 scale-50">
+          <BackButton margin="m-0" onClick={() => router.push("/infinity-world")} />
         </div>
       </div>
     </Layout>

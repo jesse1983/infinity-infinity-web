@@ -3,10 +3,6 @@ import Head from "next/head";
 import Layout from "./layout";
 import { Settings, Page } from "../models";
 import Header from "./header";
-import MiniMenuContainer from "./mini-menu-container";
-import LogoInfinityBlue from "../public/logo-infinity-blue-white.svg";
-import LogoInfinitySea from "../public/logo-infinity-sea-white.svg";
-import Chevron from "../public/voltar.svg";
 import { createRef, useEffect, useMemo, useRef, useState } from "react";
 import React from "react";
 import FloorPlan from "./floor-plan";
@@ -21,6 +17,7 @@ import { CircleText } from "./circle-text";
 import { useRouter } from "next/router";
 import BackButton from "./voltar";
 import { slugify } from "../helpers/slugify";
+import FullscreenGallery from "./fullscreen-gallery";
 
 type indexType = {
   generalSettings: Settings;
@@ -44,7 +41,7 @@ export default function Enterprise({
   const [floor, setFloor] = useState<FLOOR | undefined>();
   const [showDecorated, setShowDecorated] = useState(false);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const imagesRefs = useRef([]);
+  const [imagesRefs, setImageRefs] = useState<React.RefObject<HTMLBaseElement>[]>([]);
   const floors = enterprises.find((e) => e.slug === enterprise).floors;
 
   const openSlideShow = (ev, ambient: AMBIENT, ambients: AMBIENT[]) => {
@@ -59,28 +56,7 @@ export default function Enterprise({
     }
   };
 
-  const setFullScreen = (imageIndex) => {
-    setIsFullscreen(true);
-    const el = imagesRefs?.current[imageIndex]?.current;
-    if (el) {
-      try {
-        setTimeout(() => {
-          el.requestFullscreen({ navigationUI: "show" });
-        }, 10);
-        el.addEventListener("fullscreenchange", function () {
-          const fullScreen = !!document.fullscreenElement;
-          setIsFullscreen(fullScreen);
-        });
-      } catch (e) {
-        console.log(imagesRefs, el);
-      }
-    }
-  };
 
-  const exitFullScreen = (imageIndex) => {
-    const el = imagesRefs.current[imageIndex].current;
-    document.exitFullscreen();
-  };
 
   const photographedAmbients = useMemo(() => {
     return floor?.ambients?.filter((ambient) => ambient?.photoSrc);
@@ -101,9 +77,9 @@ export default function Enterprise({
     const selectedFloor = getFloorPlan();
     if (selectedFloor) {
       setFloor(selectedFloor);
-      imagesRefs.current = selectedFloor.ambients.map(
-        (_, i) => imagesRefs.current[i] ?? createRef()
-      );
+      selectedFloor.ambients.forEach((_) => {
+        setImageRefs([...imagesRefs, createRef()]);
+      });
       document.addEventListener(
         "keydown",
         (ev) =>
@@ -117,7 +93,6 @@ export default function Enterprise({
       (a) => selectedAmbient && a?.photoSrc === selectedAmbient?.photoSrc
     ) || 0;
   const [currentImage, setCurrentImage] = useState(selected);
-  const onChangeImage = (index) => setCurrentImage(index);
   return (
     <Layout preview={preview}>
       <Head>
@@ -131,84 +106,12 @@ export default function Enterprise({
             selectedAmbient ? "opacity-100" : "opacity-0 invisible"
           }`}
         >
-          {selectedAmbient && (
-            <>
-              <Carousel
-                className="flex"
-                infiniteLoop={photographedAmbients.length > 1}
-                useKeyboardArrows
-                centerMode={photographedAmbients.length > 1}
-                centerSlidePercentage={70}
-                // dynamicHeight
-                showStatus={false}
-                showThumbs={false}
-                showIndicators={false}
-                showArrows={false}
-                onChange={onChangeImage}
-                // renderArrowPrev={(clickHandler, hasPrev) => hasPrev && <div className="absolute z-50 h-full flex p-4"><div className="m-auto rounded-full w-24 h-24 cursor-pointer flex items-center justify-center bg-white" onClick={clickHandler}><Chevron /></div></div>}
-                // renderArrowNext={(clickHandler, hasNext) => hasNext && <div className="absolute z-50 right-0 top-0 float-right h-full flex p-4"><div className="m-auto rounded-full w-24 h-24 cursor-pointer flex items-center justify-center bg-white rotate-180" onClick={clickHandler}><Chevron /></div></div>}
-                selectedItem={currentImage}
-              >
-                {photographedAmbients.map((ambient, i) => (
-                  <div
-                    className={
-                      "cursor-pointer p-7 pt-0 flex flex-col h-[calc(100vh_-_200px)] relative items-center justify-center m-auto transition-all duration-300 " +
-                      (currentImage === i ? "" : " opacity-30 scale-y-75")
-                    }
-                    key={ambient.coords}
-                    onClick={() => setCurrentImage(i)}
-                    style={{
-                      backgroundImage:
-                        i !== currentImage ? `url(${ambient.photoSrc})` : "",
-                    }}
-                  >
-                    <span
-                      className="relative flex items-center justify-center"
-                      ref={imagesRefs.current[i]}
-                    >
-                      <span
-                        className={`relative flex items-center justify-center ${
-                          isFullscreen
-                            ? "w-screen h-screen"
-                            : "h-[calc(100%_-_25px)]"
-                        }`}
-                      >
-                        {!isFullscreen && (
-                          <div className="absolute z-50 bottom-[-25px] border border-white p-2 bg-midnight-950 uppercase text-xl ">
-                            {ambient.title}
-                          </div>
-                        )}
-                        <img
-                          src={ambient.photoSrc}
-                          className={`self-center ${
-                            currentImage === i ? "" : " opacity-0"
-                          } ${
-                            isFullscreen
-                              ? "max-h-screen max-w-screen object-contain "
-                              : "max-h-[calc(100vh_-_225px)]"
-                          }`}
-                        />
-                        <div
-                          className={
-                            "absolute z-50 top-3 right-3 w-12 cursor-pointer transition-all duration-300 ease-in-out delay-300 hover:scale-100" +
-                            (i === currentImage ? " scale-75" : " scale-0")
-                          }
-                          onClick={() =>
-                            isFullscreen ? exitFullScreen(i) : setFullScreen(i)
-                          }
-                        >
-                          {isFullscreen ? <IconClose /> : <IconMaximize />}
-                        </div>
-                      </span>
-                    </span>
-                  </div>
-                ))}
-              </Carousel>
-              <div className="absolute bottom-4 left-16 scale-50">
-                <BackButton onClick={() => setSelectedAmbient(null)} margin="m-0" />
-              </div>
-            </>
-          )}
+          {selectedAmbient && <FullscreenGallery 
+            photographedAmbients={photographedAmbients}  
+            selected={currentImage}
+            backFn={() => setSelectedAmbient(null)}
+
+            />}
         </div>
         <div className="flex flex-row justify-between w-screen h-[calc(100vh_-_174px)]">
           <div

@@ -245,20 +245,6 @@
     "salesTable": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/11/Caminho-das-Arvores-Tabela-de-Vendas-Heritage-Abril.24.pdf",
     "garages": [
       {
-        "number": "998",
-        "identifier": "998",
-        "noUnit": true,
-        "parkingslot": "xxx",
-        "image": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/10/admin-ajax.png"
-      },
-      {
-        "number": "999",
-        "identifier": "999",
-        "noUnit": true,
-        "parkingslot": "",
-        "image": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/10/admin-ajax-1.png"
-      },
-      {
         "number": "G1",
         "identifier": "G1",
         "noUnit": false,
@@ -285,6 +271,13 @@
         "noUnit": false,
         "parkingslot": "1201",
         "image": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/RV01-1201.png"
+      },
+      {
+        "number": "G1",
+        "identifier": "G1",
+        "noUnit": true,
+        "parkingslot": "",
+        "image": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/10/admin-ajax.png"
       },
       {
         "number": "G2",
@@ -329,6 +322,13 @@
         "image": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/Group-10.png"
       },
       {
+        "number": "G2",
+        "identifier": "G2",
+        "noUnit": true,
+        "parkingslot": "",
+        "image": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/10/admin-ajax-1.png"
+      },
+      {
         "number": "G3",
         "identifier": "G3",
         "noUnit": false,
@@ -362,6 +362,13 @@
         "noUnit": false,
         "parkingslot": "101",
         "image": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/HUMANIZADAS-GARAGENS-RV1_G1-v3.png"
+      },
+      {
+        "number": "G3",
+        "identifier": "G3",
+        "noUnit": true,
+        "parkingslot": "",
+        "image": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/10/RV01-1501.png"
       }
     ],
     "deposits": [
@@ -745,6 +752,13 @@
         "image": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/RV02-301.png"
       },
       {
+        "number": "G1",
+        "identifier": "G1",
+        "noUnit": true,
+        "parkingslot": "",
+        "image": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/10/RV02-101.png"
+      },
+      {
         "number": "G2",
         "identifier": "G2",
         "noUnit": false,
@@ -829,6 +843,13 @@
         "image": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/HUMANIZADAS-GARAGENS-RV2_G2_1002.png"
       },
       {
+        "number": "G2",
+        "identifier": "G2",
+        "noUnit": true,
+        "parkingslot": "",
+        "image": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/10/RV02-101-1.png"
+      },
+      {
         "number": "G3",
         "identifier": "G3",
         "noUnit": false,
@@ -876,6 +897,13 @@
         "noUnit": false,
         "parkingslot": "401",
         "image": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/RV02-401.png"
+      },
+      {
+        "number": "G3",
+        "identifier": "G3",
+        "noUnit": true,
+        "parkingslot": "",
+        "image": null
       }
     ],
     "deposits": [

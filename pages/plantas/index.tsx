@@ -36,43 +36,43 @@ export default function Index({
       </Head>
       <section className="container m-auto bg-white my-10">
         <h1 className="text-midnight-950 text-2xl text-center">
-          Infinity Blue Rooftop
+          Cais 218 Rooftop
         </h1>
         <FloorPlanInfinityBlueRooftop />
       </section>
       <section className="container m-auto bg-white my-10">
         <div className="text-midnight-950 text-2xl text-center">
-          Infinity Blue Apartment
+          Cais 218 Apartment
         </div>
         <FloorPlanInfinityBlueApartment />
       </section>
       <section className="container m-auto bg-white my-10">
         <div className="text-midnight-950 text-2xl text-center">
-          Infinity Blue Pavimento
+          Cais 218 Pavimento
         </div>
         <FloorPlanInfinityBluePavimento />
       </section>
       <section className="container m-auto h-1/4 w-1/4 bg-white my-10">
         <div className="text-midnight-950 text-2xl text-center">
-          Infinity Blue Lounge
+          Cais 218 Lounge
         </div>
         <FloorPlanInfinityBlueLounge />
       </section>
       <section className="container m-auto bg-white my-10">
         <div className="text-midnight-950 text-2xl text-center">
-          Infinity Sea Beach Club
+          Cais 292 Beach Club
         </div>
         <FloorPlanInfinitySeaClub />
       </section>
       <section className="container m-auto bg-white my-10">
         <div className="text-midnight-950 text-2xl text-center">
-          Infinity Sea Pavimento Térreo
+          Cais 292 Pavimento Térreo
         </div>
         <FloorPlanInfinitySeaPavimento />
       </section>
       <section className="container m-auto bg-white my-10">
         <div className="text-midnight-950 text-2xl text-center">
-          Infinity Sea Apartment
+          Cais 292 Apartment
         </div>
         <FloorPlanInfinitySeaApartment />
       </section>

@@ -1,9 +1,9 @@
 'use client'
 import { Page } from "../models";
 import Link from "next/link";
-import LogoWhite from "../public/logo-infinity-small-white.svg";
-import LogoSeaWhite from "../public/logo-infinity-sea-white.svg"; 
-import LogoBlueWhite from "../public/logo-infinity-blue-white.svg"; 
+import LogoWhite from "../public/logo-cais-small-white.svg";
+import LogoBlueWhite from "../public/logo-cais-218-white.svg"; 
+import LogoSeaWhite from "../public/logo-cais-292-white.svg"; 
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 

@@ -37,17 +37,6 @@ export default function Descritivo({
   const [isFullscreen, setIsFullscreen] = useState(false);
   const imagesRefs = [useRef(null), useRef(null)];
 
-  const doubleImages = [[]];
-  let curr = 0;
-
-  images.forEach((image) => {
-    if (doubleImages[curr].length === 2) {
-      curr += 1;
-      doubleImages[curr] = [];
-    }
-    doubleImages[curr].push(image);
-  });
-
   const setFullScreen = (imageIndex) => {
     setIsFullscreen(true);
     const el = imagesRefs[imageIndex].current;
@@ -85,7 +74,7 @@ export default function Descritivo({
           </div>
           <div className="min-h-[calc(100vh_-_174px)] col-span-2">
             <div className="flex items-center justify-center gap-8 h-full">
-              {["/fachada-blue.jpg", "/fachada-sea.jpg"].map((e, i) => (
+              {images.map((e, i) => (
                 <div data-aos="flip-up" data-aos-duration={(i + 1) * 500}>
                   <div
                     className={`relative z-0 ${isFullscreen ? "p-4" : ''}`}
@@ -99,7 +88,7 @@ export default function Descritivo({
                     >
                       {isFullscreen ? <IconClose /> : <IconMaximize />}
                     </span>
-                    <img src={e} className="m-auto h-full" />
+                    <img src={e.mediaItemUrl} className="m-auto h-full" />
                   </div>
                 </div>
               ))}
@@ -117,11 +106,12 @@ export const getServerSideProps: GetServerSideProps = async ({
 }) => {
   const page = await getPage("/fachadas");
   const { menu, generalSettings, subpages } = await allSettings();
+
   const filteredSubpages = filterSubpagesByParent(
     "informacoes-gerais",
     subpages
   );
-  const images = await getImagesByText("ficha-tecnica");
+  const images = await getImagesByText("fachada");
   return {
     props: {
       generalSettings,

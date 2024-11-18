@@ -11,10 +11,10 @@ export type Page = {
 }
 
 export type Image = {
-  altText: string;
-  title: string;
+  altText?: string;
+  title?: string;
   description?: string;
   mediaItemUrl: string;
-  sourceUrl: string;
-  sizes: string;
+  sourceUrl?: string;
+  sizes?: string;
 }

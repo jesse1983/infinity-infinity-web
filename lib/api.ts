@@ -112,6 +112,7 @@ const handleAmbients = (floorId, ambientsNode: any[]) => {
         title: a.title?.split("|")[0].trim(),
         coords: a?.details?.coords,
         photoSrc: a?.details?.image ? a?.details?.image?.mediaItemUrl : null,
+        videoSrc: a?.details?.video ? a?.details?.video?.mediaItemUrl : null,
         notClickable: a?.details?.notclickable,
       })
     );
@@ -335,6 +336,13 @@ export async function getEnterprises() {
             details {
               coords
               notclickable
+              video {
+                title
+                altText
+                mediaItemUrl
+                sourceUrl
+                sizes
+              }
               image {
                 title
                 altText

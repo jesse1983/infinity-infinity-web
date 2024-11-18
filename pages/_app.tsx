@@ -1,11 +1,11 @@
 import { AppProps } from "next/app";
-import { Montserrat } from "next/font/google";
+import localFont from "next/font/local";
 import "../styles/index.css";
 import "./mouse-trail.css";
 import "./shine.css";
 import "./additional.css";
 
-const montSerrat = Montserrat({ subsets: ["latin"] });
+const montSerrat = localFont({ src: '../public/Montserrat-VariableFont.ttf' });
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (

@@ -136,7 +136,7 @@ export default function Enterprise({
           </div>
           {floor && (
             <div className="w-[75vw] relative h-[calc(100vh_-_164px)] overflow-hidden">
-              <FloorPlan src={floor.floorPlanSrc}>
+              <FloorPlan src={floor.floorPlanSrc} zoom>
                 {floor.ambients.map((ambient, i, all) => (
                   <FloorPlan.Path
                     key={ambient.coords}

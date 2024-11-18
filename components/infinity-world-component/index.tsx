@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from "uuid";
 import FloorPlan from "../floor-plan";
 import { useRouter } from "next/router";
 import roofTop from "../../public/rooftop2.png";
+import signature from "../../public/signature.png";
 import { ENTERPRISE, FLOOR } from "../../types";
 import IconClose from "../../public/icon-close-borderless.svg";
 import MiniMenu from "../min-menu";
@@ -160,6 +161,9 @@ export function InfinityWorldComponent({
               />
             ))}
         </FloorPlan>}
+      </div>
+      <div className="absolute bottom-4 left-4">
+        <img src={signature.src} />
       </div>
     </div>
   );

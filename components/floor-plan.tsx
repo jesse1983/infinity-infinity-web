@@ -1,8 +1,10 @@
 "use client";
-import React, { useEffect, useId, useState } from "react";
+import React, { useEffect, useId, useRef, useState } from "react";
+import Drift from 'drift-zoom';
 import { Tooltip } from "react-tooltip";
 import { v4 as uuidv4 } from "uuid";
 import Poi from "./poi";
+import { createPortal } from "react-dom";
 
 type Path = {
   coords: string;
@@ -29,6 +31,7 @@ type Props = {
   hidePois?: boolean;
   onLoad?: Function;
   heightPlaceholder?: string;
+  zoom?: boolean;
 };
 
 type PathProps = {
@@ -68,6 +71,7 @@ function FloorPlan({
   onLoad, 
   hidePois,
   heightPlaceholder,
+  zoom,
 }: Props) {
   const clipPathUuid = useId();
   const tooltipUuid = useId();
@@ -86,6 +90,10 @@ function FloorPlan({
   const [pathActive, setPathActive] = useState();
   const [label, setLabel] = useState("");
   const [bgTooltip, setBgTooltip] = useState("");
+  const [showZoomPane, setShowZoomPane] = useState(false);
+  const svgRef = useRef(null);
+  const paneContainerRef = useRef(null);
+  const magRef = useRef(null);
 
   const setActivePath = (ev, index) => {
     setActive(true);
@@ -117,11 +125,44 @@ function FloorPlan({
       if (onLoad) onLoad(image);
     };
     image.src = src;
+
+    if (zoom) {
+      new Drift(svgRef.current, { 
+        paneContainer: paneContainerRef.current,
+        zoomFactor: 2,
+        onShow: () => setShowZoomPane(true),
+        onHide: () => setShowZoomPane(false),
+       });
+       document.body.onpointermove = (event) => {
+        const { clientX, clientY } = event;
+
+        magRef.current?.animate(
+          {
+            left: `calc(-4vh + ${clientX}px)`,
+            top: `calc(-36vh + ${clientY}px)`,
+          },
+          { duration: 10, fill: "forwards" }
+        );
+      };
+    }
   }, [src]);
   return (
     <div className={`flex w-full ${heightPlaceholder || ''} m-auto relative`}>
-      {/* {poisNodes} */}
-      <Tooltip id={tooltipUuid} style={{ background: "transparent" }}>
+      {zoom && createPortal(
+        <div
+          ref={magRef}
+          className={`absolute h-[40vh] w-[40vh] z-[100] border border-white rounded-full overflow-hidden pointer-events-none shadow-2xl bg-midnight-900 transition-all ${
+            showZoomPane ? "opacity-100" : "opacity-0 scale-0"
+          }`}
+        >
+          <div
+            ref={paneContainerRef}
+            className={`relative h-[40vh] w-[40vh]`}
+          ></div>
+        </div>,
+        document.body
+      )}
+      <Tooltip id={tooltipUuid} style={{ background: "transparent", zIndex: '1000' }}>
         <div
           style={{ backgroundColor: bgTooltip }}
           className={`
@@ -146,7 +187,9 @@ function FloorPlan({
         viewBox={`0 0 ${width} ${height}`}
         className="m-auto"
         preserveAspectRatio="none"
-          style={{ width: `100%`, height: `100%`  }}
+        style={{ width: `100%`, height: `100%`  }}
+        data-zoom={src}
+        ref={svgRef}
       >
         <image
           href={src}

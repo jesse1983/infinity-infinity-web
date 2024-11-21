@@ -158,7 +158,7 @@
             "title": "Sky Bar",
             "coords": "m 29.174826,230.70504 488.230274,-4.73072 -1.18217,182.13252 10.6394,2.36536 1.18217,72.1434 -163.13748,-1.18268 1.18215,114.71984 -218.69878,1.18266 v 40.21108 l -56.743472,1.18269 3.546467,-47.30716 H 30.356982 Z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/112_Grmt_05-1-scaled.jpg",
-            "videoSrc": null,
+            "videoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/12_Grmt_1-1.mp4",
             "notClickable": null
           }
         ],
@@ -181,7 +181,7 @@
           "x": 960,
           "y": 500
         },
-        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/planta-padrao-blue-3-1.png",
+        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/planta-lais-galvao-1.png",
         "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-planta-padrao.svg",
         "decorated": [
           {
@@ -199,7 +199,7 @@
                   "title": "Sanitário Suíte Master",
                   "coords": "m 646.49807,106.59604 -1.38437,69.91039 h 97.59768 l 3.46091,11.07492 80.29312,-0.69219 -17.99673,-70.60257 -58.1433,-2.07655 v -3.46091 z",
                   "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/102_Bahn_Blue_05-scaled.jpg",
-                  "videoSrc": null,
+                  "videoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/15_Bahn_Blue_1-1.mp4",
                   "notClickable": null
                 },
                 {
@@ -242,7 +242,7 @@
                   "title": "Sala Ampliada",
                   "coords": "m 616.15678,149.1748 0.81074,116.7455 -167.01092,-2.4322 -0.81073,118.36696 116.74549,4.86439 -0.81073,81.07327 47.83322,4.05366 1.62147,80.26253 155.66066,2.43219 1.62146,-404.55557 -150.79626,-0.81073 z",
                   "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/104_Lvng_Blue_05-scaled.jpg",
-                  "videoSrc": null,
+                  "videoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/13_Living-Lais.mp4",
                   "notClickable": null
                 }
               ],
@@ -250,7 +250,7 @@
                 "x": null,
                 "y": null
               },
-              "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/planta-lais-galvao.png",
+              "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/planta-lais-galvao-original.png",
               "iconSrc": "",
               "decorated": [],
               "main": null

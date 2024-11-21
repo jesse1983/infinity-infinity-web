@@ -4,6 +4,7 @@ import MiniMenuItem01 from "../public/mini-menu-item01.svg";
 import MiniMenuItem02 from "../public/mini-menu-item02.svg";
 import MiniMenuItem03 from "../public/mini-menu-item03.svg";
 import MiniMenuItem04 from "../public/mini-menu-item04.svg";
+import MiniMenuItem05 from "../public/info04.svg";
 import MapaDeDepositos from "./infinity-world-component/mapa-de-depositos";
 import MapaDeVagas from "./infinity-world-component/mapa-de-vagas";
 
@@ -12,6 +13,7 @@ export enum SCREEN {
   PARKING_MAP = "PARKING_MAP",
   DEPOSIT_MAP = "DEPOSIT_MAP",
   VIEWS = "VIEWS",
+  INOVATION = "INOVATION",
 }
 
 export default function infinityWorldItems({
@@ -47,6 +49,13 @@ export default function infinityWorldItems({
       screen: SCREEN.VIEWS,
       text: "Vistas",
       path: "vistas",
+    },
+    {
+      icon: <MiniMenuItem05 className="mr-1 h-10 scale-75" />,
+      screenComponent: <div></div>,
+      screen: SCREEN.INOVATION,
+      text: "Inovação e tecnologia",
+      path: "inovacao-e-tecnologia",
     },
   ];
 }

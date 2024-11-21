@@ -5,6 +5,12 @@ import Chevron from "../public/voltar.svg";
 import IconMaximize from "../public/maximize.svg";
 // import IconRuler from "../public/icon-ruler.svg";
 import IconClose from "../public/icon-close-filled.svg";
+import IconPlay from "../public/icone-play.svg";
+import { Image } from "../models";
+import { createPortal } from "react-dom";
+import VideoFull from "./video-full";
+
+
 
 type Props = {
   ambients: AMBIENT[];
@@ -21,6 +27,8 @@ export default function CarouselFloor({
   const onChangeImage = (index) => setCurrentImage(index);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const imagesRefs = ambients.map(() => useRef(null));
+  const [videoURL, setVideoURL] = useState<Image>();
+
 
   const goBack = () => onBack();
 
@@ -40,6 +48,15 @@ export default function CarouselFloor({
     document.exitFullscreen();
   };
 
+  const playVideo = (ambient: AMBIENT) => {
+    document.body.style.cursor = 'default';
+    setVideoURL({ mediaItemUrl: ambient.videoSrc });
+  };
+  const closeVideo = () => {
+    document.body.style.cursor = 'none';
+    setVideoURL(null);
+  };
+
   useEffect(() => {
     document.addEventListener(
       "keydown",
@@ -50,6 +67,8 @@ export default function CarouselFloor({
 
   return (
     <>
+      {videoURL && createPortal(<VideoFull video={videoURL} onClose={closeVideo} />, document.body)}
+
       <Carousel
         className="flex"
         infiniteLoop={ambients.length > 1}
@@ -103,6 +122,15 @@ export default function CarouselFloor({
                       : "max-h-[calc(100vh_-_225px)]"
                   }`}
                 />
+                {ambient.videoSrc && <div
+                  className={
+                    "absolute z-50 top-3 right-20 w-12 cursor-pointer transition-all duration-300 ease-in-out delay-300 hover:scale-100" +
+                    (i === currentImage ? " scale-75" : " scale-0")
+                  }
+                  onClick={() => playVideo(ambient)}
+                >
+                  <IconPlay />
+                </div>}
                 <div
                   className={
                     "absolute z-50 top-3 right-3 w-12 cursor-pointer transition-all duration-300 ease-in-out delay-300 hover:scale-100" +

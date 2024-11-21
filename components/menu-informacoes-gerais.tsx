@@ -12,11 +12,9 @@ export default function MenuInformacoes({ currentPage, subpages = [] }) {
     icon: <Info01 />,
   }));
 
-  if (items.length === 4) {
-    items[0].icon = <Info01 className="mr-1 w-10 scale-75" />;
-    items[1].icon = <Info02 className="mr-1 w-10 scale-75" />;
-    items[2].icon = <Info03 className="mr-1 w-10 scale-75" />;
-    items[3].icon = <Info04 className="mr-1 w-10 scale-75" />;
-  }
+  items[0].icon = <Info02 className="mr-1 w-10 scale-75" />;
+  items[1].icon = <Info03 className="mr-1 w-10 scale-75" />;
+  items[2].icon = <Info04 className="mr-1 w-10 scale-75" />;
+
   return MiniMenu({ items })
 }

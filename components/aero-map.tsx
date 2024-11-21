@@ -38,7 +38,7 @@ export default function AeroMap({
       <div className="mb-[10vh] h-[48vh] flex flex-col justify-between">
         {reverseEnterprises.map((enterprise, i) => (
           <div
-            className="flex flex-row items-center cursor-pointer hover:scale-125 transition-all duration-300"
+            className="flex flex-row items-center cursor-pointer hover:scale-125 transition-all duration-300 gap-5"
             onClick={() => onClick(enterprise)}
             key={enterprise.id}
           >

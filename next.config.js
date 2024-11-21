@@ -1,10 +1,29 @@
+const runtimeCaching = require('next-pwa/cache');
+
 const withPWA = require('next-pwa')({
   dest: 'public',
+  // precachePages: ['*'], // Cacheia todas as páginas no build
+  register: true,
+  skipWaiting: true,
   disable: process.env.NODE_ENV === 'development',
+  cacheOnFrontEndNav: true,
+  scope: '/',
   runtimeCaching: [
+    ...runtimeCaching,
     {
-      urlPattern: new RegExp(`/^${process.env.WORDPRESS_API_URL}.*\.(png|jpg|jpeg|gif|svg|php)$/`),
+      urlPattern: new RegExp(`/^${process.env.WORDPRESS_API_URL}.*\.(png|jpg|jpeg|gif|svg|php|mp4)$/`),
       handler: 'NetworkFirst',
+    },
+    {
+      urlPattern: new RegExp(`/^http?.*/`),
+      handler: 'NetworkFirst',
+      options: {
+        cacheName: 'pages-cache',
+        expiration: {
+          maxEntries: 100, // Número máximo de páginas no cache
+          maxAgeSeconds: 30 * 24 * 60 * 60, // Tempo máximo de 30 dias
+        },
+      },
     },
   ],
 });

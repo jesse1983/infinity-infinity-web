@@ -12,7 +12,16 @@ export type ItemNav = {
 
 export default function MiniMenu({ items = [] }: { items: ItemNav[] }) {
   const router = useRouter();
-  const height = items.length > 3 ? 'h-[260px]' : 'h-[160px]';
+  const mapHeight = [
+    'h-[160px]',
+    'h-[160px]',
+    'h-[160px]',
+    'h-[200px]',
+    'h-[260px]',
+    'h-[260px]',
+    'h-[340px]',
+  ];
+  const height = mapHeight[items.length];
   const nav = (ev: MouseEvent<HTMLAnchorElement>, item: ItemNav) => {
     if (item.onClick) {
       ev.preventDefault();

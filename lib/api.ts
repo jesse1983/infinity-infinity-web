@@ -252,6 +252,7 @@ export async function allSettings(): Promise<allSettingsType> {
         .sort((a, b) => (a.menuOrder > b.menuOrder ? 1 : -1))
         .map((page) => handlePage(page)) as Page[],
     };
+    result.generalSettings.title = 'Cais by OR';
 
     createFallback("allSettings", result);
     return result;

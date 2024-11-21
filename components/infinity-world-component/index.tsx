@@ -11,6 +11,7 @@ import IconClose from "../../public/icon-close-borderless.svg";
 import MiniMenu from "../min-menu";
 import { Page } from "../../models";
 import infinityWorldItems, { SCREEN } from "../infinity-world-subitems";
+import MiniMenuCais from "./mini-menu-cais";
 
 
 function getScreenByRouter(items) {
@@ -80,13 +81,8 @@ export function InfinityWorldComponent({
     window.addEventListener('resize', () => setBottom(fnBottom()));
   }
   return (
-    <div className="relative h-[calc(100vh_-_174px)] overflow-hidden bg-auto" data-aos="fade-in" style={{ backgroundImage: 'url(/bg-infinity-comp.png)' }}>
-      <MiniMenu items={subPageItems.map((s) => ({
-        icon: s.icon,
-        text: s.text,
-        path: '/infinity-world/'+s.path,
-        // onClick: (ev) => changeScreen(ev, s),
-      }))} />
+    <div className="relative h-[calc(100vh_-_174px)] overflow-hidden bg-auto bg-white" data-aos="fade-in" >
+      <MiniMenuCais enterprises={enterprises} />
       {subPageItems.map((item) => (
         <div
           key={uuidv4()}

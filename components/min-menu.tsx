@@ -10,18 +10,18 @@ export type ItemNav = {
   onClick?: Function,
 }
 
-export default function MiniMenu({ items = [] }: { items: ItemNav[] }) {
+export default function MiniMenu({ items = [], maxHeight }: { items: ItemNav[], maxHeight?: number }) {
   const router = useRouter();
   const mapHeight = [
     'h-[160px]',
     'h-[160px]',
     'h-[160px]',
-    'h-[200px]',
-    'h-[260px]',
+    'h-[190px]',
     'h-[260px]',
     'h-[340px]',
+    'h-[400px]',
   ];
-  const height = mapHeight[items.length];
+  const height = maxHeight ?? mapHeight[items.length];
   const nav = (ev: MouseEvent<HTMLAnchorElement>, item: ItemNav) => {
     if (item.onClick) {
       ev.preventDefault();

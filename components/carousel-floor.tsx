@@ -88,7 +88,7 @@ export default function CarouselFloor({
         {ambients.map((ambient, i) => (
           <div
             className={
-              "cursor-pointer p-7 pt-0 flex flex-col h-[calc(100vh_-_200px)] relative items-center m-auto transition-all duration-300 " +
+              "cursor-pointer p-7 pt-0 flex flex-col h-[calc(100vh_-_200px)] relative justify-center  m-auto transition-all duration-300 " +
               (currentImage === i ? "" : " opacity-30 scale-y-75")
             }
             key={ambient.coords}

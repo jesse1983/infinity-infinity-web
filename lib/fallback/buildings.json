@@ -35,7 +35,7 @@
             "title": "Beach Lounge",
             "coords": "m 783.19844,301.4164 2.42101,185.20767 h -13.31558 v -36.31523 l -84.73553,-1.21051 V 618.5694 l 96.84061,1.21051 -2.42102,60.52538 71.41995,3.63152 V 665.7792 l 31.4732,1.21051 v -14.52609 l 24.21015,-1.21051 -73.84096,-351.04722 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/113_Bar_06-scaled.jpg",
-            "videoSrc": null,
+            "videoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/10_Beach-Lounge.mp4",
             "notClickable": null
           }
         ],
@@ -107,21 +107,21 @@
             "title": "Fitness",
             "coords": "m 779.56467,215.72859 0.81715,124.20737 h 80.89822 l 0.81716,62.92084 2.19039,125.64236 135.90861,-0.61784 h 99.6927 l -67.0066,-312.96989 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/114_Ftns_07-scaled.jpg",
-            "videoSrc": null,
+            "videoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/07_Ftns_1.mp4",
             "notClickable": null
           },
           {
             "title": "Sunset Deck",
             "coords": "m 862.91435,104.96137 0.81716,104.59568 169.15079,0.81715 -22.8803,-108.68144 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/005_Mrnt_05-scaled.jpg",
-            "videoSrc": null,
+            "videoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/06_Mirante.mp4",
             "notClickable": null
           },
           {
             "title": "Blue Kids",
             "coords": "m 527.06416,214.91143 103.77853,-0.81715 -0.81715,143.00191 H 612.04815 V 339.1188 l -84.98399,2.45146 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/110_Brtc_05-scaled.jpg",
-            "videoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/file_example_MP4_480_1_5MG.mp4",
+            "videoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/08_Brtc_1.mp4",
             "notClickable": null
           }
         ],
@@ -151,7 +151,7 @@
             "title": "Piscina",
             "coords": "m 518.80355,225.86739 v 180.50254 l 10.96026,0.84347 0.8431,171.22437 211.61728,1.68693 2.52929,122.30312 162.71767,1.68694 -102.0147,-479.9343 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/004_Pisc_05-scaled.jpg",
-            "videoSrc": null,
+            "videoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/11_Piscina-Blue.mp4",
             "notClickable": null
           },
           {
@@ -235,7 +235,7 @@
                   "title": "Varanda",
                   "coords": "m 780.7355,161.33579 v 394.01605 l 167.82165,3.24293 -83.50546,-398.06971 z",
                   "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/photo-infinity-blue-planta-tipo04.png",
-                  "videoSrc": null,
+                  "videoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/14_Varanda-Lais.mp4",
                   "notClickable": null
                 },
                 {
@@ -467,7 +467,7 @@
             "title": "Beach Club",
             "coords": "m 434.02695,156.09741 3.80725,392.14716 243.66426,-1.90363 -1.90363,-388.3399 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/118_Beach_Club_Sea_05-1-scaled.jpg",
-            "videoSrc": null,
+            "videoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/18_Beach_Club_Sea_1_1.mp4",
             "notClickable": null
           }
         ],
@@ -524,9 +524,9 @@
           {
             "title": "Gourmet",
             "coords": "M 690.90847,67.904359 V 178.40853 L 580.23085,177.42189 V 68.430821 Z",
-            "photoSrc": null,
+            "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/15_Bahn_Blue_1-1-1.mp4",
             "videoSrc": null,
-            "notClickable": true
+            "notClickable": null
           },
           {
             "title": "Yacht Bar",
@@ -560,7 +560,7 @@
             "title": "Salão de Festas",
             "coords": "m 380.0937,423.3564 0.77255,77.25481 243.35267,-1.54509 1.5451,-176.14099 -93.47833,3.0902 0.77255,56.39601 -108.9293,2.31765 0.77255,40.1725 z",
             "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/116_Fest_Sea_05-2-1-scaled.jpg",
-            "videoSrc": null,
+            "videoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/22_Fest_Sea_1.mp4",
             "notClickable": null
           },
           {
@@ -604,7 +604,7 @@
           "x": 1470,
           "y": 350
         },
-        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/planta-padrao-terreo-sea.png",
+        "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/planta-padrao-terreo-sea-1.png",
         "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-planta-padrao.svg",
         "decorated": [
           {

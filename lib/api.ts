@@ -157,6 +157,8 @@ const handleFloors = (
       },
       floorPlanSrc: f.floor_fields?.photo?.mediaItemUrl,
       iconSrc: f.floor_fields?.icon?.mediaItemUrl || "",
+      miniSrc: f.floor_fields?.mini?.mediaItemUrl || "",
+      compassSrc: f.floor_fields?.compass?.mediaItemUrl || "",
       decorated: handleDecorated(f.id, decoratedNode),
       main: f.floor_fields?.main,
     }));
@@ -313,6 +315,20 @@ export async function getEnterprises() {
                 sizes
               }
               icon {
+                title
+                altText
+                mediaItemUrl
+                sourceUrl
+                sizes
+              }
+              compass {
+                title
+                altText
+                mediaItemUrl
+                sourceUrl
+                sizes
+              }
+              mini {
                 title
                 altText
                 mediaItemUrl

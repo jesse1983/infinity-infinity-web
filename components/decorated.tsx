@@ -6,6 +6,7 @@ import SeaVideo from "./sea-video";
 import FloorPlan from "./floor-plan";
 import CarouselFloor from "./carousel-floor";
 import { AMBIENT } from "../types";
+import FullFloorPlan from "./full-floor-plan";
 
 export function Decorated({
   decorated,
@@ -51,17 +52,19 @@ export function Decorated({
             data-aos="slide-right"
             data-aos-delay="300"
           >
-            {deco.description.split(' - ').map((d) => <span className=" block">{d}</span>)}
+            {deco.description.split(" - ").map((d) => (
+              <span className=" block">{d}</span>
+            ))}
           </div>
         </div>
         <div
-          className="scale-75"
+          className="scale-50"
           onClick={() => setSelectedDecorated(undefined)}
         >
           <BackButton />
         </div>
       </div>
-    );  
+    );
   };
   const odd = (i: number, total: number) => {
     if (i === total - 1 && i % 2 === 0) return " col-start-4";
@@ -91,53 +94,22 @@ export function Decorated({
     <div className="absolute z-30 bg-midnight-950 h-[calc(100vh_-_174px)] w-screen">
       {selectedDecorated ? (
         <>
-          {selectedAmbient && (
-            <div
-              className="fixed top-[110px] bottom-0 left-0 right-0 bg-midnight-900 z-50 flex flex-col justify-center"
-              data-aos="fade"
-            >
-              <CarouselFloor
-                ambients={selectedDecorated.floorPlanExample.ambients}
-                selected={currentImage}
-                onBack={() => setSelectedAmbient(undefined)}
-              />
-            </div>
-          )}
           {!selectedAmbient && (
             <div
-              className="h-[calc(100vh_-_174px)] w-screen flex items-center overflow-hidden bg-cover "
+              className="h-[calc(100vh_-_174px)] w-screen flex items-center overflow-hidden bg-cover"
               style={{ backgroundImage: "url(/bg-opcao.jpg)" }}
             >
-              <MiniMenuContainer
-                slot={decoratedTitle(selectedDecorated)}
-                noBackground
-              >
-                <div
-                  className="grid grid-flow-col auto-cols-fr w-full text-center gap-12 text-white p-4 font-thin"
-                  data-aos="slide-left"
-                >
+              <div className="grid grid-cols-4">
+                <div>{decoratedTitle(selectedDecorated)}</div>
+                <div className="col-span-3">
                   {selectedDecorated.floorPlanExample?.floorPlanSrc && (
-                    <FloorPlan
-                      src={selectedDecorated.floorPlanExample.floorPlanSrc}
-                    >
-                      {selectedDecorated.floorPlanExample.ambients.map(
-                        (ambient, i, all) => (
-                          <FloorPlan.Path
-                            key={ambient.coords}
-                            title={ambient.title}
-                            coords={ambient.coords}
-                            notClickable={ambient.notClickable}
-                            bgTooltip={
-                              ambient.notClickable ? "#9c917c" : undefined
-                            }
-                            onClick={(ev) => openSlideShow(ev, ambient, all)}
-                          />
-                        )
-                      )}
-                    </FloorPlan>
+                    <FullFloorPlan
+                      floor={selectedDecorated.floorPlanExample}
+                      setShowDecorated={() => {}}
+                    />
                   )}
                 </div>
-              </MiniMenuContainer>
+              </div>
             </div>
           )}
         </>
@@ -171,14 +143,20 @@ export function Decorated({
                   <h1 className="text-3xl p-4 mb-8 cursor-pointer border border-white hover:bg-white hover:text-midnight-950 duration-300 transition-all">
                     {isClient ? deco.title : ""}
                   </h1>
-                  <p className="text-2xl">{isClient ? deco.description.split(' - ').map((d) => <span className=" block">{d}</span>) : ""}</p>
+                  <p className="text-2xl">
+                    {isClient
+                      ? deco.description
+                          .split(" - ")
+                          .map((d) => <span className=" block">{d}</span>)
+                      : ""}
+                  </p>
                 </div>
               ))}
               <div
-                className="absolute z-40 bottom-7 left-7"
+                className="absolute z-40 bottom-7 left-7 scale-50"
                 onClick={() => close()}
               >
-                <BackButton />
+                <BackButton  />
               </div>
             </div>
           </div>

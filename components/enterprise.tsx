@@ -3,13 +3,8 @@ import Head from "next/head";
 import Layout from "./layout";
 import { Settings, Page } from "../models";
 import Header from "./header";
-import { createRef, useEffect, useMemo, useRef, useState } from "react";
+import { createRef, useEffect, useState } from "react";
 import React from "react";
-import FloorPlan from "./floor-plan";
-import { Carousel } from "react-responsive-carousel";
-import IconMaximize from "../public/maximize.svg";
-import IconRuler from "../public/icon-ruler.svg";
-import IconClose from "../public/icon-close-filled.svg";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { AMBIENT, ENTERPRISE, FLOOR } from "../types";
 import { Decorated } from "./decorated";
@@ -17,7 +12,8 @@ import { CircleText } from "./circle-text";
 import { useRouter } from "next/router";
 import BackButton from "./voltar";
 import { slugify } from "../helpers/slugify";
-import FullscreenGallery from "./fullscreen-gallery";
+import FullFloorPlan from "./full-floor-plan";
+
 
 type indexType = {
   generalSettings: Settings;
@@ -40,27 +36,11 @@ export default function Enterprise({
   const [selectedAmbient, setSelectedAmbient] = useState<AMBIENT | undefined>();
   const [floor, setFloor] = useState<FLOOR | undefined>();
   const [showDecorated, setShowDecorated] = useState(false);
-  const [isFullscreen, setIsFullscreen] = useState(false);
+  const [videoURL, setVideoURL] = useState('');
   const [imagesRefs, setImageRefs] = useState<React.RefObject<HTMLBaseElement>[]>([]);
   const floors = enterprises.find((e) => e.slug === enterprise).floors;
 
-  const openSlideShow = (ev, ambient: AMBIENT, ambients: AMBIENT[]) => {
-    ev.preventDefault();
-    if (ambient.photoSrc) {
-      setSelectedAmbient(ambient);
-      setCurrentImage(
-        ambients
-          .filter((a) => a.photoSrc)
-          .findIndex((a) => a.photoSrc === ambient.photoSrc)
-      );
-    }
-  };
 
-
-
-  const photographedAmbients = useMemo(() => {
-    return floor?.ambients?.filter((ambient) => ambient?.photoSrc);
-  }, [floor]);
 
   const getFloorPlan = (): FLOOR | undefined => {
     const url = new URLSearchParams(location.search);
@@ -92,7 +72,7 @@ export default function Enterprise({
     floor?.ambients?.findIndex(
       (a) => selectedAmbient && a?.photoSrc === selectedAmbient?.photoSrc
     ) || 0;
-  const [currentImage, setCurrentImage] = useState(selected);
+  
   return (
     <Layout preview={preview}>
       <Head>
@@ -101,18 +81,6 @@ export default function Enterprise({
       </Head>
       <Header menu={menu} logo={enterprise.includes("sea") ? "SEA" : "BLUE"} />
       <div className="w-full relative h-[calc(100vh_-_174px)] flex overflow-hidden">
-        <div
-          className={`absolute bg-midnight-950 w-full h-full z-40 transition-opacityx  duration-500 flex flex-col justify-center ${
-            selectedAmbient ? "opacity-100" : "opacity-0 invisible"
-          }`}
-        >
-          {selectedAmbient && <FullscreenGallery 
-            photographedAmbients={photographedAmbients}  
-            selected={currentImage}
-            backFn={() => setSelectedAmbient(null)}
-
-            />}
-        </div>
         <div className="flex flex-row justify-between w-screen h-[calc(100vh_-_174px)]">
           <div
             className="overflow-hidden w-[20vw] h-full relative"
@@ -134,35 +102,7 @@ export default function Enterprise({
               />
             </div>
           </div>
-          {floor && (
-            <div className="w-[75vw] relative h-[calc(100vh_-_164px)] overflow-hidden">
-              <FloorPlan src={floor.floorPlanSrc} zoom>
-                {floor.ambients.map((ambient, i, all) => (
-                  <FloorPlan.Path
-                    key={ambient.coords}
-                    title={ambient.title}
-                    coords={ambient.coords}
-                    notClickable={ambient.notClickable}
-                    bgTooltip={ambient.notClickable ? '#9c917c' : undefined}
-                    onClick={(ev) => openSlideShow(ev, ambient, all)}
-                  />
-                ))}
-              </FloorPlan>
-              {floor.decorated?.length > 0 &&
-                !showDecorated &&
-                !selectedAmbient && (
-                  <div
-                    className="absolute bg-midnight-950 py-4 px-6 z-50 text-white bottom-4 right-[45vw] uppercase flex items-center gap-4 hover:bg-white hover:text-midnight-950 cursor-pointer transition duration-300 border border-white"
-                    onClick={() => setShowDecorated(true)}
-                  >
-                    <span className="w-7 h-7 inline-block">
-                      <IconRuler />
-                    </span>
-                    <span>Opções de plantas</span>
-                  </div>
-                )}
-            </div>
-          )}
+          <FullFloorPlan floor={floor} selected={selected} setShowDecorated={setShowDecorated} showDecorated={showDecorated}  />
         </div>
         {floor?.decorated?.length > 0 && showDecorated && (
           <Decorated

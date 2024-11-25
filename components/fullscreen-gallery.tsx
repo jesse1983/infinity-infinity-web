@@ -97,7 +97,7 @@ export default function FullscreenGallery({
                 }`}
               >
                 {!isFullscreen && (
-                  <div className="absolute z-50 bottom-[-25px] border border-white p-2 bg-midnight-950 uppercase text-xl ">
+                  <div className="absolute z-50 bottom-[-25px] border border-white p-2 bg-midnight-950 uppercase text-xl text-white">
                     {ambient.title}
                   </div>
                 )}

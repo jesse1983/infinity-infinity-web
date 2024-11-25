@@ -162,7 +162,7 @@ function FloorPlan({
         </div>,
         document.body
       )}
-      <Tooltip id={tooltipUuid} style={{ background: "transparent", zIndex: '1000' }}>
+      <Tooltip id={tooltipUuid} style={{ background: "transparent", zIndex: '30' }}>
         <div
           style={{ backgroundColor: bgTooltip }}
           className={`

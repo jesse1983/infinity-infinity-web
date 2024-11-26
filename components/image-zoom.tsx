@@ -29,16 +29,20 @@ export default function ImageZoom({
   }, []);
 
   useEffect(() => {
-    if (isZoomed && place.current) {
-      place.current.addEventListener("mousemove", (e) => {
-        const diffX = currentMousePosition[0] - e.offsetX;
-        place.current.style.backgroundPositionX = (diffX) + 'px';
+    if (place.current) {
+      if (isZoomed) {
+        place.current.addEventListener("mousemove", (e) => {
+          const diffX = currentMousePosition[0] - e.offsetX;
+          place.current.style.backgroundPositionX = (diffX) + 'px';
 
-        const diffY = currentMousePosition[1] - e.offsetY;
-        place.current.style.backgroundPositionY = (diffY) + 'px';
-      });
-    } else {
-      if (place.current) place.current.removeEventListener("mousemove", () => true);
+          const diffY = currentMousePosition[1] - e.offsetY;
+          place.current.style.backgroundPositionY = (diffY) + 'px';
+        });
+      } else {
+        place.current.removeEventListener("mousemove", () => true);
+        place.current.style.backgroundPositionX = 0;
+        place.current.style.backgroundPositionY = 0;  
+      }
     }
   }, [isZoomed]);
 

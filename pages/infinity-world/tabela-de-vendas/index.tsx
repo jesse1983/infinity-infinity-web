@@ -54,7 +54,7 @@ export default function Index({
       </Head>
       <Header menu={menu} logo={logo} />
       <div className={"w-full h-[calc(100vh_-_174px)]  relative flex"}>
-        <MiniMenu items={subPageItems.map((s) => ({
+        <MiniMenu marginTop="mt-[18vh]" items={subPageItems.map((s) => ({
           icon: s.icon,
           text: s.text,
           path: '/infinity-world/'+s.path,

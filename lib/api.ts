@@ -103,6 +103,9 @@ const handleGarages = (enterpriseId, garagesNode: any[]) => {
     )
     .sort((a, b) => (a.identifier > b.identifier ? 1 : -1));
 };
+const onlyImage = (url: string) => {
+  return /\.(jpg|png|jpeg)$/i.test(url) ? url : null;
+}
 
 const handleAmbients = (floorId, ambientsNode: any[]) => {
   return ambientsNode
@@ -111,7 +114,7 @@ const handleAmbients = (floorId, ambientsNode: any[]) => {
       (a): AMBIENT => ({
         title: a.title?.split("|")[0].trim(),
         coords: a?.details?.coords,
-        photoSrc: a?.details?.image ? a?.details?.image?.mediaItemUrl : null,
+        photoSrc: a?.details?.image ? onlyImage(a?.details?.image?.mediaItemUrl) : null,
         videoSrc: a?.details?.video ? a?.details?.video?.mediaItemUrl : null,
         notClickable: a?.details?.notclickable,
       })

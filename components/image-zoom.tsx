@@ -1,5 +1,4 @@
 import { useState, useRef, useEffect } from "react";
-import Drift from "drift-zoom";
 import Close from "../public/icon-close-filled.svg";
 import { createPortal } from "react-dom";
 
@@ -11,63 +10,55 @@ export default function ImageZoom({
   onClose?: Function;
 }) {
   const [domLoaded, setDomLoaded] = useState(false);
-  const imgRef = useRef();
-  const paneContainerRef = useRef();
-  const magRef = useRef(null);
+  const [isZoomed, setIsZoomed] = useState(false);
+  const [currentMousePosition, setCurrentMousePosition] = useState([]);
+  const place = useRef(null);
 
   const onCloseFn = (ev) => {
     if (onClose) onClose(ev);
     ev.preventDefault();
   };
 
+  const toggleZoom = (e: React.MouseEvent<HTMLElement>) => {
+    setCurrentMousePosition([e.clientX, e.clientY]);
+    setIsZoomed(!isZoomed);
+  }
+
   useEffect(() => {
     setDomLoaded(true);
-    new Drift(imgRef.current, {
-      paneContainer: paneContainerRef.current,
-      zoomFactor: 2,
-    });
-
-    document.body.onpointermove = (event) => {
-      const { clientX, clientY } = event;
-
-      magRef.current?.animate(
-        {
-          left: `calc(-4vh + ${clientX}px)`,
-          top: `calc(-36vh + ${clientY}px)`,
-        },
-        { duration: 10, fill: "forwards" }
-      );
-    };
   }, []);
+
+  useEffect(() => {
+    if (isZoomed && place.current) {
+      place.current.addEventListener("mousemove", (e) => {
+        const diffX = currentMousePosition[0] - e.offsetX;
+        place.current.style.backgroundPositionX = (diffX) + 'px';
+
+        const diffY = currentMousePosition[1] - e.offsetY;
+        place.current.style.backgroundPositionY = (diffY) + 'px';
+      });
+    } else {
+      if (place.current) place.current.removeEventListener("mousemove", () => true);
+    }
+  }, [isZoomed]);
 
   return (
     image && (
       <div
-        className={`absolute z-50 top-0 left-0 right-0 bottom-0 bg-slate-900 bg-opacity-70 backdrop-blur-lg flex`}
+        className={`absolute z-50 top-0 left-0 right-0 bottom-0 bg-slate-900 bg-opacity-70 backdrop-blur-lg flex overflow-hidden`}
       >
-        {createPortal(
-          <div
-            ref={magRef}
-            className={`absolute h-[40vh] w-[40vh] z-[100] border border-white rounded-full overflow-hidden pointer-events-none shadow-2xl bg-midnight-900 transition-all opacity-100`}
-          >
-            <div
-              ref={paneContainerRef}
-              className={`relative h-[40vh] w-[40vh]`}
-            ></div>
-          </div>,
-          document.body
-        )}
+        <div className="absolute top-5 right-5 scale-100 hover:scale-75 transition-all duration-300 z-20">
+          <a href="" onClick={onCloseFn}>
+            <Close />
+          </a>
+        </div>
         <div
-          className={`m-auto border bg-midnight-900 shadow-2xl bg-opacity-30 backdrop-blur-lg overflow-hidden transition duration-500 my-4 ${
-            domLoaded ? "scale-100" : "scale-0"
-          }`}
+          className={`m-auto bg-midnight-900 border shadow-2xl bg-opacity-30 bg-contain backdrop-blur-lg overflow-hidden transition duration-500 bg-no-repeat my-10 ${isZoomed ? 'scale-150 cursor-zoom-out' : ' cursor-zoom-in'}`}
+          style={{ backgroundImage: isZoomed ? `url(${image})` : 'none', backgroundPositionX: 0, backgroundPositionY: 0 }}
+          ref={place}
+          onClick={toggleZoom}
         >
-          <div className="absolute top-4 right-4 scale-100 hover:scale-75 transition-all duration-300 z-20">
-            <a href="" onClick={onCloseFn}>
-              <Close />
-            </a>
-          </div>
-          <img src={image} ref={imgRef} className="w-full h-full" data-zoom={image} />
+          <img src={image} className={`w-full h-full object-contain ${domLoaded ? "scale-100" : "scale-0"} ${isZoomed ? 'opacity-0 pointer-events-none' : ''}`} />
         </div>
       </div>
     )

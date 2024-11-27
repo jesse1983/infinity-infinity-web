@@ -1,7 +1,7 @@
 import { Carousel } from "react-responsive-carousel";
 import BackButton from "./voltar";
 import { AMBIENT } from "../types";
-import { createRef, useState } from "react";
+import { createRef, useEffect, useMemo, useState } from "react";
 import IconClose from "../public/icon-close-filled.svg";
 import IconPlay from "../public/icone-play.svg";
 import IconMaximize from "../public/maximize.svg";
@@ -9,54 +9,69 @@ import VideoFull from "./video-full";
 import { Image } from "../models";
 import { createPortal } from "react-dom";
 
-export default function FullscreenGallery({ 
-    photographedAmbients, 
-    selected = 1,
-    backFn,
-  } : { 
-    photographedAmbients: AMBIENT[], 
-    selected: number,
-    backFn: Function,
- }) {
+export default function FullscreenGallery({
+  photographedAmbients,
+  selected = 1,
+  backFn,
+}: {
+  photographedAmbients: AMBIENT[];
+  selected: number;
+  backFn: Function;
+}) {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [videoURL, setVideoURL] = useState<Image>();
   const [imagesRefs] = useState<React.RefObject<HTMLBaseElement>[]>(
     photographedAmbients.map((p) => createRef())
   );
+  const [videoRefs] = useState(photographedAmbients.map((p) => createRef<HTMLVideoElement>()));
   const [currentImage, setCurrentImage] = useState(selected);
+
+  useEffect(() => {
+    videoRefs.forEach((video, i) => {
+      if(video?.current) { 
+        video.current.currentTime = 0;
+        video.current.pause();
+      }
+    });
+  }, [currentImage]);
+
   const onChangeImage = (index) => setCurrentImage(index);
-  
+
   const setFullScreen = (imageIndex) => {
     setIsFullscreen(true);
     const el = imagesRefs[imageIndex]?.current;
     try {
-        setTimeout(() => {
+      setTimeout(() => {
         el.requestFullscreen({ navigationUI: "show" });
-        }, 10);
-        el.addEventListener("fullscreenchange", function () {
-          const fullScreen = !!document.fullscreenElement;
-          setIsFullscreen(fullScreen);
-        });
+      }, 10);
+      el.addEventListener("fullscreenchange", function () {
+        const fullScreen = !!document.fullscreenElement;
+        setIsFullscreen(fullScreen);
+      });
     } catch (e) {
       console.info(imagesRefs, el);
     }
   };
 
   const exitFullScreen = (imageIndex) => {
-      document.exitFullscreen();
+    document.exitFullscreen();
   };
 
   const playVideo = (ambient: AMBIENT) => {
-    document.body.style.cursor = 'default';
+    document.body.style.cursor = "default";
     setVideoURL({ mediaItemUrl: ambient.videoSrc });
   };
   const closeVideo = () => {
-    document.body.style.cursor = 'none';
+    document.body.style.cursor = "none";
     setVideoURL(null);
   };
   return (
     <>
-      {videoURL && createPortal(<VideoFull video={videoURL} onClose={closeVideo} />, document.body)}
+      {videoURL &&
+        createPortal(
+          <VideoFull video={videoURL} onClose={closeVideo} />,
+          document.body
+        )}
 
       <Carousel
         className="flex"
@@ -101,26 +116,43 @@ export default function FullscreenGallery({
                     {ambient.title}
                   </div>
                 )}
-                <img
-                  src={ambient.photoSrc}
-                  className={`self-center ${
-                    currentImage === i ? "" : " opacity-0"
-                  } ${
-                    isFullscreen
-                      ? "max-h-screen max-w-screen object-contain "
-                      : "max-h-[calc(100vh_-_225px)]"
-                  }`}
-                />
-                {ambient.videoSrc && <div
-                  className={
-                    "absolute z-50 top-3 right-20 w-12 cursor-pointer transition-all duration-300 ease-in-out delay-300 hover:scale-100" +
-                    (i === currentImage ? " scale-75" : " scale-0")
-                  }
-                  onClick={() => playVideo(ambient)}
-                >
-                  <IconPlay />
-                </div>}
-                <div
+                {ambient.photoSrc && (
+                  <img
+                    src={ambient.photoSrc}
+                    className={`self-center ${
+                      currentImage === i ? "" : " opacity-0"
+                    } ${
+                      isFullscreen
+                        ? "max-h-screen max-w-screen object-contain "
+                        : "max-h-[calc(100vh_-_225px)]"
+                    }`}
+                  />
+                )}
+                {!ambient.photoSrc && ambient.videoSrc && (
+                  <video
+                    className={currentImage === i ? '' :  'pointer-events-none'}
+                    // className="pointer-events-none"
+                    autoPlay={false}
+                    controls
+                    loop
+                    muted
+                    ref={videoRefs[i]}
+                  >
+                    <source src={ambient.videoSrc} type="video/mp4" />
+                  </video>
+                )}
+                {ambient.videoSrc && ambient.photoSrc && (
+                  <div
+                    className={
+                      "absolute z-50 top-3 right-20 w-12 cursor-pointer transition-all duration-300 ease-in-out delay-300 hover:scale-100" +
+                      (i === currentImage ? " scale-75" : " scale-0")
+                    }
+                    onClick={() => playVideo(ambient)}
+                  >
+                    <IconPlay />
+                  </div>
+                )}
+                {ambient.photoSrc && <div
                   className={
                     "absolute z-50 top-3 right-3 w-12 cursor-pointer transition-all duration-300 ease-in-out delay-300 hover:scale-100" +
                     (i === currentImage ? " scale-75" : " scale-0")
@@ -130,7 +162,7 @@ export default function FullscreenGallery({
                   }
                 >
                   {isFullscreen ? <IconClose /> : <IconMaximize />}
-                </div>
+                </div>}
               </span>
             </span>
           </div>

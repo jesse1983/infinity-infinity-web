@@ -1,10 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { DECORATED } from "../types/floor";
-import MiniMenuContainer from "./mini-menu-container";
 import BackButton from "./voltar";
 import SeaVideo from "./sea-video";
-import FloorPlan from "./floor-plan";
-import CarouselFloor from "./carousel-floor";
 import { AMBIENT } from "../types";
 import FullFloorPlan from "./full-floor-plan";
 

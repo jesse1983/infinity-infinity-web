@@ -7,18 +7,19 @@ import FloorPlan from "./floor-plan";
 import IconMaximize from "../public/maximize.svg";
 import IconRuler from "../public/icon-ruler.svg";
 import FullscreenGallery from "./fullscreen-gallery";
+import { Image } from "../models";
 
 export default function FullFloorPlan({
   floor,
   selected = undefined,
   setShowDecorated,
   showDecorated = false,
-}) {
+}: { floor: FLOOR, selected?: number, setShowDecorated?: Function, showDecorated?: boolean}) {
   const [dom, setDom] = useState(false);
   const [selectedAmbient, setSelectedAmbient] = useState<AMBIENT | undefined>();
   const [currentImage, setCurrentImage] = useState(selected);
   const photographedAmbients = useMemo(() => {
-    return floor?.ambients?.filter((ambient) => ambient?.photoSrc);
+    return floor?.ambients?.filter((ambient) => ambient?.photoSrc || ambient?.videoSrc);
   }, [floor]);
 
   const openSlideShow = (ev, ambient: AMBIENT, ambients: AMBIENT[]) => {
@@ -31,7 +32,12 @@ export default function FullFloorPlan({
           .findIndex((a) => a.photoSrc === ambient.photoSrc)
       );
     } else if (ambient.videoSrc) {
-      setVideoURL(ambient.videoSrc);
+      setSelectedAmbient(ambient);
+      setCurrentImage(
+        ambients
+          .filter((a) => a.videoSrc)
+          .findIndex((a) => a.videoSrc === ambient.videoSrc)
+      );
     }
   };
   const [videoURL, setVideoURL] = useState("");

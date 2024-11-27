@@ -27,7 +27,7 @@ export default function Poi({ active = true, reverse = false, icon, title, y, x,
 
   useEffect(() => {
     setTimeout(() => {
-      setWidth(textEl.current.getComputedTextLength());
+      setWidth(textEl?.current?.getComputedTextLength());
     }, 100)
   }, []);
 

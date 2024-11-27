@@ -13,17 +13,16 @@ import { Page } from "../../models";
 import infinityWorldItems, { SCREEN } from "../infinity-world-subitems";
 import MiniMenuCais from "./mini-menu-cais";
 
-
 function getScreenByRouter(items) {
   const router = useRouter();
   const foundItem = items.find((item) => router.pathname.includes(item.path));
   if (foundItem) return foundItem.screen;
 }
 
-
 const fnBottom = () => {
-  if (typeof(window) !== 'undefined' && window.innerHeight < 800) return '-bottom-24';
-  return '-bottom-24';
+  if (typeof window !== "undefined" && window.innerHeight < 800)
+    return "-bottom-24";
+  return "-bottom-24";
 };
 
 export function InfinityWorldComponent({
@@ -31,7 +30,7 @@ export function InfinityWorldComponent({
   page,
 }: {
   enterprises: ENTERPRISE[];
-  page?: Page,
+  page?: Page;
 }) {
   const subPageItems = infinityWorldItems({ enterprises });
   const router = useRouter();
@@ -41,15 +40,18 @@ export function InfinityWorldComponent({
   );
 
   const [buildingDetails, setBuildingDetails] = useState<ENTERPRISE>();
+  const [hoverActive, setHoverActive] = useState(false);
   const [direction, setDirection] = useState<string>();
   const [bottom, setBottom] = useState<string>(fnBottom());
 
+  const onToggleActivePath = (bool: boolean) => {
+    setHoverActive(bool);
+  }
 
   const gotoEnterprise = (enterprise: string, area: string) => {
     const pathname = `/infinity-world/${enterprise}`;
     router.push({ pathname, query: { area: area.toLowerCase() } });
   };
-
 
   const floors: (FLOOR & { enterprise: string })[] = enterprises.reduce(
     (acc, cur) => {
@@ -66,7 +68,7 @@ export function InfinityWorldComponent({
   };
 
   const bgOverlay = useMemo(() => {
-    return buildingDetails ? 'bg-white' : undefined;
+    return buildingDetails ? "bg-white" : undefined;
   }, [buildingDetails]);
 
   const hidePois = useMemo(() => {
@@ -74,14 +76,17 @@ export function InfinityWorldComponent({
   }, [buildingDetails]);
 
   useEffect(() => {
-    setBottom(fnBottom()), []
+    setBottom(fnBottom()), [];
   });
 
-  if (typeof(window) !== 'undefined') {
-    window.addEventListener('resize', () => setBottom(fnBottom()));
+  if (typeof window !== "undefined") {
+    window.addEventListener("resize", () => setBottom(fnBottom()));
   }
   return (
-    <div className="relative h-[calc(100vh_-_174px)] overflow-hidden bg-auto bg-white" data-aos="fade-in" >
+    <div
+      className="relative h-[calc(100vh_-_174px)] overflow-hidden bg-auto bg-white"
+      data-aos="fade-in"
+    >
       <MiniMenuCais enterprises={enterprises} />
       {subPageItems.map((item) => (
         <div
@@ -128,38 +133,42 @@ export function InfinityWorldComponent({
         </div>
       )}
       <div className={`w-full absolute ${bgOverlay} -bottom-24`}>
-        {!currentScreen && <FloorPlan src={page?.featuredImage?.mediaItemUrl || roofTop.src} hidePois={hidePois}>
-          <FloorPlan.Path
-            title={"Cais 218"}
-            noBorder
-            coords="m 820.48971,240.43039 3.36266,568.29 -12.60999,0.84066 1.05199,94.1522 -13.64523,0.43839 1.41081,55.87263 c 90.60155,-1.4784 180.3597,2.36885 270.94805,0.0159 l -1.6813,-32.78596 11.7694,-14.29132 -21.8573,-5.88466 -5.8847,-139.5505 -38.6706,-1.68133 2.522,-469.09145 -11.7693,-19.33531 1.6813,-18.49465 -11.76933,-25.21997 -152.16049,-7.56599 -10.08799,10.08799 z"
-            onClick={() => clickBuildingDetails(enterprises[0], "left-[5%]")}
-          />
-          <FloorPlan.Path
-            title={"Cais 292"}
-            noBorder
-            coords="m 1496.3849,235.38639 292.5517,-5.04399 -3.3627,522.89405 62.2093,-1.68133 3.3626,208.48509 -232.0237,6.72532 -168.1331,-10.08798 -5.044,-163.08915 3.3626,-5.04399 1.6814,-31.9453 50.4399,-1.68133 z"
-            onClick={() =>
-              clickBuildingDetails(enterprises[1], "right-[5%]")
-            }
-          />
-          {floors
-            .filter((f) => f.coords)
-            .map((floor) => (
-              <FloorPlan.Poi
-                key={uuidv4()}
-                icon={floor.iconSrc || "/icon-infinity.svg"}
-                title={floor.title}
-                reverse={floor.reverse}
-                x={floor.coords.x}
-                y={floor.coords.y}
-                onClick={() => gotoEnterprise(floor.enterprise, floor.slug)}
-              />
-            ))}
-        </FloorPlan>}
-      </div>
-      <div className="absolute bottom-4 left-4">
-        <img src={signature.src} />
+        {!currentScreen && (
+          <FloorPlan
+            src={page?.featuredImage?.mediaItemUrl || roofTop.src}
+            hidePois={hidePois}
+            onToggleActivePath={onToggleActivePath}
+          >
+            <FloorPlan.Path
+              title={"Cais 218"}
+              noBorder
+              coords="m 820.48971,240.43039 3.36266,568.29 -12.60999,0.84066 1.05199,94.1522 -13.64523,0.43839 1.41081,55.87263 c 90.60155,-1.4784 180.3597,2.36885 270.94805,0.0159 l -1.6813,-32.78596 11.7694,-14.29132 -21.8573,-5.88466 -5.8847,-139.5505 -38.6706,-1.68133 2.522,-469.09145 -11.7693,-19.33531 1.6813,-18.49465 -11.76933,-25.21997 -152.16049,-7.56599 -10.08799,10.08799 z"
+              onClick={() => clickBuildingDetails(enterprises[0], "left-[5%]")}
+            />
+            <FloorPlan.Path
+              title={"Cais 292"}
+              noBorder
+              coords="m 1496.3849,235.38639 292.5517,-5.04399 -3.3627,522.89405 62.2093,-1.68133 3.3626,208.48509 -232.0237,6.72532 -168.1331,-10.08798 -5.044,-163.08915 3.3626,-5.04399 1.6814,-31.9453 50.4399,-1.68133 z"
+              onClick={() => clickBuildingDetails(enterprises[1], "right-[5%]")}
+            />
+            {floors
+              .filter((f) => f.coords)
+              .map((floor) => (
+                <FloorPlan.Poi
+                  key={uuidv4()}
+                  icon={floor.iconSrc || "/icon-infinity.svg"}
+                  title={floor.title}
+                  reverse={floor.reverse}
+                  x={floor.coords.x}
+                  y={floor.coords.y}
+                  onClick={() => gotoEnterprise(floor.enterprise, floor.slug)}
+                />
+              ))}
+          </FloorPlan>
+        )}
+        {!currentScreen && <div className="fixed bottom-4 left-4">
+          <img src={signature.src} className={(buildingDetails || hoverActive) ? 'opacity-20' : ''} />
+        </div>}
       </div>
     </div>
   );

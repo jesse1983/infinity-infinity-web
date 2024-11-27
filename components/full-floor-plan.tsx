@@ -14,7 +14,8 @@ export default function FullFloorPlan({
   selected = undefined,
   setShowDecorated,
   showDecorated = false,
-}: { floor: FLOOR, selected?: number, setShowDecorated?: Function, showDecorated?: boolean}) {
+  onToggleActivePath = () => false,
+}: { floor: FLOOR, selected?: number, setShowDecorated?: Function, showDecorated?: boolean, onToggleActivePath?: Function}) {
   const [dom, setDom] = useState(false);
   const [selectedAmbient, setSelectedAmbient] = useState<AMBIENT | undefined>();
   const [currentImage, setCurrentImage] = useState(selected);
@@ -93,7 +94,7 @@ export default function FullFloorPlan({
               <IconMaximize />
             </div>
           </div>
-          <FloorPlan src={floor.floorPlanSrc}>
+          <FloorPlan src={floor.floorPlanSrc} onToggleActivePath={onToggleActivePath}>
             {floor.ambients.map((ambient, i, all) => (
               <FloorPlan.Path
                 key={ambient.coords}

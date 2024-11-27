@@ -32,6 +32,7 @@ type Props = {
   onLoad?: Function;
   heightPlaceholder?: string;
   zoom?: boolean;
+  onToggleActivePath?: Function,
 };
 
 type PathProps = {
@@ -72,6 +73,7 @@ function FloorPlan({
   hidePois,
   heightPlaceholder,
   zoom,
+  onToggleActivePath,
 }: Props) {
   const clipPathUuid = useId();
   const tooltipUuid = useId();
@@ -98,6 +100,7 @@ function FloorPlan({
   const setActivePath = (ev, index) => {
     setActive(true);
     setPathActive(index);
+    if (onToggleActivePath) onToggleActivePath(true);
     const path = paths[index];
     setBgTooltip(path.bgTooltip);
     if (path.title) setLabel(path.title);
@@ -108,6 +111,7 @@ function FloorPlan({
     setActive(false);
     setPathActive(undefined);
     setLabel("");
+    if (onToggleActivePath) onToggleActivePath(false);
   };
 
   const clickOnPath = (ev, path: Path) => {

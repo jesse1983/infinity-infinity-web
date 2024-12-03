@@ -80,9 +80,9 @@ export default function FullFloorPlan({
           <VideoFull video={{ mediaItemUrl: videoURL }} onClose={closeVideo} />,
           document.body
         )}
-      {zoomOpened &&
+      {zoomOpened && zoomOpened.croppedFloorPlanSrc &&
         createPortal(
-          <ImageZoom image={zoomOpened.floorPlanSrc} onClose={closeZoom} />,
+          <ImageZoom image={zoomOpened.croppedFloorPlanSrc} onClose={closeZoom} />,
           document.body
         )}
       {floor && !videoURL && (
@@ -91,7 +91,7 @@ export default function FullFloorPlan({
             {floor.compassSrc && <img src={floor.compassSrc} width={50} />}
             {floor.miniSrc && <img src={floor.miniSrc} width={50} />}
             <div className="cursor-pointer" onClick={() => openZoom()}>
-              <IconMaximize />
+              {floor.croppedFloorPlanSrc && <IconMaximize />}
             </div>
           </div>
           <FloorPlan src={floor.floorPlanSrc} onToggleActivePath={onToggleActivePath}>

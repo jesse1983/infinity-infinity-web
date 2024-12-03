@@ -22,6 +22,7 @@ export type FLOOR = {
   ambients: AMBIENT[];
   coords?: XY;
   floorPlanSrc?: string;
+  croppedFloorPlanSrc?: string;
   miniSrc?: string;
   compassSrc?: string;
   iconSrc?: string;

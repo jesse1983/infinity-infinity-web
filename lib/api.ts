@@ -159,6 +159,7 @@ const handleFloors = (
         y: Number.parseInt(f.floor_fields.coords.split(",")[1]),
       },
       floorPlanSrc: f.floor_fields?.photo?.mediaItemUrl,
+      croppedFloorPlanSrc: f.floor_fields?.cropped?.mediaItemUrl || "",
       iconSrc: f.floor_fields?.icon?.mediaItemUrl || "",
       miniSrc: f.floor_fields?.mini?.mediaItemUrl || "",
       compassSrc: f.floor_fields?.compass?.mediaItemUrl || "",
@@ -332,6 +333,13 @@ export async function getEnterprises() {
                 sizes
               }
               mini {
+                title
+                altText
+                mediaItemUrl
+                sourceUrl
+                sizes
+              }
+              cropped {
                 title
                 altText
                 mediaItemUrl

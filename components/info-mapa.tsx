@@ -1,7 +1,8 @@
-import { useEffect, useRef, useState } from "react";
-import Drift from "drift-zoom";
 import BackButton from "./voltar";
+import IconMaximize from "../public/maximize.svg";
 import { createPortal } from "react-dom";
+import ImageZoom from "./image-zoom";
+import { useState } from "react";
 
 type InfoProps = {
   identifier: string;
@@ -14,33 +15,17 @@ type InfoProps = {
 
 export default function InfoMapa(props: InfoProps) {
   const onClick = () => (props.onBack ? props.onBack() : undefined);
-  const imgRef = useRef(null);
-  const paneContainerRef = useRef(null);
-  const magRef = useRef(null);
-  const [showZoomPane, setShowZoomPane] = useState(false);
 
-  useEffect(() => {
-    if (magRef.current && imgRef.current) {
-      new Drift(imgRef.current, {
-        paneContainer: paneContainerRef.current,
-        zoomFactor: 2,
-        onShow: () => setShowZoomPane(true),
-        onHide: () => setShowZoomPane(false),
-      });
+  const [zoomOpened, setZoomOpened] = useState(null);
+  const openZoom = (image) => {
+    document.body.style.cursor = "default";
+    setZoomOpened(image);
+  };
+  const closeZoom = () => {
+    document.body.style.cursor = "none";
+    setZoomOpened(null);
+  };
 
-      document.body.onpointermove = (event) => {
-        const { clientX, clientY } = event;
-
-        magRef.current?.animate(
-          {
-            left: `calc(-4vh + ${clientX}px)`,
-            top: `calc(-36vh + ${clientY}px)`,
-          },
-          { duration: 10, fill: "forwards" }
-        );
-      };
-    }
-  }, []);
   return (
     <div
       className=" w-full h-[calc(100vh_-_174px)] bg-cover flex"
@@ -48,20 +33,11 @@ export default function InfoMapa(props: InfoProps) {
         backgroundImage: `url(${props.bgImage}`,
       }}
     >
-      {createPortal(
-        <div
-          ref={magRef}
-          className={`absolute h-[40vh] w-[40vh] z-[100] border border-white rounded-full overflow-hidden pointer-events-none shadow-2xl bg-midnight-900 transition-all ${
-            showZoomPane ? "opacity-100" : "opacity-0 scale-0"
-          }`}
-        >
-          <div
-            ref={paneContainerRef}
-            className={`relative h-[40vh] w-[40vh]`}
-          ></div>
-        </div>,
-        document.body
-      )}
+      {zoomOpened && 
+        createPortal(
+          <ImageZoom image={zoomOpened} onClose={closeZoom} />,
+          document.body
+        )}
       <div className="container mx-auto ">
         <div className="grid grid-cols-12">
           <div className="flex items-end col-span-2 text-4xl uppercase font-light h-[calc(100vh_-_174px)]">
@@ -95,19 +71,17 @@ export default function InfoMapa(props: InfoProps) {
               </div>
             </div>
           </div>
-          {/* <div className="col-span-2 self-center" data-aos="zoom-in">
-            <BackButton
-              onClick={() => (props.onBack ? props.onBack() : undefined)}
-            />
-          </div> */}
-          <div className="flex col-span-8 mx-auto items-center justify-center px-20 h-full ">
-            <img
-              src={props.mainImage}
-              alt={`Mapa ${props.identifier} do apartamento ${props.apartment}`}
-              data-aos="zoom-in"
-              data-zoom={props.mainImage}
-              ref={imgRef}
-            />
+          <div className="flex col-span-8 mx-auto items-center justify-center px-20 h-full">
+            <div className="flex">
+              <div className="w-20 mt-10 cursor-pointer" onClick={() => openZoom(props.mainImage)}>
+                <IconMaximize />
+              </div>
+              <img
+                src={props.mainImage}
+                alt={`Mapa ${props.identifier} do apartamento ${props.apartment}`}
+                data-aos="zoom-in"
+              />
+            </div>
           </div>
         </div>
       </div>

@@ -614,7 +614,7 @@
           "y": 750
         },
         "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/pavimento-terreo-sea-2.png",
-        "croppedFloorPlanSrc": "",
+        "croppedFloorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/RV02-Pavimento-terreo-2.jpg",
         "iconSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/icon-e-pavimento-terreo.svg",
         "miniSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/292-pavimento-terreo-mini.svg",
         "compassSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/292-rosa-dos-ventos.png",
@@ -652,7 +652,7 @@
                 "x": null,
                 "y": null
               },
-              "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/planta-gam-arq.png",
+              "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/292-planta-gam.png",
               "croppedFloorPlanSrc": "",
               "iconSrc": "",
               "miniSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/Camada_1.png",
@@ -674,7 +674,7 @@
               "ambients": [
                 {
                   "title": "Varanda",
-                  "coords": "m 808.96254,216.15627 -2.78313,282.95135 139.1564,2.78313 1.85542,-288.5176 z",
+                  "coords": "m 673.12851,187.72671 114.42778,-0.40722 1.22165,237.81431 -116.87107,1.62886 z",
                   "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/108_Vrnd_Sea_05-scaled.jpg",
                   "videoSrc": null,
                   "notClickable": null
@@ -684,7 +684,7 @@
                 "x": null,
                 "y": null
               },
-              "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/planta-julia-leal.png",
+              "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/292-planta-julia-leal.png",
               "croppedFloorPlanSrc": "",
               "iconSrc": "",
               "miniSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/Camada_1-1.png",
@@ -706,14 +706,14 @@
               "ambients": [
                 {
                   "title": "Sanitário Suíte Master",
-                  "coords": "m 526.75962,126.60598 0.65599,76.09479 158.09348,0.65599 V 130.54192 125.95 Z",
+                  "coords": "m 428.54917,101.15574 0.53525,60.97288 128.99568,0.52563 v -58.34474 -3.67939 z",
                   "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/105_Banh_Mstr_Sea_05-1-scaled.jpg",
                   "videoSrc": null,
                   "notClickable": null
                 },
                 {
                   "title": "Suíte Master",
-                  "coords": "m 614.00623,205.98072 -0.65599,52.47917 301.09921,2.62395 V 137.10182 l -225.00442,-1.96797 -0.65599,1.96797 0.65599,67.56692 -43.29531,1.31198 z",
+                  "coords": "m 499.73765,164.75677 -0.53525,42.05026 245.68057,2.10251 V 109.5658 l -183.59136,-1.57689 -0.53525,1.57689 0.53525,54.13971 -35.32662,1.05126 z",
                   "photoSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/106_Suit_Mstr_Sea_04-1-scaled.jpg",
                   "videoSrc": null,
                   "notClickable": null
@@ -723,7 +723,7 @@
                 "x": null,
                 "y": null
               },
-              "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/planta-gaspar-dantas.png",
+              "floorPlanSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/292-planta-gaspar-dantas-1.png",
               "croppedFloorPlanSrc": "",
               "iconSrc": "",
               "miniSrc": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/Camada_1-1.png",

@@ -1,6 +1,5 @@
 import { useState, useRef, useEffect } from "react";
 import Close from "../public/icon-close-filled.svg";
-import { createPortal } from "react-dom";
 
 export default function ImageZoom({
   image,
@@ -33,6 +32,7 @@ export default function ImageZoom({
       if (isZoomed) {
         place.current.addEventListener("mousemove", (e) => {
           const diffX = currentMousePosition[0] - e.offsetX;
+          console.log(diffX);
           place.current.style.backgroundPositionX = (diffX) + 'px';
 
           const diffY = currentMousePosition[1] - e.offsetY;
@@ -42,6 +42,7 @@ export default function ImageZoom({
         place.current.removeEventListener("mousemove", () => true);
         place.current.style.backgroundPositionX = 0;
         place.current.style.backgroundPositionY = 0;  
+        setCurrentMousePosition([0, 0]);
       }
     }
   }, [isZoomed]);

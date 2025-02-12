@@ -3,7 +3,7 @@ import { GetServerSideProps } from "next";
 import Layout from "../components/layout";
 import { allSettings, getPage } from "../lib/api";
 import { Settings, Page } from "../models";
-import LogoWhite from "../public/logo-infinity-white.svg";
+import LogoWhite from "../public/logo-cais-small-white.svg";
 import { useState } from "react";
 import { useRouter } from 'next/router';
 

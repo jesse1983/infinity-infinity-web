@@ -9,9 +9,9 @@ import fs from "fs";
 
 const API_URL =
   process.env.WORDPRESS_API_URL ||
-  "http://qa.infinitybyor.com.br/index.php?graphql";
+  "https://admin.caisbyor.com.br/index.php?graphql";
 const WORDPRESS_URL =
-  process.env.WORDPRESS_URL || "http://qa.infinitybyor.com.br";
+  process.env.WORDPRESS_URL || "https://admin.caisbyor.com.br";
 
 type allSettingsType = {
   generalSettings: Settings;
@@ -478,11 +478,11 @@ export async function getEnterprises() {
         floors: e.floors.map((f) => {
           return { ...f, decorated: f.decorated.map((d) => {
             const selectedFloors = floorsNode.filter((ef) => ef.id === d.floorPlanExample?.id);
-            const floorPlanExamples = handleFloors(e.id, selectedFloors, ambientsNode, []);            
+            const floorPlanExamples = handleFloors(e.id, selectedFloors, ambientsNode, []);
             if (d.floorPlanExample) {
               return {
                 ...d,
-                floorPlanExample: floorPlanExamples[0], 
+                floorPlanExample: floorPlanExamples[0],
               }
             }
             return d;

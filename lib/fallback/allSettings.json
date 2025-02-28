@@ -1,7 +1,7 @@
 {
   "generalSettings": {
     "title": "Cais by OR",
-    "url": "http://qa.infinitybyor.com.br",
+    "url": "http://admin.caisbyor.com.br",
     "language": "pt_BR"
   },
   "menu": [
@@ -10,7 +10,7 @@
       "content": "\n<p>Esta é uma página de exemplo. É diferente de um post no blog porque ela permanecerá em um lugar e aparecerá na navegação do seu site na maioria dos temas. Muitas pessoas começam com uma página que as apresenta a possíveis visitantes do site. Ela pode dizer algo assim:</p>\n\n\n\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\">\n<p>Olá! Eu sou um mensageiro de bicicleta durante o dia, ator aspirante à noite, e este é o meu site. Eu moro em São Paulo, tenho um grande cachorro chamado Rex e gosto de tomar caipirinha (e banhos de chuva).</p>\n</blockquote>\n\n\n\n<p>&#8230;ou alguma coisa assim:</p>\n\n\n\n<blockquote class=\"wp-block-quote is-layout-flow wp-block-quote-is-layout-flow\">\n<p>A Companhia de Miniaturas XYZ foi fundada em 1971, e desde então tem fornecido miniaturas de qualidade ao público. Localizada na cidade de Itu, a XYZ emprega mais de 2.000 pessoas e faz coisas grandiosas para a comunidade da cidade.</p>\n</blockquote>\n\n\n\n<p>Como um novo usuário do WordPress, você deveria ir ao <a href=\"http://localhost:8080/wp-admin/\">painel</a> para excluir essa página e criar novas páginas para o seu conteúdo. Divirta-se!</p>\n",
       "title": "Início",
       "slug": "inicio",
-      "uri": "/?page_id=11",
+      "uri": "/inicio/",
       "menuOrder": 1,
       "parent": null,
       "featuredImage": null
@@ -20,14 +20,14 @@
       "content": null,
       "title": "Localização",
       "slug": "localizacao",
-      "uri": "/?page_id=20",
+      "uri": "/localizacao/",
       "menuOrder": 2,
       "parent": null,
       "featuredImage": {
         "title": "pexels-delcho-dichev-1129615",
         "altText": "EXCLUSIVIDADE, SEGURANÇA E QUALIDADE DE VIDA",
-        "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/pexels-delcho-dichev-1129615-scaled.jpg",
-        "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/pexels-delcho-dichev-1129615-scaled.jpg",
+        "mediaItemUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2023/12/pexels-delcho-dichev-1129615-scaled.jpg",
+        "sourceUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2023/12/pexels-delcho-dichev-1129615-scaled.jpg",
         "sizes": "(max-width: 300px) 100vw, 300px",
         "description": null
       }
@@ -37,14 +37,14 @@
       "content": null,
       "title": "Cais",
       "slug": "infinity-world",
-      "uri": "/?page_id=22",
+      "uri": "/infinity-world/",
       "menuOrder": 3,
       "parent": null,
       "featuredImage": {
         "title": "fachada cais",
         "altText": "",
-        "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2025/01/fachada-cais-8.jpg",
-        "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2025/01/fachada-cais-8.jpg",
+        "mediaItemUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2025/01/fachada-cais-8.jpg",
+        "sourceUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2025/01/fachada-cais-8.jpg",
         "sizes": "(max-width: 300px) 100vw, 300px",
         "description": null
       }
@@ -54,24 +54,24 @@
       "content": "\n<h1 class=\"wp-block-heading\">Além Mar</h1>\n",
       "title": "Informações Gerais",
       "slug": "informacoes-gerais",
-      "uri": "/?page_id=13",
+      "uri": "/informacoes-gerais/",
       "menuOrder": 4,
       "parent": null,
       "featuredImage": {
         "title": "informacoes-gerais",
         "altText": "",
-        "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/informacoes-gerais.svg",
-        "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/07/informacoes-gerais.svg",
+        "mediaItemUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/07/informacoes-gerais.svg",
+        "sourceUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/07/informacoes-gerais.svg",
         "sizes": "(max-width: 1px) 100vw, 1px",
         "description": null
       }
     },
     {
       "id": "cG9zdDoyNA==",
-      "content": "\n<div class=\"wp-block-columns container mx-auto grid grid-flow-col auto-cols-max justify-around items-center mb-10 lg:mb-1 is-layout-flex wp-container-core-columns-is-layout-7 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column font-medium text-2xl leading-loose text-center lg:text-justify mb-10 lg:mb-1 is-layout-flow wp-block-column-is-layout-flow\">\n<p>Estar onde se é</p>\n\n\n\n<p>Ser o que se quer</p>\n\n\n\n<p>Tocar o&nbsp;<strong>infinito</strong>&nbsp;e acalmar o seu mar</p>\n\n\n\n<p>Sentir a areia fria ao amanhecer</p>\n\n\n\n<p>deixar a branca espuma tocar o caminhar</p>\n\n\n\n<p>O laranja que aquece e invade por inteiro</p>\n\n\n\n<p>são pinceladas de quem vive o&nbsp;<strong>Rio Vermelho</strong></p>\n</div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<figure class=\"wp-block-image size-full\"><img decoding=\"async\" width=\"584\" height=\"591\" src=\"http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/casal-dobrado.png\" alt=\"\" class=\"wp-image-111\" srcset=\"http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/casal-dobrado.png 584w, http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/casal-dobrado-296x300.png 296w\" sizes=\"(max-width: 584px) 100vw, 584px\" /></figure>\n</div>\n</div>\n\n\n\n<p class=\"mb-10\"></p>\n\n\n\n<div class=\"wp-block-columns container mx-auto grid grid-flow-col auto-cols-max justify-around items-center mb-10 lg:mb-1 is-layout-flex wp-container-core-columns-is-layout-9 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<figure class=\"wp-block-image size-full\"><img decoding=\"async\" width=\"584\" height=\"591\" src=\"http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/casal-cortado.1f601f4d.png\" alt=\"\" class=\"wp-image-120\" srcset=\"http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/casal-cortado.1f601f4d.png 584w, http://qa.infinitybyor.com.br/wp-content/uploads/2023/12/casal-cortado.1f601f4d-296x300.png 296w\" sizes=\"(max-width: 584px) 100vw, 584px\" /></figure>\n</div>\n\n\n\n<div class=\"wp-block-column font-medium text-2xl leading-loose text-center lg:text-right mb-10 lg:mb-1 flex flex-col justify-center is-layout-flow wp-block-column-is-layout-flow\">\n<div class=\"wp-block-columns inline is-layout-flex wp-container-core-columns-is-layout-8 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<p>Se encontrar no mar</p>\n\n\n\n<p>que também é morar</p>\n\n\n\n<p>tocar o infinito e fluir</p>\n\n\n\n<p>Permita-se&nbsp;<strong>mergulhar</strong></p>\n\n\n\n<p>transbordar limites</p>\n\n\n\n<p>O mar conecta, acalma e inspira</p>\n\n\n\n<p>ele é vista e guia.</p>\n\n\n\n<p><video autoplay=\"\" muted=\"\" loop=\"\"></video></p>\n</div>\n</div>\n</div>\n</div>\n",
+      "content": "\n<div class=\"wp-block-columns container mx-auto grid grid-flow-col auto-cols-max justify-around items-center mb-10 lg:mb-1 is-layout-flex wp-container-core-columns-is-layout-7 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column font-medium text-2xl leading-loose text-center lg:text-justify mb-10 lg:mb-1 is-layout-flow wp-block-column-is-layout-flow\">\n<p>Estar onde se é</p>\n\n\n\n<p>Ser o que se quer</p>\n\n\n\n<p>Tocar o&nbsp;<strong>infinito</strong>&nbsp;e acalmar o seu mar</p>\n\n\n\n<p>Sentir a areia fria ao amanhecer</p>\n\n\n\n<p>deixar a branca espuma tocar o caminhar</p>\n\n\n\n<p>O laranja que aquece e invade por inteiro</p>\n\n\n\n<p>são pinceladas de quem vive o&nbsp;<strong>Rio Vermelho</strong></p>\n</div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<figure class=\"wp-block-image size-full\"><img decoding=\"async\" width=\"584\" height=\"591\" src=\"http://admin.caisbyor.com.br/wp-content/uploads/2023/12/casal-dobrado.png\" alt=\"\" class=\"wp-image-111\" srcset=\"https://admin.caisbyor.com.br/wp-content/uploads/2023/12/casal-dobrado.png 584w, https://admin.caisbyor.com.br/wp-content/uploads/2023/12/casal-dobrado-296x300.png 296w\" sizes=\"(max-width: 584px) 100vw, 584px\" /></figure>\n</div>\n</div>\n\n\n\n<p class=\"mb-10\"></p>\n\n\n\n<div class=\"wp-block-columns container mx-auto grid grid-flow-col auto-cols-max justify-around items-center mb-10 lg:mb-1 is-layout-flex wp-container-core-columns-is-layout-9 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<figure class=\"wp-block-image size-full\"><img decoding=\"async\" width=\"584\" height=\"591\" src=\"http://admin.caisbyor.com.br/wp-content/uploads/2023/12/casal-cortado.1f601f4d.png\" alt=\"\" class=\"wp-image-120\" srcset=\"https://admin.caisbyor.com.br/wp-content/uploads/2023/12/casal-cortado.1f601f4d.png 584w, https://admin.caisbyor.com.br/wp-content/uploads/2023/12/casal-cortado.1f601f4d-296x300.png 296w\" sizes=\"(max-width: 584px) 100vw, 584px\" /></figure>\n</div>\n\n\n\n<div class=\"wp-block-column font-medium text-2xl leading-loose text-center lg:text-right mb-10 lg:mb-1 flex flex-col justify-center is-layout-flow wp-block-column-is-layout-flow\">\n<div class=\"wp-block-columns inline is-layout-flex wp-container-core-columns-is-layout-8 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<p>Se encontrar no mar</p>\n\n\n\n<p>que também é morar</p>\n\n\n\n<p>tocar o infinito e fluir</p>\n\n\n\n<p>Permita-se&nbsp;<strong>mergulhar</strong></p>\n\n\n\n<p>transbordar limites</p>\n\n\n\n<p>O mar conecta, acalma e inspira</p>\n\n\n\n<p>ele é vista e guia.</p>\n\n\n\n<p><video autoplay=\"\" muted=\"\" loop=\"\"></video></p>\n</div>\n</div>\n</div>\n</div>\n",
       "title": "Manifesto",
       "slug": "manifesto",
-      "uri": "/?page_id=24",
+      "uri": "/manifesto/",
       "menuOrder": 5,
       "parent": null,
       "featuredImage": null
@@ -83,7 +83,7 @@
       "content": "\n<p>Estar onde se é<br>Ser o que se quer<br>Tocar o infinito e acalmar o seu mar<br>Sentir a areia fria ao amanhecer<br>deixar a branca espuma tocar o caminhar<br>O laranja que aquece e invade por inteiro<br>são pinceladas de quem vive o Rio Vermelho</p>\n",
       "title": "Manifesto – Bloco 1",
       "slug": "manifesto-bloco-1",
-      "uri": "/?page_id=408",
+      "uri": "/manifesto/manifesto-bloco-1/",
       "menuOrder": null,
       "parent": {
         "node": {
@@ -93,8 +93,8 @@
       "featuredImage": {
         "title": "casal logo infinity 1",
         "altText": "",
-        "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/casal-logo-infinity-1-e1719150901822.jpg",
-        "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/casal-logo-infinity-1-e1719150901822.jpg",
+        "mediaItemUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/06/casal-logo-infinity-1-e1719150901822.jpg",
+        "sourceUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/06/casal-logo-infinity-1-e1719150901822.jpg",
         "sizes": "(max-width: 300px) 100vw, 300px",
         "description": null
       }
@@ -104,7 +104,7 @@
       "content": "\n<p><strong>PROJETO ARQUITETÔNICO</strong></p>\n\n\n\n<p><em>Sidney Quintela</em></p>\n\n\n\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultrices nulla non accumsan cursus. Aenean facilisis aliquam lobortis. Vivamus elementum orci nunc, sit amet sodales nisi fringilla iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus sed urna ut ipsum porta porttitor. Proin luctus condimentum est, ac gravida justo condimentum elementum. Nunc scelerisque dui risus, ut hendrerit quam malesuada nec. Suspendisse feugiat, mi in faucibus tristique, lorem purus tempor magna, sit amet hendrerit urna enim maximus nisi.</p>\n",
       "title": "Sidney Quintela",
       "slug": "sidney-quintela",
-      "uri": "/?page_id=501",
+      "uri": "/informacoes-gerais/projetistas/sidney-quintela/",
       "menuOrder": null,
       "parent": {
         "node": {
@@ -114,8 +114,8 @@
       "featuredImage": {
         "title": "Sidney quintela",
         "altText": "",
-        "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/Sidney-quintela.jpg",
-        "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/Sidney-quintela.jpg",
+        "mediaItemUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/06/Sidney-quintela.jpg",
+        "sourceUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/06/Sidney-quintela.jpg",
         "sizes": "(max-width: 237px) 100vw, 237px",
         "description": "<p>Projeto Arquitetônico<br />\nCais 218</p>\n"
       }
@@ -125,7 +125,7 @@
       "content": "\n<h2 class=\"wp-block-heading\"><strong>218</strong></h2>\n\n\n\n<div class=\"wp-block-columns is-layout-flex wp-container-core-columns-is-layout-5 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<p>Área do terreno de 1.043,00m²;<br>Área privativa de 288,38m²;<br>4 suítes com vista mar;<br>4 vagas de garagem por unidade;<br>1 unidade por pavimento tipo;</p>\n</div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<p>16 pavimentos tipos.<br>64 vagas: 62 vagas para moradores e<br>2 vagas de uso comum;<br>14 vagas de bicicleta;<br>7 depósitos privativos.</p>\n</div>\n</div>\n\n\n\n<h2 class=\"wp-block-heading\"><strong>292</strong></h2>\n\n\n\n<div class=\"wp-block-columns is-layout-flex wp-container-core-columns-is-layout-6 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<p>Área do terreno de 2.298,00m²;<br>Área privativa de 288,38m²;<br>4 suítes com vista mar;<br>4 vagas de garagem por unidade;<br>2 unidades por pavimento tipo;</p>\n</div>\n\n\n\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\">\n<p>15 pavimentos tipos.<br>131 vagas: 128 vagas para moradores e 03 vagas de uso comum;<br>32 vagas de bicicleta;<br>21 depósitos privativos.</p>\n</div>\n</div>\n",
       "title": "Ficha técnica",
       "slug": "ficha-tecnica",
-      "uri": "/?page_id=106",
+      "uri": "/informacoes-gerais/ficha-tecnica/",
       "menuOrder": 1,
       "parent": {
         "node": {
@@ -139,7 +139,7 @@
       "content": "\n<p><strong>PROJETO ARQUITETÔNICO</strong></p>\n\n\n\n<p><em>Feu Arquitetura</em></p>\n\n\n\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultrices nulla non accumsan cursus. Aenean facilisis aliquam lobortis. Vivamus elementum orci nunc, sit amet sodales nisi fringilla iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus sed urna ut ipsum porta porttitor. Proin luctus condimentum est, ac gravida justo condimentum elementum. Nunc scelerisque dui risus, ut hendrerit quam malesuada nec. Suspendisse feugiat, mi in faucibus tristique, lorem purus tempor magna, sit amet hendrerit urna enim maximus nisi.</p>\n",
       "title": "Feu Arquitetura",
       "slug": "feu-arquitetura-alexandre-feu",
-      "uri": "/?page_id=399",
+      "uri": "/informacoes-gerais/projetistas/feu-arquitetura-alexandre-feu/",
       "menuOrder": 1,
       "parent": {
         "node": {
@@ -149,8 +149,8 @@
       "featuredImage": {
         "title": "feu arquitetura",
         "altText": "",
-        "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/feu-arquitetura.jpg",
-        "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/feu-arquitetura.jpg",
+        "mediaItemUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/06/feu-arquitetura.jpg",
+        "sourceUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/06/feu-arquitetura.jpg",
         "sizes": "(max-width: 237px) 100vw, 237px",
         "description": "<p>Projeto Arquitetônico<br />\nCais 292</p>\n"
       }
@@ -160,7 +160,7 @@
       "content": "\n<p>Se encontrar no mar<br>que também é morar<br>tocar o infinito e fluir<br>Permita-se mergulhar<br>transbordar limites<br>O mar conecta, acalma e inspira<br>ele é vista e guia.</p>\n",
       "title": "Manifesto – Bloco 2",
       "slug": "manifesto-bloco-2",
-      "uri": "/?page_id=410",
+      "uri": "/manifesto/manifesto-bloco-2/",
       "menuOrder": 1,
       "parent": {
         "node": {
@@ -170,8 +170,8 @@
       "featuredImage": {
         "title": "banheiro sea 1",
         "altText": "",
-        "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/banheiro-sea-1.jpg",
-        "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/banheiro-sea-1.jpg",
+        "mediaItemUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/06/banheiro-sea-1.jpg",
+        "sourceUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/06/banheiro-sea-1.jpg",
         "sizes": "(max-width: 300px) 100vw, 300px",
         "description": null
       }
@@ -181,7 +181,7 @@
       "content": "\n<h2 class=\"wp-block-heading\">PROJETO ARQUITETÔNICO</h2>\n\n\n\n<h3 class=\"wp-block-heading\">Laís Galvão</h3>\n\n\n\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultrices nulla non accumsan cursus. Aenean facilisis aliquam lobortis. Vivamus elementum orci nunc, sit amet sodales nisi fringilla iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus sed urna ut ipsum porta porttitor. Proin luctus condimentum est, ac gravida justo condimentum elementum. Nunc scelerisque dui risus, ut hendrerit quam malesuada nec. Suspendisse feugiat, mi in faucibus tristique, lorem purus tempor magna, sit amet hendrerit urna enim maximus nisi.</p>\n\n\n\n<h2 class=\"wp-block-heading\">PROJETO ARQUITETÔNICO</h2>\n\n\n\n<h3 class=\"wp-block-heading\">Laís Galvão</h3>\n\n\n\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultrices nulla non accumsan cursus. Aenean facilisis aliquam lobortis. Vivamus elementum orci nunc, sit amet sodales nisi fringilla iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus sed urna ut ipsum porta porttitor. Proin luctus condimentum est, ac gravida justo condimentum elementum. Nunc scelerisque dui risus, ut hendrerit quam malesuada nec. Suspendisse feugiat, mi in faucibus tristique, lorem purus tempor magna, sit amet hendrerit urna enim maximus nisi.</p>\n",
       "title": "Projetistas",
       "slug": "projetistas",
-      "uri": "/?page_id=90",
+      "uri": "/informacoes-gerais/projetistas/",
       "menuOrder": 2,
       "parent": {
         "node": {
@@ -195,7 +195,7 @@
       "content": "\n<p><strong>PROJETO DE INTERIORES</strong></p>\n\n\n\n<p><em>Milcent Arquitetura</em></p>\n\n\n\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultrices nulla non accumsan cursus. Aenean facilisis aliquam lobortis. Vivamus elementum orci nunc, sit amet sodales nisi fringilla iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus sed urna ut ipsum porta porttitor.</p>\n",
       "title": "Milcent Arquitetura",
       "slug": "milcent-arquitetura",
-      "uri": "/?page_id=580",
+      "uri": "/informacoes-gerais/projetistas/milcent-arquitetura/",
       "menuOrder": 2,
       "parent": {
         "node": {
@@ -205,8 +205,8 @@
       "featuredImage": {
         "title": "MILCENT",
         "altText": "",
-        "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/MILCENT-1.jpg",
-        "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/MILCENT-1.jpg",
+        "mediaItemUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/06/MILCENT-1.jpg",
+        "sourceUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/06/MILCENT-1.jpg",
         "sizes": "(max-width: 237px) 100vw, 237px",
         "description": "<p>Projeto de Interiores<br />\nCais 218 e 292</p>\n"
       }
@@ -216,7 +216,7 @@
       "content": "\n<p><strong>OPÇÃO DE PLANTA</strong></p>\n\n\n\n<p><em>Lais Galvão</em></p>\n\n\n\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultrices nulla non accumsan cursus. Aenean facilisis aliquam lobortis. Vivamus elementum orci nunc, sit amet sodales nisi fringilla iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus sed urna ut ipsum porta porttitor. Proin luctus condimentum est, ac gravida justo condimentum elementum. Nunc scelerisque dui risus, ut hendrerit quam malesuada nec. Suspendisse feugiat, mi in faucibus tristique, lorem purus tempor magna, sit amet hendrerit urna enim maximus nisi.</p>\n",
       "title": "Lais Galvão",
       "slug": "lais-galvao",
-      "uri": "/?page_id=485",
+      "uri": "/informacoes-gerais/projetistas/lais-galvao/",
       "menuOrder": 3,
       "parent": {
         "node": {
@@ -226,8 +226,8 @@
       "featuredImage": {
         "title": "LAIS GALVÃO",
         "altText": "",
-        "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/LAIS-GALVAO.jpg",
-        "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/LAIS-GALVAO.jpg",
+        "mediaItemUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/06/LAIS-GALVAO.jpg",
+        "sourceUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/06/LAIS-GALVAO.jpg",
         "sizes": "(max-width: 237px) 100vw, 237px",
         "description": "<p>Opção de Planta<br />\nCais 218</p>\n"
       }
@@ -237,7 +237,7 @@
       "content": "\n<div class=\"wp-block-columns is-layout-flex wp-container-core-columns-is-layout-4 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:100%\">\n<p><strong>OPÇÃO DE PLANTA</strong></p>\n\n\n\n<p><em>Tatiana Melo</em></p>\n\n\n\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultrices nulla non accumsan cursus. Aenean facilisis aliquam lobortis. Vivamus elementum orci nunc, sit amet sodales nisi fringilla iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus sed urna ut ipsum porta porttitor. Proin luctus condimentum est, ac gravida justo condimentum elementum. Nunc scelerisque dui risus, ut hendrerit quam malesuada nec. Suspendisse feugiat, mi in faucibus tristique, lorem purus tempor magna, sit amet hendrerit urna enim maximus nisi.</p>\n</div>\n</div>\n",
       "title": "Tatiana Melo",
       "slug": "tatiana-melo",
-      "uri": "/?page_id=397",
+      "uri": "/informacoes-gerais/projetistas/tatiana-melo/",
       "menuOrder": 4,
       "parent": {
         "node": {
@@ -247,8 +247,8 @@
       "featuredImage": {
         "title": "TATIANA MELO",
         "altText": "",
-        "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/TATIANA-MELO.jpg",
-        "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/TATIANA-MELO.jpg",
+        "mediaItemUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/06/TATIANA-MELO.jpg",
+        "sourceUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/06/TATIANA-MELO.jpg",
         "sizes": "(max-width: 237px) 100vw, 237px",
         "description": "<p>Opção de Planta<br />\nCais 218</p>\n"
       }
@@ -258,7 +258,7 @@
       "content": null,
       "title": "Fachadas",
       "slug": "fachadas",
-      "uri": "/?page_id=568",
+      "uri": "/informacoes-gerais/fachadas/",
       "menuOrder": 4,
       "parent": {
         "node": {
@@ -272,7 +272,7 @@
       "content": "\n<div class=\"wp-block-group has-global-padding is-layout-constrained wp-block-group-is-layout-constrained\">\n<div class=\"wp-block-columns is-layout-flex wp-container-core-columns-is-layout-2 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:100%\">\n<p><strong>OPÇÃO DE PLANTA</strong></p>\n\n\n\n<p><em>GAM Arquitetos</em></p>\n\n\n\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultrices nulla non accumsan cursus. Aenean facilisis aliquam lobortis. Vivamus elementum orci nunc, sit amet sodales nisi fringilla iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus sed urna ut ipsum porta porttitor. Proin luctus condimentum est, ac gravida justo condimentum elementum. Nunc scelerisque dui risus, ut hendrerit quam malesuada nec. Suspendisse feugiat, mi in faucibus tristique, lorem purus tempor magna, sit amet hendrerit urna enim maximus nisi.</p>\n</div>\n</div>\n</div>\n",
       "title": "GAM Arquitetos",
       "slug": "gam-arquitetos",
-      "uri": "/?page_id=503",
+      "uri": "/informacoes-gerais/projetistas/gam-arquitetos/",
       "menuOrder": 5,
       "parent": {
         "node": {
@@ -282,8 +282,8 @@
       "featuredImage": {
         "title": "gam arquitetos",
         "altText": "",
-        "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/gam-arquitetos.jpg",
-        "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/gam-arquitetos.jpg",
+        "mediaItemUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/06/gam-arquitetos.jpg",
+        "sourceUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/06/gam-arquitetos.jpg",
         "sizes": "(max-width: 237px) 100vw, 237px",
         "description": "<p>Opção de Planta<br />\nCais 292</p>\n"
       }
@@ -293,7 +293,7 @@
       "content": "\n<div class=\"wp-block-columns is-layout-flex wp-container-core-columns-is-layout-1 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:100%\">\n<p><strong>OPÇÃO DE PLANTA</strong></p>\n\n\n\n<p><em>Júlia Leal</em></p>\n\n\n\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultrices nulla non accumsan cursus. Aenean facilisis aliquam lobortis. Vivamus elementum orci nunc, sit amet sodales nisi fringilla iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus sed urna ut ipsum porta porttitor. Proin luctus condimentum est, ac gravida justo condimentum elementum. Nunc scelerisque dui risus, ut hendrerit quam malesuada nec. Suspendisse feugiat, mi in faucibus tristique, lorem purus tempor magna, sit amet hendrerit urna enim maximus nisi.</p>\n</div>\n</div>\n",
       "title": "Júlia Leal",
       "slug": "julia-leal",
-      "uri": "/?page_id=505",
+      "uri": "/informacoes-gerais/projetistas/julia-leal/",
       "menuOrder": 6,
       "parent": {
         "node": {
@@ -303,8 +303,8 @@
       "featuredImage": {
         "title": "JULIA LEAL",
         "altText": "",
-        "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/JULIA-LEAL.jpg",
-        "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/JULIA-LEAL.jpg",
+        "mediaItemUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/06/JULIA-LEAL.jpg",
+        "sourceUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/06/JULIA-LEAL.jpg",
         "sizes": "(max-width: 237px) 100vw, 237px",
         "description": "<p>Opção de Planta<br />\nCais 292</p>\n"
       }
@@ -314,7 +314,7 @@
       "content": "\n<div class=\"wp-block-columns is-layout-flex wp-container-core-columns-is-layout-3 wp-block-columns-is-layout-flex\">\n<div class=\"wp-block-column is-layout-flow wp-block-column-is-layout-flow\" style=\"flex-basis:100%\">\n<p><strong>OPÇÃO DE PLANTA</strong></p>\n\n\n\n<p><em>Gaspar+Dantas</em></p>\n\n\n\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ultrices nulla non accumsan cursus. Aenean facilisis aliquam lobortis. Vivamus elementum orci nunc, sit amet sodales nisi fringilla iaculis. Interdum et malesuada fames ac ante ipsum primis in faucibus. Phasellus sed urna ut ipsum porta porttitor. Proin luctus condimentum est, ac gravida justo condimentum elementum. Nunc scelerisque dui risus, ut hendrerit quam malesuada nec. Suspendisse feugiat, mi in faucibus tristique, lorem purus tempor magna, sit amet hendrerit urna enim maximus nisi.</p>\n</div>\n</div>\n",
       "title": "Gaspar+Dantas",
       "slug": "gw-arquitetos",
-      "uri": "/?page_id=404",
+      "uri": "/informacoes-gerais/projetistas/gw-arquitetos/",
       "menuOrder": 7,
       "parent": {
         "node": {
@@ -324,8 +324,8 @@
       "featuredImage": {
         "title": "GASPAR+DANTAS",
         "altText": "",
-        "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/GASPARDANTAS.jpg",
-        "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/06/GASPARDANTAS.jpg",
+        "mediaItemUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/06/GASPARDANTAS.jpg",
+        "sourceUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/06/GASPARDANTAS.jpg",
         "sizes": "(max-width: 237px) 100vw, 237px",
         "description": "<p>Opção de Planta<br />\nCais 292</p>\n"
       }
@@ -335,7 +335,7 @@
       "content": "\n<p>Nos versos de Amado, a arte dança ao som das marés, enquanto o pescador tece histórias com as linhas do mar. Sob o céu que se mescla entre o azul e o rubro do entardecer, o Rio Vermelho é palco de uma dança eterna. A boemia se desdobra em cores e ritmos, acolhendo em seu abraço os sonhadores e os amantes da vida.</p>\n",
       "title": "MERGULHE ENTRE A POESIA E A NATUREZA",
       "slug": "sobre-a-localizacao",
-      "uri": "/?page_id=364",
+      "uri": "/localizacao/sobre-a-localizacao/",
       "menuOrder": 112,
       "parent": {
         "node": {
@@ -349,7 +349,7 @@
       "content": "\n<h2 class=\"wp-block-heading\">MAIS DE 6.600m² DE&nbsp;REQUALIFICAÇÃO URBANA <br>NA RUA&nbsp;BARRO VERMELHO E DO MIRANTE.</h2>\n\n\n\n<ol class=\"wp-block-list\">\n<li>PASSEIO COM PISO TÁTIL</li>\n\n\n\n<li>PAISAGISMO</li>\n\n\n\n<li>BICICLETÁRIO</li>\n\n\n\n<li>MIRANTE</li>\n\n\n\n<li>RECONSTRUÇÃO DA ESCADA</li>\n\n\n\n<li>PONTO DE APOIO SALVA-VIDAS</li>\n\n\n\n<li>REQUALIFICAÇÃO DE ÁREA PARA IMPLEMENTAÇÃO DE DUCHA</li>\n\n\n\n<li>REQUALIFICAÇÃO DO PASSEIO ENTRE OS MUROS E A PRAIA</li>\n\n\n\n<li>ÁREA DO TERRENO A SER ABERTA PARA A PRAIA</li>\n\n\n\n<li>REQUALIFICAÇÃO DA VIA E DOS PASSEIOS</li>\n\n\n\n<li>VAGAS DE ESTACIONAMENTO AO LONGO DA VIA</li>\n</ol>\n\n\n\n<p></p>\n",
       "title": "Requalificação",
       "slug": "requalificacao",
-      "uri": "/?page_id=355",
+      "uri": "/localizacao/requalificacao/",
       "menuOrder": 113,
       "parent": {
         "node": {

@@ -48,7 +48,7 @@ export default function Index({ generalSettings, page, preview }: indexType) {
         // data-aos="zoom-in"
       >
         {/*todo o texto */}
-        <div className="w-1/4 font-light">
+        <div className="w-2/4 min-w-[280px] max-w-[540px] font-light">
           {/* texto login */}
           <div className="bg-dusk rounded-t-3xl py-5">
             <div className="text-2xl">

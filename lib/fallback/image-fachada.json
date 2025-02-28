@@ -2,15 +2,15 @@
   {
     "title": "fachada-02",
     "altText": "fachada",
-    "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/11/cais-teste-1.jpg",
-    "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/11/cais-teste-1.jpg",
+    "mediaItemUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/11/cais-teste-1.jpg",
+    "sourceUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/11/cais-teste-1.jpg",
     "sizes": "(max-width: 211px) 100vw, 211px"
   },
   {
     "title": "fachada-01",
     "altText": "fachada",
-    "mediaItemUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/11/cais-teste.jpg",
-    "sourceUrl": "http://qa.infinitybyor.com.br/wp-content/uploads/2024/11/cais-teste.jpg",
+    "mediaItemUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/11/cais-teste.jpg",
+    "sourceUrl": "https://admin.caisbyor.com.br/wp-content/uploads/2024/11/cais-teste.jpg",
     "sizes": "(max-width: 211px) 100vw, 211px"
   }
 ]

@@ -546,13 +546,6 @@
             "notClickable": true
           },
           {
-            "title": "Gourmet",
-            "coords": "M 690.90847,67.904359 V 178.40853 L 580.23085,177.42189 V 68.430821 Z",
-            "photoSrc": null,
-            "videoSrc": "https://admin.caisbyor.com.br/wp-content/uploads/2023/12/22_Fest_Sea_1.mp4",
-            "notClickable": null
-          },
-          {
             "title": "Yacht Bar",
             "coords": "m 742.41879,448.07794 0.77255,58.71366 101.20381,2.31764 v -59.48621 z",
             "photoSrc": null,
@@ -941,7 +934,7 @@
         "identifier": "G3",
         "noUnit": false,
         "parkingslot": "101",
-        "image": "https://admin.caisbyor.com.br/wp-content/uploads/2023/12/RV02-101.png"
+        "image": "https://admin.caisbyor.com.br/wp-content/uploads/2023/12/RV02-101-1.png"
       },
       {
         "number": "G3",
@@ -992,7 +985,7 @@
         "identifier": "G1",
         "noUnit": false,
         "parkingslot": "",
-        "image": "https://admin.caisbyor.com.br/wp-content/uploads/2023/12/RV02-G1-2.png"
+        "image": "https://admin.caisbyor.com.br/wp-content/uploads/2023/12/RV02-DEPOSITOS-G1.png"
       },
       {
         "number": "G2",

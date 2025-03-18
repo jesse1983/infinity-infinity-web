@@ -1,4 +1,4 @@
-import NodeFetchCache, { FileSystemCache } from "node-fetch-cache";
+import NodeFetchCache, { MemoryCache } from "node-fetch-cache";
 import { Page, Settings, Image } from "../models";
 import allSettingsJson from "./fallback/allSettings.json";
 import enterprises from "./fallback/buildings.json";
@@ -21,10 +21,7 @@ type allSettingsType = {
 
 const fetch = NodeFetchCache.create({
   shouldCacheResponse: (response) => response.ok,
-  cache: new FileSystemCache({
-    cacheDirectory: "./.cache",
-    ttl: 60000,
-  }),
+  cache: new MemoryCache({ ttl: 10000 }),
 });
 
 const createFallback = (name, json) => {

@@ -81,5 +81,5 @@ module.exports = withPWA({
   },
   // assetPrefix: assetPrefix,
   // basePath: basePath,
-  // output: 'standalone',
+  output: 'standalone',
 });
